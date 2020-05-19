@@ -13,7 +13,7 @@ Super cool, please fork the project and submit changes. Please contact the main 
 
 ## Resources
 ### For researchers and potential contributers:
-* Background information, an overview of the current features, and usercases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html)
+* Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html)
 
 ### For end users (respondents) and researchers who want to explore DearScholar:
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
