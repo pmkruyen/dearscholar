@@ -1,5 +1,5 @@
 # Overview
 
-Because collecting longitudinal data becomes more important in academic research nowadays and because limitations with the available tools, DearScholar has been developed.
+Because collecting longitudinal data becomes more important in academic research nowadays and because limitations with available tools, DearScholar has been developed.
 
-DearScholar offers researchers an intuitive and easy-to-use smartphone app for both iOS and Android to conduct longitudinal (self-report) qualitative and quantitative diary, log and survey research.
+DearScholar allows researchers to easily and orderly collect rich and diverse qualitative and quantitative data over short and long periods of time to answer research questions about inter- and intra-individual changes, developments, and processes.
