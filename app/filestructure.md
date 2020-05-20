@@ -1,9 +1,21 @@
 # Overview
 
 ## Installation
+
+### Step 1: Install DearScholar on you own computer
 To get the developer version of DearScholar running on you computer, the following steps can be taken:
 1) download the files and folders in this app folder (see below for the file structure);
-2) install Phonegap, either desktop app or command line interface 
+2) install either the desktop app or command line interface of [Phonegap](https://phonegap.com/getstarted/);
+3) compile DearScholar on your computer using Phonegap ... the app appears in your web browser.
+
+### Step 2: Use DearScholar on you own computer
+To log in, populate the survey modules with question pages and questions, and store answers on a server:
+1) set up your own (virtual private) server or get access to an existing one on your university;
+2) set up a database (such as mysql) with the tables, columns and cells as specified below (under database structure)
+3) write the required php scripts to let the app communicate with the database on your server*.
+
+* Annotated example scripts will be posted in the future in this repro. If you want to help developing these scripts, that is very much appreciated.
+
 
 ## File structure
 ### config.xlm
