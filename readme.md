@@ -9,7 +9,7 @@ DearScholar allows researchers to easily and orderly collect rich and diverse qu
 * Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use DearScholar in real projects *and* use your own server, contact the main author to discuss how to make this possible.
 
 ## Interested in contributing to DearScholar?
-Super cool. please browse the app folder, read Filestructure.md in the app folder, fork the project, and submit changes. Please contact the main author to discuss issues and possibilities. 
+Super cool. please browse the app folder, read filestructure.md (in the app folder), fork the project, and submit changes. Please contact the main author to discuss issues and possibilities. 
 
 ## Resources
 ### For researchers and potential contributers:
