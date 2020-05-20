@@ -3,6 +3,8 @@ Because collecting longitudinal data becomes more important in academic research
 
 DearScholar allows researchers to easily and orderly collect rich and diverse qualitative and quantitative data over short and long periods of time to answer research questions about inter- and intra-individual changes, developments, and processes.
 
+Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), DearScholar can be used to collect data on iOS devices (iPhones and iPads), Android devices, and--in the future--in web browsers too.
+
 ## Interested in using DearScholar in your academic research project? 
 * Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; and send us feedback :rocket:.
 
