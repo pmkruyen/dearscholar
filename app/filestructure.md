@@ -1,14 +1,13 @@
 # Overview
 
+
+# File structure
 ## config.xlm
 This file is used by Phonegap/Cordova to compile the app correctly, and contains:
 * meta-data about the app;
 * general settings;
 * settings for iOS;
 * settings for Android;
-
-## icon.png
-A low quality icon of the app for internal use only.
 
 ## www-folder
 This folder contains the source code of the app.
@@ -39,6 +38,9 @@ Files and folders that are market with an * consist of third-party code, and sho
 
 ## res-folder
 This folder contains the app's icons and splash screens needed for both Android and iOS.
+
+## icon.png
+A low quality icon of the app for internal use only.
 
 # Push notifications
 Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
