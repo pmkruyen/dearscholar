@@ -1,11 +1,13 @@
 # Overview
 
+## Setup
+
 ## Programming guide
 These guides are for (potential) contributors and scholars who want to know all the technical details. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
 
 ### Step 1: Install DearScholar on you own computer
 To get the developer version of DearScholar running on you computer, the following steps can be taken:
-1) download the files and folders in this app folder (see below for the file structure);
+1) download the files and folders in this app folder as specified below (under file structure);
 2) install either the desktop app or command line interface of [Phonegap](https://phonegap.com/getstarted/);
 3) compile DearScholar on your computer using Phonegap ... the app appears in your web browser; and 
 4) you can start improving DearScholar.
@@ -13,20 +15,19 @@ To get the developer version of DearScholar running on you computer, the followi
 ### Step 2: Experiment with DearScholar on you own computer
 To log in, populate the survey modules with question pages and questions, and store answers on a server:
 1) set up your own (virtual private) server or get access to an existing one on your university;
-2) set up a database (such as mysql) with the tables, columns and cells as specified below (under database structure)
+2) set up a database (such as mysql) with the tables, columns and cells as specified above (under setup)
 3) write the required php scripts to let the app communicate with the database on your server.
 
 Generic php scripts that can be used with DearScholar will be included in this repro in the future. If you want to help developing these scripts, that is very much appreciated.
 
 ### Step 3: Experiment with DearScholar on your mobile device
-In order use DearScholar on iOS and Android devices, the app should be build (compiled):
+In order experiment with DearScholar on iOS and Android devices, the app should be build (compiled):
 1) pay fees to get an Apple Developer Account as well as an Android Developer Account;
 2) master Apple's and Google's guides and obtain the required certificates and keys;
 3) compile DearScholar using [Phonegap's online tools](https://build.phonegap.com/) using these certificates and keys.
 
 ### Step 4: Deploy your clone or derivate version of DearScholar
-Obviously, after Step 3, you may want to submit your own modifified version of DearScholar to the App Store or Google Play Store.
-
+Obviously, after Step 3, you may want to submit your  modifified version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submisions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
 ## File structure
 ### config.xlm
