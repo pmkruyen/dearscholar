@@ -12,7 +12,7 @@ DearScholar allows researchers to easily and orderly collect rich and diverse qu
 Super cool. please browse the app folder, read filestructure.md (in the app folder), fork the project, and submit changes. Please contact the main author to discuss issues and possibilities. 
 
 ## Your own version of DearScholar?
-Obviously, as this is an open-source project, you are free to build your own derivative version (clone) of DearScholar. While DearScholar clones might be allowed on Google Play, submisions of clones are likely to be rejected on the App Store. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! :smiley:.
+Obviously, as this is an open-source project, you are free to build your own derivative version (clone) of DearScholar. While DearScholar clones might be allowed on Google Play, submisions of clones are likely to be rejected on the App Store. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! :smiley:.
 
 ## Resources
 ### For researchers and potential contributers:
