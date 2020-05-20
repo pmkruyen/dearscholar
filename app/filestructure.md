@@ -1,5 +1,9 @@
 # Overview
 
+## Installation
+To get the developer version of DearScholar running on you computer, the following steps can be taken:
+1) download the files and folders in this app folder (see below for the file structure);
+2) install Phonegap, either desktop app or command line interface 
 
 ## File structure
 ### config.xlm
