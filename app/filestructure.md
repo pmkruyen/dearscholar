@@ -12,9 +12,9 @@ This folder contains the source code of the app.
 ```bash
 |_js
   |_jquery-3.4.1.min.js*  (enable jquery functions)
-  |_moments.js*           (functions used to compute dates and times in the measurement schedule)
-  |_push.js*              (functions used to to enable push functions, limited capabilities yet in the open source version)
-  |_dearscholar.js        (functions used to do let the app work)
+  |_moments.js*           (functions used to compute and display dates and times in the measurement schedule)
+  |_push.js*              (functions used to fire push functions, limited capabilities yet in the open source version)
+  |_dearscholar.js        (all app functions)
 ```
 
 Files that are market with an * consist of third-party software, and should not be modified.
