@@ -13,8 +13,10 @@ This folder contains the source code of the app.
 |_css
   |_dearscholar.css       (general css settings)
   |_framework7-icons.css* (Framework7 icons)
-|_fonts*   (Framework7 fonts)
-|_img      (DearScholar icons, all icons are derived from, and licenced by Icons8, https://icons8.com/)
+|_fonts*        (folder contains Framework7 fonts)
+|_img           (DearScholar icons, all icons are derived from, and licenced by Icons8, https://icons8.com/)
+|_lib
+  |_framework7* (folder contains all Framework7 files by Vladimir Kharlampidi and his team)
 |_js
   |_jquery-3.4.1.min.js*  (jquery functions)
   |_moments.js*           (functions used to render and display measurement dates in the measurement schedule)
