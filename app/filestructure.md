@@ -1,9 +1,10 @@
 # Overview
 
 ## Setup
+TBA
 
 ## Programming guide
-These guides are for (potential) contributors and scholars who want to know all the technical details. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
+These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
 
 ### Step 1: Install DearScholar on you own computer
 To get the developer version of DearScholar running on you computer, the following steps can be taken:
