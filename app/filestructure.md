@@ -7,6 +7,9 @@ This file is used by Phonegap/Cordova to compile the app correctly, and contains
 * settings for iOS;
 * settings for Android;
 
+## icon.png
+A low quality icon of the app for internal use only.
+
 ## www-folder
 This folder contains the source code of the app.
 ```bash
