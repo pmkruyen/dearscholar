@@ -12,7 +12,9 @@ This folder contains the source code of the app.
 ```bash
 |_css
   |_dearscholar.css       (general css settings)
-  |_framework7-icons.css* (enable the framework7 icons)
+  |_framework7-icons.css* (Framework7 icons)
+|_fonts*   (Framework7 fonts)
+|_img      (DearScholar icons, all icons are derived from, and licenced by Icons8, https://icons8.com/)
 |_js
   |_jquery-3.4.1.min.js*  (jquery functions)
   |_moments.js*           (functions used to render and display measurement dates in the measurement schedule)
@@ -20,7 +22,7 @@ This folder contains the source code of the app.
   |_dearscholar.js        (all javascript functions)
 ```
 
-Files that are market with an * consist of third-party code, and should not be modified.
+Files and folders that are market with an * consist of third-party code, and should not be modified.
 
 # Push notifications
 Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
