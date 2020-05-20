@@ -12,8 +12,8 @@ This folder contains the source code of the app.
 ```bash
 |_js
   |_jquery-3.4.1.min.js*  (enable jquery functions)
-  |_moments.js*           (functions used to compute and display dates and times in the measurement schedule)
-  |_push.js*              (functions used to fire push functions, limited capabilities yet in the open source version)
+  |_moments.js*           (functions used to render and display measurement dates in the measurement schedule)
+  |_push.js*              (functions used to fire push functions, limited capabilities yet)
   |_dearscholar.js        (all app functions)
 ```
 
