@@ -22,8 +22,16 @@ This folder contains the source code of the app.
   |_moments.js*           (functions used to render and display measurement dates in the measurement schedule)
   |_push.js*              (functions used to fire push functions, limited capabilities yet)
   |_dearscholar.js        (all javascript functions)
+|_about.html        (app page containing credits)
+|_index.html        (app page containing the login screen, panel with links, all pop-up windows)
+|_manual.html       (app page containing the manual for respondents)
+|_messages.html     (app page containing the messages page)
+|_module.html       (app page in which the survey pages and questions are rendered)
+|_schedule.html     (app page in which the measurement schedule is rendered)
+|_settings.html     (app page containing the settings for respondents)
+|_survey.html       (app page containing the icons of, and links to the mandatory survey modules)
+|_surveyadhoc.html  (app page containing the icons of, and links to the additional survey modules)
 ```
-
 Files and folders that are market with an * consist of third-party code, and should not be modified.
 
 # Push notifications
