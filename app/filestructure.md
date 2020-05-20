@@ -18,3 +18,6 @@ This folder contains the source code of the app.
 ```
 
 Files that are market with an * consist of third-party software, and should not be modified.
+
+# Push notifications
+Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
