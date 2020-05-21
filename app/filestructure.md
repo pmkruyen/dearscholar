@@ -10,7 +10,7 @@ To configure Dearscholar, nine tables need to be set up in a secured database (s
 An table with the following columns, settings are stored for a single respondent on each row:
 
 | Column name | Content | Options |
-|:---------|:---------|---------:|
+|:---------|:---------|:---------|
 |id | Unique row ID||
 |uname | Respondent's username||
 |pwd | hashed/encrypted password||
@@ -37,7 +37,7 @@ On devices that do not support Touch ID of Face Recognition, respondents are ask
 ### 3) surveyStructure table
 A table with the following columns and only a single row:
 | Column name | Content | Options |
-|:---------|:---------:|---------:|
+|:---------|:---------|:---------|
 |consent | Content for the informed consent form||
 |manual | Content for the manual included in the app ||
 |moduleAname | Name of the first survey module||
@@ -49,7 +49,7 @@ A table with the following columns and only a single row:
 A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
 
 | Column name | Content | Options |
-|:---------|:---------:|---------:|
+|:---------|:---------|:---------|
 |id | Unique row ID||
 |module1 | ID of the module in which the page should be displayed| Either *A*, *B*, *C*, or *D*|
 |classp | Set the first page in the module | Use *'tab tab-active'* for the first survey page in a module, for the other survey pages in the module use *'tab'*|
@@ -68,7 +68,7 @@ A table with the following columns, each row represents a separate survey page i
 A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
-|:---------|:---------:|---------:|
+|:---------|:---------|:---------|
 |id | Unique row ID| |
 |module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table|
@@ -81,7 +81,7 @@ A table with the following columns, each row represents a separate survey questi
 Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
 
 | Column name | Content | Options |
-|:---------|:---------:|---------:|
+|:---------|:---------|:---------|
 |id | Unique row ID||
 |uname | Respondent' username ||
 |timestamp | Date and time on which the respondent uploaded the answers ||
