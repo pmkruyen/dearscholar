@@ -5,7 +5,7 @@ TBA
 
 ## Diary configuration
 ### surveyStructure
-A table with the following columns and only a single row.
+A table with the following columns and only a single row:
 | Column name | Content |
 |:---------|---------:|
 |consent | Content for the informed consent form|
@@ -16,7 +16,7 @@ A table with the following columns and only a single row.
 |moduleDname | Name of the module survey module|
 
 ### pageStructure
-A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*).
+A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
@@ -35,17 +35,25 @@ A table with the following columns, each row represents a separate survey page i
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
 ## questiontable
-A table with the following columns, each row represents a separate survey question.
+A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
-|id | Unique row ID|
+|id | Unique row ID| |
 |module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table|
 |idq | Unique page ID|  |
 |type | Question type| On of the following *YN* (Yes/No question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
 |question | Question text|  |
 |footer | Optional question footer text |  |
+
+## responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD 
+Lastly, respondents' data is stored in four response tables, one table for each module. Each table with the following columns, each row represents a seperate response entry:
+
+| Column name | Content | Options |
+|:---------|:---------:|---------:|
+|id | Unique row ID||
+
 
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
