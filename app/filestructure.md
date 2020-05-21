@@ -13,11 +13,13 @@ An table with the following columns, on each row settings are stored for a singl
 |uname | Respondent' username||
 |pwd | hashed/encrypted password||
 |project | project name||
-|setup | project name||
-|q0_startdate | date of the first measurement occassion in the format yyyy-mm-dd|Currently, only days are supported|
+|setup | check if the respondents agreed to the informed consent form (see pageStructure below) *and* the DearScholar is set up correctly |Should be set to 0; *if* everthing goes well changes to 1|
+|q0_startdate | date of the first measurement occassion in the format yyyy-mm-dd||
 |q0_occassions| number of the measurement occassions|a discrete number > 0|
 |q0_intervaltype| type of the measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
 |q0_interval| time interval between measurement occassions |a discrete number > 0|
+
+*Note*. If you change settings during a project, change the module structue, reformulate questions, etc., the setup value in this table should be reset to 0 in order to let DearScholar update on respondents' devices.
 
 ### pinStructure
 An empty table with the following columns:
