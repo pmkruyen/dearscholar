@@ -26,7 +26,7 @@ An table with the following columns, settings are stored for a single respondent
 ### 2) pinStructure table
 An *empty* table with the following columns:
 | Column name | Content | Options |
-|:---------|:---------:|---------:|
+|:---------|:---------|:---------|
 |id | Unique row ID||
 |uname | Respondent's username||
 |pin | Respondent's hashed/encrypted 4-digit PIN||
