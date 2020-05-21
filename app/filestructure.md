@@ -97,7 +97,7 @@ A table with the following columns, each row represents a separate survey page i
 |nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, and--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
-## 5) questiontable table
+### 5) questiontable table
 A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
@@ -112,7 +112,7 @@ A table with the following columns, each row represents a separate survey questi
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the question text). 
 
-## 6) messages table
+### 6) messages table
 This is an optional table to be used for sending in-app messages. A table with the following columns, each row to be used to specify a message for a specific respondent:
 
 | Column name | Content | Options |
@@ -125,7 +125,7 @@ This is an optional table to be used for sending in-app messages. A table with t
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the message content).
 
-## 7-10) four response tables
+### 7-10) four response tables
 Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
 
 | Column name | Content | Options |
