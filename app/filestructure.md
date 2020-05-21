@@ -214,7 +214,7 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 
 ## Structure of dearscholar.js, the heart of the app
 **2) login functions**
-* 
+
 
 **3) navigation functions**
 * When a respondents logs in for the first time succesfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. 
