@@ -1,10 +1,12 @@
 # Overview
 
-## Setup
-TBA
+## Respondents' experience (survey flow)
 
-## Diary configuration
-### authentication
+
+## Configuration
+To configure Dearscholar, nine tables need to be set up in a secured database (such as mysql) on a secured server. The tables, variables (in the columns), and settings or respondents' data (in the rows). In this section, these nine tables are described. 
+
+### 1) authentication table
 An table with the following columns, on each row settings are stored for a single respondent:
 
 | Column name | Content | Options |
@@ -21,7 +23,7 @@ An table with the following columns, on each row settings are stored for a singl
 
 *Note*. If you change settings during a project, change the module structure, reformulate questions, etc., the setup value in this table should be reset to 0 in order to let DearScholar update on respondents' devices.
 
-### pinStructure
+### 2) pinStructure table
 An empty table with the following columns:
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
@@ -32,7 +34,7 @@ An empty table with the following columns:
 
 On devices that do not support Touch ID of Face Recognition, respondents are asked to choose a 4-digit PIN code on first login to login to DearScholar. What happens in case respondents forget their PIN code? The preferred route is that they contact the project leader to ask to reset their PIN code. To do so, you change the 'code column' for that respondent to REVOKE. When the respondent tries to log in, (s)he is asked to choose a new 4-digit PIN code.
 
-### surveyStructure
+### 3) surveyStructure table
 A table with the following columns and only a single row:
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
@@ -43,7 +45,7 @@ A table with the following columns and only a single row:
 |moduleCname | Name of the third survey module||
 |moduleDname | Name of the module survey module||
 
-### pageStructure
+### 4) pageStructure table
 A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
 
 | Column name | Content | Options |
@@ -62,7 +64,7 @@ A table with the following columns, each row represents a separate survey page i
 |nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, and--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
-## questiontable
+## 5) questiontable table
 A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
@@ -75,8 +77,8 @@ A table with the following columns, each row represents a separate survey questi
 |question | Question text|  |
 |footer | Optional question footer text |  |
 
-## responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD 
-Lastly, four empty response tables in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
+## 6-9) four response tables
+Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
