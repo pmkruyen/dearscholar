@@ -1,4 +1,4 @@
-# DearScholar in detailed
+# DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
 * Current features;
 * Configuration and options;
@@ -31,7 +31,7 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
 
 ## Configuration
-To configure Dearscholar, nine tables need to be set up in a secured database (such as mysql) on a secured server. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). In this section, these nine tables are described. 
+To configure Dearscholar, ten tables need to be set up in a secured database (such as mysql) on a secured server. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). In this section, these ten tables are described. 
 
 ### 1) authentication table
 A table with the following columns, settings are stored for a single respondent on each row:
@@ -108,7 +108,20 @@ A table with the following columns, each row represents a separate survey questi
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the question text). 
 
-## 6-9) four response tables
+## 6) messages table
+This is an optional table to be used for sending in-app messages. A table with the following columns, each row to be used to specify a message for a specific respondent:
+
+| Column name | Content | Options |
+|:---------|:---------|:---------|
+|id | Unique row ID| |
+|uname | Respondent' username|
+|timestamp | Date and time the message is written. |yyyy-mm-dd hh-mm-ss|
+|message | Message content|  |
+|seen | Check if the respondent has seen, that is 'clicked' the message. |Should be set to 0; *if* everthing goes well changes to 1.|
+
+*Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the message content).
+
+## 7-10) four response tables
 Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
 
 | Column name | Content | Options |
