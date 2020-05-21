@@ -24,6 +24,9 @@ DearScholar also includes links to additional, optional questionnaire modules wh
 
 Respondents’ answers are not only send to a server, but also saved in the DearScholar. Respondents can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
+### Push notifications
+Currently, DearScholar uses Google's Firebase to get the push notifications working. 
+
 ### Additional features
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
 
@@ -188,5 +191,5 @@ This folder contains the app's icons and splash screens needed for both Android 
 ### icon.png
 A low quality icon of the app for internal use only.
 
-## Push notifications
+### What about the push-notification files?
 Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
