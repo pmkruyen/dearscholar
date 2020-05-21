@@ -216,13 +216,13 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 
 1)
 2)
-3) **module functions
+3) **module functions**
 * when a respondents opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
-4) **save functions
+4) **save functions**
 * when a question is completed and a button is pushed, save the answer in DearScholar;
 * when a module is completed for a particular surveydate, mark de module as completed; and
 * when a module is completed for a particular surveydate, send the data to the server.
-5) **message functions
+5) **message functions**
 * when the respondent navigates to the homescreen (measurement schedule), check for new messages;
 * when the respondent navigates to the messages page, populate the messages page; and 
 * when a new message has been read by the respondent (i.e. is 'clicked' on), let the server know when a message has been seen by the respondent.
