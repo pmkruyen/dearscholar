@@ -19,7 +19,7 @@ An table with the following columns, on each row settings are stored for a singl
 |q0_intervaltype| type of the measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
 |q0_interval| time interval between measurement occassions |a discrete number > 0|
 
-*Note*. If you change settings during a project, change the module structue, reformulate questions, etc., the setup value in this table should be reset to 0 in order to let DearScholar update on respondents' devices.
+*Note*. If you change settings during a project, change the module structure, reformulate questions, etc., the setup value in this table should be reset to 0 in order to let DearScholar update on respondents' devices.
 
 ### pinStructure
 An empty table with the following columns:
