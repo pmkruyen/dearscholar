@@ -53,7 +53,7 @@ A table with the following columns, settings are stored for a single respondent 
 |q0_intervaltype| Type of measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
 |q0_interval| Time interval between measurement occasions |a discrete number > 0|
 
-*Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the 'setup column' in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents login to (open) DearScholar.
+*Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the 'setup column' in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents log in to DearScholar.
 
 ### 2) pinStructure table
 An *empty* table with the following columns:
@@ -215,7 +215,7 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 ## Structure of dearscholar.js, the heart of the app
 1) **Framework7 functions**
 * General app settings;
-* Configurations for each app page (in particular navigation functions en event listerners) 
+* Configurations for each app page (in particular router functions and event listerners). 
 2) **general event listeners**
 * For Android devices, set the 'back button' as 'back button'.
 3) **login functions**
