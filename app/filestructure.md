@@ -6,14 +6,14 @@ TBA
 ## Diary configuration
 ### surveyStructure
 A table with the following columns and only a single row:
-| Column name | Content |
-|:---------|---------:|
-|consent | Content for the informed consent form|
-|manual | Content for the manual included in the app |
-|moduleAname | Name of the first survey module|
-|moduleBname | Name of the second survey module|
-|moduleCname | Name of the third survey module|
-|moduleDname | Name of the module survey module|
+| Column name | Content | Options |
+|:---------|:---------:|---------:|
+|consent | Content for the informed consent form||
+|manual | Content for the manual included in the app ||
+|moduleAname | Name of the first survey module||
+|moduleBname | Name of the second survey module||
+|moduleCname | Name of the third survey module||
+|moduleDname | Name of the module survey module||
 
 ### pageStructure
 A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
@@ -53,7 +53,12 @@ Lastly, respondents' data is stored in four response tables, one table for each 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
 |id | Unique row ID||
+|uname | Respondent' username ||
+|timestamp | Date and time on which the respondent uploaded the answers ||
+|surveydate | Date and time of the measurement occassion ||
+|... | One seperate column for each question in which the data is stored ||
 
+Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occassion (date and time) as displayed in the measurement schedule. To check when respondents indeed completed the question module on the required time stamp (or somewhat later), the timestamp can be checked.
 
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
