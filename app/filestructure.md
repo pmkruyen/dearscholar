@@ -48,7 +48,7 @@ A table with the following columns, each row represents a separate survey questi
 |footer | Optional question footer text |  |
 
 ## responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD 
-Lastly, respondents' data is stored in four response tables, one table for each module. Each table with the following columns, each row represents a seperate response entry:
+Lastly, respondents' data is stored in four response tables, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
@@ -58,7 +58,7 @@ Lastly, respondents' data is stored in four response tables, one table for each 
 |surveydate | Date and time of the measurement occassion ||
 |... | One seperate column for each question in which the data is stored ||
 
-Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occassion (date and time) as displayed in the measurement schedule. To check when respondents indeed completed the question module on the required time stamp (or somewhat later), the timestamp can be checked.
+Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occassion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp can be checked.
 
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
