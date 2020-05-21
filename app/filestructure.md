@@ -7,7 +7,7 @@
 To configure Dearscholar, nine tables need to be set up in a secured database (such as mysql) on a secured server. The tables, variables (in the columns), and settings or respondents' data (in the rows). In this section, these nine tables are described. 
 
 ### 1) authentication table
-An table with the following columns, on each row settings are stored for a single respondent:
+An table with the following columns, settings are stored for a single respondent on each row:
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
