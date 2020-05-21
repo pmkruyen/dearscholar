@@ -16,18 +16,18 @@ A table with the following columns and only a single row.
 |moduleDname | Name of the module survey module|
 
 ### pageStructure
-A table with the following columns, each row represents a separate survey page.
+A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*).
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
-|id | Unique row ID|XXX|
+|id | Unique row ID||
 |module1 | ID of the module in which the page should be displayed|either *A*, *B*, *C*, or *D*|
-|classp | whether the page is the first page in the module | use *'tab tab-active'* for the first page, for the other pages use *'tab'*|
-|idp | Unique survey page ID| xxx |
+|classp | whether the page is the first page in the module | use *'tab tab-active'* for the first survey page in a module, for the other survey pages in the module use *'tab'*|
+|idp | Unique survey page ID|  |
 |header | Survey page header| header to be displayed on the page |
-|backbuttontid | Back button id| if *questionID=Value* or *questionID=OtherValue* is chosen, the value of the clicked button is registered (e.g., to be used in case of Yes-No questions), *works only* 'backbuttononclick' below is correctly formatted.|
-|backbuttontext |Text to be displayed on the back button| xxx |
-|backbuttononclick | To be used for event listeners| Normally left empty, but if *click* is chosen, the value of the clicked button is registered, *works only* backbuttontid above is correctly formatted.|
+|backbuttontid | Back button id| if *questionID=Value* or *questionID=OtherValue* is chosen, the value of the clicked button is registered (e.g., to be used in case of Yes-No questions), *works only if* 'backbuttononclick' below is correctly formatted.|
+|backbuttontext |Text to be displayed on the back button|  |
+|backbuttononclick | To be used for event listeners| Normally left empty, but if *click* is chosen, the value of the clicked button is registered, *works only if* backbuttontid above is correctly formatted.|
 |backbuttonhref | Link of the backbutton| to navigate to other pages in the module (see the column idp), use the format #idp|
 |nextbuttonid | Next button id| See backbuttontid|
 |nextbuttontext | Text to be displayed on the next button|See backbuttontext|
