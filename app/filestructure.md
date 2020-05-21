@@ -16,7 +16,7 @@ When logging in to DearScholar, a respondent is directed to the home page that d
 
 When a respondent clicks on a particular measurement occasion on the home screen, (s)he is directed to a survey screen that displays all questionnaire modules for that measurement date. Currently, DearScholar supports up to four questionnaire modules (three mandatory modules and one optional module) for each measurement occasion. Each module can be opened by clicking on the designated icon.
 
-Currently, DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, drop down items, and rating sliders) to collect both quantitative and qualitative data. 
+Currently, DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, multiple-choice items, and rating sliders) to collect both quantitative and qualitative data. 
 
 If a module is completed-i.e., for that module, all questions have been answered and the data has been uploaded to the server—the module icon turns green. If all mandatory modules have been completed, on the home screen, the link to the measurement occasion turns grey and is marked with a 'sun icon'.
 
