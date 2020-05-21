@@ -14,7 +14,7 @@ In this second part of this text, DearScholar's current features and technical d
 ### Let respondents answer questions
 When logging in to DearScholar, a respondent is directed to the home page that displays the measurement schedule with all measurement occasions (dates). Future measurement occasions—measurement occasions beyond the current date—are locked and marked with a 'closed lock' icon. 
 
-When a respondent clicks on a particular measurement occasion on the home screen, (s)he is directed to a survey screen that displays all questionnaire modules for that measurement date. Currently, DearScholar supports and up to four questionnaire modules (either mandatory or optional) for each measurement occasion. Each module can be opened by clicking on the designated icon.
+When a respondent clicks on a particular measurement occasion on the home screen, (s)he is directed to a survey screen that displays all questionnaire modules for that measurement date. Currently, DearScholar supports up to four questionnaire modules (three mandatory modules and one optional module) for each measurement occasion. Each module can be opened by clicking on the designated icon.
 
 Currently, DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, drop down items, and rating sliders) to collect both quantitative and qualitative data. 
 
