@@ -73,7 +73,7 @@ A table with the following columns, each row represents a separate survey questi
 |:---------|:---------|:---------|
 |id | Unique row ID| |
 |module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
-|tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table|
+|tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table.|
 |idq | Unique page ID|  |
 |type | Question type| On of the following *YN* (Yes/No question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
 |question | Question text|  |
@@ -92,7 +92,7 @@ Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, 
 |surveydate | Date and time of the measurement occassion ||
 |... | One seperate column for each question in which the data is stored ||
 
-Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occassion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp can be checked.
+*Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occassion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
 
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
