@@ -1,22 +1,32 @@
-# Overview
+# DearScholar in detailed
+In this second part, DearScholar's details are provided for potential users (academic researchers) and potential contributors. Subsequently, the following aspects are discussed:
+* Respondents' experiences (current features);
+* Configuration and options;
+* Guide for potential contributors and academic researchers;
+* File structure of the app.
 
-## Respondents' experience (survey flow)
+## Respondents' experiences (current features)
 
 ### Let respondents install DearScholar on their mobile device
 1) A respondent has to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
-2) When opening DearScholar for the first time, a respondent is asked to: *a)* allow push notifications; *b)* fill out the username and password that (s)he received from the researcher; *d)* choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and *d)* agree to the informed consent form.
+2) When opening DearScholar for the first time, a respondent is asked to: * allow push notifications; * fill out the username and password that (s)he received from the researcher; * choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and * agree to the informed consent form.
 3) When everthing goes well, DearScholar sets up on respondent' device, and the respondent is directed to the measurement schedule page.
 
-### Motivate respondents to answer your questions on each measurement occasion.
-When logging in to DearScholar, the respondent is directed to the home page that displays the measurement schedule with all measurement occasions (dates). Future measurement occasions—that is, measurement occasions beyond the current date—are locked and marked with a 'closed lock icon'. 
+### Let respondents answer questions
+When logging in to DearScholar, a respondent is directed to the home page that displays the measurement schedule with all measurement occasions (dates). Future measurement occasions—measurement occasions beyond the current date—are locked and marked with a 'closed lock' icon. 
 
-When respondents click on a particular measurement occasion on the home screen, they are directed to a survey screen that displays all questionnaire modules for that date. Currently, DearScholar supports and up to four questionnaire modules (either mandatory or optional) for each measurement occasion. Each module can be opened by clicking on the designated icon.
+When a respondent clicks on a particular measurement occasion on the home screen, (s)he is directed to a survey screen that displays all questionnaire modules for that measurement date. Currently, DearScholar supports and up to four questionnaire modules (either mandatory or optional) for each measurement occasion. Each module can be opened by clicking on the designated icon.
 
-If a module is completed—that is, for that module, all questions have been answered and the data has been uploaded to the server—the module icon turns green. If all mandatory modules have been completed, the link to the measurement occasion turns grey on the home screen and  marked with a 'sun icon'.
+Currently, DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, drop down items, and rating sliders) to collect both quantitative and qualitative data. 
 
-DearScholar also includes links to additional, optional questionnaire modules which can be found in the home screen’s menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling) and, in turn, decrease the risk of a retrospective bias.
+If a module is completed-i.e., for that module, all questions have been answered and the data has been uploaded to the server—the module icon turns green. If all mandatory modules have been completed, on the home screen, the link to the measurement occasion turns grey and is marked with a 'sun icon'.
 
-Respondents’ answers are saved in the DearScholar and can be accessed by responends by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
+DearScholar also includes links to additional, optional questionnaire modules which can be found in the home screen’s menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
+
+Respondents’ answers are also saved in the DearScholar and can be accessed by responends by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
+
+### Additional features
+DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
 
 ## Configuration
 To configure Dearscholar, nine tables need to be set up in a secured database (such as mysql) on a secured server. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). In this section, these nine tables are described. 
@@ -109,8 +119,8 @@ Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, 
 
 *Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occasion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
 
-## Programming guide
-These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
+## Guide for potential contributors and academic researchers
+Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl). Contributors and academic researchers who want to build their own version of DearScholar can follow the following four steps.
 
 ### Step 1: Install DearScholar on you own computer
 To get the developer version of DearScholar running on you computer, the following steps can be taken:
@@ -136,7 +146,9 @@ In order experiment with DearScholar on iOS and Android devices, the app should 
 ### Step 4: Deploy your clone or derivate version of DearScholar
 Obviously, after Step 3, you may want to submit your  modifified version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submisions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
-## File structure
+## File structure of the app
+Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse [the app's files](https://github.com/pmkruyen/dearscholar/tree/master/app) outlined below.
+
 ### config.xlm
 This file is used by Phonegap/Cordova to compile the app correctly, and contains:
 * meta-data about the app;
