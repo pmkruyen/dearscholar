@@ -15,7 +15,7 @@ An table with the following columns, settings are stored for a single respondent
 |uname | Respondent's username||
 |pwd | hashed/encrypted password||
 |project | project name||
-|setup | check if the respondents agreed to the informed consent form (see pageStructure below) *and* the DearScholar is set up correctly |Should be set to 0; *if* everthing goes well changes to 1|
+|setup | Check if the respondents agreed to the informed consent form (see pageStructure below) *and* DearScholar is set up correctly on the respondent's device. |Should be set to 0; *if* everthing goes well changes to 1|
 |q0_startdate | date of the first measurement occassion in the format yyyy-mm-dd||
 |q0_occassions| number of the measurement occassions|a discrete number > 0|
 |q0_intervaltype| type of the measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
