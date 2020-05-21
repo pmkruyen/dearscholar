@@ -34,6 +34,18 @@ A table with the following columns, each row represents a separate survey page i
 |nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, and--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
+## questiontable
+A table with the following columns, each row represents a separate survey question.
+
+| Column name | Content | Options |
+|:---------|:---------:|---------:|
+|id | Unique row ID|
+|module2 | ID of the module on which the question should be displayed|either *A*,*B*,*C*, or *D*|
+|tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table|
+|idq | Unique page ID|  |
+|type | Question type| On of the following *YN* (Yes?No question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only a predefned 5-point scale), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
+|question | Question text|  |
+|footer | Optional question footer text |  |
 
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
