@@ -10,7 +10,7 @@ To configure Dearscholar, nine tables need to be set up in a secured database (s
 An table with the following columns, settings are stored for a single respondent on each row:
 
 | Column name | Content | Options |
-|:---------|:---------:|---------:|
+|:---------|:---------|---------:|
 |id | Unique row ID||
 |uname | Respondent's username||
 |pwd | hashed/encrypted password||
