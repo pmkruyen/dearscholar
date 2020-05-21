@@ -40,7 +40,7 @@ A table with the following columns, each row represents a separate survey questi
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
 |id | Unique row ID|
-|module2 | ID of the module on which the question should be displayed|either *A*,*B*,*C*, or *D*|
+|module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table|
 |idq | Unique page ID|  |
 |type | Question type| On of the following *YN* (Yes/No question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
