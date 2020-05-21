@@ -15,6 +15,26 @@ A table with the following columns and only a single row.
 |moduleCname | Name of the third survey module|
 |moduleDname | Name of the module survey module|
 
+### pageStructure
+A table with the following columns, each row represents a separate survey page.
+
+| Column name | Content | Options |
+|:---------|:---------:|---------:|
+|id | Unique row ID|
+|module1 | ID of the module in which the page should be displayed|either *A*,*B*,*C*, or *D*|
+|classp | whether the page is the first page in the module | either *'tab tab-active'* or *'tab'*|
+|idp | Unique survey page ID| xxx |
+|header | Survey page header| header to be displayed on the page |
+|backbuttontid | Back button id| if *questionID=Value* or *questionID=OtherValue* is chosen, the value of the clicked button is registered (e.g., to be used in case of Yes-No questions) *if* 'backbuttononclick' below is correctly formatted.|
+|backbuttontext |Text to be displayed on the back button| xxx |
+|backbuttononclick | To be used for event listeners| Normally left empty, but if *click* is chosen, the value of the clicked button is registered *if* backbuttontid above is correctly formatted.|
+|backbuttonhref | Link of the backbutton| to navigate to other pages in the module (see the column idp), use the format #idp|
+|nextbuttonid | Next button id| See backbuttontid|
+|nextbuttontext | Text to be displayed on the next button|See backbuttontext|
+|nextbuttononclick | To be used for event listeners|See nextbuttononclick, *moreover* if *uploadtoServerA*,*uploadtoServerB*,*uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, an--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
+|nextbuttonhref | Link of the backbutton|See backbuttonhref|
+
+
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
 
