@@ -4,6 +4,18 @@
 TBA
 
 ## Diary configuration
+
+### pinStructure
+An empty table with the following columns:
+| Column name | Content | Options |
+|:---------|:---------:|---------:|
+|id | Unique row ID||
+|uname | Respondent' username||
+|pin | hashed/encrypted 4-digit PIN||
+|code | NULL||
+
+On devices that do not support Touch ID of Face Recognition, respondents are asked to choose a 4-digit PIN code on first login to login to DearScholar. What happens in case respondents forget their PIN code? The preferred route is that they contact the project leader to ask to reset their PIN code. To do so, you change the 'code column' for that respondent to REVOKE. When the respondent tries to log in, (s)he is asked to choose a new 4-digit PIN code.
+
 ### surveyStructure
 A table with the following columns and only a single row:
 | Column name | Content | Options |
@@ -48,7 +60,7 @@ A table with the following columns, each row represents a separate survey questi
 |footer | Optional question footer text |  |
 
 ## responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD 
-Lastly, respondents' data is stored in four response tables, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
+Lastly, four empty response tables in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
 
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
