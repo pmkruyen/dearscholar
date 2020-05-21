@@ -1,6 +1,13 @@
 # Overview
 
 ## Respondents' experience (survey flow)
+1) Respondents have to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
+2) When opening DearScholar for the first time, a respondent is asked to:
+a) allow push notifications;
+b) fill out their username and password that they received from the researcher;
+c) agree to the informed consent form.
+3) When everthing goes well, DearScholar sets up on the respondent's device (i.e., generates and populates the required SQLite tables);
+
 
 
 ## Configuration
