@@ -22,7 +22,7 @@ If a module is completed-i.e., for that module, all questions have been answered
 
 DearScholar also includes links to additional, optional questionnaire modules which can be found in the home screen’s menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
 
-Respondents’ answers are also saved in the DearScholar and can be accessed by responends by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
+Respondents’ answers are not only send to a server, but also saved in the DearScholar. Responends can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
 ### Additional features
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
