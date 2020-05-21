@@ -4,7 +4,7 @@
 TBA
 
 ## Diary configuration
-### pinStructure
+### authentication
 An table with the following columns, on each row settings are stored for a single respondent:
 
 | Column name | Content | Options |
