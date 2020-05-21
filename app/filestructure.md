@@ -21,7 +21,7 @@ A table with the following columns, settings are stored for a single respondent 
 |q0_intervaltype| Type of measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
 |q0_interval| Time interval between measurement occassions |a discrete number > 0|
 
-*Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the setup value in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents login to (open) DearScholar.
+*Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the 'setup column' in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents login to (open) DearScholar.
 
 ### 2) pinStructure table
 An *empty* table with the following columns:
