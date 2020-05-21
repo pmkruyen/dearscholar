@@ -4,7 +4,8 @@ In this second part of this text, DearScholar's current features and technical d
 * Framework;
 * Configuration and options;
 * Guide for potential contributors and academic researchers;
-* File structure of the app.
+* File structure of the app;
+* Structure of dearscholar.js, the heart of the app.
 
 ## Current features
 ### Let respondents install DearScholar on their mobile device
@@ -210,3 +211,19 @@ A low quality icon of the app for internal use only.
 
 ### What about the push-notification files?
 Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
+
+## Structure of dearscholar.js, the heart of the app
+
+1)
+2)
+3) **module functions
+* when a respondents opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
+4) **save functions
+* when a question is completed and a button is pushed, save the answer in DearScholar;
+* when a module is completed for a particular surveydate, mark de module as completed; and
+* when a module is completed for a particular surveydate, send the data to the server.
+5) **message functions
+* when the respondent navigates to the homescreen (measurement schedule), check for new messages;
+* when the respondent navigates to the messages page, populate the messages page; and 
+* when a new message has been read by the respondent (i.e. is 'clicked' on), let the server know when a message has been seen by the respondent.
+
