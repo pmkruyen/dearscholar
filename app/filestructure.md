@@ -107,7 +107,7 @@ To get the developer version of DearScholar running on you computer, the followi
 ### Step 2: Experiment with DearScholar on you own computer
 To log in, populate the survey modules with question pages and questions, and store answers on a server:
 1) set up your own (virtual private) server or get access to an existing one on your university;
-2) set up a database (such as mysql) with the tables, columns and cells as specified above (under setup)
+2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Configuration)
 3) write the required php scripts to let the app communicate with the database on your server.
 
 Generic php scripts that can be used with DearScholar will be included in this repro in the future. If you want to help developing these scripts, that is very much appreciated.
