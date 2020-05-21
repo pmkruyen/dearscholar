@@ -43,7 +43,9 @@ A table with the following columns and only a single row:
 |moduleAname | Name of the first survey module||
 |moduleBname | Name of the second survey module||
 |moduleCname | Name of the third survey module||
-|moduleDname | Name of the module survey module||
+|moduleDname | Name of the fouth survey module||
+
+*Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the informed consent form or manual). 
 
 ### 4) pageStructure table
 A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
@@ -76,6 +78,8 @@ A table with the following columns, each row represents a separate survey questi
 |type | Question type| On of the following *YN* (Yes/No question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
 |question | Question text|  |
 |footer | Optional question footer text |  |
+
+*Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the question text). 
 
 ## 6-9) four response tables
 Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
