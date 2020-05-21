@@ -2,14 +2,21 @@
 
 ## Respondents' experience (survey flow)
 
-### Step 1: Install DearScholar on respondent's mobile device
+### Let respondents install DearScholar on their mobile device
 1) A respondent has to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
 2) When opening DearScholar for the first time, a respondent is asked to: *a)* allow push notifications; *b)* fill out the username and password that (s)he received from the researcher; *d)* choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and *d)* agree to the informed consent form.
 3) When everthing goes well, DearScholar sets up on respondent' device, and the respondent is directed to the measurement schedule page.
 
-### Step 2: Fill out the required modules on each measurement occassion
-TBA
+### Motivate respondents to answer your questions on each measurement occasion.
+When logging in to DearScholar, the respondent is directed to the home page that displays the measurement schedule with all measurement occasions (dates). Future measurement occasions—that is, measurement occasions beyond the current date—are locked and marked with a 'closed lock icon'. 
 
+When respondents click on a particular measurement occasion on the home screen, they are directed to a survey screen that displays all questionnaire modules for that date. Currently, DearScholar supports and up to four questionnaire modules (either mandatory or optional) for each measurement occasion. Each module can be opened by clicking on the designated icon.
+
+If a module is completed—that is, for that module, all questions have been answered and the data has been uploaded to the server—the module icon turns green. If all mandatory modules have been completed, the link to the measurement occasion turns grey on the home screen and  marked with a 'sun icon'.
+
+DearScholar also includes links to additional, optional questionnaire modules which can be found in the home screen’s menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling) and, in turn, decrease the risk of a retrospective bias.
+
+Respondents’ answers are saved in the DearScholar and can be accessed by responends by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
 ## Configuration
 To configure Dearscholar, nine tables need to be set up in a secured database (such as mysql) on a secured server. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). In this section, these nine tables are described. 
@@ -24,10 +31,10 @@ A table with the following columns, settings are stored for a single respondent 
 |pwd | Respondent's hashed/encrypted password||
 |project | Project name||
 |setup | Check if the respondent agreed to the informed consent form (see pageStructure below) *and* DearScholar is set up correctly on the respondent's device. |Should be set to 0; *if* everthing goes well changes to 1.|
-|q0_startdate | Date of the first measurement occassion| yyyy-mm-dd|
-|q0_occassions| Number of measurement occassions|a discrete number > 0|
+|q0_startdate | Date of the first measurement occasion| yyyy-mm-dd|
+|q0_occasions| Number of measurement occasions|a discrete number > 0|
 |q0_intervaltype| Type of measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
-|q0_interval| Time interval between measurement occassions |a discrete number > 0|
+|q0_interval| Time interval between measurement occasions |a discrete number > 0|
 
 *Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the 'setup column' in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents login to (open) DearScholar.
 
@@ -97,10 +104,10 @@ Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, 
 |id | Unique row ID||
 |uname | Respondent' username ||
 |timestamp | Date and time on which the respondent uploaded the answers ||
-|surveydate | Date and time of the measurement occassion ||
+|surveydate | Date and time of the measurement occasion ||
 |... | One seperate column for each question in which the data is stored ||
 
-*Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occassion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
+*Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occasion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
 
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
