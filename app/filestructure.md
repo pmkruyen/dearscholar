@@ -12,7 +12,7 @@ An table with the following columns, settings are stored for a single respondent
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
 |id | Unique row ID||
-|uname | Respondent' username||
+|uname | Respondent's username||
 |pwd | hashed/encrypted password||
 |project | project name||
 |setup | check if the respondents agreed to the informed consent form (see pageStructure below) *and* the DearScholar is set up correctly |Should be set to 0; *if* everthing goes well changes to 1|
@@ -28,7 +28,7 @@ An empty table with the following columns:
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
 |id | Unique row ID||
-|uname | Respondent' username||
+|uname | Respondent's username||
 |pin | hashed/encrypted 4-digit PIN||
 |code | NULL||
 
