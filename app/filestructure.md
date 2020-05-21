@@ -4,6 +4,20 @@
 TBA
 
 ## Diary configuration
+### pinStructure
+An table with the following columns, on each row settings are stored for a single respondent:
+
+| Column name | Content | Options |
+|:---------|:---------:|---------:|
+|id | Unique row ID||
+|uname | Respondent' username||
+|pwd | hashed/encrypted password||
+|project | project name||
+|setup | project name||
+|q0_startdate | date of the first measurement occassion in the format yyyy-mm-dd|Currently, only days are supported|
+|q0_occassions| number of the measurement occassions|a discrete number > 0|
+|q0_intervaltype| type of the measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
+|q0_interval| time interval between measurement occassions |a discrete number > 0|
 
 ### pinStructure
 An empty table with the following columns:
