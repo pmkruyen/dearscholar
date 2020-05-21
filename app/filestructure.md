@@ -13,7 +13,7 @@ An table with the following columns, settings are stored for a single respondent
 |:---------|:---------|:---------|
 |id | Unique row ID||
 |uname | Respondent's username||
-|pwd | hashed/encrypted password||
+|pwd | Respondent's hashed/encrypted password||
 |project | project name||
 |setup | Check if the respondent agreed to the informed consent form (see pageStructure below) *and* DearScholar is set up correctly on the respondent's device. |Should be set to 0; *if* everthing goes well changes to 1|
 |q0_startdate | date of the first measurement occassion in the format yyyy-mm-dd||
