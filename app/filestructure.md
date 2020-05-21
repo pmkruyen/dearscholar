@@ -24,12 +24,12 @@ An table with the following columns, settings are stored for a single respondent
 *Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the setup value in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents login to (open) DearScholar.
 
 ### 2) pinStructure table
-An empty table with the following columns:
+An *empty* table with the following columns:
 | Column name | Content | Options |
 |:---------|:---------:|---------:|
 |id | Unique row ID||
 |uname | Respondent's username||
-|pin | hashed/encrypted 4-digit PIN||
+|pin | Respondent's hashed/encrypted 4-digit PIN||
 |code | NULL||
 
 On devices that do not support Touch ID of Face Recognition, respondents are asked to choose a 4-digit PIN code on first login to login to DearScholar. What happens in case respondents forget their PIN code? The preferred route is that they contact the project leader to ask to reset their PIN code. To do so, you change the 'code column' for that respondent to REVOKE. When the respondent tries to log in, (s)he is asked to choose a new 4-digit PIN code.
