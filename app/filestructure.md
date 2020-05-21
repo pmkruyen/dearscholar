@@ -215,7 +215,7 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 ## Structure of dearscholar.js, the heart of the app
 1) **Framework7 functions**
 * General app settings;
-* Configurations for each app page (in particular router functions and event listerners). 
+* Configurations for each app page (in particular router functions and event listerners that activate the functions described below). 
 2) **general event listeners**
 * For Android devices, set the 'back button' as 'back button'.
 3) **login functions**
