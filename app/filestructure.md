@@ -213,15 +213,19 @@ A low quality icon of the app for internal use only.
 Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
 
 ## Structure of dearscholar.js, the heart of the app
-**2) login functions**
 
 
-3) **navigation functions**
+2) **login functions**
+* When a respondent does not interact with DearScholar within 5.5 minutes, logout (i.e., navigate to the login screen);
+* When a respondent tries to log in with Touch ID, Face Recognition, or PIN code, check the respondent's credentials;
+* When a respondent's device does not support Touch ID or Face Recognition, ask the respondent to choose a PIN code;
+* When a responden tries to log in for the first time, show the informed consent form, and only proceed to to the homescreen (measurement schedule) when the respondenet accepts the informed consent form.  
+3) **database functions**
 * When a respondents logs in for the first time succesfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. 
 4) **navigation functions**
-* When the respondent navigates to the homescreen (measurement schedule), render the measurement schedule;
-* When the respondent opens the app for the first time, inject informed consent form;
-* When the respondent navigates to the manual page, inject the manual.
+* When a respondent navigates to the homescreen (measurement schedule), render the measurement schedule;
+* When a respondent opens the app for the first time, inject informed consent form;
+* When a respondent navigates to the manual page, inject the manual.
 5) **module functions**
 * When a respondents opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
 6) **save functions**
@@ -229,6 +233,6 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 * When a module is completed for a particular surveydate, mark de module as completed; and
 * When a module is completed for a particular surveydate, send the data to the server.
 7) **message functions**
-* When the respondent navigates to the homescreen (measurement schedule), check for new messages;
-* When the respondent navigates to the messages page, populate the messages page; and 
+* When a respondent navigates to the homescreen (measurement schedule), check for new messages;
+* When a respondent navigates to the messages page, populate the messages page; and 
 * When a new message has been read by the respondent (i.e. is 'clicked' on), let the server know when a message has been seen by the respondent.
