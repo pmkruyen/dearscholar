@@ -31,7 +31,7 @@ A table with the following columns, each row represents a separate survey page i
 |backbuttonhref | Link of the backbutton| If the backbutton is clicked, navigate to another page, for navigation to other pages in the module, use the format #idp (see the column idp)|
 |nextbuttonid | Next button id| See backbuttontid|
 |nextbuttontext | Text to be displayed on the next button|See backbuttontext|
-|nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, an--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
+|nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, and--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
 
