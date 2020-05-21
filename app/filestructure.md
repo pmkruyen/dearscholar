@@ -1,12 +1,11 @@
 # DearScholar in detailed
-In this second part, DearScholar's details are provided for potential users (academic researchers) and potential contributors. Subsequently, the following aspects are discussed:
-* Respondents' experiences (current features);
+In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
+* Current features;
 * Configuration and options;
 * Guide for potential contributors and academic researchers;
 * File structure of the app.
 
-## Respondents' experiences (current features)
-
+## Current features
 ### Let respondents install DearScholar on their mobile device
 1) A respondent has to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
 2) When opening DearScholar for the first time, a respondent is asked to: * allow push notifications; * fill out the username and password that (s)he received from the researcher; * choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and * agree to the informed consent form.
@@ -82,7 +81,7 @@ A table with the following columns, each row represents a separate survey page i
 |classp | Set the first page in the module | Use *'tab tab-active'* for the first survey page in a module, for the other survey pages in the module use *'tab'*|
 |idp | Unique survey page ID|  |
 |header | Survey page header| Header to be displayed on the page |
-|backbuttontid | Back button id| If *questionID=Value* is chosen, the value of the back button is registered on click (e.g., to be used in case of Yes-No questions), *works only if* 'backbuttononclick' below is correctly formatted.|
+|backbuttontid | Back button id| If *questionID=Value* is chosen, the *Value* of the back button is registered on click (e.g., to be used in case of binary questions), *works only if* 'backbuttononclick' below is correctly formatted.|
 |backbuttontext | Text to be displayed on the back button|  |
 |backbuttononclick | To be used for event listeners| Normally left empty, but if *click* is chosen, the value of back button is registered on click, *works only if* backbuttontid above is correctly formatted.|
 |backbuttonhref | Link of the backbutton| If the backbutton is clicked, navigate to another page, for navigation to other pages in the module, use the format #idp (see the column idp)|
@@ -100,7 +99,7 @@ A table with the following columns, each row represents a separate survey questi
 |module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table.|
 |idq | Unique page ID|  |
-|type | Question type| On of the following *YN* (Yes/No question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
+|type | Question type| On of the following *YN* (binary [Yes/No] question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
 |question | Question text|  |
 |footer | Optional question footer text |  |
 
