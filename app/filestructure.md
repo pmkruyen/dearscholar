@@ -3,6 +3,18 @@
 ## Setup
 TBA
 
+## Diary configuration
+### surveyStructure
+A table with the following columns and only a single row.
+| Column name | Content |
+|:---------|---------:|
+|consent | Content for the informed consent form|
+|manual | Content for the manual included in the app |
+|moduleAname | Name of the first survey module|
+|moduleBname | Name of the second survey module|
+|moduleCname | Name of the third survey module|
+|moduleDname | Name of the module survey module|
+
 ## Programming guide
 These guides are for (potential) contributors and researchers who want to build their own version of DearScholar. Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl)
 
