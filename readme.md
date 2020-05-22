@@ -249,15 +249,15 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 2) **general event listeners**
 * For Android devices, set the 'back button' as 'back button'.
 3) **login functions**
-* When a respondent does not interact with DearScholar within 5.5 minutes, logout (i.e., navigate to the login screen);
+* When a respondent does not interact with DearScholar within 5.5 minutes, log out (i.e., navigate to the login screen);
 * When a respondent tries to log in with Touch ID, Face Recognition, or PIN code, check the respondent's credentials;
 * When a respondent's device does not support Touch ID or Face Recognition, ask the respondent to choose a PIN code;
 * When a responden tries to log in for the first time, show the informed consent form, and only proceed to the homescreen (measurement schedule) when the respondenet accepts the informed consent form.  
 4) **database functions**
-* When a respondents logs in for the first time succesfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. 
+* When a respondents logs in for the first time succesfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. Also, set up the table in which respondent's answers are stored locally.
 5) **navigation functions**
 * When a respondent navigates to the homescreen (measurement schedule), render the measurement schedule;
-* When a respondent opens the app for the first time, inject informed consent form;
+* When a respondent opens the app for the first time, show the informed consent form;
 * When a respondent navigates to the manual page, inject the manual.
 6) **module functions**
 * When a respondents opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
