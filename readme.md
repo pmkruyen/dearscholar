@@ -26,7 +26,7 @@ Obviously, as this is an open-source project, you are free to build your own der
 
 ### For researchers and potential contributers:
 * Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
-* Read the section **DearScholar** in details below;
+* Read the section **DearScholar in details** below;
 * Browse [the app folder](https://github.com/pmkruyen/dearscholar/tree/master/app), fork the project, and submit updates.
 
 # DearScholar in details
