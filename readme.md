@@ -11,7 +11,7 @@ The *first* section of this document provides general information about the app,
 ## Interested in using DearScholar in your academic research project? 
 * Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
 
-* Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use DearScholar in real projects *and* use your own server, contact the main author to discuss how to make this possible.
+* Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
 
 ## Interested in contributing to DearScholar?
 Super cool. Please contact the main author to discuss issues and possibilities. 
