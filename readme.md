@@ -51,7 +51,7 @@ When a respondent clicks on a particular measurement occasion in the measurement
 
 Currently, DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, multiple-choice items, and rating sliders) to collect both quantitative and qualitative data. 
 
-If a module is completed-i.e., for that module, all questions have been answered and the data has been uploaded to the server—the module icon turns green. If all mandatory modules have been completed, on the home screen, the link to the measurement occasion turns grey and is marked with a 'sun' icon.
+If a module is completed (i.e., for that module, all questions have been answered and the data has been uploaded to the server) the module icon turns green on the survey page. If all mandatory modules have been completed, on the homepage, the link to the measurement occasion turns grey and is marked with a 'sun' icon.
 
 DearScholar also includes links to additional, optional questionnaire modules which can be found in the home screen’s menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
 
