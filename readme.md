@@ -77,10 +77,10 @@ A table with the following columns, settings are stored for a single respondent 
 |uname | Respondent's username||
 |pwd | Respondent's hashed/encrypted password||
 |project | Project name||
-|setup | Check if the respondent agreed to the informed consent form (see pageStructure below) *and* DearScholar is set up correctly on the respondent's device. |Should be set to 0; *if* everthing goes well changes to 1.|
+|setup | Check if the respondent agreed to the informed consent form (see pageStructure below) *and* DearScholar is set up correctly on the respondent's device. |Should be set to 0; *if* everything goes well changes to 1.|
 |q0_startdate | Date of the first measurement occasion| yyyy-mm-dd|
 |q0_occasions| Number of measurement occasions|a discrete number > 0|
-|q0_intervaltype| Type of measurement inteval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
+|q0_intervaltype| Type of measurement interval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
 |q0_interval| Time interval between measurement occasions |a discrete number > 0|
 
 *Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the 'setup column' in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents log in to DearScholar.
@@ -105,7 +105,7 @@ A table with the following columns and only a single row:
 |moduleAname | Name of the first survey module||
 |moduleBname | Name of the second survey module||
 |moduleCname | Name of the third survey module||
-|moduleDname | Name of the fouth survey module||
+|moduleDname | Name of the fourth survey module||
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the informed consent form or manual). 
 
@@ -125,7 +125,7 @@ A table with the following columns, each row represents a separate survey page i
 |backbuttonhref | Link of the backbutton| If the backbutton is clicked, navigate to another page, for navigation to other pages in the module, use the format #idp (see the column idp)|
 |nextbuttonid | Next button id| See backbuttontid|
 |nextbuttontext | Text to be displayed on the next button|See backbuttontext|
-|nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is send to the server, and--on succes--the module is closed and marked as completed, should only be used on the last page in the module obviously.
+|nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is sent to the server, and--on success--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
 ### 5) questiontable table
@@ -152,12 +152,12 @@ This is an optional table to be used for sending in-app messages. A table with t
 |uname | Respondent' username|
 |timestamp | Date and time the message is written. |yyyy-mm-dd hh-mm-ss|
 |message | Message content|  |
-|seen | Check if the respondent has seen, that is 'clicked' the message. |Should be set to 0; *if* everthing goes well changes to 1.|
+|seen | Check if the respondent has seen, that is 'clicked' the message. |Should be set to 0; *if* the respondent has seen the message, changes to 1.|
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the message content).
 
 ### 7-10) four response tables
-Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a seperate response entry:
+Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a separate response entry:
 
 | Column name | Content | Options |
 |:---------|:---------|:---------|
@@ -194,7 +194,7 @@ In order experiment with DearScholar on iOS and Android devices, the app should 
 3) compile DearScholar using [Phonegap's online tools](https://build.phonegap.com/) using these certificates and keys.
 
 ### Step 4: Deploy your clone or derivate version of DearScholar
-Obviously, after Step 3, you may want to submit your  modifified version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submisions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
+Obviously, after Step 3, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse [the app's files](https://github.com/pmkruyen/dearscholar/tree/master/app) outlined below.
@@ -237,7 +237,7 @@ Files and folders that are market with an * consist of third-party code, and sho
 This folder contains the app's icons and splash screens needed for both Android and iOS.
 
 ### icon.png
-A low quality icon of the app for internal use only.
+A low-quality icon of the app for internal use only.
 
 ### What about the push-notification files?
 Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
@@ -245,28 +245,28 @@ Currently, DearScholar uses Google's Firebase to get the push notifications work
 ## Structure of dearscholar.js, the heart of the app
 1) **Framework7 functions**
 * General app settings;
-* Configurations for each app page (in particular router functions and event listerners that activate the functions described below). 
+* Configurations for each app page (in particular router functions and event listeners that activate the functions described below). 
 2) **general event listeners**
 * For Android devices, set the 'back button' as 'back button'.
 3) **login functions**
 * When a respondent does not interact with DearScholar within 5.5 minutes, log out (i.e., navigate to the login screen);
 * When a respondent tries to log in with Touch ID, Face Recognition, or PIN code, check the respondent's credentials;
 * When a respondent's device does not support Touch ID or Face Recognition, ask the respondent to choose a PIN code;
-* When a responden tries to log in for the first time, show the informed consent form, and only proceed to the homescreen (measurement schedule) when the respondenet accepts the informed consent form.  
+* When a respondent tries to log in for the first time, show the informed consent form, and only proceed to the homepage (measurement schedule) when the respondent accepts the informed consent form.  
 4) **database functions**
-* When a respondents logs in for the first time succesfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. Also, set up the table in which respondent's answers are stored locally.
+* When a respondent logs in for the first time successfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. Also, set up the table in which respondent's answers are stored locally.
 5) **navigation functions**
-* When a respondent navigates to the homescreen (measurement schedule), render the measurement schedule;
+* When a respondent navigates to the homepage (measurement schedule), render the measurement schedule;
 * When a respondent opens the app for the first time, show the informed consent form;
 * When a respondent navigates to the manual page, inject the manual.
 6) **module functions**
-* When a respondents opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
+* When a respondent opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
 7) **save functions**
 * When a question is completed and a button is pushed, save the answer in DearScholar;
 * When a module is completed for a particular surveydate, mark de module as completed; and
 * When a module is completed for a particular surveydate, send the data to the server.
 8) **message functions**
-* When a respondent navigates to the homescreen (measurement schedule), check for new messages;
+* When a respondent navigates to the homepage (measurement schedule), check for new messages;
 * When a respondent navigates to the messages page, populate the messages page; and 
 * When a new message has been read by the respondent (i.e. is 'clicked' on), let the server know when a message has been seen by the respondent.
 
