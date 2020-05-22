@@ -53,7 +53,7 @@ Currently, DearScholar supports an unlimited number of question pages in each mo
 
 If a module is completed (i.e., for that module, all questions have been answered and the data has been uploaded to the server) the module icon turns green on the survey page. If all mandatory modules have been completed, on the homepage, the link to the measurement occasion turns grey and is marked with a 'sun' icon.
 
-DearScholar also includes links to additional, optional questionnaire modules which can be found in the home screen’s menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
+DearScholar also includes links to additional, optional questionnaire modules which can be found in the homepage's menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
 
 Respondents’ answers are not only send to a server, but also saved in the DearScholar. Respondents can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
