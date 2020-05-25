@@ -1,3 +1,4 @@
+---
 title: 'DearScholar: A mobile app to conduct qualitative and quantitative diary research'
 tags:
   - data collection
@@ -12,3 +13,6 @@ affiliations:
    index: 1
 date: 25 May 2020
 bibliography: paper.bib
+---
+
+# Summary 
