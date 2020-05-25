@@ -35,6 +35,6 @@ Currently, DearScholar is used in a study by Glenn Houtgraaf MSc, dr. Peter M. K
 The author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.  
 
 # Footnotes
-<sup>1</sup>: [Link to the App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
+<sup>1</sup>: [Link to App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
 <sup>2</sup>: [Link to Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.diary&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
 
