@@ -42,7 +42,7 @@ In this second part of this text, DearScholar's current features and technical d
 ### Let respondents install DearScholar on their mobile device
 1) A respondent has to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
 2) When opening DearScholar for the first time, a respondent is asked to: * allow push notifications; * fill out the username and password that (s)he received from the researcher; * choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and * agree to the informed consent form.
-3) When everthing goes well, DearScholar sets up on respondent' device, and the respondent is directed to the measurement schedule (homepage).
+3) When everthing goes well, DearScholar pulls the required survey tables and settings from the server, and the respondent is directed to the measurement schedule (homepage).
 
 ### Let respondents answer questions
 When logging in to DearScholar, a respondent is directed to the the measurement schedule (homepage) with all measurement occasions (dates). Future measurement occasions—measurement occasions beyond the current date—are locked and marked with a 'closed lock' icon. 
@@ -173,14 +173,14 @@ Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, 
 ## Guide for potential contributors and academic researchers
 Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl). Contributors and academic researchers who want to build their own version of DearScholar can follow the following four steps.
 
-### Step 1: Install DearScholar on you own computer
-To get the developer version of DearScholar running on you computer, the following steps can be taken:
+### Step 1: Install DearScholar on your own computer
+To get the developer version of DearScholar running on your computer, the following steps can be taken:
 1) download the files and folders from [the app folder](https://github.com/pmkruyen/dearscholar/tree/master/app) as specified below (under file structure);
 2) install either the desktop app or command line interface of [Phonegap](https://phonegap.com/getstarted/);
 3) compile DearScholar on your computer using Phonegap ... the app appears in your web browser; and 
 4) you can start improving DearScholar.
 
-### Step 2: Experiment with DearScholar on you own computer
+### Step 2: Experiment with DearScholar on your own computer
 To log in, populate the survey modules with question pages and questions, and store answers on a server:
 1) set up your own (virtual private) server or get access to an existing one on your university;
 2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Configuration)
