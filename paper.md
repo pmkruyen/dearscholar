@@ -26,13 +26,18 @@ in public administration (e.g., Bakker, 2015; Grimmelikhuijsen, Tummers, & Pande
 # Diary research apps and DearScholar
 A limited number of (commercial) diary research apps have been developed, including [Indeemo](https://www.indeemo.com), [LifeData](https://www.lifedatacorp.com/), [PIEL Survey](https://pielsurvey.org/), [Open Data Kit](https://www.opendatakit.org), [RedCap](https://www.projectredcap.org), and [Teamscope](https://www.teamscopeapp). Acknowledging their value, some of these apps target the researcher as primary respondent instead of research participants; some are rather expensive for (large-scale) projects and make it difficult to change diary tasks during the study period; some are especially designed to collect qualitative data or quantitative data for one particular type of platform only (often Android only), and—last but not least—some store data outside the European Union, which is problematic for European researchers.
 
-DearScholar, is a hybrid smartphone application (app) that can be used on iOS devices (iPhones and Ipads) and Android devices (basically all other smartphones and tablets) to conduct diary studies (and, obviously, can also be used for other types of longitudinal research such as repeated-survey designs and log studies). DearScholar's aim is to facilitate the research process for both respondents and researchers taken the limitations of the alternatives for DearScholar into consideration. Researchers only have to specify measurement occassions (measurement schedule),  survey layout, and question format. Respondents have to download the app on the App Store<sup>1</sup> or Google Play<sup>2</sup>, fill out their credentials, and start participating.
+DearScholar, is a hybrid, open-source smartphone application (app) that can be used on iOS devices (iPhones and Ipads) and Android devices (basically all other smartphones and tablets) to conduct diary studies (and, obviously, can also be used for other types of longitudinal research such as repeated-survey designs and log studies). DearScholar's aim is to facilitate the research process for both respondents and researchers taken the limitations of the alternatives for DearScholar into consideration. Researchers only have to specify measurement occassions (measurement schedule),  survey layout, and question format. Respondents have to download the app on the App Store<sup>1</sup> or Google Play<sup>2</sup>, fill out their credentials, and start participating.
 
 # Use cases
 Currently, DearScholar is used in a study by Glenn Houtgraaf MSc, dr. Peter M. Kruyen and prof. dr. Sandra van Thiel to investigate work-related creativity in government organizations. We use DearScholar to follow about 100 participants over a period of six months, asking them closed- and open-ended questions at bi-weekly measurement occassions to investigate creative processes. In September and October, Liesbeth Faas MSc, dr. Peter M. Kruyen, adn prof. dr. Sandra van Thiel will replicate this study in local care teams.
 
 # Acknowledgement
-The author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.  
+The author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
+
+# Resources
+Visit the project page on [Github](https://github.com/pmkruyen/dearscholar) for all resources (e.g., the manual, the source code and guides).
+
+# References
 
 # Footnotes
 <sup>1</sup>: [Link to App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
