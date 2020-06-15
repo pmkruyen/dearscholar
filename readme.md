@@ -14,7 +14,7 @@ The *first* section of this document provides general information about the app,
 * Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
 
 ## Interested in contributing to DearScholar?
-Super cool. Please contact the main author to discuss issues and possibilities. 
+Super cool. Please contact the main author to discuss issues and possibilities. DearScholar uses BrowserStack for (automatic) testing (sponsored open-source subscription).
 
 ## Your own version of DearScholar?
 Obviously, as this is an open-source project, you are free to build your own derivative version (clone) of DearScholar. However, while DearScholar clones might be allowed on Google Play, submisions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! :smiley:.
@@ -27,7 +27,7 @@ Obviously, as this is an open-source project, you are free to build your own der
 ### For researchers and potential contributers:
 * Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
 * Read the section **DearScholar in details** below;
-* Browse app folders (Android26, Android28, and iOS), fork the project, and submit updates.
+* Browse app folders (Android26, Android28, and iOS), fork the project, and commit updates.
 
 # DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
