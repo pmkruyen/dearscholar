@@ -175,7 +175,7 @@ Scholars who want to use DearScholar in their research project are advised to co
 
 ### Step 1: Install DearScholar on your own computer
 To get the developer version of DearScholar running on your computer, the following steps can be taken:
-1) download the files and folders from [the app folder](https://github.com/pmkruyen/dearscholar/tree/master/app) as specified below (under file structure);
+1) download the app files and folders as specified below (under file structure);
 2) install either the desktop app or command line interface of [Phonegap](https://phonegap.com/getstarted/);
 3) compile DearScholar on your computer using Phonegap ... the app appears in your web browser; and 
 4) you can start improving DearScholar.
