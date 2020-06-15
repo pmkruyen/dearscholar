@@ -16,7 +16,7 @@ bibliography: paper.bib
 ---
 
 # Background 
-Increasingly, scholars in the social and behavioral sciences prefer longitudinal data over cross-sectional data to explore new research phenomena, test effects, and build theories. Indeed, top-tier journals in, among others, management, psychology, and organization science nowadays tend to reject studies in which no longitudinal data has been used to investigate causal relations (e.g., [@Bono: 2011]; [@Jonge: 2011], [@Rico: 2013]), in particular when testing mediation effects (cf. [@Kline,2015]). 
+Increasingly, scholars in the social and behavioral sciences prefer longitudinal data over cross-sectional data to explore new research phenomena, test effects, and build theories. Indeed, top-tier journals in, among others, management, psychology, and organization science nowadays tend to reject studies in which no longitudinal data has been used to investigate causal relations (e.g., [@Bono: 2011]; [@Jonge: 2011], [@Rico: 2013]), in particular when testing mediation effects (cf. [@Kline: 2015]). 
 
 Diary studies are one particular class of research methods in which “self-report instruments [are] used repeatedly …  to investigate social, psychological, and physiological processes, within everyday situations…” ([@Bolger: 2002,578]). While there is a rich tradition of diary studies (cf. [@Iida: 2012]; [@Ohly: 2010]), these methods are used relatively infrequently to collect data compared to other methods such as experiments, panel studies, and archival research. Given the administrative burden of diary studies for both respondents (research participants) and researchers, their relative unfamiliarity (or unpopularity) is understandable.
 
