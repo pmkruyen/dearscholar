@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="net.peterkruyen.diary" version="1.0.4800" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="Camera">
+        <param name="browser-package" value="Camera" />
+    </feature>
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <name>DearScholar</name>
+    <description>
+        DearScholar offers an intuitive and easy-to-use tool to conduct (self-report) qualitative and quantitative longitudinal diary, log and survey research.
+    </description>
+    <author email="p.m.kruyen@fm.ru.nl" href="https:peterkruyen.net">
+        Dr. Peter M Kruyen, Institute for Management Research, Radboud University, the Netherlands.
+    </author>
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" spec="1.3.4" />
+    <variable name="FCM_VERSION" value="15.0.0" />
+    <allow-navigation href="https://peterkruyen.net/*" />
+    <allow-intent href="https://peterkruyen.net/*" />
+    <access origin="https://peterkruyen.net/*" />
+    <content src="index.html" />
+    <preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="android-minSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="28" />
+    <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
+    <preference name="UseSwiftLanguageVersion" value="4.0" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="ScrollEnabled" value="true" />
+</widget>
