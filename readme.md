@@ -9,7 +9,7 @@ Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), D
 The *first* section of this document provides general information about the app, the *second* section (**DearScholar in details**) provides the details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar.
 
 ## Interested in using DearScholar in your academic research project? 
-* Contact the main author for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
+* Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
 
 * Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
 
@@ -27,7 +27,7 @@ Obviously, as this is an open-source project, you are free to build your own der
 ### For researchers and potential contributers:
 * Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
 * Read the section **DearScholar in details** below;
-* Browse [the app folder](https://github.com/pmkruyen/dearscholar/tree/master/app), fork the project, and submit updates.
+* Browse app folders (Android26, Android28, and iOS), fork the project, and submit updates.
 
 # DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
@@ -58,7 +58,7 @@ DearScholar also includes links to additional, optional questionnaire modules wh
 Respondents’ answers are not only send to a server, but also saved in the DearScholar. Respondents can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
 ### Push notifications
-Currently, DearScholar uses Google's Firebase to get the push notifications working. 
+DearScholar can be used with Google's Firebase to get the push notifications working *or* alternatively, a private push notification server can be used (using Node.JS for example). Contact the main author for advice on setting up such a server.
 
 ### Additional features
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
@@ -198,7 +198,7 @@ In order experiment with DearScholar on iOS and Android devices, the app should 
 Obviously, after Step 3, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
 ## File structure of the app
-Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse [the app's files](https://github.com/pmkruyen/dearscholar/tree/master/app) outlined below.
+Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (Android26 [Android 8.0 and 8.5], Android28 [Android > 9.0], and iOS). These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
 
 ### config.xlm
 This file is used by Phonegap/Cordova to compile the app correctly, and contains:
@@ -220,7 +220,6 @@ This folder contains the source code of the app.
 |_js
   |_jquery-3.4.1.min.js*  (jquery functions)
   |_moments.js*           (functions used to render and display measurement dates in the measurement schedule)
-  |_push.js*              (functions used to fire push functions, limited capabilities yet)
   |_dearscholar.js        (all javascript functions)
 |_about.html        (app page containing credits)
 |_index.html        (app page containing the login screen, panel with links, all pop-up windows)
@@ -241,7 +240,7 @@ This folder contains the app's icons and splash screens needed for both Android 
 A low-quality icon of the app for internal use only.
 
 ### What about the push-notification files?
-Currently, DearScholar uses Google's Firebase to get the push notifications working. To get this running, the google-service.json and googleService-Info.plist file should be added to the main folder and, besides the push.js file should be configured (marked with *** in push.js). Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
+Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
 
 ## Structure of dearscholar.js, the heart of the app
 1) **Framework7 functions**
