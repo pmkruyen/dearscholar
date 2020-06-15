@@ -14,7 +14,7 @@ The *first* section of this document provides general information about the app,
 * Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
 
 ## Interested in contributing to DearScholar?
-Super cool. Please contact the main author to discuss issues and possibilities. DearScholar uses BrowserStack for (automatic) testing (sponsored open-source subscription).
+Super cool. Please contact the main author to discuss issues and possibilities. DearScholar uses [BrowserStack](https://www.browserstack.com/) for (automatic) testing (sponsored open-source subscription).
 
 ## Your own version of DearScholar?
 Obviously, as this is an open-source project, you are free to build your own derivative version (clone) of DearScholar. However, while DearScholar clones might be allowed on Google Play, submisions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! :smiley:.
