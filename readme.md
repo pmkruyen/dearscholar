@@ -27,7 +27,7 @@ Obviously, as this is an open-source project, you are free to build your own der
 ### For researchers and potential contributers:
 * Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
 * Read the section **DearScholar in details** below;
-* Browse app folders (Android26, Android28, and iOS), fork the project, and commit updates.
+* Browse the app folders (Android26, Android28, and iOS), fork the project, and commit updates.
 
 # DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
