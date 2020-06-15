@@ -1,4 +1,4 @@
-# Overviews
+# Overview
 Because collecting longitudinal data becomes more important in academic research nowadays and because limitations with available tools, DearScholar has been developed.
 
 DearScholar allows researchers to easily and orderly collect rich and diverse qualitative and quantitative data over short and long periods of time to answer research questions about inter- and intra-individual changes, developments, and processes.
@@ -9,7 +9,7 @@ Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), D
 The *first* section of this document provides general information about the app, the *second* section (**DearScholar in details**) provides the details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar.
 
 ## Interested in using DearScholar in your academic research project? 
-* Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
+* Contact the main author for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
 
 * Currently, the offical version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
 
@@ -171,7 +171,7 @@ Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, 
 *Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occasion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
 
 ## Guide for potential contributors and academic researchers
-Scholars who want to use DearScholar in their research project are advised to contact the main author directly (p.m.kruyen@fm.ru.nl). Contributors and academic researchers who want to build their own version of DearScholar can follow the following four steps.
+Scholars who want to use DearScholar in their research project are advised to contact the main author directly. Contributors and academic researchers who want to build their own version of DearScholar can follow the following four steps.
 
 ### Step 1: Install DearScholar on your own computer
 To get the developer version of DearScholar running on your computer, the following steps can be taken:
