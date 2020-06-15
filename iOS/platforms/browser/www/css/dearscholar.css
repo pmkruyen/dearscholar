@@ -1,0 +1,108 @@
+/* General settings */ 
+*:not(input,textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
+}
+
+/* CSS app theme */ 
+.surveytheme{ 
+    background: #fff; }
+
+/* CSS remove hairlines between lists */ 
+:root {
+  --f7-list-item-border-color: transparent;
+}
+
+/* CSS login screen */ 
+#firstBlock{
+   height:20px; width:100%; clear:both; 
+}
+
+.pictograms{
+   text-align: center
+}
+
+#secondBlock{
+   height:10px; width:100%; clear:both;
+}
+
+#thirdBlock{
+   height:25px; width:100%; clear:both;
+}
+
+#fourthBlock{
+   height:0px; width:100%; clear:both;
+}
+
+#footer{
+   height:45px; width:100%; clear:both;
+}
+
+/* navbar */ 
+.navbar{ 
+    background-color: WhiteSmoke; }
+
+/* make tabs scrollable, does not work yet */ 
+.tab-content {
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Other */ 
+.list textarea {
+  height: auto;
+}
+
+.measurementcomplete{
+ background: darkgray;
+}
+
+.textareas {
+    min-height: 100px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.survedaymonthyear{
+  position:absolute;
+  left:50%;
+  top:15%;
+  transform:translate(-50%,-50%)
+}
+
+.formicons1{
+  position:absolute;
+  left:50%;
+  top:30%;
+  transform:translate(-50%,-50%)
+}
+
+.formicons2{
+  position:absolute;
+  left:25%;
+  top:45%;
+  transform:translate(-50%,-50%)
+}
+
+.formicons3{
+  position:absolute;
+  left:75%;
+  top:45%;
+  transform:translate(-50%,-50%)
+}
+
+.formicons4{
+  position:absolute;
+  left:50%;
+  top:80%;
+  transform:translate(-50%,-50%)
+}
+
+.completed{
+  background-color: greenyellow;
+  border-radius: 50%
+}
