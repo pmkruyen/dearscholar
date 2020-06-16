@@ -11,7 +11,7 @@ authors:
 affiliations:
  - name: Assistant Professor, Department of Public Administration, Radboud University, the Netherlands
    index: 1
-date: 25 May 2020
+date: 16 June 2020
 bibliography: paper.bib
 ---
 
@@ -32,7 +32,7 @@ DearScholar, is a hybrid, open-source smartphone application (app) that can be u
 Currently, DearScholar is used in a study by Glenn Houtgraaf MSc, dr. Peter M. Kruyen and prof. dr. Sandra van Thiel to investigate work-related creativity in government organizations. We use DearScholar to follow about 100 participants over a period of six months, asking them closed- and open-ended questions at bi-weekly measurement occassions to investigate creative processes. In September and October, Liesbeth Faas MSc, dr. Peter M. Kruyen, adn prof. dr. Sandra van Thiel will replicate this study in local care teams.
 
 # Acknowledgement
-The author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
+DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen, the Netherlands) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
 
 # Resources
 Visit the project page on [Github](https://github.com/pmkruyen/dearscholar) for all resources (e.g., the manual, the source code and guides).
