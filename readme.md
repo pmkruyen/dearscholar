@@ -234,7 +234,7 @@ This folder contains the source code of the app.
 |_survey.html       (app page containing the icons of, and links to the mandatory survey modules)
 |_surveyadhoc.html  (app page containing the icons of, and links to the additional survey modules)
 ```
-Files and folders that are market with an * consist of third-party code, and should not be modified.
+Files and folders that are market with an * consist of third-party code, and should not be modified. The file containing the settings and functions to enable push notificatins (```push.js```) is excluded from this public repro.
 
 ### res-folder
 This folder contains the app's icons and splash screens needed for both Android and iOS.
