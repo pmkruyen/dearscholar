@@ -9,7 +9,7 @@ authors:
     orcid: 0000-0003-0109-1744
     affiliation: "1"
 affiliations:
- - name: Assistant Professor, Department of Public Administration, Radboud University, the Netherlands
+ - name: Assistant Professor, Institute for Management Research, Radboud University, the Netherlands
    index: 1
 date: 16 June 2020
 bibliography: paper.bib
