@@ -29,6 +29,9 @@ Obviously, as this is an open-source project, you are free to build your own der
 * Read the section **DearScholar in details** below;
 * Browse the app folders (Android26, Android28, and iOS), fork the project, and commit updates.
 
+## Acknowledgement
+DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
+
 # DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
 * Current features;
