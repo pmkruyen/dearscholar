@@ -32,6 +32,11 @@ Obviously, as this is an open-source project, you are free to build your own der
 ## Acknowledgement
 DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The main author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
 
+## Copyright
+Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License (GPL3) as published by the Free Software Foundation. Radboud University, hereby disclaims all copyright interest in the program “DearScholar” (which offers an app to conduct longitudinal qualitative and quantitative diary, log 
+and survey research) written by P.M. Kruyen. Commercial license available, please contact Radboud Innovation, Radboud University, the Netherlands. 
+Radboud Innovation – Technology Transfer Office
+
 # DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
 * Current features;
