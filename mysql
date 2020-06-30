@@ -1,0 +1,145 @@
+# Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
+
+# MYSQL database initialization for DearScholar. Consult the README file for further explanations. 
+
+# MYSQL database and table setup
+
+CREATE DATABASE IF NOT EXISTS project
+	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS authentication (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	pwd TEXT,
+	project TEXT,
+	setup VARCHAR(1) ,
+	q0_startdate TEXT,
+	q0_occasions TEXT,
+	q0_intervaltype TEXT,
+	q0_interval TEXT);
+	
+CREATE TABLE IF NOT EXISTS pintable (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	pin TEXT,
+	code TEXT);
+
+CREATE TABLE IF NOT EXISTS surveyStructure (
+	consent TEXT,
+	manual TEXT,
+   	modules VARCHAR(100) ,
+	moduleAname VARCHAR(100) ,
+	moduleBname VARCHAR(100) ,
+	moduleCname VARCHAR(100) ,
+	moduleDname VARCHAR(100));
+
+CREATE TABLE IF NOT EXISTS pageStructure (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+	module1 VARCHAR(100) ,
+	classp VARCHAR(100) ,
+	idp VARCHAR(100) ,
+	header VARCHAR(100) ,
+	backbuttonid VARCHAR(100) ,
+	backbuttontext VARCHAR(100) ,
+	backbuttonclick VARCHAR(100) ,
+	backbuttonhref VARCHAR(100) ,
+	nextbuttonid VARCHAR(100) ,
+	nextbuttontext VARCHAR(100) ,
+	nextbuttonclick VARCHAR(100) ,
+	nextbuttonhref VARCHAR(100) )
+
+CREATE TABLE IF NOT EXISTS questionable (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+	module2 VARCHAR(100) ,
+	tab VARCHAR(100) ,
+	idq VARCHAR(100) ,
+	type VARCHAR(100) ,
+	question TEXT ,
+	footer TEXT )
+
+CREATE TABLE IF NOT EXISTS messages (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	message TEXT,
+	seen VARCHAR(1) )
+
+
+CREATE TABLE IF NOT EXISTS responseTableModuleA (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT
+	# , … separate columns for each question in which the data needs to be stored
+            )
+
+CREATE TABLE IF NOT EXISTS responseTableModuleB (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT
+	# , … separate columns for each question in which the data needs to be stored
+            )
+
+CREATE TABLE IF NOT EXISTS responseTableModuleC (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT
+	# , … separate columns for each question in which the data needs to be stored
+            )
+
+CREATE TABLE IF NOT EXISTS responseTableModuleD (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT
+	# , … separate columns for each question in which the data needs to be stored
+            )
+
+
+# MYSQL user management
+
+##  INDIVIDUAL RESEARCHER
+CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
+
+	### TO MANIPULATE THE REGISTRATION OF RESPONDENTS
+	GRANT INSERT, SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+
+	### TO MANIPULATE  THE SURVEY SETUP
+	GRANT INSERT, SELECT, DELETE, UPDATE ON project. surveyStructure TO '######'@'localhost';
+	GRANT INSERT, SELECT, DELETE, UPDATE ON project. pageStructure TO '######'@'localhost';
+	GRANT INSERT, SELECT, DELETE, UPDATE ON project. questionable TO '######'@'localhost';
+
+	### TO MANIPULATE THE MESSAGES TABLE
+	GRANT INSERT, SELECT, DELETE, UPDATE ON project. messages TO '######'@'localhost';
+
+	### TO VIEW THE RESULTS OF THE SURVEY
+	GRANT SELECT ON project. responseTableModuleA TO '######'@'localhost';
+	GRANT SELECT ON project. responseTableModuleB TO '######'@'localhost';
+	GRANT SELECT ON project. responseTableModuleC TO '######'@'localhost';
+	GRANT SELECT ON project. responseTableModuleD TO '######'@'localhost';
+
+
+## RESPONDENT AKA ENDUSER IN DEARSCHOLAR (THAT IS, THE APP)
+CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
+	
+	### TO VERIFY THE CREDENTIALS AND SET THE SETUP VALUE TO ONE (1)
+	GRANT SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+	
+	# TO MANIPULATE THE PIN CODE
+	GRANT INSERT, SELECT, UPDATE ON project. pintable TO '######'@'localhost';
+	
+	# READ THE SURVEY SETUP
+	GRANT SELECT ON project. surveyStructure TO '######'@'localhost';
+	GRANT SELECT ON project. pageStructure TO '######'@'localhost';
+	GRANT SELECT ON project. questionable TO '######'@'localhost';
+	
+	# READ MESSAGES AND SET THE READ VALUE TO ONE (1)
+	GRANT SELECT, UPDATE ON project. questionable TO '######'@'localhost';
+
+	# INSERT (POST) THE DATA (SURVEY RESULTS
+	GRANT INSERT ON project. responseTableModuleA TO '######'@'localhost';
+	GRANT INSERT ON project. responseTableModuleB TO '######'@'localhost’;
+	GRANT INSERT ON project. responseTableModuleC TO '######'@'localhost';
+	GRANT INSERT ON project. responseTableModuleD TO '######'@'localhost';
