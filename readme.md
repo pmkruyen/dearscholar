@@ -89,11 +89,10 @@ DearScholar has the capacity to send short in-app messages to specific responden
 DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)] (https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
 ## Configuration
-To configure Dearscholar, ten tables need to be set up in a secured database (such as mysql) on a secured server and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). In this section, these ten tables are described.
+To configure Dearscholar, eleven tables need to be set up in a secured database (such as mysql) on a secured server and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). In this section, these ten tables are described.
 
 ### 1) authentication table
 A table with the following columns, settings are stored for a single respondent on each row:
-
 | Column name | Content | Options |
 |:---------|:---------|:---------|
 |id | Unique row ID||
@@ -103,12 +102,23 @@ A table with the following columns, settings are stored for a single respondent 
 |setup | Check if the respondent agreed to the informed consent form (see pageStructure below) *and* DearScholar is set up correctly on the respondent's device. |Should be set to 0; *if* everything goes well changes to 1.|
 |q0_startdate | Date of the first measurement occasion| yyyy-mm-dd|
 |q0_occasions| Number of measurement occasions|a discrete number > 0|
-|q0_intervaltype| Type of measurement interval|Currently, only weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
+|q0_intervaltype| Type of measurement interval|Currently, only days (*d*) and weeks are supported (*w*), contact the main author to discuss the implementation of other options.|
 |q0_interval| Time interval between measurement occasions |a discrete number > 0|
 
 *Note*. If you change settings during a project, adapt the routing structure, reformulate questions, etc., for each respondent, the 'setup column' in this table should be reset to 0 in order to let DearScholar update on each device, which will happen when respondents log in to DearScholar.
 
-### 2) pinStructure table
+### 2) registration table
+An *empty* table with the following columns:
+| Column name | Content | Options |
+|:---------|:---------|:---------|
+|id | Unique row ID||
+|project | Project name||
+|uname | Respondent's username||
+|token | Respondent's device ID (token) as supplied by Apple or Android on device registration||
+
+This table is required to register the device IDs (tokens) in order to send push notifications, settings are stored for a single respondent on each row:
+
+### 3) pinStructure table
 An *empty* table with the following columns:
 | Column name | Content | Options |
 |:---------|:---------|:---------|
@@ -119,7 +129,7 @@ An *empty* table with the following columns:
 
 On devices that do not support Touch ID of Face Recognition, respondents are asked to choose a 4-digit PIN code on first login to DearScholar, which should be entered at each login attempt. What happens in case respondents forget their PIN code? The preferred route is that they contact the project leader to ask to reset their PIN code. To do so, you change the 'code column' for that respondent to REVOKE. When the respondent tries to log in after you revoked the PIN code, (s)he is asked to choose a new 4-digit PIN code.
 
-### 3) surveyStructure table
+### 4) surveyStructure table
 A table with the following columns and only a single row:
 | Column name | Content | Options |
 |:---------|:---------|:---------|
@@ -132,7 +142,7 @@ A table with the following columns and only a single row:
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the informed consent form or manual). 
 
-### 4) pageStructure table
+### 5) pageStructure table
 A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
 
 | Column name | Content | Options |
@@ -151,7 +161,7 @@ A table with the following columns, each row represents a separate survey page i
 |nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is sent to the server, and--on success--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
-### 5) questiontable table
+### 6) questiontable table
 A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
@@ -160,13 +170,14 @@ A table with the following columns, each row represents a separate survey questi
 |module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table.|
 |idq | Unique page ID|  |
-|type | Question type| On of the following *YN* (binary [Yes/No] question), *OQ* (Open Question), *MC* (Multiple Choice Question, currently supports only 5-point scales), or *SL* (Slider Question, currently supports only range sliders on a scale from 0 to 100).|
+|type | Question type| On of the following *YN* (binary [Yes/No] question), *OQ* (Open Question), *MC* (Multiple Choice Question, or *SL* (Slider Question, currently supports only range sliders on a continious scale from 0 to 100).|
 |question | Question text|  |
+|categories | For *MC*, A JSON-string containing values and labels for all answer categories |{"TD":"Totally disagree", "DI":"Disagree", "NE":"Neutral","AG":"Agree","TA":"Totally agree"}  |
 |footer | Optional question footer text |  |
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the question text). 
 
-### 6) messages table
+### 7) messages table
 This is an optional table to be used for sending in-app messages. A table with the following columns, each row to be used to specify a message for a specific respondent:
 
 | Column name | Content | Options |
@@ -179,7 +190,7 @@ This is an optional table to be used for sending in-app messages. A table with t
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the message content).
 
-### 7-10) four response tables
+### 8-11) four response tables
 Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a separate response entry:
 
 | Column name | Content | Options |

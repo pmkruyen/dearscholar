@@ -17,6 +17,12 @@ CREATE TABLE IF NOT EXISTS authentication (
 	q0_occasions TEXT,
 	q0_intervaltype TEXT,
 	q0_interval TEXT);
+
+CREATE TABLE IF NOT EXISTS registration (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+	project TEXT,   	
+	uname VARCHAR(100) ,
+	token TEXT);
 	
 CREATE TABLE IF NOT EXISTS pintable (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
@@ -55,6 +61,7 @@ CREATE TABLE IF NOT EXISTS questionable (
 	idq VARCHAR(100) ,
 	type VARCHAR(100) ,
 	question TEXT ,
+	categories TEXT ,
 	footer TEXT )
 
 CREATE TABLE IF NOT EXISTS messages (
@@ -126,6 +133,9 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	
 	### TO VERIFY THE CREDENTIALS AND SET THE SETUP VALUE TO ONE (1)
 	GRANT SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+
+	### TO REGISTER THE DEVICE FOR RECEIVING PUSH NOTIFICATIONS (AND UPDATE WHEN APPLE OR ANDROID PROVIDES A NEW TOKEN
+	GRANT SELECT, UPDATE ON project. Registration TO '######'@'localhost';
 	
 	# TO MANIPULATE THE PIN CODE
 	GRANT INSERT, SELECT, UPDATE ON project. pintable TO '######'@'localhost';
