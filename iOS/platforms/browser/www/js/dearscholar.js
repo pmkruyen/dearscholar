@@ -290,6 +290,68 @@ function onBackKeyDown() {
     }
 }
 
+
+// Style the login screen
+document.addEventListener("deviceready", function(){
+            $$('#showPasswordIcon').html('')
+            $$("#password").removeClass('passwordisempty');
+            document.getElementById('password').type = 'password';
+    
+            // Enable the show password button when the password field is empty
+            if ($('#password.input-with-value').length==0){
+                $$("#password").addClass('passwordisempty');
+                $$('#showPasswordIcon').html('eye')
+            }
+    
+            $$('#password').on('keyup', function (e) {
+                if(password.value.length==0)
+                {
+                    $$("#password").addClass('passwordisempty');
+                    $$('#showPasswordIcon').html('eye')
+                }
+            })
+    
+            $$('#showPasswordButton').on('click', function (e) {
+                var el = document.getElementsByClassName("passwordisempty");
+                
+                if (el.length==1){
+                    if(document.getElementById('password').type == 'password') {
+                        document.getElementById('password').type = 'text';
+                        $$('#showPasswordIcon').html('eye_slash')
+                    }      
+                    else {
+                        document.getElementById('password').type = 'password';
+                        $$('#showPasswordIcon').html('eye')
+                    }
+                }
+            })
+    
+            //Style the login page dependend on whether TouchID is (not) available    
+            Fingerprint.isAvailable(isAvailableSuccess, isAvailableError);
+
+            function isAvailableSuccess(result) {
+                document.getElementById("loginButton").innerHTML = "Log in met Touch ID of gezichtsherkenning";
+                //$("#fourthBlock" ).append("<id='TouchIDAvailableButUsePIN'><li><a href='#' class='item-link list-button' id='loginButton' >Log in met PIN</a></li>")
+                
+                //Add event handler to the login button
+                $$('#loginButton').on('click', function (e) {
+                    loginTOUCH()
+                })
+            }
+
+            function isAvailableError(error) {
+                document.getElementById("loginButton").innerHTML = "Log in met PIN"; 
+                
+                //Add event handler to the login button
+                $$('#loginButton').on('click', function (e) {
+                    loginPIN()
+                })
+            }
+            
+}, false);
+
+
+
 //Attach functions when the keyboard is shown and closed to hide and show the 'bottomButtons' in the modules, respectively.
 window.addEventListener("keyboardWillShow", function(e) {
     $(".bottomButtons").hide();
@@ -308,7 +370,7 @@ window.addEventListener("keyboardDidHide", function(e) {
 var timeoutID;
 
 function goInactive() {
-    app.views.main.router.back('/',{ignoreCache: true, reload: true});
+    app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
     app.panel.close("left")
 }
 
@@ -487,6 +549,7 @@ function authentication(){
                             window.localStorage.setItem('project', settings[0].data.project);
                             window.localStorage.setItem('q0_startdate', settings[0].data.q0_startdate);
                             window.localStorage.setItem('q0_occasions', settings[0].data.q0_occasions);
+                            window.localStorage.setItem('q0_intervaltype', settings[0].data.q0_intervaltype);
                             window.localStorage.setItem('q0_interval', settings[0].data.q0_interval);
                      
                             // register the device to receive notifications
@@ -582,8 +645,7 @@ $$('#acceptConsent').on('click', function (e) {
                  {  
                     surveyStructure = JSON.parse(data).data0;
                     pageStructure = JSON.parse(data).data1;
-                    questionTable = JSON.parse(data).data2;
-                                         
+                    questionTable = JSON.parse(data).data2;                                         
                     DiaryDatabase.transaction(function (tx){
                         tx.executeSql('DROP TABLE IF EXISTS surveyStructure');
                         tx.executeSql('DROP TABLE IF EXISTS pageStructure');
@@ -592,7 +654,7 @@ $$('#acceptConsent').on('click', function (e) {
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyInformation (surveydate,A,B,C,D)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual, moduleAname, moduleBname, moduleCname, moduleDname)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS pageStructure (module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick, backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref)');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, footer)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, categories, footer)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS responseTable (id, surveydate, timestamp)');
                         
                         DiaryDatabase.transaction(function(tx) {
@@ -623,7 +685,8 @@ $$('#acceptConsent').on('click', function (e) {
                                                  questionTable[i].data.tab, 
                                                  questionTable[i].data.idq, 
                                                  questionTable[i].data.type, 
-                                                 questionTable[i].data.question, 
+                                                 questionTable[i].data.question,
+                                                 questionTable[i].data.categories,
                                                  questionTable[i].data.footer
                                                  );
                             listQuestionIds.push(questionTable[i].data.idq);
@@ -685,27 +748,35 @@ $$('#acceptConsent').on('click', function (e) {
     }
 
     // function to populate the questiontable database
-    function addItemQuestiontable(DiaryDatabase, module2, tab, idq, type, question, footer) {
+    function addItemQuestiontable(DiaryDatabase, module2, tab, idq, type, question, categories, footer) {
 
         DiaryDatabase.transaction(function (tx) {
 
-        var query = "INSERT INTO questiontable (module2, tab, idq, type, question, footer) VALUES (?,?,?,?,?,?)";
+        var query = "INSERT INTO questiontable (module2, tab, idq, type, question, categories, footer) VALUES (?,?,?,?,?,?,?)";
 
-        tx.executeSql(query, [module2, tab, idq, type, question, footer], function(tx) {
+        tx.executeSql(query, [module2, tab, idq, type, question, categories, footer], function(tx) {
         });
     });
     }
 
 // function to create the survey schedule
 
-function measurementDates (startdate=window.localStorage.getItem("q0_startdate"), occassions = window.localStorage.getItem('q0_occasions'), interval = window.localStorage.getItem("q0_interval")){
+function measurementDates (startdate=window.localStorage.getItem("q0_startdate"), occassions = window.localStorage.getItem('q0_occasions'),intervaltype = window.localStorage.getItem("q0_intervaltype"), interval = window.localStorage.getItem("q0_interval")){
+    
+    
     
     var currentmoment =moment();
         
     for (i = 0; i < Number(occassions)*Number(interval); i = i + Number(interval)) {
         
-        var measurementOccassion = moment(startdate).add(i, 'weeks');
-
+        if (intervaltype=='d'){
+            var measurementOccassion = moment(startdate).add(i, 'days');
+        }
+        
+        if (intervaltype=='w'){
+            var measurementOccassion = moment(startdate).add(i, 'weeks');
+        }
+        
         month = measurementOccassion.format('MMM');
         day = measurementOccassion.format('DD');
         year = measurementOccassion.format('YYYY');
@@ -904,6 +975,7 @@ function startModule(module, adhoc) {
                             tab: resultSet.rows.item(x).tab,
                             idq: resultSet.rows.item(x).idq,
                             question: resultSet.rows.item(x).question,
+                            categories: resultSet.rows.item(x).categories,
                             footer: resultSet.rows.item(x).footer
                         }
                         
@@ -917,6 +989,7 @@ function startModule(module, adhoc) {
                         }
                         if(resultSet.rows.item(x).type=="MC"){
                             emptytab.innerHTML += multiplechoicequestion(data);
+                            multiplechoicequestionselect(data);
                         }
                         if(resultSet.rows.item(x).type=="SL"){
                             emptytab.innerHTML += sliderquestion(data);
@@ -979,7 +1052,7 @@ function startModule(module, adhoc) {
     }
 
     // layout function for multiple choice questions
-    function multiplechoicequestion(data){
+    function multiplechoicequestion(data){        
         return `
         <form class="form-store-data" id=${data.tab}> 
             <div class="block block-strong no-hairlines">
@@ -989,17 +1062,26 @@ function startModule(module, adhoc) {
             <div class="item-input-wrap input-dropdown-wrap">
             <select class="question" style="width:100%" name=${data.idq} id=${data.idq} placeholder="">
                 <option disabled selected value> -- Kies een antwoord -- </option>
-                <option value="ZO">Zeer onwaarschijnlijk</option>
-                <option value="O">Onwaarschijnlijk</option>
-                <option value="NE">Neutraal</option>
-                <option value="WA">Waarschijnlijk</option>
-                <option value="ZW">Zeer waarschijnlijk</option>
             </select>
             </div>
             </div>
             <div class="block-footer">${data.footer}</div>  
             </div>
-        </form> `
+        </form>`
+    }
+
+    // layout function for the options in the multiple choice questions
+    function multiplechoicequestionselect(data){ 
+        select = document.getElementById(data.idq)
+        
+        optionValues = Object.getOwnPropertyNames(JSON.parse(data.categories))
+        
+        for (i = 0; i < optionValues.length; i++) {
+            option = document.createElement("option")
+            option.value =  optionValues[i]
+            option.text = Object(JSON.parse(data.categories))[optionValues[i]]
+            select.appendChild(option)
+        }
     }
 
     // layout function for the slider questions
