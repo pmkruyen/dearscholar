@@ -255,7 +255,14 @@ routes: [
     {
         name: 'about',
         path: '/about/',
-        url: './about.html'
+        url: './about.html',
+        on: {
+        pageInit: function (e, page) {
+                $$('#consentAboutButton').on('click', function (e) {
+                    startConsentAbout()
+                });
+        }
+        }
     },
 ],
 // ... other parameters  
@@ -290,7 +297,20 @@ function onBackKeyDown() {
     }
 }
 
+//Attach functions when the keyboard is shown and closed to hide and show the 'bottomButtons' in the modules, respectively.
+window.addEventListener("keyboardWillShow", function(e) {
+    $(".bottomButtons").hide();
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+});
 
+window.addEventListener("keyboardDidHide", function(e) {
+    $(".bottomButtons").show();
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+});
+
+
+///////////////////////////////////////////////////////////////////////////////
+///// Specific IOS functions
 // Style the login screen
 document.addEventListener("deviceready", function(){
             $$('#showPasswordIcon').html('')
@@ -350,22 +370,6 @@ document.addEventListener("deviceready", function(){
             
 }, false);
 
-
-
-//Attach functions when the keyboard is shown and closed to hide and show the 'bottomButtons' in the modules, respectively.
-window.addEventListener("keyboardWillShow", function(e) {
-    $(".bottomButtons").hide();
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
-});
-
-window.addEventListener("keyboardDidHide", function(e) {
-    $(".bottomButtons").show();
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-});
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Login functions
-
 // Timer functions to logout (return to index) after # time of inactivity.
 var timeoutID;
 
@@ -384,6 +388,8 @@ $$(window).on('click keyup', function (e) {
     window.clearTimeout(timeoutID);
     startTimer();
 });
+
+///////////////////////////////////////////////////////////////////////////////
 
 //Login procedure if touchID is enabled
 function loginTOUCH(){
@@ -610,6 +616,11 @@ $$('#acceptConsent').on('click', function (e) {
                 app.preloader.hide();  
             }
         })   
+})
+
+//Add event handler to the close consent link in the About button.
+$$('#closeConsent').on('click', function (e) {
+    app.popup.close(".consentAbout")
 })
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -840,6 +851,26 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
       function (tx, succes) {
          app.popup.open(".consent");
          document.getElementById("emptyconsentform").innerHTML += consentText   
+     })
+ }
+
+// function to populate the consent page in the About page
+ function startConsentAbout(){
+      document.getElementById("emptyconsentformAbout").innerHTML = ""   
+
+      DiaryDatabase.transaction(function (tx) {
+            
+                var query = "SELECT consent FROM surveyStructure WHERE rowid = ?"
+                tx.executeSql(query,[1],function (tx, resultSet) {
+                    consentText = resultSet.rows.item(0).consent
+                })
+      },
+      function (tx, error) {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+      },
+      function (tx, succes) {
+         app.popup.open(".consentAbout");
+         document.getElementById("emptyconsentformAbout").innerHTML += consentText   
      })
  }
 
