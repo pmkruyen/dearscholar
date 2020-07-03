@@ -285,7 +285,6 @@ function onBackKeyDown() {
         return false;
     } else if (app.views.main.router.url == '/schedule/') {
         app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
-            // var deviceType = device.platform;
             // if(deviceType == “Android” || deviceType == “android”){
             navigator.app.exitApp();
             // }
@@ -308,9 +307,12 @@ window.addEventListener("keyboardDidHide", function(e) {
     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 });
 
+var deviceType = device.platform;
 
 ///////////////////////////////////////////////////////////////////////////////
 ///// Specific IOS functions
+
+if(deviceType == "iOS"){
 // Style the login screen
 document.addEventListener("deviceready", function(){
             $$('#showPasswordIcon').html('')
@@ -388,8 +390,11 @@ $$(window).on('click keyup', function (e) {
     window.clearTimeout(timeoutID);
     startTimer();
 });
+    
+}
 
 ///////////////////////////////////////////////////////////////////////////////
+// if(deviceType == “Android” || deviceType == “android”){
 
 //Login procedure if touchID is enabled
 function loginTOUCH(){
