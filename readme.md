@@ -27,15 +27,14 @@ Obviously, as this is an open-source project, you are free to build your own der
 ### For researchers and potential contributers:
 * Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
 * Read the section **DearScholar in details** below;
-* Browse the app folders (Android26, Android28, and iOS), fork the project, and commit updates.
+* Browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]), fork the project, and commit updates.
 
 ## Acknowledgement
 DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The main author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
 
 ## License
 Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License (GPL3) as published by the Free Software Foundation. Radboud University, hereby disclaims all copyright interest in the program “DearScholar” (which offers an app to conduct longitudinal qualitative and quantitative diary, log 
-and survey research) written by P.M. Kruyen. Commercial license available, please contact Radboud Innovation, Radboud University, the Netherlands. 
-Radboud Innovation – Technology Transfer Office.
+and survey research) written by P.M. Kruyen. Commercial license available, please contact Radboud Innovation, Radboud University, the Netherlands. Radboud Innovation – Technology Transfer Office.
 
 # DearScholar in details
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
@@ -66,7 +65,7 @@ When a respondent clicks on a particular measurement occasion in the measurement
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/3.png width="350"/></kbd>
 </p>
 
-Currently, DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, multiple-choice items, and rating sliders) to collect both quantitative and qualitative data (see the screenshots below for two examples). 
+DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, multiple-choice items, and rating sliders) to collect both quantitative and qualitative data (see the screenshots below for two examples). Respondents can type their answers in the answer boxes... or--because DearScholar supports speech recognition--dictate their answers.
 
 <p align="center">
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/4.png width="350"/></kbd>
@@ -231,7 +230,7 @@ In order experiment with DearScholar on iOS and Android devices, the app should 
 Obviously, after Step 3, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
 ## File structure of the app
-Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (Android26 [Android 8.0 and 8.5], Android28 [Android > 9.0], and iOS). These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
+Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
 
 ### config.xlm
 This file is used by Phonegap/Cordova to compile the app correctly, and contains:
@@ -264,7 +263,7 @@ This folder contains the source code of the app.
 |_survey.html       (app page containing the icons of, and links to the mandatory survey modules)
 |_surveyadhoc.html  (app page containing the icons of, and links to the additional survey modules)
 ```
-Files and folders that are market with an * consist of third-party code, and should not be modified. The file containing the settings and functions to enable push notificatins (```push.js```) is excluded from this public repro.
+Files and folders that are market with an * consist of third-party code, and should not be modified. The files containing the settings and functions to enable push notifications (```google-services.json``` and ```push.js```) are excluded from this public repro.
 
 ### res-folder
 This folder contains the app's icons and splash screens needed for both Android and iOS.

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.peterkruyen.diary" version="1.0.4826" xmlns="http://www.w3.org/ns/widgets"  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="net.peterkruyen.diary" version="1.0.4828" xmlns="http://www.w3.org/ns/widgets"  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>DearScholar</name>
     <description>
         DearScholar offers an intuitive and easy-to-use tool to conduct (self-report) qualitative and quantitative longitudinal diary, log and survey research.
@@ -10,8 +10,8 @@
     
     <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="Orientation" value="portrait" />
-    <preference name="android-minSdkVersion" value="26" />
-    <preference name="android-targetSdkVersion" value="26" />
+    <preference name="android-minSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="28" />
     <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
     <preference name="UseSwiftLanguageVersion" value="4.0" />
     <preference name="DisallowOverscroll" value="true" />
@@ -20,7 +20,7 @@
 
     <gap:plugin name="cordova-plugin-whitelist" spec="1.3.4" source="npm"/>
     <plugin name="cordova-plugin-splashscreen" />
-    <plugin spec="https://github.com/LuisEGR/cordova-support-google-services.git"/>
+    <plugin name="cordova-plugin-device" source="npm" />
     <plugin name="cordova-sqlite-evcore-extbuild-free" spec="0.11.0" source="npm" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.3" source="npm" />
     <plugin name="phonegap-plugin-push" spec="2.3.0" source="npm" />
@@ -79,6 +79,9 @@
           <item name="android:windowDisablePreview">true</item>
         </style>
        </resources>
+       <edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:label='@string/activity_name']" mode="merge">
+          <activity android:theme="@android:style/Theme.Translucent"></activity>
+       </edit-config>
        <preference name="android-windowSoftInputMode" value="adjustResize" />
        <preference name="resizeOnFullScreen" value="true" />
        <preference name="SplashScreenDelay" value="3000" />
