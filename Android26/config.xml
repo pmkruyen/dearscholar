@@ -73,6 +73,7 @@
     </platform>
 
     <platform name="android">
+      <resource-file src="google-services.json" target="app/google-services.json" />
       <resources>
           <style name="Theme.Translucent" parent="android:style/Theme.DeviceDefault.Light.NoActionBar">
           <item name="android:windowDisablePreview">true</item>

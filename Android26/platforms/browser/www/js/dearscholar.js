@@ -255,7 +255,14 @@ routes: [
     {
         name: 'about',
         path: '/about/',
-        url: './about.html'
+        url: './about.html',
+        on: {
+        pageInit: function (e, page) {
+                $$('#consentAboutButton').on('click', function (e) {
+                    startConsentAbout()
+                });
+        }
+        }
     },
 ],
 // ... other parameters  
@@ -265,7 +272,8 @@ var $$ = Dom7;
 
 var mainView = app.views.create('.view-main')
 
-// General event handlers
+///////////////////////////////////////////////////////////////////////////////
+///// Specific Android functions
 //Attach functions to the bacbutton on Android devices.
 document.addEventListener('backbutton', onBackKeyDown, false);
 
@@ -278,7 +286,6 @@ function onBackKeyDown() {
         return false;
     } else if (app.views.main.router.url == '/schedule/') {
         app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
-            // var deviceType = device.platform;
             // if(deviceType == “Android” || deviceType == “android”){
             navigator.app.exitApp();
             // }
@@ -290,25 +297,99 @@ function onBackKeyDown() {
     }
 }
 
-//Attach functions when the keyboard is shown and closed to hide and show the 'bottomButtons' in the modules, respectively.
+// Hide buttons on keyboardshow.
 window.addEventListener("keyboardWillShow", function(e) {
-    $(".bottomButtons").hide();
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+    if(deviceType == "Android"|| deviceType == "android"){
+        $(".bottomButtons").hide();
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+    }
 });
 
 window.addEventListener("keyboardDidHide", function(e) {
-    $(".bottomButtons").show();
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    if(deviceType == "Android"|| deviceType == "android"){
+        $(".bottomButtons").show();
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
 });
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Login functions
+
+///////////////////////////////////////////////////////////////////////////////
+///// Specific IOS functions
+// Style the login screen
+document.addEventListener("deviceready", function(){
+            deviceType = device.platform;
+    
+            if(deviceType == "iOS"){
+    
+            $$('#showPasswordIcon').html('')
+            $$("#password").removeClass('passwordisempty');
+            document.getElementById('password').type = 'password';
+    
+            // Enable the show password button when the password field is empty
+            if ($('#password.input-with-value').length==0){
+                $$("#password").addClass('passwordisempty');
+                $$('#showPasswordIcon').html('eye')
+            }
+    
+            $$('#password').on('keyup', function (e) {
+                if(password.value.length==0)
+                {
+                    $$("#password").addClass('passwordisempty');
+                    $$('#showPasswordIcon').html('eye')
+                }
+            })
+    
+            $$('#showPasswordButton').on('click', function (e) {
+                var el = document.getElementsByClassName("passwordisempty");
+                
+                if (el.length==1){
+                    if(document.getElementById('password').type == 'password') {
+                        document.getElementById('password').type = 'text';
+                        $$('#showPasswordIcon').html('eye_slash')
+                    }      
+                    else {
+                        document.getElementById('password').type = 'password';
+                        $$('#showPasswordIcon').html('eye')
+                    }
+                }
+            })
+    
+            //Style the login page dependend on whether TouchID is (not) available    
+            Fingerprint.isAvailable(isAvailableSuccess, isAvailableError);
+
+            function isAvailableSuccess(result) {
+                document.getElementById("loginButton").innerHTML = "Log in met Touch ID of gezichtsherkenning";
+                //$("#fourthBlock" ).append("<id='TouchIDAvailableButUsePIN'><li><a href='#' class='item-link list-button' id='loginButton' >Log in met PIN</a></li>")
+                
+                //Add event handler to the login button
+                $$('#loginButton').on('click', function (e) {
+                    loginTOUCH()
+                })
+            }
+
+            function isAvailableError(error) {
+                document.getElementById("loginButton").innerHTML = "Log in met PIN"; 
+                
+                //Add event handler to the login button
+                $$('#loginButton').on('click', function (e) {
+                    loginPIN()
+                })
+            }
+            
+            }    
+            
+}, false);
 
 // Timer functions to logout (return to index) after # time of inactivity.
 var timeoutID;
 
 function goInactive() {
-    app.views.main.router.back('/',{ignoreCache: true, reload: true});
+     if(device.platform == "iOS"){
+         app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true})
+     };
+     if(deviceType == "Android"|| deviceType == "android"){
+        app.views.main.router.back('/',{ignoreCache: true, reload: true});
+     };
     app.panel.close("left")
 }
 
@@ -322,6 +403,8 @@ $$(window).on('click keyup', function (e) {
     window.clearTimeout(timeoutID);
     startTimer();
 });
+    
+
 
 //Login procedure if touchID is enabled
 function loginTOUCH(){
@@ -487,6 +570,7 @@ function authentication(){
                             window.localStorage.setItem('project', settings[0].data.project);
                             window.localStorage.setItem('q0_startdate', settings[0].data.q0_startdate);
                             window.localStorage.setItem('q0_occasions', settings[0].data.q0_occasions);
+                            window.localStorage.setItem('q0_intervaltype', settings[0].data.q0_intervaltype);
                             window.localStorage.setItem('q0_interval', settings[0].data.q0_interval);
                      
                             // register the device to receive notifications
@@ -549,6 +633,11 @@ $$('#acceptConsent').on('click', function (e) {
         })   
 })
 
+//Add event handler to the close consent link in the About button.
+$$('#closeConsent').on('click', function (e) {
+    app.popup.close(".consentAbout")
+})
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Database functions needed to setup the diary database and all tables
     // Wait for Phonegap to load
@@ -571,7 +660,23 @@ $$('#acceptConsent').on('click', function (e) {
          var uname= window.localStorage.getItem('uname');
          var pwd= window.localStorage.getItem('pwd');
          var project = window.localStorage.getItem('project');
+         
+         // registration for push notifications (optional)
+         var devicetoken=localStorage.getItem('registrationId');
+        
+         var dataStringPush="uname="+uname+"&pwd="+pwd+"&devicetoken="+devicetoken+"&updateregistration=yes";
+            
+                $.ajax({
+                    type:"POST",  
+                    url:"https://peterkruyen.net/diary/insert.php", data: dataStringPush,
+                    crossDomain: true,
+                    cache: false, 
+                    success:function(data)  
+                    {  
+                    }  
+                });  
 
+         // registration for tables
          var dataString="uname="+uname+"&pwd="+pwd+"&project="+project+"&findvalues=true";
                  $.ajax({
                  type:"POST",  
@@ -582,8 +687,7 @@ $$('#acceptConsent').on('click', function (e) {
                  {  
                     surveyStructure = JSON.parse(data).data0;
                     pageStructure = JSON.parse(data).data1;
-                    questionTable = JSON.parse(data).data2;
-                                         
+                    questionTable = JSON.parse(data).data2;                                         
                     DiaryDatabase.transaction(function (tx){
                         tx.executeSql('DROP TABLE IF EXISTS surveyStructure');
                         tx.executeSql('DROP TABLE IF EXISTS pageStructure');
@@ -592,7 +696,7 @@ $$('#acceptConsent').on('click', function (e) {
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyInformation (surveydate,A,B,C,D)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual, moduleAname, moduleBname, moduleCname, moduleDname)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS pageStructure (module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick, backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref)');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, footer)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, categories, footer)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS responseTable (id, surveydate, timestamp)');
                         
                         DiaryDatabase.transaction(function(tx) {
@@ -623,7 +727,8 @@ $$('#acceptConsent').on('click', function (e) {
                                                  questionTable[i].data.tab, 
                                                  questionTable[i].data.idq, 
                                                  questionTable[i].data.type, 
-                                                 questionTable[i].data.question, 
+                                                 questionTable[i].data.question,
+                                                 questionTable[i].data.categories,
                                                  questionTable[i].data.footer
                                                  );
                             listQuestionIds.push(questionTable[i].data.idq);
@@ -685,27 +790,35 @@ $$('#acceptConsent').on('click', function (e) {
     }
 
     // function to populate the questiontable database
-    function addItemQuestiontable(DiaryDatabase, module2, tab, idq, type, question, footer) {
+    function addItemQuestiontable(DiaryDatabase, module2, tab, idq, type, question, categories, footer) {
 
         DiaryDatabase.transaction(function (tx) {
 
-        var query = "INSERT INTO questiontable (module2, tab, idq, type, question, footer) VALUES (?,?,?,?,?,?)";
+        var query = "INSERT INTO questiontable (module2, tab, idq, type, question, categories, footer) VALUES (?,?,?,?,?,?,?)";
 
-        tx.executeSql(query, [module2, tab, idq, type, question, footer], function(tx) {
+        tx.executeSql(query, [module2, tab, idq, type, question, categories, footer], function(tx) {
         });
     });
     }
 
 // function to create the survey schedule
 
-function measurementDates (startdate=window.localStorage.getItem("q0_startdate"), occassions = window.localStorage.getItem('q0_occasions'), interval = window.localStorage.getItem("q0_interval")){
+function measurementDates (startdate=window.localStorage.getItem("q0_startdate"), occassions = window.localStorage.getItem('q0_occasions'),intervaltype = window.localStorage.getItem("q0_intervaltype"), interval = window.localStorage.getItem("q0_interval")){
+    
+    
     
     var currentmoment =moment();
         
     for (i = 0; i < Number(occassions)*Number(interval); i = i + Number(interval)) {
         
-        var measurementOccassion = moment(startdate).add(i, 'weeks');
-
+        if (intervaltype=='d'){
+            var measurementOccassion = moment(startdate).add(i, 'days');
+        }
+        
+        if (intervaltype=='w'){
+            var measurementOccassion = moment(startdate).add(i, 'weeks');
+        }
+        
         month = measurementOccassion.format('MMM');
         day = measurementOccassion.format('DD');
         year = measurementOccassion.format('YYYY');
@@ -768,7 +881,39 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
       },
       function (tx, succes) {
          app.popup.open(".consent");
-         document.getElementById("emptyconsentform").innerHTML += consentText   
+         document.getElementById("emptyconsentform").innerHTML += consentText;
+          
+         //restyle the Android toolbar 
+         if(deviceType == "Android"|| deviceType == "android"){
+            $(".toolbar-bottom").css("height", "120px");
+            $(".toolbar-inner").css("height", "40px");
+         }  
+     })
+ }
+
+// function to populate the consent page in the About page
+ function startConsentAbout(){
+      document.getElementById("emptyconsentformAbout").innerHTML = ""   
+
+      DiaryDatabase.transaction(function (tx) {
+            
+                var query = "SELECT consent FROM surveyStructure WHERE rowid = ?"
+                tx.executeSql(query,[1],function (tx, resultSet) {
+                    consentText = resultSet.rows.item(0).consent
+                })
+      },
+      function (tx, error) {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+      },
+      function (tx, succes) {
+         app.popup.open(".consentAbout");
+         document.getElementById("emptyconsentformAbout").innerHTML += consentText;
+          
+         //restyle the Android toolbar 
+         if(deviceType == "Android"|| deviceType == "android"){
+            $(".toolbar-bottom").css("height", "120px");
+            $(".toolbar-inner").css("height", "40px");
+         }
      })
  }
 
@@ -873,6 +1018,23 @@ function startModule(module, adhoc) {
 
 // layout function for the tabs; for Android bottom: 10%, for iOS, bottom: 5%
  function pages(data) {
+    if (device.platform=="iOS"){
+    return `
+        <div id="${data.id}" class=${data.classp}>
+            <div class="block-header">${data.header}</div>
+              <div class="block bottomButtons"; style="position: absolute; bottom: 5%; width: 100%">
+                <div class="row">
+                    <div class="col-33" style="text-align: center">
+                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttontid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
+                    </div>
+                    <div class="col-33"></div>
+                    <div class="col-33" style="text-align: center">
+                        <button class="col button button-outline button-round button-large saveAnswers ${data.nextbuttononclick}" id=${data.nextbuttonid}><a href=${data.nextbuttonhref} class="tab-link">${data.nextbuttontext}</a></button>
+                    </div>
+                </div>
+            </div>`
+    }
+    if (device.platform=="Android"|| deviceType == "android"){
     return `
         <div id="${data.id}" class=${data.classp}>
             <div class="block-header">${data.header}</div>
@@ -887,6 +1049,8 @@ function startModule(module, adhoc) {
                     </div>
                 </div>
             </div>`
+    } 
+     
 }
 
 // layout function the questions
@@ -904,6 +1068,7 @@ function startModule(module, adhoc) {
                             tab: resultSet.rows.item(x).tab,
                             idq: resultSet.rows.item(x).idq,
                             question: resultSet.rows.item(x).question,
+                            categories: resultSet.rows.item(x).categories,
                             footer: resultSet.rows.item(x).footer
                         }
                         
@@ -917,6 +1082,7 @@ function startModule(module, adhoc) {
                         }
                         if(resultSet.rows.item(x).type=="MC"){
                             emptytab.innerHTML += multiplechoicequestion(data);
+                            multiplechoicequestionselect(data);
                         }
                         if(resultSet.rows.item(x).type=="SL"){
                             emptytab.innerHTML += sliderquestion(data);
@@ -979,7 +1145,7 @@ function startModule(module, adhoc) {
     }
 
     // layout function for multiple choice questions
-    function multiplechoicequestion(data){
+    function multiplechoicequestion(data){        
         return `
         <form class="form-store-data" id=${data.tab}> 
             <div class="block block-strong no-hairlines">
@@ -989,17 +1155,26 @@ function startModule(module, adhoc) {
             <div class="item-input-wrap input-dropdown-wrap">
             <select class="question" style="width:100%" name=${data.idq} id=${data.idq} placeholder="">
                 <option disabled selected value> -- Kies een antwoord -- </option>
-                <option value="ZO">Zeer onwaarschijnlijk</option>
-                <option value="O">Onwaarschijnlijk</option>
-                <option value="NE">Neutraal</option>
-                <option value="WA">Waarschijnlijk</option>
-                <option value="ZW">Zeer waarschijnlijk</option>
             </select>
             </div>
             </div>
             <div class="block-footer">${data.footer}</div>  
             </div>
-        </form> `
+        </form>`
+    }
+
+    // layout function for the options in the multiple choice questions
+    function multiplechoicequestionselect(data){ 
+        select = document.getElementById(data.idq)
+        
+        optionValues = Object.getOwnPropertyNames(JSON.parse(data.categories))
+        
+        for (i = 0; i < optionValues.length; i++) {
+            option = document.createElement("option")
+            option.value =  optionValues[i]
+            option.text = Object(JSON.parse(data.categories))[optionValues[i]]
+            select.appendChild(option)
+        }
     }
 
     // layout function for the slider questions
