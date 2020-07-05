@@ -381,7 +381,7 @@ var timeoutID;
 
 function goInactive() {
      if(device.platform == "iOS"){
-        app.views.main.router.back('/',{ignoreCache: true, reload: true});
+        app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
      };
      if(device.platform == "Android"|| device.platform == "android"){
         app.views.main.router.back('/',{ignoreCache: true, reload: true});
