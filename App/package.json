@@ -19,10 +19,15 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios",
+      "browser"
     ]
   },
   "dependencies": {
-    "cordova-ios": "^6.1.0"
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^6.1.0",
+    "execa": "^4.0.2",
+    "properties-parser": "^0.3.1"
   }
 }

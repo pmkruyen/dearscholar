@@ -31,6 +31,9 @@
     },
     "cordova-sqlite-evcore-extbuild-free": {
       "PACKAGE_NAME": "net.peterkruyen.diary"
+    },
+    "phonegap-plugin-push": {
+      "PACKAGE_NAME": "net.peterkruyen.diary"
     }
   },
   "dependent_plugins": {
