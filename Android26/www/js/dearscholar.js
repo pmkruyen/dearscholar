@@ -286,9 +286,7 @@ function onBackKeyDown() {
         return false;
     } else if (app.views.main.router.url == '/schedule/') {
         app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
-            // if(deviceType == “Android” || deviceType == “android”){
             navigator.app.exitApp();
-            // }
         },
         function() {
         });
@@ -299,17 +297,17 @@ function onBackKeyDown() {
 
 // Hide buttons on keyboardshow.
 window.addEventListener("keyboardWillShow", function(e) {
-    if(deviceType == "Android"|| deviceType == "android"){
+    //if(device.platform == "Android"|| device.platform == "android"){
         $(".bottomButtons").hide();
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
-    }
+    //}
 });
 
 window.addEventListener("keyboardDidHide", function(e) {
-    if(deviceType == "Android"|| deviceType == "android"){
+    //if(device.platform == "Android"|| device.platform == "android"){
         $(".bottomButtons").show();
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
+    //}
 });
 
 
@@ -317,9 +315,7 @@ window.addEventListener("keyboardDidHide", function(e) {
 ///// Specific IOS functions
 // Style the login screen
 document.addEventListener("deviceready", function(){
-            deviceType = device.platform;
-    
-            if(deviceType == "iOS"){
+            if(device.platform == "iOS"){
     
             $$('#showPasswordIcon').html('')
             $$("#password").removeClass('passwordisempty');
@@ -387,7 +383,7 @@ function goInactive() {
      if(device.platform == "iOS"){
          app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true})
      };
-     if(deviceType == "Android"|| deviceType == "android"){
+     if(device.platform == "Android"|| device.platform == "android"){
         app.views.main.router.back('/',{ignoreCache: true, reload: true});
      };
     app.panel.close("left")
@@ -547,13 +543,14 @@ function checkPIN(PIN){
 
 }
 
-// On login, check the login details of the respondent.
+// On login, check the login details of the respondent, and (re)register the device to receive push notifications
 function authentication(){
    
     var uname = $$('.page input[name = "username"]').val();
     window.localStorage.setItem('uname', uname);
     var pwd = $$('.page input[name = "password"]').val();
     window.localStorage.setItem('pwd', pwd);
+
     var dataString="uname="+uname+"&pwd="+pwd+"&insert=";
             
                 $.ajax({
@@ -573,7 +570,7 @@ function authentication(){
                             window.localStorage.setItem('q0_intervaltype', settings[0].data.q0_intervaltype);
                             window.localStorage.setItem('q0_interval', settings[0].data.q0_interval);
                      
-                            // register the device to receive notifications
+                            // (re)register the device to receive push notifications
                             var devicetoken=localStorage.getItem('registrationId');
  
                             var dataString="uname="+uname+"&pwd="+pwd+"&devicetoken="+devicetoken+"&updateregistration=yes";
@@ -652,7 +649,7 @@ $$('#closeConsent').on('click', function (e) {
         androidDatabaseProvider: 'system'}); 
     }
 
-    // Setup the diary pushnotifications and tables
+    // Setup the diary tables
     function setupDiary(DiaryDatabase){
         
          app.preloader.show();
@@ -660,23 +657,7 @@ $$('#closeConsent').on('click', function (e) {
          var uname= window.localStorage.getItem('uname');
          var pwd= window.localStorage.getItem('pwd');
          var project = window.localStorage.getItem('project');
-         
-         // registration for push notifications (optional)
-         var devicetoken=localStorage.getItem('registrationId');
-        
-         var dataStringPush="uname="+uname+"&pwd="+pwd+"&devicetoken="+devicetoken+"&updateregistration=yes";
-            
-                $.ajax({
-                    type:"POST",  
-                    url:"https://peterkruyen.net/diary/insert.php", data: dataStringPush,
-                    crossDomain: true,
-                    cache: false, 
-                    success:function(data)  
-                    {  
-                    }  
-                });  
-
-         // registration for tables
+    
          var dataString="uname="+uname+"&pwd="+pwd+"&project="+project+"&findvalues=true";
                  $.ajax({
                  type:"POST",  
@@ -884,7 +865,7 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
          document.getElementById("emptyconsentform").innerHTML += consentText;
           
          //restyle the Android toolbar 
-         if(deviceType == "Android"|| deviceType == "android"){
+         if(device.platform == "Android"|| device.platform == "android"){
             $(".toolbar-bottom").css("height", "120px");
             $(".toolbar-inner").css("height", "40px");
          }  
@@ -910,7 +891,7 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
          document.getElementById("emptyconsentformAbout").innerHTML += consentText;
           
          //restyle the Android toolbar 
-         if(deviceType == "Android"|| deviceType == "android"){
+         if(device.platform == "Android"|| device.platform == "android"){
             $(".toolbar-bottom").css("height", "120px");
             $(".toolbar-inner").css("height", "40px");
          }
@@ -1034,7 +1015,7 @@ function startModule(module, adhoc) {
                 </div>
             </div>`
     }
-    if (device.platform=="Android"|| deviceType == "android"){
+    if (device.platform=="Android"|| device.platform == "android"){
     return `
         <div id="${data.id}" class=${data.classp}>
             <div class="block-header">${data.header}</div>
