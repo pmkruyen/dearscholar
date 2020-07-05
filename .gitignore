@@ -2,6 +2,9 @@
 /App/www/js/push.js
 /App/google-services.json
 /App/platforms/*
+/App/node_modules/*
 /Android26/www/js/push.js
 /Android26/google-services.json
 /Android26/platforms/*
+/Android26/node_modules/*
+
