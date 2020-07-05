@@ -1,5 +1,7 @@
 .DS_store
 /App/www/js/push.js
 /App/google-services.json
+/App/platforms/*
 /Android26/www/js/push.js
 /Android26/google-services.json
+/Android26/platforms/*
