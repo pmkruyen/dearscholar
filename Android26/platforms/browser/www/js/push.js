@@ -34,7 +34,6 @@ var message = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      console.log('deviceready event');
       message.push = PushNotification.init({
            "android": {
              "senderID": "462224955607"
@@ -42,7 +41,7 @@ var message = {
            "ios": {
              "sound": true,
              "vibration": true,
-             "badge": true
+             "badge": false
            },
            "windows": {}
        });
