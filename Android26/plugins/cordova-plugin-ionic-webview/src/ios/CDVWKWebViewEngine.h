@@ -25,9 +25,6 @@
 @property (nonatomic, strong, readonly) id <WKUIDelegate> uiDelegate;
 @property (nonatomic, strong) NSString * basePath;
 
-extern NSString * const IONIC_SCHEME;
-extern NSString * const IONIC_FILE_SCHEME;
-
 -(void)setServerBasePath:(CDVInvokedUrlCommand*)command;
 -(void)getServerBasePath:(CDVInvokedUrlCommand*)command;
 

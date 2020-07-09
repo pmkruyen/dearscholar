@@ -19,9 +19,6 @@
     "cordova-plugin-ionic-keyboard": {
       "PACKAGE_NAME": "net.peterkruyen.diary"
     },
-    "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
-    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "net.peterkruyen.diary"
     },
@@ -32,6 +29,9 @@
       "PACKAGE_NAME": "net.peterkruyen.diary"
     },
     "phonegap-plugin-push": {
+      "PACKAGE_NAME": "net.peterkruyen.diary"
+    },
+    "cordova-plugin-ionic-webview": {
       "PACKAGE_NAME": "net.peterkruyen.diary"
     }
   },

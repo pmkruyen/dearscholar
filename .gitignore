@@ -1,14 +1,13 @@
 .DS_store
+Dearscholar.php
 /App/google-services.json
-/App/package-lock.json
-/App/package.json
 /App/www/js/push.js
+/App/node_modules/*
 /App/platforms/*
 /App/node_modules/*
 /Android26/google-services.json
-/Android26/package-lock.json
-/Android26/package.json
 /Android26/www/js/push.js
+/Android26/node_modules/*
 /Android26/platforms/*
 /Android26/node_modules/*
 

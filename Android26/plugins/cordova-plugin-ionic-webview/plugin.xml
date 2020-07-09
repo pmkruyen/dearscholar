@@ -19,7 +19,7 @@
   under the License.
 -->
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:rim="http://www.blackberry.com/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-ionic-webview" version="3.0.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:rim="http://www.blackberry.com/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-ionic-webview" version="5.0.0">
     <name>cordova-plugin-ionic-webview</name>
     <description>Ionic Web View Engine Plugin</description>
     <license>Apache-2.0</license>
@@ -27,6 +27,7 @@
     <repo>https://github.com/ionic-team/cordova-plugin-ionic-webview</repo>
 
 	<engines>
+        <engine name="cordova" version=">=7.1.0"/>
         <engine name="cordova-ios" version=">=4.0.0-dev"/>
         <engine name="apple-ios" version=">=11.0"/>
         <engine name="cordova-android" version=">=6.4.0"/>
@@ -39,6 +40,8 @@
   <platform name="android">
     <config-file target="config.xml" parent="/*">
       <allow-navigation href="http://localhost/*"/>
+      <allow-navigation href="https://localhost/*"/>
+      <allow-navigation href="ionic://*"/>
       <preference name="webView" value="com.ionicframework.cordova.webview.IonicWebViewEngine"/>
       <feature name="IonicWebView">
           <param name="android-package" value="com.ionicframework.cordova.webview.IonicWebView"/>
@@ -49,8 +52,6 @@
     <source-file src="src/android/com/ionicframework/cordova/webview/AndroidProtocolHandler.java" target-dir="src/com/ionicframework/cordova/webview"/>
     <source-file src="src/android/com/ionicframework/cordova/webview/UriMatcher.java" target-dir="src/com/ionicframework/cordova/webview"/>
     <source-file src="src/android/com/ionicframework/cordova/webview/WebViewLocalServer.java" target-dir="src/com/ionicframework/cordova/webview"/>
-    <preference name="ANDROID_SUPPORT_ANNOTATIONS_VERSION" default="27.+"/>
-    <framework src="com.android.support:support-annotations:$ANDROID_SUPPORT_ANNOTATIONS_VERSION"/>
   </platform>
 
   <!-- ios -->

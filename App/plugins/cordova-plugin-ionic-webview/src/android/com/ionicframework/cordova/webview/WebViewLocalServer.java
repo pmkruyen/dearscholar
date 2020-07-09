@@ -19,6 +19,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 
 import org.apache.cordova.ConfigXmlParser;
@@ -48,14 +49,15 @@ import java.util.UUID;
 public class WebViewLocalServer {
   private static String TAG = "WebViewAssetServer";
   private String basePath;
-  private final static String httpScheme = "http";
-  private final static String httpsScheme = "https";
-  public final static String ionicFileScheme = "app-file";
-  public final static String ionicContentScheme = "app-content";
+  public final static String httpScheme = "http";
+  public final static String httpsScheme = "https";
+  public final static String fileStart = "/_app_file_";
+  public final static String contentStart = "/_app_content_";
 
   private final UriMatcher uriMatcher;
   private final AndroidProtocolHandler protocolHandler;
   private final String authority;
+  private final String customScheme;
   // Whether we're serving local files or proxying (for example, when doing livereload on a
   // non-local endpoint (will be false in that case)
   private boolean isAsset;
@@ -161,12 +163,13 @@ public class WebViewLocalServer {
     }
   }
 
-  WebViewLocalServer(Context context, String authority, boolean html5mode, ConfigXmlParser parser) {
+  WebViewLocalServer(Context context, String authority, boolean html5mode, ConfigXmlParser parser, String customScheme) {
     uriMatcher = new UriMatcher(null);
     this.html5mode = html5mode;
     this.parser = parser;
     this.protocolHandler = new AndroidProtocolHandler(context.getApplicationContext());
     this.authority = authority;
+    this.customScheme = customScheme;
   }
 
   private static Uri parseAndVerifyUrl(String url) {
@@ -211,7 +214,7 @@ public class WebViewLocalServer {
    * @param uri the request Uri to process.
    * @return a response if the request URL had a matching handler, null if no handler was found.
    */
-  public WebResourceResponse shouldInterceptRequest(Uri uri) {
+  public WebResourceResponse shouldInterceptRequest(Uri uri, WebResourceRequest request) {
     PathHandler handler;
     synchronized (uriMatcher) {
       handler = (PathHandler) uriMatcher.match(uri);
@@ -222,21 +225,46 @@ public class WebViewLocalServer {
 
     if (isLocalFile(uri) || uri.getAuthority().equals(this.authority)) {
       Log.d("SERVER", "Handling local request: " + uri.toString());
-      return handleLocalRequest(uri, handler);
+      return handleLocalRequest(uri, handler, request);
     } else {
       return handleProxyRequest(uri, handler);
     }
   }
 
   private boolean isLocalFile(Uri uri) {
-    if (uri.getScheme().equals(ionicContentScheme) || uri.getScheme().equals(ionicFileScheme)) {
+    String path = uri.getPath();
+    if (path.startsWith(contentStart) || path.startsWith(fileStart)) {
       return true;
     }
     return false;
   }
-  private WebResourceResponse handleLocalRequest(Uri uri, PathHandler handler) {
-    String path = uri.getPath();
 
+
+  private WebResourceResponse handleLocalRequest(Uri uri, PathHandler handler, WebResourceRequest request) {
+    String path = uri.getPath();
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && request != null && request.getRequestHeaders().get("Range") != null) {
+      InputStream responseStream = new LollipopLazyInputStream(handler, uri);
+      String mimeType = getMimeType(path, responseStream);
+      Map<String, String> tempResponseHeaders = handler.getResponseHeaders();
+      int statusCode = 206;
+      try {
+        int totalRange = responseStream.available();
+        String rangeString = request.getRequestHeaders().get("Range");
+        String[] parts = rangeString.split("=");
+        String[] streamParts = parts[1].split("-");
+        String fromRange = streamParts[0];
+        int range = totalRange-1;
+        if (streamParts.length > 1) {
+          range = Integer.parseInt(streamParts[1]);
+        }
+        tempResponseHeaders.put("Accept-Ranges", "bytes");
+        tempResponseHeaders.put("Content-Range", "bytes " + fromRange + "-" + range + "/" + totalRange);
+      } catch (IOException e) {
+        statusCode = 404;
+      }
+      return createWebResourceResponse(mimeType, handler.getEncoding(),
+              statusCode, handler.getReasonPhrase(), tempResponseHeaders, responseStream);
+    }
     if (isLocalFile(uri)) {
       InputStream responseStream = new LollipopLazyInputStream(handler, uri);
       String mimeType = getMimeType(path, responseStream);
@@ -244,7 +272,7 @@ public class WebViewLocalServer {
               handler.getStatusCode(), handler.getReasonPhrase(), handler.getResponseHeaders(), responseStream);
     }
 
-    if (path.equals("/") || (!uri.getLastPathSegment().contains(".") && html5mode)) {
+    if (path.equals("") || path.equals("/") || (!uri.getLastPathSegment().contains(".") && html5mode)) {
       InputStream stream;
       String launchURL = parser.getLaunchUrl();
       String launchFile = launchURL.substring(launchURL.lastIndexOf("/") + 1, launchURL.length());
@@ -332,9 +360,11 @@ public class WebViewLocalServer {
         Log.d(IonicWebViewEngine.TAG, "We shouldn't be here");
       }
       if (mimeType == null) {
-        if (path.endsWith(".js")) {
+        if (path.endsWith(".js") || path.endsWith(".mjs")) {
           // Make sure JS files get the proper mimetype to support ES modules
           mimeType = "application/javascript";
+        } else if (path.endsWith(".wasm")) {
+          mimeType = "application/wasm";
         } else {
           mimeType = URLConnection.guessContentTypeFromStream(stream);
         }
@@ -406,16 +436,16 @@ public class WebViewLocalServer {
       public InputStream handle(Uri url) {
         InputStream stream = null;
         String path = url.getPath();
-        if (!isAsset) {
-          path = basePath + url.getPath();
-        }
         try {
-          if ((url.getScheme().equals(httpScheme) || url.getScheme().equals(httpsScheme)) && isAsset) {
-            stream = protocolHandler.openAsset(assetPath + path);
-          } else if (url.getScheme().equals(ionicFileScheme) || !isAsset) {
-            stream = protocolHandler.openFile(path);
-          } else if (url.getScheme().equals(ionicContentScheme)) {
+          if (path.startsWith(contentStart)) {
             stream = protocolHandler.openContentUrl(url);
+          } else if (path.startsWith(fileStart) || !isAsset) {
+            if (!path.startsWith(fileStart)) {
+              path = basePath + url.getPath();
+            }
+            stream = protocolHandler.openFile(path);
+          } else {
+            stream = protocolHandler.openAsset(assetPath + path);
           }
         } catch (IOException e) {
           Log.e(TAG, "Unable to open asset URL: " + url);
@@ -428,8 +458,9 @@ public class WebViewLocalServer {
 
     registerUriForScheme(httpScheme, handler, authority);
     registerUriForScheme(httpsScheme, handler, authority);
-    registerUriForScheme(ionicFileScheme, handler, "");
-    registerUriForScheme(ionicContentScheme, handler, "");
+    if (!customScheme.equals(httpScheme) && !customScheme.equals(httpsScheme)) {
+      registerUriForScheme(customScheme, handler, authority);
+    }
 
   }
 

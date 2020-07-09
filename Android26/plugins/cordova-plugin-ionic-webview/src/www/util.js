@@ -5,13 +5,15 @@ var WebView = {
     if (!url) {
       return url;
     }
-    if (url.startsWith('file://')) {
-      return url.replace('file', window.WEBVIEW_FILE_PREFIX);
+    if (url.indexOf('/')===0) {
+      return window.WEBVIEW_SERVER_URL + '/_app_file_' + url;
     }
-    if (url.startsWith('content://')) {
-        return url.replace('content://', window.WEBVIEW_CONTENT_PREFIX + ':///');
+    if (url.indexOf('file://')===0) {
+      return window.WEBVIEW_SERVER_URL + url.replace('file://', '/_app_file_');
     }
-
+    if (url.indexOf('content://')===0) {
+      return window.WEBVIEW_SERVER_URL + url.replace('content:/', '/_app_content_');
+    }
     return url;
   },
   setServerBasePath: function(path) {

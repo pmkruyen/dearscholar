@@ -135,7 +135,7 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	GRANT SELECT, UPDATE ON project. authentication TO '######'@'localhost';
 
 	### TO REGISTER THE DEVICE FOR RECEIVING PUSH NOTIFICATIONS (AND UPDATE WHEN APPLE OR ANDROID PROVIDES A NEW TOKEN
-	GRANT SELECT, UPDATE ON project. Registration TO '######'@'localhost';
+	GRANT SELECT, UPDATE ON project. registration TO '######'@'localhost';
 	
 	# TO MANIPULATE THE PIN CODE
 	GRANT INSERT, SELECT, UPDATE ON project. pintable TO '######'@'localhost';
