@@ -194,11 +194,11 @@ routes: [
                     var pwd= window.localStorage.getItem('pwd');
                     var id = $$(this).attr("id");
                     
-                    var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&updateregistration=true";
+                    var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesCheck=true";
                     
                     $.ajax({
                         type:"POST",  
-                        url:"https://peterkruyen.net/diary/messages.php", data: dataString,
+                        url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                         crossDomain: true,
                         cache: false, 
                         success:function(data){  
@@ -487,7 +487,7 @@ function storePIN(PIN){
     
         $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/insert.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -520,7 +520,7 @@ function checkPIN(PIN){
     
         $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/insert.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -551,11 +551,11 @@ function authentication(){
     var pwd = $$('.page input[name = "password"]').val();
     window.localStorage.setItem('pwd', pwd);
 
-    var dataString="uname="+uname+"&pwd="+pwd+"&insert=";
+    var dataString="uname="+uname+"&pwd="+pwd+"&authentication=yes";
             
                 $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/authentication.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -577,7 +577,7 @@ function authentication(){
             
                                 $.ajax({
                                     type:"POST",  
-                                    url:"https://peterkruyen.net/diary/insert.php", data: dataString,
+                                    url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                                     crossDomain: true,
                                     cache: false, 
                                     success:function(data)  
@@ -619,7 +619,7 @@ $$('#acceptConsent').on('click', function (e) {
                  
         $.ajax({
             type:"POST",  
-            url:"https://peterkruyen.net/diary/diarystructure.php", data: dataString,
+            url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
             crossDomain: true,
             cache: false, 
             success:function(data){  
@@ -661,7 +661,7 @@ $$('#closeConsent').on('click', function (e) {
          var dataString="uname="+uname+"&pwd="+pwd+"&project="+project+"&findvalues=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/diarystructure.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1374,10 +1374,10 @@ function checkNewMessages(){
          var uname= window.localStorage.getItem('uname');
          var pwd= window.localStorage.getItem('pwd');
 
-         var dataString="uname="+uname+"&pwd="+pwd+"&findvalues=true";
+         var dataString="uname="+uname+"&pwd="+pwd+"&messagesCheck=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/messages.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1409,10 +1409,10 @@ function populateMessageboxrun(){
          var uname= window.localStorage.getItem('uname');
          var pwd= window.localStorage.getItem('pwd');
 
-         var dataString="uname="+uname+"&pwd="+pwd+"&findvalues=true";
+         var dataString="uname="+uname+"&pwd="+pwd+"&messagesCheck=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/messages.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1476,10 +1476,10 @@ function seen(item) {
     var pwd= window.localStorage.getItem('pwd');
     var id = $(item).attr("id");
     
-         var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&updateregistration=true";
+         var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesSeen=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/messages.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  

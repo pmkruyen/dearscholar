@@ -92,6 +92,8 @@ DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.co
 ## Configuration
 To configure Dearscholar, eleven tables need to be set up in a secured database (such as mysql) on a secured server and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). In this section, these eleven tables are described.
 
+*Note* In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables to make it possible to run multiple projects simultaneously.
+
 ### 1) authentication table
 A table with the following columns, settings are stored for a single respondent on each row:
 | Column name | Content | Options |
@@ -220,7 +222,7 @@ To log in, populate the survey modules with question pages and questions, and st
 2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Configuration)
 3) write the required php scripts to let the app communicate with the database on your server.
 
-Generic php scripts that can be used with DearScholar will be included in this repro in the future. If you want to help developing these scripts, that is very much appreciated.
+A sample php script can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php), excluding the code lines required to upload the data to the server, which will be uploaded soon.
 
 ### Step 3: Experiment with DearScholar on your mobile device
 In order experiment with DearScholar on iOS and Android devices, the app should be build (compiled):

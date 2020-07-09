@@ -2,6 +2,9 @@
 
 # MYSQL database initialization for DearScholar. Consult the README file for further explanations. 
 
+# Note: In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables (in 'project' databases) to make it possible to run multiple projects simultaneously.
+
+
 # MYSQL database and table setup
 
 CREATE DATABASE IF NOT EXISTS project
