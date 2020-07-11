@@ -27,9 +27,13 @@ Obviously, as this is an open-source project, you are free to build your own der
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.diary&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1).
 
 ### For researchers and potential contributers:
-* Background information, an overview of the current features, and user cases can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
+* Background information, an overview of the current features, and research projects can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
 * Read the section **DearScholar in details** below;
 * Browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]), fork the project, and commit updates.
+
+## Research projects
+* Diary study on public servants' creativity (>50 respondents; February-December 2020) by Glenn Houtgraaf MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
+* Diary study on creativity in local-care teams (>150 respondents; September-December 2020) by Liesbeth Faas MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 
 ## Acknowledgement
 DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The main author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
