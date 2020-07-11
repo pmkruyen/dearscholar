@@ -5,10 +5,12 @@
 # Note: In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables (in 'project' databases) to make it possible to run multiple projects simultaneously.
 
 
-# MYSQL database and table setup
+# MYSQL database setup
 
 CREATE DATABASE IF NOT EXISTS project
 	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+# MYSQL table setup (respondent management)
 
 CREATE TABLE IF NOT EXISTS authentication (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
@@ -32,6 +34,8 @@ CREATE TABLE IF NOT EXISTS pintable (
    	uname VARCHAR(100) ,
    	pin TEXT,
 	code TEXT);
+
+# MYSQL table setup (survey setup)
 
 CREATE TABLE IF NOT EXISTS surveyStructure (
 	consent TEXT,
@@ -57,7 +61,7 @@ CREATE TABLE IF NOT EXISTS pageStructure (
 	nextbuttonclick VARCHAR(100) ,
 	nextbuttonhref VARCHAR(100) )
 
-CREATE TABLE IF NOT EXISTS questionable (
+CREATE TABLE IF NOT EXISTS questionTable (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 	module2 VARCHAR(100) ,
 	tab VARCHAR(100) ,
@@ -67,6 +71,8 @@ CREATE TABLE IF NOT EXISTS questionable (
 	categories TEXT ,
 	footer TEXT )
 
+# MYSQL table setup (in app messages)
+
 CREATE TABLE IF NOT EXISTS messages (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
    	uname VARCHAR(100) ,
@@ -74,39 +80,92 @@ CREATE TABLE IF NOT EXISTS messages (
    	message TEXT,
 	seen VARCHAR(1) )
 
+# MYSQL table setup (response tables)
+# Warning: Set up these tables only after the questionTable has been populated.
+# Warning: When new questions are added to the questionTable afterwards (or question IDs have changed), add new response columns for these questions manually to the table.  
+
+# Code adapted from https://stackoverflow.com/users/833073/fthiella
+# https://stackoverflow.com/questions/15820082/create-a-table-with-column-names-derived-from-row-values-of-another-table
 
 CREATE TABLE IF NOT EXISTS responseTableModuleA (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
    	uname VARCHAR(100) ,
    	timestamp TEXT,
-   	surveydate TEXT
-	# , … separate columns for each question in which the data needs to be stored
-            )
+   	surveydate TEXT);
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleA ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'A'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleB (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
    	uname VARCHAR(100) ,
    	timestamp TEXT,
-   	surveydate TEXT
-	# , … separate columns for each question in which the data needs to be stored
-            )
+   	surveydate TEXT);
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleB ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'B'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleC (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
    	uname VARCHAR(100) ,
    	timestamp TEXT,
-   	surveydate TEXT
-	# , … separate columns for each question in which the data needs to be stored
-            )
+   	surveydate TEXT);
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleC ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'C'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleD (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
    	uname VARCHAR(100) ,
    	timestamp TEXT,
-   	surveydate TEXT
-	# , … separate columns for each question in which the data needs to be stored
-            )
+   	surveydate TEXT);
 
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleD ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'D'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
 
 # MYSQL user management
 
@@ -119,7 +178,7 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	### TO MANIPULATE  THE SURVEY SETUP
 	GRANT INSERT, SELECT, DELETE, UPDATE ON project. surveyStructure TO '######'@'localhost';
 	GRANT INSERT, SELECT, DELETE, UPDATE ON project. pageStructure TO '######'@'localhost';
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. questionable TO '######'@'localhost';
+	GRANT INSERT, SELECT, DELETE, UPDATE ON project. questionTable TO '######'@'localhost';
 
 	### TO MANIPULATE THE MESSAGES TABLE
 	GRANT INSERT, SELECT, DELETE, UPDATE ON project. messages TO '######'@'localhost';
@@ -146,10 +205,10 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	# READ THE SURVEY SETUP
 	GRANT SELECT ON project. surveyStructure TO '######'@'localhost';
 	GRANT SELECT ON project. pageStructure TO '######'@'localhost';
-	GRANT SELECT ON project. questionable TO '######'@'localhost';
+	GRANT SELECT ON project. questionTable TO '######'@'localhost';
 	
 	# READ MESSAGES AND SET THE READ VALUE TO ONE (1)
-	GRANT SELECT, UPDATE ON project. questionable TO '######'@'localhost';
+	GRANT SELECT, UPDATE ON project. questionTable TO '######'@'localhost';
 
 	# INSERT (POST) THE DATA (SURVEY RESULTS
 	GRANT INSERT ON project. responseTableModuleA TO '######'@'localhost';
