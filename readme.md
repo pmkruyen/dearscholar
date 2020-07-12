@@ -225,9 +225,9 @@ To get the developer version of DearScholar running on your computer, the follow
 To log in, populate the survey modules with question pages and questions, and store answers on a server:
 1) set up your own (virtual private) server or get access to an existing one on your university;
 2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Configuration)
-3) write the required php scripts to let the app communicate with the database on your server.
+3) write the required php scripts to let the app communicate with the database on your server (that is, download the settings and upload the responses).
 
-A sample php script can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php), excluding the code lines required to upload the data to the server, which will be uploaded soon.
+A sample php script can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
 ### Step 3: Experiment with DearScholar on your mobile device
 In order experiment with DearScholar on iOS and Android devices, the app should be build (compiled):

@@ -1332,10 +1332,10 @@ function uploadToServer(module){
      
      var dataString="uname="+uname+"&pwd="+pwd+"&surveydate="+surveydate+"&timestamp="+timestamp+"&"+data+"&module="+module;
 
-
+        console.log(dataString);
             $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/insert.php", data: dataString,
+                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  

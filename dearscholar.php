@@ -189,9 +189,97 @@ if(isset($_POST['authentication'])){
 
 }
 
+//////////////////////////////////
+//Insert responses
+// Create connection
+$conn = new mysqli("localhost", $MyUsername, $MyPassword, $project);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+if($_POST['module']=='moduleA'||$_POST['module']=='moduleB'||$_POST['module']=='moduleC'||$_POST['module']=='moduleD'){
 
 
+// prepare the variables (based on the column names, excluding the id variable )
+if($_POST['module'] == 'moduleA'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleA';
+}
 
+if($_POST['module'] == 'moduleB'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleB';
+}
 
+if($_POST['module'] == 'moduleC'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleC';
+}
 
+if($_POST['module'] == 'moduleD'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleD';
+}
+
+$res = $conn->query($sql);
+
+while($row = $res->fetch_assoc()){
+    $columns[] = $row['Field'];
+}
+
+if (($key = array_search('id', $columns)) !== false) {
+    unset($columns[$key]);
+}
+
+$variables =  implode(", ",$columns);
+
+// prepare the placeholders and data type variable
+$placeholders = array();
+$datatype = array();
+
+for ($x = 0; $x <= (count($columns)-1); $x++) {
+  array_push($placeholders,'?');
+  array_push($datatype,'s');
+}
+
+$placeholders =  implode(", ",$placeholders);
+$datatype =  implode("",$datatype);
+
+// prepare the connection
+if($_POST['module'] == 'moduleA'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleA ($variables) VALUES ($placeholders)");
+}
+
+if($_POST['module'] == 'moduleB'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleB ($variables) VALUES ($placeholders)");
+}
+
+if($_POST['module'] == 'moduleC'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleC ($variables) VALUES ($placeholders)");
+}
+
+if($_POST['module'] == 'moduleD'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleD ($variables) VALUES ($placeholders)");
+}
+
+// prepare the bind parameters
+$params[] = $columns;
+
+$params[0] = $datatype;
+
+for ($x = 1; $x <= count($columns); $x++) {
+  if(isset($_POST[$columns[$x]])) {$params[$x] = $_POST[$columns[$x]];}
+    else {$params[$x] = "NULL";}
+}
+
+call_user_func_array(array($stmt,'bind_param'),$params); 
+
+// execute
+if ($stmt->execute()) { 
+    echo "success";
+} else {
+   echo "error";
+}
+
+}
+
+//////////////////////////////////
 ?>
