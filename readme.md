@@ -227,7 +227,10 @@ To log in, populate the survey modules with question pages and questions, and st
 2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Configuration)
 3) write the required php scripts to let the app communicate with the database on your server (that is, download the settings and upload the responses).
 
-A sample php script can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
+A sample php script that can be used to let DearScholar communicate with the server can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
+
+#### Sample study
+To set up a sample study, [this](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php) sample php file can be used. When generating random usernames and passwords, avoid using question marks (?) and ampersands (&).
 
 ### Step 3: Experiment with DearScholar on your mobile device
 In order experiment with DearScholar on iOS and Android devices, the app should be build (compiled):
