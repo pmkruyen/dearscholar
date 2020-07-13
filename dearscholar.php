@@ -32,6 +32,7 @@ if (password_verify($pwd, $pwdhash)) {
 
      $uname=mysqli_real_escape_string($con,$_POST['uname']);
      $pin=mysqli_real_escape_string($con,$_POST['PIN']);
+     $pin=password_hash($pin, PASSWORD_DEFAULT);
 
      $q = mysqli_query($con, "SELECT * FROM `pintable` WHERE `uname` = '$uname'");
      $result = mysqli_fetch_assoc($q);
@@ -56,19 +57,26 @@ if (password_verify($pwd, $pwdhash)) {
 
      $uname=mysqli_real_escape_string($con,$_POST['uname']);
      $pin=mysqli_real_escape_string($con,$_POST['PIN']);
-  
+
      $q = mysqli_query($con, "SELECT * FROM `pintable` WHERE `uname` = '$uname' AND `code` = 'REVOKE'");
      $result = mysqli_fetch_assoc($q);
      $num = mysqli_num_rows($q);
      if($num) {
         echo "revoke";      
      } else {
-        $q = mysqli_query($con, "SELECT * FROM `pintable` WHERE `uname` = '$uname' AND `pin` = '$pin'");
-        $result = mysqli_fetch_assoc($q);
-        $num = mysqli_num_rows($q);
-        if($num) {
-          echo "success";      
-        } else {
+        $stmt = $con->prepare("SELECT * FROM `pintable` WHERE uname = ?");
+        $stmt->bind_param("s", $uname);
+        $stmt->execute();
+
+        $results = $stmt->get_result();
+
+        $row = mysqli_fetch_array($results);
+        $pinhash = $row['pin'];
+
+        if(password_verify($pin, $pinhash)){
+          echo "success";
+        }
+        else{
           echo "error";
         }
     }
