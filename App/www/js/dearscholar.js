@@ -380,10 +380,10 @@ document.addEventListener("deviceready", function(){
 var timeoutID;
 
 function goInactive() {
-     if(device.platform == "iOS"){
+     if(device.platform == "iOS"|| device.platform == "browser"){
         app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
      };
-     if(device.platform == "Android"|| device.platform == "android" || device.platform == "browser"){
+     if(device.platform == "Android"|| device.platform == "android"){
         app.views.main.router.back('/',{ignoreCache: true, reload: true});
      };
     app.panel.close("left")
@@ -865,7 +865,7 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
          document.getElementById("emptyconsentform").innerHTML += consentText;
           
          //restyle the Android toolbar 
-         if(device.platform == "Android"|| device.platform == "android" || device.platform == "browser"){
+         if(device.platform == "Android"|| device.platform == "android"){
             $(".toolbar-bottom").css("height", "120px");
             $(".toolbar-inner").css("height", "40px");
          }  
@@ -891,7 +891,7 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
          document.getElementById("emptyconsentformAbout").innerHTML += consentText;
           
          //restyle the Android toolbar 
-         if(device.platform == "Android"|| device.platform == "android" || device.platform == "browser"){
+         if(device.platform == "Android"|| device.platform == "android"){
             $(".toolbar-bottom").css("height", "120px");
             $(".toolbar-inner").css("height", "40px");
          }
@@ -999,7 +999,7 @@ function startModule(module, adhoc) {
 
 // layout function for the tabs; for Android bottom: 10%, for iOS, bottom: 5%
  function pages(data) {
-    if (device.platform=="iOS"){
+    if (device.platform=="iOS"|| device.platform == "browser"){
     return `
         <div id="${data.id}" class=${data.classp}>
             <div class="block-header">${data.header}</div>
@@ -1015,7 +1015,7 @@ function startModule(module, adhoc) {
                 </div>
             </div>`
     }
-    if (device.platform=="Android"|| device.platform == "android" || device.platform == "browser"){
+    if (device.platform=="Android"|| device.platform == "android"){
     return `
         <div id="${data.id}" class=${data.classp}>
             <div class="block-header">${data.header}</div>
