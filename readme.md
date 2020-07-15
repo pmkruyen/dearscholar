@@ -234,7 +234,7 @@ To log in, populate the survey modules with question pages and questions, and st
 A sample php script that can be used to let DearScholar communicate with the server can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
 #### Sample study
-To set up a sample study, the following can be used:
+To set up a sample study, the following scripts can be used:
 1) [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) to populate the authentication and surveyStructure table;
 2) [samplestudy-part2.sql](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the pageStructure and questionTable table;
 
