@@ -315,7 +315,8 @@ window.addEventListener("keyboardDidHide", function(e) {
 ///// Specific IOS functions
 // Style the login screen
 document.addEventListener("deviceready", function(){
-            if(device.platform == "iOS"){
+    
+            if(device.platform == "iOS"||device.platform == "Android"|| device.platform == "android"){
     
             $$('#showPasswordIcon').html('')
             $$("#password").removeClass('passwordisempty');
@@ -380,12 +381,12 @@ document.addEventListener("deviceready", function(){
 var timeoutID;
 
 function goInactive() {
-     if(device.platform == "iOS"|| device.platform == "browser"){
+     //if(device.platform == "iOS"|| device.platform == "browser"){
         app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
-     };
-     if(device.platform == "Android"|| device.platform == "android"){
+     //};
+     //if(device.platform == "Android"|| device.platform == "android"){
         app.views.main.router.back('/',{ignoreCache: true, reload: true});
-     };
+     //};
     app.panel.close("left")
 }
 
