@@ -95,11 +95,11 @@ DearScholar has the capacity to send short in-app messages to specific responden
 DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)] (https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
 ## Server configuration and options
-To configure Dearscholar, an Apache server needs to be set up that supports MySQL and PHP. 
+To configure Dearscholar, an Apache server needs to be set up that supports PHP and MySQL. 
 
-In MySQL, eleven tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Below, these eleven tables are described.
+In the ```var/www/html``` folder of the server, ```dearscholar.php``` needs to be included to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
-In the ```var/www/html``` folder of the server, a php file needs to be included to let DearScholar communicate with the server. A sample php script can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
+In MySQL, eleven tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Below, these eleven tables with all options, if applicable, are described.
 
 *Note*. In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables to make it possible to run multiple projects simultaneously.
 
@@ -229,9 +229,7 @@ To get the developer version of DearScholar running on your computer, the follow
 To log in, populate the survey modules with question pages and questions, and store answers on a server:
 1) set up your own Apache server or get access to an existing one on your university;
 2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Server configuration);
-3) write the required php script to let the app communicate with the database on your server (that is, download the settings and upload the responses), to be included in the ```var/www/html``` folder of your server.
-
-A sample php script that can be used to let DearScholar communicate with the server can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
+3) include ```dearscholar.php``` in the ```var/www/html``` folder of the server to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
 #### Sample study
 To set up a sample study, the following scripts can be used:
