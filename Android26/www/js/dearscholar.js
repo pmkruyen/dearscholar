@@ -290,7 +290,14 @@ function onBackKeyDown() {
         },
         function() {
         });
-    } else {
+    } else if (app.views.main.router.url == '/') {
+        app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
+            navigator.app.exitApp();
+        },
+        function() {
+        });
+    }
+    else {
         mainView.router.back();
     }
 }
@@ -385,7 +392,7 @@ function goInactive() {
         app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
      //};
      //if(device.platform == "Android"|| device.platform == "android"){
-        app.views.main.router.back('/',{ignoreCache: true, reload: true});
+       //app.views.main.router.back('/',{ignoreCache: true, reload: true});
      //};
     app.panel.close("left")
 }
