@@ -47,7 +47,7 @@ and survey research) written by P.M. Kruyen. Commercial license available, pleas
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
 * Current features;
 * Framework;
-* Configuration and options;
+* Server configuration and options;
 * Guide for potential contributors and academic researchers;
 * File structure of the app;
 * Structure of dearscholar.js, the heart of the app.
@@ -94,10 +94,14 @@ DearScholar has the capacity to send short in-app messages to specific responden
 ## Framework
 DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)] (https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
-## Configuration
-To configure Dearscholar, eleven tables need to be set up in a secured database (such as mysql) on a secured server and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). In this section, these eleven tables are described.
+## Server configuration and options
+To configure Dearscholar, an Apache server needs to be set up that supports MySQL and PHP. 
 
-*Note* In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables to make it possible to run multiple projects simultaneously.
+In MySQL, eleven tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Below, these eleven tables are described.
+
+In the ```var/www/html``` folder of the server, a php file needs to be included to let DearScholar communicate with the server. A sample php script can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
+
+*Note*. In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables to make it possible to run multiple projects simultaneously.
 
 ### 1) authentication table
 A table with the following columns, settings are stored for a single respondent on each row:
@@ -124,7 +128,7 @@ An *empty* table with the following columns:
 |uname | Respondent's username||
 |token | Respondent's device ID (token) as supplied by Apple or Android on device registration||
 
-*Note* This table is required to register the device IDs (tokens) in order to send push notifications, settings are stored for a single respondent on each row. Because of security issues, push notification files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
+*Note*. This table is required to register the device IDs (tokens) in order to send push notifications, settings are stored for a single respondent on each row. Because of security issues, push notification files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
 
 ### 3) pinStructure table
 An *empty* table with the following columns:
@@ -169,7 +173,7 @@ A table with the following columns, each row represents a separate survey page i
 |nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is sent to the server, and--on success--the module is closed and marked as completed, should only be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
-### 6) questiontable table
+### 6) questionTable table
 A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
@@ -223,14 +227,18 @@ To get the developer version of DearScholar running on your computer, the follow
 
 ### Step 2: Experiment with DearScholar on your own computer
 To log in, populate the survey modules with question pages and questions, and store answers on a server:
-1) set up your own (virtual private) server or get access to an existing one on your university;
-2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Configuration)
-3) write the required php scripts to let the app communicate with the database on your server (that is, download the settings and upload the responses).
+1) set up your own Apache server or get access to an existing one on your university;
+2) set up a database (such as mysql) with the tables, columns, rows and cell content as specified above (under Server configuration);
+3) write the required php script to let the app communicate with the database on your server (that is, download the settings and upload the responses), to be included in the ```var/www/html``` folder of your server.
 
 A sample php script that can be used to let DearScholar communicate with the server can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
 #### Sample study
-To set up a sample study, [this](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy.php) sample php file can be used. When generating random usernames and passwords, avoid using question marks (?) and ampersands (&).
+To set up a sample study, the following can be used:
+1) [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) to populate the authentication and surveyStructure table;
+2) [samplestudy-part2.sql](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the pageStructure and questionTable table;
+
+*Note*. When generating random usernames and passwords (in samplestudy-part1.php), avoid using question marks (?) and ampersands (&).
 
 ### Step 3: Experiment with DearScholar on your mobile device
 In order experiment with DearScholar on iOS and Android devices, the app should be build (compiled):
