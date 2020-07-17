@@ -106,7 +106,7 @@ routes: [
         },
         pageInit: function (e, page) {
             //Add event handler to the 'startSurveyButton' buttons to open the survey page.
-                $$('#moduleA').on('click', function (e) {                             routerModule(module='A',adhoc='NO');
+                $$('#moduleA').on('click', function (e) {                 routerModule(module='A',adhoc='NO');
                 });
                 $$('#moduleB').on('click', function (e) {
                     routerModule(module='B',adhoc='NO');
@@ -126,6 +126,7 @@ routes: [
         url: './module.html',
             on: {
          pageInit: function (e, page) {
+              emptytitle.innerHTML += title;
         },
         pageBeforeIn: function (e, page) {
             startModule(module, adhoc)
@@ -388,13 +389,14 @@ document.addEventListener("deviceready", function(){
 var timeoutID;
 
 function goInactive() {
-     //if(device.platform == "iOS"|| device.platform == "browser"){
+     if(device.platform == "iOS"|| device.platform == "browser"){
         app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
-     //};
-     //if(device.platform == "Android"|| device.platform == "android"){
-       //app.views.main.router.back('/',{ignoreCache: true, reload: true});
-     //};
-    app.panel.close("left")
+     };
+     if(device.platform == "Android"|| device.platform == "android"){
+       app.views.main.router.back('/',{ignoreCache: true, reload: true});
+     };
+     
+     app.panel.close("left")
 }
 
 function startTimer() {
@@ -926,47 +928,46 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
 // Database functions for the survey
 
                             
-// function to route to module
-  function routerModule(module, adhoc) {
+// function to route to module, but first fetch the module name.
+function routerModule(module, adhoc){
+    var moduleName = "module"+module+"name";
+    
+    DiaryDatabase.transaction(function (tx) {
+                var query = "SELECT " + moduleName + " FROM surveyStructure WHERE rowid = ?"
+                tx.executeSql(query,[1],function (tx, resultSet) {
+                    if (moduleName=="moduleAname"){
+                        title = resultSet.rows.item(0).moduleAname}
+                    if (moduleName=="moduleBname"){
+                        title = resultSet.rows.item(0).moduleBname}
+                    if (moduleName=="moduleCname"){
+                        title = resultSet.rows.item(0).moduleCname}
+                    if (moduleName=="moduleDname"){
+                        title = resultSet.rows.item(0).moduleDname}
+                })
+            },   
+            function (error) {
+                app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+            },
+            function () {
+                if (adhoc=='NO'){
+                    app.views.main.router.navigate('/module/', {});
+                }
+            // for the adhoc test, go to moduleadhoc page
+                if (adhoc=='YES'){
+                    surveydate = "99ADH9999";
+                    app.views.main.router.navigate('/module/', {});
+                }
+            })
+}
 
-        // for the regular modules, go to module page
-        if (adhoc=='NO'){
-            app.views.main.router.navigate('/module/', {});
-        }
-      
-        // for the adhoc test, go to moduleadhoc page
-        if (adhoc=='YES'){
-            surveydate = "99ADH9999";
-            app.views.main.router.navigate('/module/', {});
-        }
-  }
+// function to render module content and set the link to the back button.
 
-// function to start module, start with the title, and set the appropriate href for the back button
 function startModule(module, adhoc) {          
-            var moduleName = "module"+module+"name";
-            var emptytitle = document.getElementById("emptytitle")
             
             if (adhoc=='YES'){
                 $('.link').attr('href','/surveyadhoc/')
             }
-
-            DiaryDatabase.transaction(function (tx) {
-                var query = "SELECT " + moduleName + " FROM surveyStructure WHERE rowid = ?"
-                tx.executeSql(query,[1],function (tx, resultSet) {
-                    if (moduleName=="moduleAname"){
-                    emptytitle.innerHTML += resultSet.rows.item(0).moduleAname}
-                    if (moduleName=="moduleBname"){
-                    emptytitle.innerHTML += resultSet.rows.item(0).moduleBname}
-                    if (moduleName=="moduleCname"){
-                    emptytitle.innerHTML += resultSet.rows.item(0).moduleCname}
-                    if (moduleName=="moduleDname"){
-                    emptytitle.innerHTML += resultSet.rows.item(0).moduleDname}
-                })
-            }),   
-            function (tx, error) {
-                app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-            }
-                                   
+                                               
             DiaryDatabase.transaction(function (tx) {
             
                 var query = "SELECT * FROM pageStructure WHERE module1 = ?"
