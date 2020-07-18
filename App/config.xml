@@ -28,6 +28,7 @@
     <allow-navigation href="https://peterkruyen.net/*" />
     <allow-intent href="https://peterkruyen.net/*" />
     <access origin="https://peterkruyen.net/*" />
+    <allow-intent href="mailto:*" />
     <platform name="ios">
         <icon height="1024" src="res/icon/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
