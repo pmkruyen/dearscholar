@@ -411,7 +411,12 @@ $$(window).on('click keyup', function (e) {
     startTimer();
 });
     
-
+//Add event handler to the username input field
+$$('input[name = "username"]').on('keyup', function (event) {
+    if (event.key === "Enter") {
+        $$('input[name = "password"]').focus();
+    }
+});
 
 //Login procedure if touchID is enabled
 function loginTOUCH(){
