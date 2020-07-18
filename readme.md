@@ -238,14 +238,25 @@ To set up a sample study, the following scripts can be used:
 
 *Note*. When generating random usernames and passwords (in samplestudy-part1.php), avoid using question marks (?) and ampersands (&).
 
-### Step 3: Experiment with DearScholar on your mobile device
-In order experiment with DearScholar on iOS and Android devices, the app should be build (compiled):
-1) pay fees to get an Apple Developer Account as well as an Android Developer Account;
-2) master Apple's and Google's guides and obtain the required certificates and keys;
+### Step 3: Experiment with DearScholar on Android
+In order experiment with DearScholar on Android devices, the app should be build (compiled):
+1) pay fees to get an Android Developer Account;
+2) master Google's guides and obtain the required certificates and keys;
 3) compile DearScholar using [Phonegap's online tools](https://build.phonegap.com/) using these certificates and keys.
 
-### Step 4: Deploy your clone or derivate version of DearScholar
-Obviously, after Step 3, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
+### Step 4: Experiment with DearScholar on your iOS
+In order experiment with DearScholar on iOS (iPhones or iPads), the app should be build (compiled). Unfortunately, Phonegap's online tools can only be used to compile test versions of your app, but no longer to build production versions as the required SDK version (>= 13) is not supported. Consequently, it is better to refrain from using Phonegap's online tools for building iOS versions of DearScholar as using other SDK versions result in unexpected behavior of DearScholar. 
+
+In short, how it works: 
+1) pay fees to get an Apple Developer Account;
+2) master Apple's guides and obtain the required certificates and keys;
+3) compile DearScholar locally on your own device using [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support) using these certificates and keys. 
+
+*Note*. For iOS, while the current version is ```ios@6.1.0```, DearScholar is built using ```ios@5.1.1``` because of issues with several plugins with newer versions of Cordova. Further details will follow, meanwhile if you have questions contact the main author.
+
+
+### Step 5: Deploy your clone or derivate version of DearScholar
+Obviously, after Step 3 and 4, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
