@@ -25,6 +25,7 @@
     <plugin name="cordova-plugin-dialogs" source="npm" spec="2.0.2" />
     <plugin name="cordova-plugin-fingerprint-aio" source="npm" spec="3.0.1" />
     <plugin name="cordova-plugin-ionic-keyboard" source="npm" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
     <allow-navigation href="https://peterkruyen.net/*" />
     <allow-intent href="https://peterkruyen.net/*" />
     <access origin="https://peterkruyen.net/*" />

@@ -310,14 +310,12 @@ function onBackKeyDown() {
 window.addEventListener("keyboardWillShow", function(e) {
     //if(device.platform == "Android"|| device.platform == "android"){
         $(".bottomButtons").hide();
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
     //}
 });
 
 window.addEventListener("keyboardDidHide", function(e) {
     //if(device.platform == "Android"|| device.platform == "android"){
         $(".bottomButtons").show();
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     //}
 });
 
