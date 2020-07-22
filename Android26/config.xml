@@ -9,7 +9,7 @@
     </author>
     <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="Orientation" value="portrait" />
-    <preference name="android-minSdkVersion" value="28" />
+    <preference name="android-minSdkVersion" value="26" />
     <preference name="android-targetSdkVersion" value="29" />
     <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
     <preference name="UseSwiftLanguageVersion" value="4.0" />
@@ -71,9 +71,6 @@
                 <item name="android:windowDisablePreview">true</item>
             </style>
         </resources>
-        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:label='@string/activity_name']">
-            <activity android:theme="@android:style/Theme.Translucent" />
-        </edit-config>
         <preference name="android-windowSoftInputMode" value="adjustResize" />
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="SplashScreenDelay" value="3000" />
