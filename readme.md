@@ -5,7 +5,9 @@ DearScholar allows researchers to easily and orderly collect rich and diverse qu
 
 Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), DearScholar can be used to collect data on iOS devices (iPhones and iPads), Android devices, and--in the future--in web browsers too.
 
-The general project page with an overview of the features can be found [here](https://peterkruyen.net/dearscholar.html) 
+The general project page with an overview of the features can be found [here](https://peterkruyen.net/dearscholar.html).
+
+*Note*. This developer branch contains the newest developer release offering more flexibility to researchers with regard to the survey modules (number of modules and type of modules). The developer release will be submitted to Google Play and the App Store once the stable version which can be found in the master branch has been approved by the App Store. 
 
 ## This document
 The *first* section of this document provides general information about the app, the *second* section (**DearScholar in details**) provides the details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar.
@@ -66,22 +68,22 @@ In this second part of this text, DearScholar's current features and technical d
 ### Let respondents answer questions
 When logging in to DearScholar, a respondent is directed to the the measurement schedule (homepage) with all measurement occasions (dates). Future measurement occasions—measurement occasions beyond the current date—are locked and marked with a 'closed lock' icon. 
 
-When a respondent clicks on a particular measurement occasion in the measurement schedule, (s)he is directed to a survey screen that displays all questionnaire modules for that measurement date. Currently, DearScholar supports up to four questionnaire modules (three mandatory modules and one optional module) for each measurement occasion. Each module can be opened by clicking on the designated icon (see the screenshot below).
+When a respondent clicks on a particular measurement occasion in the measurement schedule, (s)he is directed to a survey screen that displays all survey modules for that measurement date. Each module can be opened by clicking on the designated icon (see the screenshot below).
 
 <p align="center">
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/3.png width="350"/></kbd>
 </p>
 
-DearScholar supports an unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, multiple-choice items, and rating sliders) to collect both quantitative and qualitative data (see the screenshots below for two examples). Respondents can type their answers in the answer boxes... or--because DearScholar supports speech recognition--dictate their answers.
+DearScholar supports an unlimited number of survey modules, unlimited number of question pages in each module, a specification of which questions to appear on which page, simple branching and skipping logic, and different types of questions (binary questions, open questions, multiple-choice items, and rating sliders) to collect both quantitative and qualitative data (see the screenshots below for two examples). Respondents can type their answers in the answer boxes... or--because DearScholar works with speech recognition--dictate their answers.
 
 <p align="center">
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/4.png width="350"/></kbd>
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/5.png width="350"/></kbd>
 </p>
 
-If a module is completed (i.e., for that module, all questions have been answered and the data has been uploaded to the server) the module icon turns green on the survey page. If all mandatory modules have been completed, on the homepage, the link to the measurement occasion turns grey and is marked with a 'sun' icon.
+When a respondent has completed a module (i.e., for that module, all questions have been answered and the data has been succesfully uploaded to the server) the module icon turns green on the survey page. If all mandatory modules have been completed, the link to the measurement occasion turns grey and is marked with a 'sun' icon on the homepage.
 
-DearScholar also includes links to additional, optional questionnaire modules which can be found in the homepage's menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
+DearScholar also includes links to additional, optional survey modules which can be found on the homepage's menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
 
 Respondents’ answers are not only send to a server, but also saved in the DearScholar. Respondents can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
@@ -92,14 +94,14 @@ DearScholar can be used with Google's Firebase to get the push notifications wor
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
 
 ## Framework
-DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)] (https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
+DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)](https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
 ## Server configuration and options
 To configure Dearscholar, an Apache server needs to be set up that supports PHP and MySQL. 
 
 In the ```var/www/html``` folder of the server, ```dearscholar.php``` needs to be included to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
-In MySQL, eleven tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Below, these eleven tables with all options, if applicable, are described.
+In MySQL, a series of tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Below, these tables with all options, if applicable, are described.
 
 *Note*. In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables to make it possible to run multiple projects simultaneously.
 
@@ -147,20 +149,30 @@ A table with the following columns and only a single row:
 |:---------|:---------|:---------|
 |consent | Content for the informed consent form||
 |manual | Content for the manual included in the app ||
-|moduleAname | Name of the first survey module||
-|moduleBname | Name of the second survey module||
-|moduleCname | Name of the third survey module||
-|moduleDname | Name of the fourth survey module||
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the informed consent form or manual). 
 
-### 5) pageStructure table
-A table with the following columns, each row represents a separate survey page in one of the four modules (*A*, *B*, *C*, or *D*):
+### 5) moduleStructure table
+A table with the following columns:
+| Column name | Content | Options |
+|:---------|:---------|:---------|
+|module0 | Module id|*A*, *B*, *C*, or *D*, ...|
+|name | Name of the module to be displayed on the module page||
+|page | Location of the module|*S* (module to be displayed on the regular survey page) or *A* (module to be displayed on the additional, optional *adhoc* survey page)|
+|mandatory |Type of module|*1* (Mandatory module) or *0* (Optional module)|
+|image | Module icon|e.g., *icons8-innovation-64.png*|
+|imageleft | Location of the icon in % from the left|e.g., *25%*|
+|imagetop | Location of the icon in % from the top|e.g., *45%*|
+
+*Note*. A limited number of [icon images](https://github.com/pmkruyen/dearscholar/tree/master/App/www/img) are currently available. These icons are provided by [Icons8](https://icons8.com/), collection Cute Outline, Business. Icons are reduced to 70% of their original size.
+
+### 6) pageStructure table
+A table with the following columns, each row represents a separate survey page in one of the modules:
 
 | Column name | Content | Options |
 |:---------|:---------|:---------|
 |id | Unique row ID||
-|module1 | ID of the module in which the page should be displayed| Either *A*, *B*, *C*, or *D*|
+|module1 | ID of the module in which the page should be displayed| Consult the module0 column in the moduleStructure table (i.e. *A*, *B*, *C*, or *D*, ...)|
 |classp | Set the first page in the module | Use *'tab tab-active'* for the first survey page in a module, for the other survey pages in the module use *'tab'*|
 |idp | Unique survey page ID|  |
 |header | Survey page header| Header to be displayed on the page |
@@ -170,16 +182,16 @@ A table with the following columns, each row represents a separate survey page i
 |backbuttonhref | Link of the backbutton| If the backbutton is clicked, navigate to another page, for navigation to other pages in the module, use the format #idp (see the column idp)|
 |nextbuttonid | Next button id| See backbuttontid|
 |nextbuttontext | Text to be displayed on the next button|See backbuttontext|
-|nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *uploadtoServerA*, *uploadtoServerB*, *uploadtoServerC* or *uploadtoServerD* is used, the data is sent to the server, and--on success--the module is closed and marked as completed, should only be used on the last page in the module obviously.
+|nextbuttononclick | To be used for event listeners|See backbuttononclick, *moreover* if *upload* is used, the data is sent to the server, and--on success--the module is closed and marked as completed, should (only) be used on the last page in the module obviously.
 |nextbuttonhref | Link of the backbutton|See backbuttonhref|
 
-### 6) questionTable table
+### 7) questionTable table
 A table with the following columns, each row represents a separate survey question:
 
 | Column name | Content | Options |
 |:---------|:---------|:---------|
 |id | Unique row ID| |
-|module2 | ID of the module in which the question should be included|either *A*,*B*,*C*, or *D*|
+|module2 | ID of the module in which the question should be included|Consult the module0 column in the moduleStructure table (i.e. *A*, *B*, *C*, or *D*, ...)|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table.|
 |idq | Unique page ID|  |
 |type | Question type| On of the following *YN* (binary [Yes/No] question), *OQ* (Open Question), *MC* (Multiple Choice Question, or *SL* (Slider Question, currently supports only range sliders on a continious scale from 0 to 100).|
@@ -189,7 +201,7 @@ A table with the following columns, each row represents a separate survey questi
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the question text). 
 
-### 7) messages table
+### 8) messages table
 This is an optional table to be used for sending in-app messages. A table with the following columns, each row to be used to specify a message for a specific respondent:
 
 | Column name | Content | Options |
@@ -202,8 +214,8 @@ This is an optional table to be used for sending in-app messages. A table with t
 
 *Note*. Html markup language can be used, for example, to include headings, paragraphs, and bold fonts (i.e., in the message content).
 
-### 8-11) four response tables
-Lastly, four empty response tables (responseTableModuleA, responseTableModuleB, responseTableModuleC, responseTableModuleD)  in which respondents' data is stored, one table for each module. Each of these four tables has the following columns, each row represents a separate response entry:
+### 9-..) response tables
+Lastly, a series of empty response tables in which respondents' data is stored, one table for each module. Each of these tables has the following columns, each row represents a separate response entry:
 
 | Column name | Content | Options |
 |:---------|:---------|:---------|
@@ -308,26 +320,30 @@ Because of security issues, these files and configurations are excluded from thi
 * General app settings;
 * Configurations for each app page (in particular router functions and event listeners that activate the functions described below). 
 2) **general event listeners**
-* For Android devices, set the 'back button' as 'back button'.
+* General functions for the login screen and survey screens. For Android devices, set the 'back button' as 'back button'. 
 3) **login functions**
 * When a respondent does not interact with DearScholar within 5.5 minutes, log out (i.e., navigate to the login screen);
 * When a respondent tries to log in with Touch ID, Face Recognition, or PIN code, check the respondent's credentials;
 * When a respondent's device does not support Touch ID or Face Recognition, ask the respondent to choose a PIN code;
 * When a respondent tries to log in for the first time, show the informed consent form, and only proceed to the homepage (measurement schedule) when the respondent accepts the informed consent form.  
 4) **database functions**
-* When a respondent logs in for the first time successfully, retrieve the three survey tables (i.e., surveyStructure, pageStructure, and questiontable) from the server and set up these tables on the respondent's device using sqlite. Also, set up the table in which respondent's answers are stored locally.
+* When a respondent logs in for the first time successfully, retrieve the four survey tables (i.e., surveyStructure, moduleStructure, pageStructure, and questionTable) from the server and set up these tables on the respondent's device using sqlite. Also, set up a table in which respondent's answers are stored and a table in which DearScholar registers when a mandatory module has been completed locally.
 5) **navigation functions**
-* When a respondent navigates to the homepage (measurement schedule), render the measurement schedule;
+* When a respondent navigates to the homepage (measurement schedule), render the measurement schedule, and mark a measurement occassion as completed when all mandatory modules have been completed for that measurement occassion;
 * When a respondent opens the app for the first time, show the informed consent form;
 * When a respondent navigates to the manual page, inject the manual.
-6) **module functions**
+6) **survey functions**
+* When a respondent navigates to the survey page, render the page layout (i.e. the module icons) and color icons *if* the answers have been filled out previously.
+7) **module functions**
 * When a respondent opens a module, render the page structure, questions (items), and inject the answers *if* the answers have been filled out previously from the data stored in the sqlite tables.
-7) **save functions**
+8) **save functions**
 * When a question is completed and a button is pushed, save the answer in DearScholar;
 * When a module is completed for a particular surveydate, mark de module as completed; and
 * When a module is completed for a particular surveydate, send the data to the server.
-8) **message functions**
+9) **message functions**
 * When a respondent navigates to the homepage (measurement schedule), check for new messages;
 * When a respondent navigates to the messages page, populate the messages page; and 
 * When a new message has been read by the respondent (i.e. is 'clicked' on), let the server know when a message has been seen by the respondent.
+10) **miscellaneous functions**
+* Functions to render the content of the consent page and the manual.
 

@@ -26,12 +26,12 @@ CREATE TABLE IF NOT EXISTS authentication (
 CREATE TABLE IF NOT EXISTS registration (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 	project TEXT,   	
-	uname VARCHAR(100) ,
+	uname VARCHAR(100),
 	token TEXT);
 	
 CREATE TABLE IF NOT EXISTS pintable (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
+   	uname VARCHAR(100),
    	pin TEXT,
 	code TEXT);
 
@@ -39,50 +39,57 @@ CREATE TABLE IF NOT EXISTS pintable (
 
 CREATE TABLE IF NOT EXISTS surveyStructure (
 	consent TEXT,
-	manual TEXT,
-   	modules VARCHAR(100) ,
-	moduleAname VARCHAR(100) ,
-	moduleBname VARCHAR(100) ,
-	moduleCname VARCHAR(100) ,
-	moduleDname VARCHAR(100));
+	manual TEXT);
+
+CREATE TABLE IF NOT EXISTS moduleStructure (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+	module0 VARCHAR(100),
+	name VARCHAR(100),
+	page VARCHAR(1),
+	mandatory VARCHAR(1),
+	image TEXT,
+	imageleft VARCHAR(5),
+	imagetop VARCHAR(5));
 
 CREATE TABLE IF NOT EXISTS pageStructure (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module1 VARCHAR(100) ,
-	classp VARCHAR(100) ,
-	idp VARCHAR(100) ,
-	header VARCHAR(100) ,
-	backbuttonid VARCHAR(100) ,
-	backbuttontext VARCHAR(100) ,
-	backbuttonclick VARCHAR(100) ,
-	backbuttonhref VARCHAR(100) ,
-	nextbuttonid VARCHAR(100) ,
-	nextbuttontext VARCHAR(100) ,
-	nextbuttonclick VARCHAR(100) ,
-	nextbuttonhref VARCHAR(100) )
+	module1 VARCHAR(100),
+	classp VARCHAR(100),
+	idp VARCHAR(100),
+	header VARCHAR(100),
+	backbuttonid VARCHAR(100),
+	backbuttontext VARCHAR(100),
+	backbuttonclick VARCHAR(100),
+	backbuttonhref VARCHAR(100),
+	nextbuttonid VARCHAR(100),
+	nextbuttontext VARCHAR(100),
+	nextbuttonclick VARCHAR(100),
+	nextbuttonhref VARCHAR(100));
 
 CREATE TABLE IF NOT EXISTS questionTable (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module2 VARCHAR(100) ,
-	tab VARCHAR(100) ,
-	idq VARCHAR(100) ,
-	type VARCHAR(100) ,
-	question TEXT ,
-	categories TEXT ,
-	footer TEXT )
+	module2 VARCHAR(100),
+	tab VARCHAR(100),
+	idq VARCHAR(100),
+	type VARCHAR(100),
+	question TEXT,
+	categories TEXT,
+	footer TEXT);
 
 # MYSQL table setup (in app messages)
 
 CREATE TABLE IF NOT EXISTS messages (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
+   	uname VARCHAR(100),
    	timestamp TEXT,
    	message TEXT,
-	seen VARCHAR(1) )
+	seen VARCHAR(1));
 
 # MYSQL table setup (response tables)
-# Warning: Set up these tables only after the questionTable has been populated.
-# Warning: When new questions are added to the questionTable afterwards (or question IDs have changed), add new response columns for these questions manually to the table.  
+# Warning: Set up these tables only after the questionTable has been populated. # Warning: See samplestudy-part2.sql for a mock survey.
+# Warning: When new questions are added to the questionTable afterwards (or question IDs have changed), add new response columns for these questions manually to the table. 
+
+# Note: In the source code, we have 7 modules (A, B, C, D, E, F, G) and, hence 7 responseTables. 
 
 # Code adapted from https://stackoverflow.com/users/833073/fthiella
 # https://stackoverflow.com/questions/15820082/create-a-table-with-column-names-derived-from-row-values-of-another-table
@@ -167,6 +174,66 @@ INTO @sql;
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
+CREATE TABLE IF NOT EXISTS responseTableModuleE (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT);
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleE ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'E'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+
+CREATE TABLE IF NOT EXISTS responseTableModuleF (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT);
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleF ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'F'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+
+CREATE TABLE IF NOT EXISTS responseTableModuleG (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+   	uname VARCHAR(100) ,
+   	timestamp TEXT,
+   	surveydate TEXT);
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleG ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'G'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+
 # MYSQL user management
 
 ##  INDIVIDUAL RESEARCHER
@@ -177,6 +244,7 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 
 	### TO MANIPULATE  THE SURVEY SETUP
 	GRANT INSERT, SELECT, DELETE, UPDATE ON project. surveyStructure TO '######'@'localhost';
+	GRANT INSERT, SELECT, DELETE, UPDATE ON project. moduleStructure TO '######'@'localhost';
 	GRANT INSERT, SELECT, DELETE, UPDATE ON project. pageStructure TO '######'@'localhost';
 	GRANT INSERT, SELECT, DELETE, UPDATE ON project. questionTable TO '######'@'localhost';
 
@@ -188,7 +256,9 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	GRANT SELECT ON project. responseTableModuleB TO '######'@'localhost';
 	GRANT SELECT ON project. responseTableModuleC TO '######'@'localhost';
 	GRANT SELECT ON project. responseTableModuleD TO '######'@'localhost';
-
+	GRANT SELECT ON project. responseTableModuleE TO '######'@'localhost';
+	GRANT SELECT ON project. responseTableModuleF TO '######'@'localhost';
+	GRANT SELECT ON project. responseTableModuleG TO '######'@'localhost';
 
 ## RESPONDENT AKA ENDUSER IN DEARSCHOLAR (THAT IS, THE APP)
 CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
@@ -204,6 +274,7 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	
 	# READ THE SURVEY SETUP
 	GRANT SELECT ON project. surveyStructure TO '######'@'localhost';
+	GRANT SELECT ON project. moduleStructure TO '######'@'localhost';
 	GRANT SELECT ON project. pageStructure TO '######'@'localhost';
 	GRANT SELECT ON project. questionTable TO '######'@'localhost';
 	
@@ -215,3 +286,7 @@ CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
 	GRANT INSERT ON project. responseTableModuleB TO '######'@'localhost’;
 	GRANT INSERT ON project. responseTableModuleC TO '######'@'localhost';
 	GRANT INSERT ON project. responseTableModuleD TO '######'@'localhost';
+	GRANT INSERT ON project. responseTableModuleE TO '######'@'localhost';
+	GRANT INSERT ON project. responseTableModuleF TO '######'@'localhost';
+	GRANT INSERT ON project. responseTableModuleG TO '######'@'localhost';
+
