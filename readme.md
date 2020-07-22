@@ -1,3 +1,5 @@
+[![status](https://joss.theoj.org/papers/1896b88f26b987b9c7a07035751afd7b/status.svg)](https://joss.theoj.org/papers/1896b88f26b987b9c7a07035751afd7b)
+
 # Overview
 Because collecting longitudinal data becomes more important in academic research nowadays and because limitations with available tools, DearScholar has been developed.
 
@@ -7,7 +9,7 @@ Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), D
 
 The general project page with an overview of the features can be found [here](https://peterkruyen.net/dearscholar.html).
 
-*Note*. This developer branch contains the newest developer release offering more flexibility to researchers with regard to the survey modules (number of modules and type of modules). The developer release will be submitted to Google Play and the App Store once the stable version which can be found in the master branch has been approved by the App Store. 
+:running: *Note*. This developer branch contains the newest developer release offering more flexibility to researchers with regard to the survey modules (number of modules and type of modules). The developer release will be submitted to Google Play and the App Store once the stable version which can be found in the master branch has been approved by the App Store. 
 
 ## This document
 The *first* section of this document provides general information about the app, the *second* section (**DearScholar in details**) provides the details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar.
