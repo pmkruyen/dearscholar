@@ -59,7 +59,11 @@ In this second part of this text, DearScholar's current features and technical d
 ## Current features
 ### Let respondents install DearScholar on their mobile device
 1) A respondent has to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
-2) When opening DearScholar for the first time (left screenshot below), a respondent is asked to: * allow push notifications; * fill out the username and password that (s)he received from the researcher; * choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and * agree to the informed consent form.
+2) When opening DearScholar for the first time (left screenshot below), a respondent is asked to: 
+    * allow push notifications; 
+    * fill out the username and password that (s)he has received from the researcher; 
+    * choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and 
+    * agree to the informed consent form.
 3) When everthing goes well, DearScholar pulls the required survey tables and settings from the server, and the respondent is directed to the measurement schedule (homepage, right screenshot below).
 
 <p align="center">
