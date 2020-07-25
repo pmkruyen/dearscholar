@@ -110,8 +110,10 @@ DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.co
 To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6) and phpMyAdmin (version 5.0.2). 
 
 To test DearScholar locally, this webserver can be mimicked with [Docker-LAMP](https://github.com/mattrayner/docker-lamp#building-and-running) on your own device. After installing [Docker](https://www.docker.com/) on your device, launch the Apache webserver image with:
-    ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
 
+   ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
+   
+    
 ## Server configuration and options
 In the ```var/www/html``` folder of the server, ```dearscholar.php``` needs to be included to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
