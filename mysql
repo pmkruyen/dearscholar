@@ -1,9 +1,12 @@
 # Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
 
-# MYSQL database initialization for DearScholar. Consult the README file for further explanations. 
+# MYSQL database initialization for DearScholar. Consult the installation instructions in the README file for details. In particular, the information about when Part 1 and Part 2 should be run during installation.
 
-# Note: In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables (in 'project' databases) to make it possible to run multiple projects simultaneously.
+# Note: In the deployed version of DearScholar, both tables 1 and 2 are in a different database (called respondents) than the other tables (in 'project' databases) to make it possible to run multiple projects simultaneously using one production environment.
 
+#---
+# Part 1
+#---
 
 # MYSQL database setup
 
@@ -11,6 +14,8 @@ CREATE DATABASE IF NOT EXISTS project
 	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 # MYSQL table setup (respondent management)
+
+USE project;
 
 CREATE TABLE IF NOT EXISTS authentication (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
@@ -85,6 +90,10 @@ CREATE TABLE IF NOT EXISTS messages (
    	message TEXT,
 	seen VARCHAR(1));
 
+#---
+# Part 2
+#---
+	
 # MYSQL table setup (response tables)
 # Warning: Set up these tables only after the questionTable has been populated. # Warning: See samplestudy-part2.sql for a mock survey.
 # Warning: When new questions are added to the questionTable afterwards (or question IDs have changed), add new response columns for these questions manually to the table. 
