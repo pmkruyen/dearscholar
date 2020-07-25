@@ -107,15 +107,15 @@ DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.co
 *This section is in progress*. 
 
 ### Step 1: Server setup
-To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6) and phpMyAdmin (version 5.0.2). For production, you would likely run this webserver on a Virtual Private Server (VPS). For testing, a [Docker](https://www.docker.com/) container can be used. Here, I describe the steps for setting up such a local testing environment based on [Docker-LAMP](https://github.com/mattrayner/docker-lamp). The nice thing about this image is that it creates and uses a persistent MySQL database (in ```/mysql```) and file (```/app```) folder on your harddrive. Consequently, you only need to perform the following steps only once and not every time you run the Docker container.
+To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6) and phpMyAdmin (version 5.0.2). For production, you would likely run this webserver on a Virtual Private Server (VPS). For testing, a [Docker](https://www.docker.com/) container can be used on your own device (laptop, pc). Here, I describe the steps for setting up such a local testing environment based on [Docker-LAMP](https://github.com/mattrayner/docker-lamp). The nice thing about this image is that it creates a persistent MySQL database (in ```/mysql```) and file (```/app```) folder on your harddrive. Hence, you only need to perform the following steps only once (i.e., you can start and stop the testing enviroment as many times as you like without losing data).
 
-*Note* The VPS used for DearScholar has additional security measures implemented. It is my ambition to include these measures in the docker image too.
+*Note* The VPS used for DearScholar has additional security measures implemented. It is my ambition to include these measures in the Docker image too.
 
-After installing [Docker](https://www.docker.com/products/docker-desktop) on your device, open the terminal (command line) and launch the Apache webserver image (create a container) with:
+After installing [Docker](https://www.docker.com/products/docker-desktop) on your device, open the terminal (command line) and launch the Docker (i.e., create a container) with:
 
    ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
    
-When the container is created, a password is generated (displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser. When everthing went well, you can access your phpMyAdmin panel with ```admin``` and the generated password. When you visit ```localhost/phpmyadmin```, you will get an error, because there nothing in (```/app```).    
+When everthing went well, a password is generated (displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost/phpmyadmin```, an error message will be displayed, because there is nothing in the (```/app```) folder.    
       
 ### Step 2a:MySQL setup
 In MySQL, a series of tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the "Settings and options" section below.
