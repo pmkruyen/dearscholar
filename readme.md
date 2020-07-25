@@ -51,6 +51,7 @@ and survey research) written by P.M. Kruyen. Commercial license available, pleas
 In this second part of this text, DearScholar's current features and technical details are provided. Subsequently, the following aspects are discussed:
 * Current features;
 * Framework;
+* Installation;
 * Server configuration and options;
 * Guide for potential contributors and academic researchers;
 * File structure of the app;
@@ -102,9 +103,16 @@ DearScholar has the capacity to send short in-app messages to specific responden
 ## Framework
 DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)](https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
-## Server configuration and options
-To configure Dearscholar, an Apache server needs to be set up that supports PHP and MySQL. 
+## Installation
+*This section is in progress*. 
 
+### Server installation
+To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6) and phpMyAdmin (version 5.0.2). 
+
+To test DearScholar locally, this webserver can be mimicked with [Docker-LAMP](https://github.com/mattrayner/docker-lamp#building-and-running) on your own device. After installing [Docker](https://www.docker.com/) on your device, launch the Apache webserver image with:
+```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
+
+## Server configuration and options
 In the ```var/www/html``` folder of the server, ```dearscholar.php``` needs to be included to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
 
 In MySQL, a series of tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Below, these tables with all options, if applicable, are described.
