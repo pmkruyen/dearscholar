@@ -120,13 +120,15 @@ After installing [Docker](https://www.docker.com/products/docker-desktop) on you
 When everthing went well, a password is generated (displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because the (```/app```) folder is empty.    
       
 ### Step 2:MySQL setup - part 1
-After setting up the Apache webserver, a series of tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [in the mysql file](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the "Settings and options" section of this manual.
+After setting up the Apache webserver at least two databases need to be set up in MySQL: one database called ```respondents``` for managing the respondents and registering the device IDs (tokens) in order to send push notifications (i.e., table 1 and table 2) *and* a seperate database for each project (with all the other tables) to make it possible to run multiple projects simultaneously using a single production environment. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [in the mysql file](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the "Settings and options" section above.
 
-In the local test environment, get the ID of the launched Apache container in Step 1 by running ```docker ps``` in a new terminal window. Next, run the below command replacing CONTAINER_ID with the obtained ID:
+To set up these databases in the local test environment, get the ID of the launched Apache container in Step 1 by running ```docker ps``` in a new terminal window. Next, run the below command replacing CONTAINER_ID with the obtained ID:
 
    ```docker exec -it CONTAINER_ID bash -l```
 
-You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code in part 1 of the MySQL database initialisation code to create all tables (except the response tables). Refresh phpMyAdmin in your browser to check if the database (called ```project```) and the (empty) tables are created. 
+You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code in part 1 of the MySQL database initialisation code to create two databases with all tables (except the response tables). So, next to the ```respondents```, you create one database for a single project called ```project```  
+
+Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. 
 
 ### Step 3:MySQL setup - part 2 and further
 * To be continued*
