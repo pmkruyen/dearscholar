@@ -2,20 +2,18 @@
 
 # MYSQL database initialization for DearScholar. Consult the installation instructions in the README file for details. In particular, the information about when Part 1 and Part 2 should be run during installation.
 
-# Note: In the deployed version of DearScholar, both tables 1 and 2 are in a different database (called respondents) than the other tables (in 'project' databases) to make it possible to run multiple projects simultaneously using one production environment.
-
 #---
 # Part 1
 #---
 
-# MYSQL database setup
+# MYSQL database setup for respondents
 
-CREATE DATABASE IF NOT EXISTS project
+CREATE DATABASE IF NOT EXISTS respondents
 	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
-# MYSQL table setup (respondent management)
+# MYSQL table setup (for managing respondents and sending push notifications)
 
-USE project;
+USE respondents;
 
 CREATE TABLE IF NOT EXISTS authentication (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
@@ -33,14 +31,22 @@ CREATE TABLE IF NOT EXISTS registration (
 	project TEXT,   	
 	uname VARCHAR(100),
 	token TEXT);
+
+# MYSQL database setup for the project.
+# Note, if you want to run multiple projects, you can run the code below multiple times, but do not forget to change the database name.
+
+CREATE DATABASE IF NOT EXISTS project
+	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+# MYSQL table setup for the project.
+
+USE project;
 	
 CREATE TABLE IF NOT EXISTS pintable (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
    	uname VARCHAR(100),
    	pin TEXT,
 	code TEXT);
-
-# MYSQL table setup (survey setup)
 
 CREATE TABLE IF NOT EXISTS surveyStructure (
 	consent TEXT,
