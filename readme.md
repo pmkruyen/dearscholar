@@ -126,7 +126,7 @@ To set up these databases in the local test environment, get the ID of the launc
 
    ```docker exec -it CONTAINER_ID bash -l```
 
-You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code in part 1 of the MySQL database initialisation code to create two databases with all tables (except the response tables). So, next to the ```respondents```, you create one database for a single project called ```project```  
+You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code in part 1 of the MySQL database initialisation code to create two databases with all tables (except the response tables). So, next to the ```respondents``` database, you created one database for a single project called ```project```.  
 
 Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. 
 
