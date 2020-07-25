@@ -115,7 +115,7 @@ After installing [Docker](https://www.docker.com/products/docker-desktop) on you
 
    ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
    
-When everthing went well, a password is generated (displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost/phpmyadmin```, an error message will be displayed, because there is nothing in the (```/app```) folder.    
+When everthing went well, a password is generated (displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because there is nothing in the (```/app```) folder.    
       
 ### Step 2a:MySQL setup
 In MySQL, a series of tables need to be set up and the proper user rights needs to be given to individual researchers (administrators) and respondents (users of DearScholar). The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the "Settings and options" section below.
