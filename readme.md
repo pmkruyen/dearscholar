@@ -111,7 +111,7 @@ Researchers and contributors who want to test, contribute, or want to build thei
 ### Step 1: Server setup
 To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6), and phpMyAdmin (version 5.0.2) as front panel for researchers. For production, you would run this webserver on a real webserver. For testing, a local [Docker](https://www.docker.com/) container can be used as testing environment on your own device (laptop, pc). 
 
-In this manual, I describe the steps for setting up such a local Docker container based on [Docker-LAMP](https://github.com/mattrayner/docker-lamp) image. The nice thing about this image is that it creates a persistent MySQL database (in ```/mysql```) and file (```/app```) folder on your harddrive at first run. Hence, you  need to perform the following steps only once (i.e., you can start and stop the testing enviroment as many times as you like without losing data).
+In this manual, I describe the steps for setting up such a local Docker container based on the [Docker-LAMP](https://github.com/mattrayner/docker-lamp) image. The nice thing about this image is that it creates a persistent MySQL database folder (in ```/mysql``` ) and file folder (in ```/app```)  on your harddrive at first run. Hence, you  need to perform the following steps only once (i.e., you can start and stop the testing enviroment as many times as you like without losing data).
 
 After installing [Docker](https://www.docker.com/products/docker-desktop) on your device, open the terminal (command line) and run the Docker container with:
 
