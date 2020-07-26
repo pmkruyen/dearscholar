@@ -139,6 +139,8 @@ First, you have to amend and run the [samplestudy-part1.php](https://github.com/
 
 *Note*. This file contains the usernames and passwords for five mock respondents. When generating random usernames and passwords yourself, avoid using question marks (?) and ampersands (&).
 
+In the (virtual) terminal of the Apache webserver, run```php -a``` to open the interactive mode of PHP.
+
 *To be continued*
 
 ## Options and settings
