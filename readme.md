@@ -117,7 +117,9 @@ After installing [Docker](https://www.docker.com/products/docker-desktop) on you
 
    ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
    
-When everthing went well, a password is generated (being displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because the (```/app```) folder is empty. 
+When everthing went well, a password is generated (being displayed in the terminal). Save this password for later use.
+
+Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because the (```/app```) folder is empty. 
 
 *Note*. The webserver used for the official deployed version of DearScholar has additional security measures implemented. These measures have yet to be included in this Docker image.
       
