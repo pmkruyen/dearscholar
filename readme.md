@@ -130,16 +130,19 @@ To set up these databases in the local testing environment, get the ID of the la
 
 You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code from Part 1 of the MySQL database initialisation code to create the ```respondents``` database and a ```project``` database with all tables (except the response tables).
 
-Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. Exit MySQL in the terminal by running ```exit;```. 
+Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. Exit MySQL by running ```exit;``` in the terminal. 
 
 ### Step 3: MySQL setup - part 2 and further
 Now it is time to populate both databases with some sample data, create the response tables in the ```project``` database, and set up the appropriate user rights for all tables to to individual researchers and the DearScholar app.
 
-First, you have to amend and run the [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) to populate the authentication and surveyStructure table in the ```respondents``` database. 
+Open the file [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) in a text editor and fill out the ```$MyPassword``` using the MySQL admin password that was generated at first run of the Docker container.
 
-*Note*. This file contains the usernames and passwords for five mock respondents. When generating random usernames and passwords yourself, avoid using question marks (?) and ampersands (&).
+In the (virtual) terminal of the Apache webserver, run```php -a``` to open the interactive mode of PHP and execute all lines of code from the amended samplestudy-part1.php code. Exit the interactive mode by running ```exit``` in the terminal. 
 
-In the (virtual) terminal of the Apache webserver, run```php -a``` to open the interactive mode of PHP.
+Refresh phpMyAdmin in your browser. When everthing went well, you now find usernames, hashed passwords, and the project settings for five mock respondents inthe authentication table (in the ```respondents``` database).
+
+*Note*. When generating random usernames and passwords yourself, avoid using question marks (?) and ampersands (&). For production, you can load usernames and passwords from a csv file using the commands at the top of the samplestudy-part1.php code.
+
 
 *To be continued*
 
