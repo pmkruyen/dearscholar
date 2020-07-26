@@ -42,7 +42,7 @@
 
     // populate the response table
     $MyUsername = 'admin';
-    $MyPassword = '###########'; // use the MySQL admin password that was generated when the Docker container was generated
+    $MyPassword = '###########'; // use the MySQL admin password that was generated at first run of the Docker container.
     $MyDatabase = 'respondents';
 
     // open the connection and prepare
