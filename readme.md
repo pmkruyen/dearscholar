@@ -121,7 +121,7 @@ When everthing went well, a password is generated (being displayed in the termin
 
 *Note*. The webserver used for the official deployed version of DearScholar has additional security measures implemented. These measures have yet to be included in this Docker image.
       
-### Step 2:MySQL setup - part 1
+### Step 2: MySQL setup - part 1
 After setting up the Apache webserver at least two databases need to be set up in MySQL: one database called ```respondents``` for managing the respondents and registering the device IDs (tokens) in order to send push notifications (i.e., the authentication and surveyStructure table) *and* a seperate database for each project (with all the other tables) to make it possible to run multiple research projects simultaneously using a single production environment. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [in the mysql file](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the **Settings and options** section on this page.
 
 To set up these databases in the local testing environment, get the ID of the launched Apache container in Step 1 by running ```docker ps``` in a new terminal window. Next, run the below command replacing CONTAINER_ID with the obtained ID:
@@ -132,14 +132,14 @@ You are now in the (virtual) terminal of the Apache webserver. In this terminal,
 
 Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. Exit MySQL in the terminal by running ```exit;```. 
 
-### Step 3:MySQL setup - part 2 and further
+### Step 3: MySQL setup - part 2 and further
 Now it is time to populate both databases with some sample data, create the response tables in the ```project``` database, and set up the appropriate user rights for all tables to to individual researchers and the DearScholar app.
 
 First, you have to amend and run the [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) to populate the authentication and surveyStructure table in the ```respondents``` database. 
 
 *Note*. This file contains the usernames and passwords for five mock respondents. When generating random usernames and passwords yourself, avoid using question marks (?) and ampersands (&).
 
-* To be continued*
+*To be continued*
 
 ## Options and settings
 In the ```var/www/html``` folder of the server, ```dearscholar.php``` needs to be included to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
