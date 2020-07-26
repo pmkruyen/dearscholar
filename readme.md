@@ -104,31 +104,33 @@ DearScholar has the capacity to send short in-app messages to specific responden
 DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)](https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
 ## Installation
-Contributors and academic researchers who want to test, experiment with, and contribute to DearScholar, or even build their own version can follow the following installation instructions. 
+Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the following installation steps. It is my ambition to automate these steps. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
 
-*This section is in progress, and needs to be moved down*. 
+*This section is in progress*. 
 
 ### Step 1: Server setup
-To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6) and phpMyAdmin (version 5.0.2). For production, you would run this webserver on a real webserver. For testing, a [Docker](https://www.docker.com/) container can be used on your own device (laptop, pc). Here, I describe the steps for setting up such a local testing environment based on [Docker-LAMP](https://github.com/mattrayner/docker-lamp). The nice thing about this image is that it creates a persistent MySQL database (in ```/mysql```) and file (```/app```) folder on your harddrive. Hence, you only need to perform the following steps only once (i.e., you can start and stop the testing enviroment as many times as you like without losing data).
+To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6), and phpMyAdmin (version 5.0.2) as front panel for researchers. For production, you would run this webserver on a real webserver. For testing, a local [Docker](https://www.docker.com/) container can be used as testing environment on your own device (laptop, pc). 
 
-*Note*. The webserver used for the official deployed version of DearScholar has additional security measures implemented. It is my ambition to include these measures in the Docker image too.
+In this manual, I describe the steps for setting up such a local Docker container based on [Docker-LAMP](https://github.com/mattrayner/docker-lamp) image. The nice thing about this image is that it creates a persistent MySQL database (in ```/mysql```) and file (```/app```) folder on your harddrive at first run. Hence, you  need to perform the following steps only once (i.e., you can start and stop the testing enviroment as many times as you like without losing data).
 
-After installing [Docker](https://www.docker.com/products/docker-desktop) on your device, open the terminal (command line) and launch the Docker image (i.e., create a container) with:
+After installing [Docker](https://www.docker.com/products/docker-desktop) on your device, open the terminal (command line) and run the Docker container with:
 
    ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
    
-When everthing went well, a password is generated (displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because the (```/app```) folder is empty.    
+When everthing went well, a password is generated (being displayed in the terminal). Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because the (```/app```) folder is empty. 
+
+*Note*. The webserver used for the official deployed version of DearScholar has additional security measures implemented. These measures have yet to be included in this Docker image.
       
 ### Step 2:MySQL setup - part 1
-After setting up the Apache webserver at least two databases need to be set up in MySQL: one database called ```respondents``` for managing the respondents and registering the device IDs (tokens) in order to send push notifications (i.e., table 1 and table 2) *and* a seperate database for each project (with all the other tables) to make it possible to run multiple projects simultaneously using a single production environment. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [in the mysql file](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the "Settings and options" section above.
+After setting up the Apache webserver at least two databases need to be set up in MySQL: one database called ```respondents``` for managing the respondents and registering the device IDs (tokens) in order to send push notifications (i.e., table 1 and table 2) *and* a seperate database for each project (with all the other tables) to make it possible to run multiple research projects simultaneously using a single production environment. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found [in the mysql file](https://github.com/pmkruyen/dearscholar/blob/master/mysql). Details about these tables with all options, if applicable, are provided in the **Settings and options** section on this page.
 
-To set up these databases in the local test environment, get the ID of the launched Apache container in Step 1 by running ```docker ps``` in a new terminal window. Next, run the below command replacing CONTAINER_ID with the obtained ID:
+To set up these databases in the local testing environment, get the ID of the launched Apache container in Step 1 by running ```docker ps``` in a new terminal window. Next, run the below command replacing CONTAINER_ID with the obtained ID:
 
    ```docker exec -it CONTAINER_ID bash -l```
 
-You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code in part 1 of the MySQL database initialisation code to create two databases with all tables (except the response tables). So, next to the ```respondents``` database, you created one database for a single project called ```project```.  
+You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code from Part 1 of the MySQL database initialisation code to create the ```respondents``` database and a ```project``` database with all tables (except the response tables).
 
-Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. 
+Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. Exit MySQL in the terminal by running ```exit;```. 
 
 ### Step 3:MySQL setup - part 2 and further
 * To be continued*
