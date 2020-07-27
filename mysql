@@ -1,95 +1,126 @@
 # Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
 
-# MYSQL database initialization for DearScholar. Consult the README file for further explanations. 
+# MYSQL database initialization for DearScholar. Consult the installation instructions in the README file for details. In particular, the information about when Part 1 and Part 2 should be run during installation.
 
-# Note: In the source code, both tables 1 and 2 are in a different database (called respondents) than the other tables (in 'project' databases) to make it possible to run multiple projects simultaneously.
+#---
+# Part 1
+#---
 
+# MYSQL database setup for respondents
 
-# MYSQL database setup
+CREATE DATABASE IF NOT EXISTS respondents
+	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+# MYSQL table setup (for managing respondents and sending push notifications)
+
+USE respondents;
+
+CREATE TABLE `authentication` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pwd` text COLLATE utf8mb4_unicode_ci,
+  `project` text COLLATE utf8mb4_unicode_ci,
+  `setup` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `q0_startdate` text COLLATE utf8mb4_unicode_ci,
+  `q0_occasions` text COLLATE utf8mb4_unicode_ci,
+  `q0_intervaltype` text COLLATE utf8mb4_unicode_ci,
+  `q0_interval` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `registration` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `project` text COLLATE utf8mb4_unicode_ci,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `token` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+# MYSQL database setup for the project.
+# Note, if you want to run multiple projects, you can run the code below multiple times, but do not forget to change the database name.
 
 CREATE DATABASE IF NOT EXISTS project
 	 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
-# MYSQL table setup (respondent management)
+# MYSQL table setup for the project.
 
-CREATE TABLE IF NOT EXISTS authentication (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	pwd TEXT,
-	project TEXT,
-	setup VARCHAR(1) ,
-	q0_startdate TEXT,
-	q0_occasions TEXT,
-	q0_intervaltype TEXT,
-	q0_interval TEXT);
-
-CREATE TABLE IF NOT EXISTS registration (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	project TEXT,   	
-	uname VARCHAR(100),
-	token TEXT);
+USE project;
 	
-CREATE TABLE IF NOT EXISTS pintable (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100),
-   	pin TEXT,
-	code TEXT);
+CREATE TABLE `pintable` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pin` text COLLATE utf8mb4_unicode_ci,
+  `code` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-# MYSQL table setup (survey setup)
+CREATE TABLE `surveyStructure` (
+  `consent` text COLLATE utf8mb4_unicode_ci,
+  `manual` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS surveyStructure (
-	consent TEXT,
-	manual TEXT);
+CREATE TABLE `moduleStructure` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `module0` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mandatory` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci,
+  `imageleft` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagetop` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE `pageStructure` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `module1` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `classp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `idp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `header` text CHARACTER SET utf8,
+  `backbuttontid` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttontext` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttononclick` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttonhref` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttonid` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttontext` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttononclick` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttonhref` varchar(100) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS pageStructure (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module1 VARCHAR(100),
-	classp VARCHAR(100),
-	idp VARCHAR(100),
-	header VARCHAR(100),
-	backbuttonid VARCHAR(100),
-	backbuttontext VARCHAR(100),
-	backbuttonclick VARCHAR(100),
-	backbuttonhref VARCHAR(100),
-	nextbuttonid VARCHAR(100),
-	nextbuttontext VARCHAR(100),
-	nextbuttonclick VARCHAR(100),
-	nextbuttonhref VARCHAR(100));
-
-CREATE TABLE IF NOT EXISTS questionTable (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module2 VARCHAR(100),
-	tab VARCHAR(100),
-	idq VARCHAR(100),
-	type VARCHAR(100),
-	question TEXT,
-	categories TEXT,
-	footer TEXT);
+CREATE TABLE `questionTable` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `module2` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tab` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `idq` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `question` text COLLATE utf8mb4_unicode_ci,
+  `categories` text COLLATE utf8mb4_unicode_ci,
+  `footer` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 # MYSQL table setup (in app messages)
 
-CREATE TABLE IF NOT EXISTS messages (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100),
-   	timestamp TEXT,
-   	message TEXT,
-	seen VARCHAR(1));
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `message` text COLLATE utf8mb4_unicode_ci,
+  `seen` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+#---
+# Part 2
+#---
+	
 # MYSQL table setup (response tables)
 # Warning: Set up these tables only after the questionTable has been populated. See samplestudy-part2.sql for a mock survey.
 # Warning: When new questions are added to the questionTable afterwards (or question IDs have changed), add new response columns for these questions manually to the table. 
-
-# Note: In the source code, we have 4 modules (A, B, C, D) and, hence 4 responseTables. 
 
 # Code adapted from https://stackoverflow.com/users/833073/fthiella
 # https://stackoverflow.com/questions/15820082/create-a-table-with-column-names-derived-from-row-values-of-another-table
 
 CREATE TABLE IF NOT EXISTS responseTableModuleA (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 SELECT
   CONCAT(
@@ -106,10 +137,11 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleB (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -126,10 +158,11 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleC (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -146,10 +179,11 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleD (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -165,51 +199,422 @@ INTO @sql;
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
+CREATE TABLE IF NOT EXISTS responseTableModuleE (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleE ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'E'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+
+CREATE TABLE IF NOT EXISTS responseTableModuleF (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleF ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'F'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+
+CREATE TABLE IF NOT EXISTS responseTableModuleG (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
+
+SELECT
+  CONCAT(
+    'ALTER TABLE responseTableModuleG ADD COLUMN (', 
+    GROUP_CONCAT(DISTINCT
+      CONCAT(idq, ' TEXT')
+      SEPARATOR ','),
+    ');')
+FROM
+  questionTable WHERE module2 = 'G'
+INTO @sql;
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+
+#-----------------------
 # MYSQL user management
+#-----------------------
 
-##  INDIVIDUAL RESEARCHER
-CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
+#  SET PRIVILEGES FOR THE INDIVIDUAL RESEARCHER
+SET @username='researcher';
+SET @password='test';
 
-	### TO MANIPULATE THE REGISTRATION OF RESPONDENTS
-	GRANT INSERT, SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+SET @createUser = CONCAT
+('
+   CREATE USER "',@username,'"@"localhost" IDENTIFIED BY "',@password,'"'
+);
 
-	### TO MANIPULATE  THE SURVEY SETUP
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. surveyStructure TO '######'@'localhost';
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. pageStructure TO '######'@'localhost';
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. questionTable TO '######'@'localhost';
+PREPARE statement FROM @createUser;
 
-	### TO MANIPULATE THE MESSAGES TABLE
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. messages TO '######'@'localhost';
+EXECUTE statement;
 
-	### TO VIEW THE RESULTS OF THE SURVEY
-	GRANT SELECT ON project. responseTableModuleA TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleB TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleC TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleD TO '######'@'localhost';
+DEALLOCATE PREPARE statement;
 
-## RESPONDENT AKA ENDUSER IN DEARSCHOLAR (THAT IS, THE APP)
-CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
-	
-	### TO VERIFY THE CREDENTIALS AND SET THE SETUP VALUE TO ONE (1)
-	GRANT SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+# TO MANIPULATE THE REGISTRATION OF RESPONDENTS
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, UPDATE ON respondents.authentication TO "',@username,'"@"localhost"'
+);
 
-	### TO REGISTER THE DEVICE FOR RECEIVING PUSH NOTIFICATIONS (AND UPDATE WHEN APPLE OR ANDROID PROVIDES A NEW TOKEN
-	GRANT SELECT, UPDATE ON project. registration TO '######'@'localhost';
-	
-	# TO MANIPULATE THE PIN CODE
-	GRANT INSERT, SELECT, UPDATE ON project. pintable TO '######'@'localhost';
-	
-	# READ THE SURVEY SETUP
-	GRANT SELECT ON project. surveyStructure TO '######'@'localhost';
-	GRANT SELECT ON project. pageStructure TO '######'@'localhost';
-	GRANT SELECT ON project. questionTable TO '######'@'localhost';
-	
-	# READ MESSAGES AND SET THE READ VALUE TO ONE (1)
-	GRANT SELECT, UPDATE ON project. questionTable TO '######'@'localhost';
+PREPARE statement FROM @query;
 
-	# INSERT (POST) THE DATA (SURVEY RESULTS
-	GRANT INSERT ON project. responseTableModuleA TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleB TO '######'@'localhost’;
-	GRANT INSERT ON project. responseTableModuleC TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleD TO '######'@'localhost';
+EXECUTE statement;
 
+DEALLOCATE PREPARE statement;
+
+# TO MANIPULATE  THE SURVEY SETUP
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.surveyStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.moduleStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.pageStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.questionTable TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO MANIPULATE THE MESSAGES TABLE
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.messages TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO VIEW THE RESULTS OF THE SURVEY
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleB TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleC TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleD TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleE TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleF TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleG TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# SET PRIVILEGES FOR THE APP
+
+SET @username='app';
+SET @password='test';
+
+SET @createUser = CONCAT
+('
+   CREATE USER "',@username,'"@"localhost" IDENTIFIED BY "',@password,'"'
+);
+
+PREPARE statement FROM @createUser;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO VERIFY THE CREDENTIALS AND SET THE SETUP VALUE TO ONE (1)
+
+SET @query = CONCAT
+('
+  GRANT SELECT, UPDATE ON respondents.authentication TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO REGISTER THE DEVICE FOR RECEIVING PUSH NOTIFICATIONS (AND UPDATE WHEN APPLE OR ANDROID PROVIDES A NEW TOKEN
+
+SET @query = CONCAT
+('
+  GRANT SELECT, UPDATE ON respondents.registration TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO MANIPULATE THE PIN CODE
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, UPDATE ON project.pintable TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# READ THE SURVEY SETUP
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.surveyStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.moduleStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.pageStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.questionTable TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# READ MESSAGES AND SET THE READ VALUE TO ONE (1)
+
+SET @query = CONCAT
+('
+  GRANT SELECT, UPDATE ON project.messages TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# INSERT (POST) THE DATA (SURVEY RESULTS)
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleB TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleC TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleD TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleE TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleF TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleG TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;

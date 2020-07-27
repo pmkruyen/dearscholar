@@ -91,12 +91,12 @@ routes: [
             measurementDates();
             //Add event handler to the 'startSurveyButton' buttons to open the survey page.
                 $$('.startSurveyButton').on('click', function (e) {
-                    check_completed("NO");
-            });
+                     openSurveyPage("NO")
+                });
             //Add event handler to the 'startSurveyButtonNo' buttons to show a warning
                 $$('.startSurveyButtonNo').on('click', function (e) {
                     app.dialog.alert("Dit meetmoment ligt in de toekomst. Daarom kunt u deze vragenlijst niet invullen.","DearScholar");
-            });
+                });
         },
         }
     },
@@ -106,20 +106,13 @@ routes: [
         url: './survey.html',
             on: {
         pageAfterIn: function (e, page) {
+                //Add event handler to the 'module' buttons to open the module page.
+                $$('.module').on('click', function (event) {              routerModule(module=$$(this).attr("id"),adhoc='NO')
+                });
         },
         pageInit: function (e, page) {
-            //Add event handler to the 'startSurveyButton' buttons to open the survey page.
-                $$('#moduleA').on('click', function (e) {                 routerModule(module='A',adhoc='NO');
-                });
-                $$('#moduleB').on('click', function (e) {
-                    routerModule(module='B',adhoc='NO');
-                });
-                $$('#moduleC').on('click', function (e) {
-                    routerModule(module='C',adhoc='NO');
-                });
-                $$('#moduleD').on('click', function (e) {
-                    routerModule(module='D',adhoc='NO');
-                });
+                // render the page with module icons
+                renderSurveypage("S");
         },       
         }
     },
@@ -128,7 +121,7 @@ routes: [
         path: '/module/',
         url: './module.html',
             on: {
-         pageInit: function (e, page) {
+        pageInit: function (e, page) {
               emptytitle.innerHTML += title;
         },
         pageBeforeIn: function (e, page) {
@@ -139,17 +132,8 @@ routes: [
                 $$('.saveAnswers').on('click', function (e) {
                     saveAnswers();
                 });
-                $$('.uploadToServerA').on('click', function (e) {
-                    uploadToServer('moduleA')
-                });
-                $$('.uploadToServerB').on('click', function (e) {
-                    uploadToServer('moduleB')
-                });
-                $$('.uploadToServerC').on('click', function (e) {
-                    uploadToServer('moduleC')
-                });
-                $$('.uploadToServerD').on('click', function (e) {
-                    uploadToServer('moduleD')
+                $$('.upload').on('click', function (e) {
+                    uploadToServer(module)
                 });
                 $$('.click').on('click', function (e) {
                     yesNoIDValue = $(this).attr('id').split('=');
@@ -168,17 +152,14 @@ routes: [
         path: '/surveyadhoc/',
         url: './surveyadhoc.html',
             on: {
+        pageAfterIn: function (e, page) {
+                //Add event handler to the 'module' buttons to open the module page.
+                $$('.module').on('click', function (event) {              routerModule(module=$$(this).attr("id"),adhoc='YES')
+                });
+        },
         pageInit: function (e, page) {
-            //Add event handler to the 'startSurveyButton' buttons to open the survey page.
-                $$('#moduleAAdhoc').on('click', function (e) {
-                    routerModule(module='A',adhoc='YES');
-                });
-                $$('#moduleBAdhoc').on('click', function (e) {
-                    routerModule(module='B',adhoc='YES');
-                });
-                $$('#moduleDAdhoc').on('click', function (e) {
-                    routerModule(module='D',adhoc='YES');
-                });
+                // render the page with module icons
+                renderSurveypage("A");
         },
         }
     },
@@ -277,51 +258,6 @@ var $$ = Dom7;
 var mainView = app.views.create('.view-main')
 
 ///////////////////////////////////////////////////////////////////////////////
-///// Specific Android functions
-//Attach functions to the bacbutton on Android devices.
-document.addEventListener('backbutton', onBackKeyDown, false);
-
-function onBackKeyDown() {
-    if (($$('.panel-left').hasClass('panel-in')) || ($$('.panel-right').hasClass('panel-in'))) { // #leftpanel and #rightpanel are id of both panels.
-        app.panel.close()
-        return false;
-    } else if ($$('.modal-in').length > 0) {
-        app.popup.close()
-        return false;
-    } else if (app.views.main.router.url == '/schedule/') {
-        app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
-            navigator.app.exitApp();
-        },
-        function() {
-        });
-    } else if (app.views.main.router.url == '/') {
-        app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
-            navigator.app.exitApp();
-        },
-        function() {
-        });
-    }
-    else {
-        mainView.router.back();
-    }
-}
-
-// Hide buttons on keyboardshow.
-window.addEventListener("keyboardWillShow", function(e) {
-    //if(device.platform == "Android"|| device.platform == "android"){
-        $(".bottomButtons").hide();
-    //}
-});
-
-window.addEventListener("keyboardDidHide", function(e) {
-    //if(device.platform == "Android"|| device.platform == "android"){
-        $(".bottomButtons").show();
-    //}
-});
-
-
-///////////////////////////////////////////////////////////////////////////////
-///// Specific IOS functions
 // Style the login screen
 document.addEventListener("deviceready", function(){
     
@@ -386,6 +322,53 @@ document.addEventListener("deviceready", function(){
             
 }, false);
 
+///////////////////////////////////////////////////////////////////////////////
+// Style the survey screen
+// Hide buttons on keyboardshow.
+window.addEventListener("keyboardWillShow", function(e) {
+    //if(device.platform == "Android"|| device.platform == "android"){
+        $(".bottomButtons").hide();
+    //}
+});
+
+window.addEventListener("keyboardDidHide", function(e) {
+    //if(device.platform == "Android"|| device.platform == "android"){
+        $(".bottomButtons").show();
+    //}
+});
+
+///////////////////////////////////////////////////////////////////////////////
+///// Specific Android functions
+//Attach functions to the bacbutton on Android devices.
+document.addEventListener('backbutton', onBackKeyDown, false);
+
+function onBackKeyDown() {
+    if (($$('.panel-left').hasClass('panel-in')) || ($$('.panel-right').hasClass('panel-in'))) { // #leftpanel and #rightpanel are id of both panels.
+        app.panel.close()
+        return false;
+    } else if ($$('.modal-in').length > 0) {
+        app.popup.close()
+        return false;
+    } else if (app.views.main.router.url == '/schedule/') {
+        app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
+            navigator.app.exitApp();
+        },
+        function() {
+        });
+    } else if (app.views.main.router.url == '/') {
+        app.dialog.confirm("Weet u zeker dat u DearScholar wilt afsluiten.","DearScholar", function() {
+            navigator.app.exitApp();
+        },
+        function() {
+        });
+    }
+    else {
+        mainView.router.back();
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Login functions
 // Timer functions to logout (return to index) after # time of inactivity.
 var timeoutID;
 
@@ -404,7 +387,6 @@ function startTimer() {
     // wait 5.5 minutes before calling goInactive
     timeoutID = window.setTimeout(goInactive, 330000);
 }
-
 
 $$(window).on('click keyup', function (e) {
     window.clearTimeout(timeoutID);
@@ -460,7 +442,6 @@ $$('input[name = "PIN1"]').on('keyup', function (event) {
 });
 
 //Add event handler to the second PIN input field
-//Detach the event.key on dialog show (keycodes prm in F7.
 $$('input[name = "PIN2"]').on('keyup', function (event) {
     if (event.key === "Enter") {
     if ($$('input[name = "PIN1"]').val()===$$('input[name = "PIN2"]').val()&&$$('input[name = "PIN1"]').val()!=""){
@@ -646,11 +627,6 @@ $$('#acceptConsent').on('click', function (e) {
         })   
 })
 
-//Add event handler to the close consent link in the About button.
-$$('#closeConsent').on('click', function (e) {
-    app.popup.close(".consentAbout")
-})
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Database functions needed to setup the diary database and all tables
     // Wait for Phonegap to load
@@ -684,23 +660,42 @@ $$('#closeConsent').on('click', function (e) {
                  {  
                     surveyStructure = JSON.parse(data).data0;
                     pageStructure = JSON.parse(data).data1;
-                    questionTable = JSON.parse(data).data2;                                         
+                    questionTable = JSON.parse(data).data2;
+                    moduleStructure = JSON.parse(data).data3;
+                                          
                     DiaryDatabase.transaction(function (tx){
                         tx.executeSql('DROP TABLE IF EXISTS surveyStructure');
                         tx.executeSql('DROP TABLE IF EXISTS pageStructure');
                         tx.executeSql('DROP TABLE IF EXISTS questiontable');
+                        tx.executeSql('DROP TABLE IF EXISTS moduleStructure');
                         
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS surveyInformation (surveydate,A,B,C,D)');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual, moduleAname, moduleBname, moduleCname, moduleDname)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS surveyInformation (surveydate)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS moduleStructure (module0, name, page, mandatory, image, imageleft, imagetop)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS pageStructure (module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick, backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, categories, footer)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS responseTable (id, surveydate, timestamp)');
                         
                         DiaryDatabase.transaction(function(tx) {
-                            var query = "INSERT INTO surveyStructure (consent, manual, moduleAname, moduleBname, moduleCname, moduleDname) VALUES (?, ?, ?, ?, ?, ?)";
-                            tx.executeSql(query,[surveyStructure[0].data.consent,surveyStructure[0].data.manual,surveyStructure[0].data.moduleAname,surveyStructure[0].data.moduleBname,surveyStructure[0].data.moduleCname,surveyStructure[0].data.moduleDname])
+                            var query = "INSERT INTO surveyStructure (consent, manual) VALUES (?, ?)";
+                            tx.executeSql(query,[surveyStructure[0].data.consent,surveyStructure[0].data.manual])
                         }) 
 
+                        listModuleIds =[]
+                        for (var i = 0, len = moduleStructure.length; i < len; i++) {
+                            addItemmoduleStructure(DiaryDatabase, 
+                                                 moduleStructure[i].data.module0,
+                                                 moduleStructure[i].data.name,
+                                                 moduleStructure[i].data.page,
+                                                 moduleStructure[i].data.mandatory,
+                                                 
+                                                moduleStructure[i].data.image,
+                                                moduleStructure[i].data.imageleft,
+                                                 moduleStructure[i].data.imagetop);
+                            
+                        listModuleIds.push(moduleStructure[i].data.module0);    
+                        }  
+                        
                         for (var i = 0, len = pageStructure.length; i < len; i++) {
                             addItemPageStructure(DiaryDatabase, 
                                                  pageStructure[i].data.module1,
@@ -730,10 +725,41 @@ $$('#closeConsent').on('click', function (e) {
                                                  );
                             listQuestionIds.push(questionTable[i].data.idq);
                         }
-                        
                     }, function(error) {
                         // show (no) error message
                     }, function() {
+                        // function to insert new modules in the surveyInformation table
+                        DiaryDatabase.transaction(function (tx) 
+                        {
+                        var query = "SELECT * FROM surveyInformation;"
+            
+                        tx.executeSql(query, [], function (tx, resultSet) {
+                            if (resultSet.rows.length==0)
+                            {
+                                mlabels = "empty"   
+                            };
+                            if (resultSet.rows.length>0)
+                            {
+                                firstRow = resultSet.rows.item(0);
+                                mlabels = Object.getOwnPropertyNames(firstRow);
+                            }
+                        }
+                        ) 
+                        }, 
+                        function (error) {
+                            // show (no) error message
+                        },
+                        function () {
+                            
+                        DiaryDatabase.transaction(function(tx) {
+                             for (var i = 0; i < listModuleIds.length; i++) {
+                                if(mlabels.includes(listModuleIds[i])==false){
+                                    query = "ALTER TABLE surveyInformation ADD COLUMN "+listModuleIds[i]+" TEXT";
+                                    tx.executeSql(query);
+                                }
+                                }
+                        })} ) 
+        
                         // function to insert new questions in the responseTable
                         DiaryDatabase.transaction(function (tx) 
                         {
@@ -774,6 +800,18 @@ $$('#closeConsent').on('click', function (e) {
               })    
     }
 
+    // function to populate the moduleStructure database
+    function addItemmoduleStructure(DiaryDatabase, module0, name, page, mandatory,image, imageleft, imagetop) {
+
+        DiaryDatabase.transaction(function (tx) {
+
+        var query = "INSERT INTO moduleStructure (module0, name, page, mandatory, image, imageleft, imagetop) VALUES (?,?,?,?,?,?,?)";
+
+        tx.executeSql(query, [module0, name, page, mandatory, image, imageleft, imagetop], function(tx) {
+        });
+    });
+    }
+
     // function to populate the pageStructure database
     function addItemPageStructure(DiaryDatabase, module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref) {
 
@@ -799,13 +837,10 @@ $$('#closeConsent').on('click', function (e) {
     }
 
 // function to create the survey schedule
-
 function measurementDates (startdate=window.localStorage.getItem("q0_startdate"), occassions = window.localStorage.getItem('q0_occasions'),intervaltype = window.localStorage.getItem("q0_intervaltype"), interval = window.localStorage.getItem("q0_interval")){
-    
-    
-    
+     
     var currentmoment =moment();
-        
+            
     for (i = 0; i < Number(occassions)*Number(interval); i = i + Number(interval)) {
         
         if (intervaltype=='d'){
@@ -815,7 +850,7 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
         if (intervaltype=='w'){
             var measurementOccassion = moment(startdate).add(i, 'weeks');
         }
-        
+           
         month = measurementOccassion.format('MMM');
         day = measurementOccassion.format('DD');
         year = measurementOccassion.format('YYYY');
@@ -823,11 +858,12 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
         var child = document.createElement('div');
         
         var difMeasCur = measurementOccassion.diff(currentmoment, 'weeks');
+        var surveydatetoday = day + month + year;
 
         if (difMeasCur<=0){
             child.innerHTML =
                 '<div class="timeline-item" >' +
-                    '<i class="f7-icons pictogram" id='+measurementOccassion+'>lock_open</i>'+
+                    '<i class="f7-icons pictogram '+surveydatetoday+'">lock_open</i>'+
                     '<div class="timeline-item-date">' + day + ' ' + '<small>' + month + '</small></div>' +
                     '<div class="timeline-item-divider"></div>' +
                     '<div class="timeline-item-content">' +
@@ -851,118 +887,228 @@ function measurementDates (startdate=window.localStorage.getItem("q0_startdate")
         child = child.firstChild;
         document.getElementById('measurementSchedule').appendChild(child)
         
-        // color the button if survey is completed for a particular moment.
-        var surveydatetoday = day + month + year;
-      if(localStorage.getItem("moduleA"+surveydatetoday)=="completed"&localStorage.getItem("moduleB"+surveydatetoday)=="completed"&localStorage.getItem("moduleC"+surveydatetoday)=="completed"){
-          $("#"+measurementOccassion).html('sun_max')
-          $("#"+surveydatetoday).addClass("measurementcomplete");
-          $("#"+surveydatetoday).html('Bekijk antwoorden ');
-      }
     }
-          
+    // change the text and icon if all mandatory modules are completed for a particular moment.
+    checkAllModulesCompleted()
 }
-
-// function to populate the consent page
- function startConsent(){
-      document.getElementById("emptyconsentform").innerHTML = ""   
-
-      DiaryDatabase.transaction(function (tx) {
-            
-                var query = "SELECT consent FROM surveyStructure WHERE rowid = ?"
-                tx.executeSql(query,[1],function (tx, resultSet) {
-                    consentText = resultSet.rows.item(0).consent
-                })
-      },
-      function (tx, error) {
-        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-      },
-      function (tx, succes) {
-         app.popup.open(".consent");
-         document.getElementById("emptyconsentform").innerHTML += consentText;
-          
-         //restyle the Android toolbar 
-         if(device.platform == "Android"|| device.platform == "android"){
-            $(".toolbar-bottom").css("height", "120px");
-            $(".toolbar-inner").css("height", "40px");
-         }  
-     })
- }
-
-// function to populate the consent page in the About page
- function startConsentAbout(){
-      document.getElementById("emptyconsentformAbout").innerHTML = ""   
-
-      DiaryDatabase.transaction(function (tx) {
-            
-                var query = "SELECT consent FROM surveyStructure WHERE rowid = ?"
-                tx.executeSql(query,[1],function (tx, resultSet) {
-                    consentText = resultSet.rows.item(0).consent
-                })
-      },
-      function (tx, error) {
-        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-      },
-      function (tx, succes) {
-         app.popup.open(".consentAbout");
-         document.getElementById("emptyconsentformAbout").innerHTML += consentText;
-          
-         //restyle the Android toolbar 
-         if(device.platform == "Android"|| device.platform == "android"){
-            $(".toolbar-bottom").css("height", "120px");
-            $(".toolbar-inner").css("height", "40px");
-         }
-     })
- }
-
-// function to populate the manual
-  function startManual(){
-      var emptypage = document.getElementById("emptypage")
-
-      DiaryDatabase.transaction(function (tx) {
-            
-                var query = "SELECT manual FROM surveyStructure WHERE rowid = ?"
-                tx.executeSql(query,[1],function (tx, resultSet) {
-                    emptypage.innerHTML += resultSet.rows.item(0).manual
-                })
-      }),
-      function (tx, error) {
-        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-     }
-  }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Database functions for the survey
 
+function checkAllModulesCompleted(){
+DiaryDatabase.transaction(function (tx) {
+                mandatory = []
+            
+                var query = "SELECT * FROM moduleStructure WHERE mandatory = ?"
+            
+                tx.executeSql(query, ["1"], function (tx, resultSet) {
+
+                    for(var x = 0; x < resultSet.rows.length; x++) {
+                        mandatory.push(resultSet.rows.item(x).module0)
+                    }
+                }   
+                )},          
+                function (error) {
+                                 },
+                function () {
+                checkAllModulesCompleted2(mandatory)
+                }
+                );
+} 
+
+function checkAllModulesCompleted2(mandatory){
+DiaryDatabase.transaction(function (tx) {
+                completed = []
+            
+                var temp = [];
+                for (var i = 0; i <= mandatory.length-1; i++) {
+                    temp.push(mandatory[i]+"=? AND");
+                }
+                temp = temp.toString()
+                temp = temp.replace(",",' ');
+                temp = temp.slice(0, -4); 
+
+                var query = "SELECT * FROM surveyInformation WHERE "+ temp
+
+                var values = [];
+                for (var i = 1; i <= mandatory.length; i++) {
+                    values.push("Y");
+                }
+            
+                tx.executeSql(query, values, function (tx, resultSet) {
+
+                for(var x = 0; x < resultSet.rows.length; x++) {
+
+                surveydatetoday = resultSet.rows.item(x).surveydate
+                    $("."+surveydatetoday).html('sun_max')
+                    $("#"+surveydatetoday).addClass("measurementcomplete");
+                    $("#"+surveydatetoday).html('Bekijk antwoorden ');
+               }
+               });    
+            }
+        );
+}
+
+// function to go to the survey page, set the survey date
+
+function openSurveyPage(adhoc)
+{
+  if (adhoc=="NO"){
+    app.views.main.router.navigate('/survey/');
+
+    surveydate = event.srcElement.id;
+
+    $(document).on('page:init', function (e) {
+        
+        day = surveydate.slice(0,2);
+        month = surveydate.slice(2,5);
+        year = surveydate.slice(5,9);
+        
+        document.getElementById("date").innerHTML = day + ' ' + month + ' ' + year;
+        
+    })
+  }
+}
+
+// functions to render the survey page (module pictograms, checked if completed).
+
+function arraySearch(arr,val) {
+    for (var i=0; i<arr.length; i++)
+        if (arr[i] === val)                    
+            return i;
+    return false;
+  }
+
+function renderSurveypage(page) {
+    if (page=='A'){
+        surveydate = "99ADH9999";
+    }
+    
+    moduleNames = []
+    moduleCompleted = []
+    
+    DiaryDatabase.transaction(function (tx) {
+                
+    var query = "SELECT * FROM surveyInformation WHERE surveydate = ?"
+            
+    tx.executeSql(query, [surveydate], function (tx, resultSet2) {  
+                       surveydateExists = resultSet2.rows.length;
+                 })
+        },
+        function (error) {
+                         },
+        function () {
+                    if(surveydateExists<1){
+                        DiaryDatabase.transaction(function (tx) {
+
+                        var query = "INSERT INTO surveyInformation (surveydate) VALUES (?)";
+
+                        tx.executeSql(query, [surveydate], function(tx) {
+                                                            });
+                    });   
+                    }
+                    if(surveydateExists>0){
+                        
+                        DiaryDatabase.transaction(function (tx) 
+                        {
+                        var query = "SELECT * FROM surveyInformation;"
+            
+                        tx.executeSql(query, [], function (tx, resultSet) {
+                        
+                                firstRow = resultSet.rows.item(0);
+                                mlabels = Object.getOwnPropertyNames(firstRow);
+                            
+                        }
+                        ) 
+                        })
+                        
+                        DiaryDatabase.transaction(function (tx) {  
+                        for (var i = 1, len = mlabels.length; i < len; i++) {
+
+                            var query = "SELECT "+mlabels[i]+" FROM surveyInformation WHERE surveydate = ?"
+                            tx.executeSql(query, [surveydate], function (tx, resultSet3) {
+                           
+                                var answer = JSON.stringify((resultSet3.rows.item(0)));
+                                answer = answer.split(":");
+                                question = answer[0].replace('{"','');
+                                question =question.replace('"','')
+                                moduleNames.push(question)
+                                answer = answer[1].replace('"}','');
+                                answer = answer.replace('"','');
+                                moduleCompleted.push(answer)
+                                                               
+                            })    
+
+                        }
+
+                        })
+                    }
+                    renderSurveypage2(page, moduleNames, moduleCompleted)
+                    }
+        );  
+}
+    
+
+function renderSurveypage2(page,moduleNames,moduleCompleted) {            DiaryDatabase.transaction(function (tx) {
+            
+                var query = "SELECT * FROM moduleStructure WHERE page = ?"
+            
+                tx.executeSql(query, [page], function (tx, resultSet) {
+
+                for(var x = 0; x < resultSet.rows.length; x++) {
+
+                var data = {
+                    module: resultSet.rows.item(x).module0,
+                    name: resultSet.rows.item(x).name,
+                    image: resultSet.rows.item(x).image,
+                    imageleft: resultSet.rows.item(x).imageleft,
+                    imagetop: resultSet.rows.item(x).imagetop
+                }  
+                
+                if(moduleCompleted[arraySearch(moduleNames,data.module)]=="Y")
+                    {data.image="c-"+data.image
+                    }
+            
+               var emptypage = document.getElementById("emptypage")
+               emptypage.innerHTML += renderModulePictograms(data);
+               }
+               },
+                function (error) {
+                                 },
+                function () {
+          
+                   
+                }
+                );    
+        }
+    );
+ }
+                                      
+function renderModulePictograms(data){
+    return `
+     <div class="module" id=${data.module} 
+        style="position:absolute; 
+            left:${data.imageleft};
+            top:${data.imagetop};
+            transform:translate(-50%,-50%)">
+        <a><img src="img/${data.image}" title="" alt=""></a
+     </div>`
+}
                             
 // function to route to module, but first fetch the module name.
 function routerModule(module, adhoc){
-    var moduleName = "module"+module+"name";
     
     DiaryDatabase.transaction(function (tx) {
-                var query = "SELECT " + moduleName + " FROM surveyStructure WHERE rowid = ?"
-                tx.executeSql(query,[1],function (tx, resultSet) {
-                    if (moduleName=="moduleAname"){
-                        title = resultSet.rows.item(0).moduleAname}
-                    if (moduleName=="moduleBname"){
-                        title = resultSet.rows.item(0).moduleBname}
-                    if (moduleName=="moduleCname"){
-                        title = resultSet.rows.item(0).moduleCname}
-                    if (moduleName=="moduleDname"){
-                        title = resultSet.rows.item(0).moduleDname}
+                var query = "SELECT name FROM moduleStructure WHERE module0 = ?"
+                tx.executeSql(query,[module],function (tx, resultSet) {
+                        title = resultSet.rows.item(0).name
                 })
             },   
             function (error) {
                 app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
             },
             function () {
-                if (adhoc=='NO'){
-                    app.views.main.router.navigate('/module/', {});
-                }
-            // for the adhoc test, go to moduleadhoc page
-                if (adhoc=='YES'){
-                    surveydate = "99ADH9999";
-                    app.views.main.router.navigate('/module/', {});
-                }
+                app.views.main.router.navigate('/module/', {});
             })
 }
 
@@ -996,7 +1142,7 @@ function startModule(module, adhoc) {
                     nextbuttonhref:resultSet.rows.item(x).nextbuttonhref
                 }           
                             
-               var emptypage = document.getElementById("emptypage")
+               var emptypage = document.getElementById("emptypagemodule")
                emptypage.innerHTML += pages(data);
                }
                },
@@ -1273,69 +1419,6 @@ function saveAnswers(){
         });        
 }
 
-// add event listeren to 
-    
-// function to figure out which survey (date) is filled out, and for the non adhoc test sets check completed; 
-
-function check_completed(adhoc)
-{
-  app.views.main.router.navigate('/survey/');
-
-    surveydate = event.srcElement.id;
-
-    $(document).on('page:init', function (e) {
-        
-        day = surveydate.slice(0,2);
-        month = surveydate.slice(2,5);
-        year = surveydate.slice(5,9);
-        
-     if (adhoc=="NO"){
-        document.getElementById("date").innerHTML = day + ' ' + month + ' ' + year;
-        
-        if(localStorage.getItem("moduleC"+surveydate)== "completed"){
-            var element = document.getElementById("moduleC");
-            element.classList.add("completed");
-        }
-       
-        if(localStorage.getItem("moduleC"+surveydate)!= "completed"){
-            var element = document.getElementById("moduleC");
-            element.classList.remove("completed");
-        }
-        
-        if(localStorage.getItem("moduleA"+surveydate)== "completed"){
-            var element = document.getElementById("moduleA");
-            element.classList.add("completed");
-        }
-       
-        if(localStorage.getItem("moduleA"+surveydate)!= "completed"){
-            var element = document.getElementById("moduleA");
-            element.classList.remove("completed");
-        }
-        
-        if(localStorage.getItem("moduleB"+surveydate)== "completed"){
-            var element = document.getElementById("moduleB");
-            element.classList.add("completed");
-        }
-       
-        if(localStorage.getItem("moduleB"+surveydate)!= "completed"){
-            var element = document.getElementById("moduleB");
-            element.classList.remove("completed");
-        }
-        
-        if(localStorage.getItem("moduleD"+surveydate)== "completed"){
-            var element = document.getElementById("moduleD");
-            element.classList.add("completed");
-        }
-       
-        if(localStorage.getItem("moduleD"+surveydate)!= "completed"){
-            var element = document.getElementById("moduleD");
-            element.classList.remove("completed");
-        } 
-      }
-        
-    });  
-}
-
 //function to upload the answers
 function uploadToServer(module){
     
@@ -1345,10 +1428,9 @@ function uploadToServer(module){
 
      var data = $("form").serialize();
      
-     var dataString="uname="+uname+"&pwd="+pwd+"&surveydate="+surveydate+"&timestamp="+timestamp+"&"+data+"&module="+module;
+     var dataString="uname="+uname+"&pwd="+pwd+"&surveydate="+surveydate+"&timestamp="+timestamp+"&"+data+"&module=module"+module;
 
-        console.log(dataString);
-            $.ajax({
+        $.ajax({
                  type:"POST",  
                  url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
                  crossDomain: true,
@@ -1359,15 +1441,10 @@ function uploadToServer(module){
                   if(data=="success") {
                       
                       if (adhoc=='NO'){
+                        // set the module to complete and return to the survey page. 
+                        setModuleComplete(surveydate,module) 
                           
-                          localStorage.setItem(module+surveydate, "completed");
-     
                         app.views.main.router.navigate('/survey/');
-                
-                        $(document).on('page:init', function (e) {
-                            var element = document.getElementById(module);
-                            element.classList.add("completed");
-                        }); 
                       }
                       if (adhoc=='YES'){
                         app.views.main.router.navigate('/schedule/');
@@ -1381,8 +1458,45 @@ function uploadToServer(module){
             });  
         }  
 
+
+
+// function to set module to complete (when uploaded succesfully)
+function setModuleComplete(surveydate ,module){
+    DiaryDatabase.transaction(function (tx) {
+                
+        var query = "SELECT * FROM surveyInformation WHERE surveydate = ?"
+            
+        tx.executeSql(query, [surveydate], function (tx, resultSet2) { 
+                       surveydateExists = resultSet2.rows.length;
+                     })
+        },
+        function (error) {
+                         },
+        function () {
+                    if(surveydateExists<1){
+                        DiaryDatabase.transaction(function (tx) {
+
+                        var query = "INSERT INTO surveyInformation (surveydate, "+ module+") VALUES (?,?)";
+
+                        tx.executeSql(query, [surveydate,"Y"], function(tx) {
+                                                            });
+                    });   
+                    }
+                    if(surveydateExists>0){
+                        DiaryDatabase.transaction(function (tx) {
+
+                        var query = "UPDATE surveyInformation SET "+ module+"=? WHERE surveydate=?";
+
+                        tx.executeSql(query, ["Y", surveydate], function(tx) {
+                                                            });
+                    }); 
+                    }
+                    }
+        );
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Database functions for the mailbox
+// Functions for the mailbox
 
 // Code to show emailsymbol if there are new messages, run on app init
 function checkNewMessages(){
@@ -1503,3 +1617,81 @@ function seen(item) {
                  }
             })
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Miscellaneous functions
+
+// function to populate the consent page
+ function startConsent(){
+      document.getElementById("emptyconsentform").innerHTML = ""   
+
+      DiaryDatabase.transaction(function (tx) {
+            
+                var query = "SELECT consent FROM surveyStructure WHERE rowid = ?"
+                tx.executeSql(query,[1],function (tx, resultSet) {
+                    consentText = resultSet.rows.item(0).consent
+                })
+      },
+      function (tx, error) {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+      },
+      function (tx, succes) {
+         app.popup.open(".consent");
+         document.getElementById("emptyconsentform").innerHTML += consentText;
+          
+         //restyle the Android toolbar 
+         if(device.platform == "Android"|| device.platform == "android"){
+            $(".toolbar-bottom").css("height", "120px");
+            $(".toolbar-inner").css("height", "40px");
+         }  
+     })
+ }
+
+// function to populate the consent page in the About page
+ function startConsentAbout(){
+      document.getElementById("emptyconsentformAbout").innerHTML = ""   
+
+      DiaryDatabase.transaction(function (tx) {
+            
+                var query = "SELECT consent FROM surveyStructure WHERE rowid = ?"
+                tx.executeSql(query,[1],function (tx, resultSet) {
+                    consentText = resultSet.rows.item(0).consent
+                })
+      },
+      function (tx, error) {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+      },
+      function (tx, succes) {
+         app.popup.open(".consentAbout");
+         document.getElementById("emptyconsentformAbout").innerHTML += consentText;
+          
+         //restyle the Android toolbar 
+         if(device.platform == "Android"|| device.platform == "android"){
+            $(".toolbar-bottom").css("height", "120px");
+            $(".toolbar-inner").css("height", "40px");
+         }
+     })
+ }
+
+//Add event handler to the close consent link in the About button.
+$$('#closeConsent').on('click', function (e) {
+    app.popup.close(".consentAbout")
+    app.views.main.router.navigate('/schedule/');
+})
+
+// function to populate the manual
+  function startManual(){
+      var emptypage = document.getElementById("emptypage")
+
+      DiaryDatabase.transaction(function (tx) {
+            
+                var query = "SELECT manual FROM surveyStructure WHERE rowid = ?"
+                tx.executeSql(query,[1],function (tx, resultSet) {
+                    emptypage.innerHTML += resultSet.rows.item(0).manual
+                })
+      }),
+      function (tx, error) {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+     }
+  }

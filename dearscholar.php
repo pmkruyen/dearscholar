@@ -207,8 +207,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-if($_POST['module']=='moduleA'||$_POST['module']=='moduleB'||$_POST['module']=='moduleC'||$_POST['module']=='moduleD'){
-
+if($_POST['module']=='moduleA'||$_POST['module']=='moduleB'||$_POST['module']=='moduleC'||$_POST['module']=='moduleD'||$_POST['module']=='moduleE'||$_POST['module']=='moduleF'||$_POST['module']=='moduleG'){
 
 // prepare the variables (based on the column names, excluding the id variable )
 if($_POST['module'] == 'moduleA'){
@@ -225,6 +224,18 @@ if($_POST['module'] == 'moduleC'){
 
 if($_POST['module'] == 'moduleD'){
   $sql = 'SHOW COLUMNS FROM responseTableModuleD';
+}
+
+if($_POST['module'] == 'moduleE'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleE';
+}
+
+if($_POST['module'] == 'moduleF'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleF';
+}
+
+if($_POST['module'] == 'moduleG'){
+  $sql = 'SHOW COLUMNS FROM responseTableModuleG';
 }
 
 $res = $conn->query($sql);
@@ -266,6 +277,18 @@ if($_POST['module'] == 'moduleC'){
 
 if($_POST['module'] == 'moduleD'){
   $stmt = $conn->prepare("INSERT INTO responseTableModuleD ($variables) VALUES ($placeholders)");
+}
+
+if($_POST['module'] == 'moduleE'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleE ($variables) VALUES ($placeholders)");
+}
+
+if($_POST['module'] == 'moduleF'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleF ($variables) VALUES ($placeholders)");
+}
+
+if($_POST['module'] == 'moduleG'){
+  $stmt = $conn->prepare("INSERT INTO responseTableModuleG ($variables) VALUES ($placeholders)");
 }
 
 // prepare the bind parameters
