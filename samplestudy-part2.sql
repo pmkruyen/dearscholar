@@ -12,14 +12,14 @@ INSERT INTO `surveyStructure` (`consent`, `manual`) VALUES
 ('<div class="block-header"><b>Header</b></div> <div class="block"><p>CONTENT</p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>','<div class="block-header"><b>Header</b></div> <div class="block"><p>CONTENT</p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.</div>');
 
 # Populate the moduleStructure table
-INSERT INTO `moduleStructure` (`id`, `module0`, `name`, `page`, `mandatory`, `image`, `imageleft`, `imagetop`) VALUES
-(1, 'A', 'Eigen ideeën', 'S', '1', 'icons8-innovation-64.png', '25%', '45%'),
-(2, 'B', 'Ideeën van anderen', 'S', '1', 'icons8-solve-64.png', '75%', '45%'),
-(3, 'C', 'Stemming', 'S', '0', 'icons8-survey-64.png', '50%', '30%'),
-(4, 'D', 'Opmerkingen', 'S', '0', 'icons8-branding-64.png', '50%', '80%'),
-(5, 'E', 'Eigen ideeën', 'A', '0', 'icons8-innovation-64.png', '25%', '30%'),
-(6, 'F', 'Ideeën van anderen', 'A', '0', 'icons8-solve-64.png', '50%', '30%'),
-(7, 'G', 'Opmerkingen', 'A', '0', 'icons8-branding-64.png', '75%', '30%');
+INSERT INTO `moduleStructure` (`module0`, `name`, `page`, `mandatory`, `image`, `imageleft`, `imagetop`) VALUES
+('A', 'Eigen ideeën', 'S', '1', 'icons8-innovation-64.png', '25%', '45%'),
+('B', 'Ideeën van anderen', 'S', '1', 'icons8-solve-64.png', '75%', '45%'),
+('C', 'Stemming', 'S', '0', 'icons8-survey-64.png', '50%', '30%'),
+('D', 'Opmerkingen', 'S', '0', 'icons8-branding-64.png', '50%', '80%'),
+('E', 'Eigen ideeën', 'A', '0', 'icons8-innovation-64.png', '25%', '30%'),
+('F', 'Ideeën van anderen', 'A', '0', 'icons8-solve-64.png', '50%', '30%'),
+('G', 'Opmerkingen', 'A', '0', 'icons8-branding-64.png', '75%', '30%');
 
 # Populate the pageStructure table
 INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttontid`, `backbuttontext`, `backbuttononclick`, `backbuttonhref`, `nextbuttonid`, `nextbuttontext`, `nextbuttononclick`, `nextbuttonhref`) VALUES
