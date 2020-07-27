@@ -148,11 +148,12 @@ Refresh phpMyAdmin in your browser. When everthing went well, the authentication
 ### Step 4 MySQL setup - part 3
 In phpMyAdmin, navigate to the ```project``` database; head to the ```import``` tab; and import [samplestudy-part2.sql] (https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the ```project``` tables with sample survey pages, questions, and other survey settings.
 
-Next create the response tables in the ```project``` database and set up the appropriate user rights for all tables to to individual researchers and the DearScholar app.
+Next create the response tables in the ```project``` database and set up the appropriate user rights for all tables to to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table have been inserted as column namens in the responsetables.
 
+*Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentionals for MySQL. 
+
+### Step 5 Start DearScholar locally
 *To be continued*
-
-### Step 5 MySQL setup - part 4 and further
 
 
 
