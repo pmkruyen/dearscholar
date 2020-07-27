@@ -266,7 +266,10 @@ EXECUTE stmt;
 # MYSQL user management
 #-----------------------
 
+#-----------------------
 #  SET PRIVILEGES FOR THE INDIVIDUAL RESEARCHER, FOR A SPECIFIED PROJECT
+#-----------------------
+
 SET @username='researcher';
 SET @password='test';
 SET @project='project';
@@ -431,7 +434,7 @@ EXECUTE statement;
 DEALLOCATE PREPARE statement;
 
 # ---
-# SET PRIVILEGES FOR THE APP
+# SET PRIVILEGES FOR THE APP, FOR A SPECIFIED PROJECT
 # ---
 
 SET @username='app';
@@ -478,7 +481,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT, SELECT, UPDATE ON project.pintable TO "',@username,'"@"localhost"'
+  GRANT INSERT, SELECT, UPDATE ON ',@project,'.pintable TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -490,7 +493,7 @@ DEALLOCATE PREPARE statement;
 # READ THE SURVEY SETUP
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.surveyStructure TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.surveyStructure TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -501,7 +504,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.moduleStructure TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.moduleStructure TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -512,7 +515,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.pageStructure TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.pageStructure TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -523,7 +526,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.questionTable TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.questionTable TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -536,7 +539,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT, UPDATE ON project.messages TO "',@username,'"@"localhost"'
+  GRANT SELECT, UPDATE ON ',@project,'.messages TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -548,7 +551,7 @@ DEALLOCATE PREPARE statement;
 # INSERT (POST) THE DATA (SURVEY RESULTS)
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleA TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -559,7 +562,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleB TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleB TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -570,7 +573,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleC TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleC TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -581,7 +584,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleD TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleD TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -592,7 +595,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleE TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleE TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -603,7 +606,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleF TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleF TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -614,7 +617,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT ON project.responseTableModuleG TO "',@username,'"@"localhost"'
+  GRANT INSERT ON ',@project,'.responseTableModuleG TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
