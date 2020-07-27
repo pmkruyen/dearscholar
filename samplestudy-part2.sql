@@ -131,4 +131,11 @@ INSERT INTO `questionTable` (`module2`, `tab`, `idq`, `type`, `question`, `categ
 ('F', 'tab-7ao', 'q7o', 'OQ', 'Sample open question?', '', ''),
 ('G', 'tab-1rm', 'q1aR', 'OQ', '', '', 'Footer text (the question here is the header (see pageStructure table).');
 
+# Populate the messages table
+INSERT INTO `messages` (`uname`, `timestamp`, `message`, `seen`) VALUES
+('test1', '2020-07-10 20-10-00', 'Welcome!', '0'),
+('test2', '2020-07-10 20-10-00', 'Welcome!', '0'),
+('test3', '2020-07-10 20-10-00', 'Welcome!', '0'),
+('test4', '2020-07-10 20-10-00', 'Welcome!', '0'),
+('test5', '2020-07-10 20-10-00', 'Welcome!', '0');
 
