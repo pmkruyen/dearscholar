@@ -102,15 +102,6 @@ CREATE TABLE `messages` (
   `seen` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-# MYSQL table setup (in app messages)
-
-CREATE TABLE IF NOT EXISTS messages (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100),
-   	timestamp TEXT,
-   	message TEXT,
-	seen VARCHAR(1));
-
 #---
 # Part 2
 #---
