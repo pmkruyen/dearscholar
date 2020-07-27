@@ -424,34 +424,193 @@ EXECUTE statement;
 
 DEALLOCATE PREPARE statement;
 
-## RESPONDENT AKA ENDUSER IN DEARSCHOLAR (THAT IS, THE APP)
-CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
-	
-	### TO VERIFY THE CREDENTIALS AND SET THE SETUP VALUE TO ONE (1)
-	GRANT SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+# SET PRIVILEGES FOR THE APP
 
-	### TO REGISTER THE DEVICE FOR RECEIVING PUSH NOTIFICATIONS (AND UPDATE WHEN APPLE OR ANDROID PROVIDES A NEW TOKEN
-	GRANT SELECT, UPDATE ON project. registration TO '######'@'localhost';
-	
-	# TO MANIPULATE THE PIN CODE
-	GRANT INSERT, SELECT, UPDATE ON project. pintable TO '######'@'localhost';
-	
-	# READ THE SURVEY SETUP
-	GRANT SELECT ON project. surveyStructure TO '######'@'localhost';
-	GRANT SELECT ON project. moduleStructure TO '######'@'localhost';
-	GRANT SELECT ON project. pageStructure TO '######'@'localhost';
-	GRANT SELECT ON project. questionTable TO '######'@'localhost';
-	
-	# READ MESSAGES AND SET THE READ VALUE TO ONE (1)
-	GRANT SELECT, UPDATE ON project. questionTable TO '######'@'localhost';
+SET @username='app';
+SET @password='test';
 
-	# INSERT (POST) THE DATA (SURVEY RESULTS
-	GRANT INSERT ON project. responseTableModuleA TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleB TO '######'@'localhost’;
-	GRANT INSERT ON project. responseTableModuleC TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleD TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleE TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleF TO '######'@'localhost';
-	GRANT INSERT ON project. responseTableModuleG TO '######'@'localhost';
+SET @createUser = CONCAT
+('
+   CREATE USER "',@username,'"@"localhost" IDENTIFIED BY "',@password,'"'
+);
 
+PREPARE statement FROM @createUser;
 
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO VERIFY THE CREDENTIALS AND SET THE SETUP VALUE TO ONE (1)
+
+SET @query = CONCAT
+('
+  GRANT SELECT, UPDATE ON respondents.authentication TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO REGISTER THE DEVICE FOR RECEIVING PUSH NOTIFICATIONS (AND UPDATE WHEN APPLE OR ANDROID PROVIDES A NEW TOKEN
+
+SET @query = CONCAT
+('
+  GRANT SELECT, UPDATE ON respondents.registration TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# TO MANIPULATE THE PIN CODE
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, UPDATE ON project.pintable TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# READ THE SURVEY SETUP
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.surveyStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.moduleStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.pageStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.questionTable TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# READ MESSAGES AND SET THE READ VALUE TO ONE (1)
+
+SET @query = CONCAT
+('
+  GRANT SELECT, UPDATE ON project.messages TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+# INSERT (POST) THE DATA (SURVEY RESULTS)
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleB TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleC TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleD TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleE TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleF TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT ON project.responseTableModuleG TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
