@@ -130,7 +130,7 @@ To set up these databases in the local testing environment, get the ID of the la
 
    ```docker exec -it CONTAINER_ID bash -l```
 
-You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code from Part 1 of the ```mysql``` file to create the ```respondents``` database and a ```project``` database with all tables (except the response tables).
+You are now in the (virtual) terminal of the Apache webserver. In this terminal, run```mysql``` to open MySQL. Execute all lines of code from Part 1 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file to create the ```respondents``` database and a ```project``` database with all tables (except the response tables).
 
 Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. Exit MySQL by running ```exit;``` in the terminal. 
 
