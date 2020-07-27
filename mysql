@@ -121,7 +121,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleA (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 SELECT
   CONCAT(
@@ -141,7 +142,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleB (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -161,7 +163,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleC (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -181,7 +184,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleD (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -201,7 +205,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleE (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -221,7 +226,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleF (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
@@ -241,7 +247,8 @@ CREATE TABLE IF NOT EXISTS responseTableModuleG (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timestamp` text COLLATE utf8mb4_unicode_ci,
-  `surveydate` text COLLATE utf8mb4_unicode_ci,);
+  `surveydate` text COLLATE utf8mb4_unicode_ci)
+   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
 
 SELECT
   CONCAT(
