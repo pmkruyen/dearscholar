@@ -118,10 +118,10 @@ CREATE TABLE `messages` (
 # https://stackoverflow.com/questions/15820082/create-a-table-with-column-names-derived-from-row-values-of-another-table
 
 CREATE TABLE IF NOT EXISTS responseTableModuleA (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
@@ -138,10 +138,10 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleB (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
@@ -158,10 +158,10 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleC (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
@@ -178,10 +178,10 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleD (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
@@ -198,10 +198,10 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleE (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
@@ -218,10 +218,10 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleF (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
@@ -238,10 +238,10 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
 CREATE TABLE IF NOT EXISTS responseTableModuleG (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	timestamp TEXT,
-   	surveydate TEXT);
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `surveydate` text COLLATE utf8mb4_unicode_ci,);
 
 SELECT
   CONCAT(
