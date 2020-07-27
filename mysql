@@ -267,28 +267,162 @@ EXECUTE stmt;
 # MYSQL user management
 
 ##  INDIVIDUAL RESEARCHER
-CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
+SET @username='researcher';
+SET @password='test';
 
-	### TO MANIPULATE THE REGISTRATION OF RESPONDENTS
-	GRANT INSERT, SELECT, UPDATE ON project. authentication TO '######'@'localhost';
+SET @createUser = CONCAT
+('
+   CREATE USER "',@username,'"@"localhost" IDENTIFIED BY "',@password,'"'
+);
 
-	### TO MANIPULATE  THE SURVEY SETUP
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. surveyStructure TO '######'@'localhost';
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. moduleStructure TO '######'@'localhost';
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. pageStructure TO '######'@'localhost';
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. questionTable TO '######'@'localhost';
+PREPARE statement FROM @createUser;
 
-	### TO MANIPULATE THE MESSAGES TABLE
-	GRANT INSERT, SELECT, DELETE, UPDATE ON project. messages TO '######'@'localhost';
+EXECUTE statement;
 
-	### TO VIEW THE RESULTS OF THE SURVEY
-	GRANT SELECT ON project. responseTableModuleA TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleB TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleC TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleD TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleE TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleF TO '######'@'localhost';
-	GRANT SELECT ON project. responseTableModuleG TO '######'@'localhost';
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, UPDATE ON respondents.authentication TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.surveyStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.moduleStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.pageStructure TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.questionTable TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT INSERT, SELECT, DELETE, UPDATE ON project.messages TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleB TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleC TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleD TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleE TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleF TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
+
+SET @query = CONCAT
+('
+  GRANT SELECT ON project.responseTableModuleG TO "',@username,'"@"localhost"'
+);
+
+PREPARE statement FROM @query;
+
+EXECUTE statement;
+
+DEALLOCATE PREPARE statement;
 
 ## RESPONDENT AKA ENDUSER IN DEARSCHOLAR (THAT IS, THE APP)
 CREATE USER ‘######’@‘localhost' IDENTIFIED BY '######';
