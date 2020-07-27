@@ -54,6 +54,17 @@ CREATE TABLE `surveyStructure` (
   `manual` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE `moduleStructure` (
+  `id` int(11) NOT NULL,
+  `module0` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `page` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mandatory` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci,
+  `imageleft` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `imagetop` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE `pageStructure` (
   `id` int(11) NOT NULL,
   `module1` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
