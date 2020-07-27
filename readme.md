@@ -317,18 +317,18 @@ Next, create the response tables in the ```project``` database and set up the ap
 *Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentionals for MySQL. 
 
 ### Step 5 Set up the communication channel between the app and the server
-To let DearScholar communicate with the MySQL tables, copy the file ```dearscholar.php``` to the ```/app``` folder. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php). Verify the values of ```$MyUsername``` and ```$MyPassword``` in this file. The values should be equal to the values set at Step 4 (the standard values are ```app``` for the username and ```test``` for the password).
+To let DearScholar communicate with the MySQL tables, copy the file ```dearscholar.php``` to the ```/app``` folder. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php). Verify the values of ```$MyUsername``` and ```$MyPassword``` in this file. The values should be equal to the values set at Step 4 (the standard values are ```app``` for username and ```test``` the password).
 
 *Note*. In production, ```dearscholar.php``` likely needs to be put in the ```var/www/html``` folder of the webserver. Search for the ```locationPhP``` variable in ```dearscholar.js``` (in the app folder of DearScholar) to change the path accordingly.
 
 ### Step 6 Run DearScholar locally
 Now it is finally time to run DearScholar locally. 
 
-Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repro to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties. 
+Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repro to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
 
-Enter the respondent credentials insert in Step 3, click on 'Log in met PIN', and start testing. 
+Enter the respondent credentials inserted in Step 3 of these instructions, click on 'Log in met PIN', and start testing. 
 
-*Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grap a cup of coffee and 'Force Reload' the browser window. 
+*Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grap a cup of coffee, wait a few minutes, and 'Force Reload' the browser window.
 
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
