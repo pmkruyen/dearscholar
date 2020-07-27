@@ -1,3 +1,5 @@
+// Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
+
 var app = new Framework7({
 // App root element
 root: '#app',
@@ -183,7 +185,7 @@ routes: [
                     
                     $.ajax({
                         type:"POST",  
-                        url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                        url: locationPhP, data: dataString,
                         crossDomain: true,
                         cache: false, 
                         success:function(data){  
@@ -256,6 +258,11 @@ routes: [
 var $$ = Dom7;
 
 var mainView = app.views.create('.view-main')
+
+///////////////////////////////////////////////////////////////////////////////
+// General variables
+var locationPhP = "http://localhost/dearscholar.php";
+//var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Style the login screen
@@ -484,7 +491,7 @@ function storePIN(PIN){
     
         $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -517,7 +524,7 @@ function checkPIN(PIN){
     
         $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -552,7 +559,7 @@ function authentication(){
             
                 $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -574,7 +581,7 @@ function authentication(){
             
                                 $.ajax({
                                     type:"POST",  
-                                    url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                                    url: locationPhP, data: dataString,
                                     crossDomain: true,
                                     cache: false, 
                                     success:function(data)  
@@ -616,7 +623,7 @@ $$('#acceptConsent').on('click', function (e) {
                  
         $.ajax({
             type:"POST",  
-            url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+            url: locationPhP, data: dataString,
             crossDomain: true,
             cache: false, 
             success:function(data){  
@@ -653,7 +660,7 @@ $$('#acceptConsent').on('click', function (e) {
          var dataString="uname="+uname+"&pwd="+pwd+"&project="+project+"&findvalues=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1432,7 +1439,7 @@ function uploadToServer(module){
 
         $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1506,7 +1513,7 @@ function checkNewMessages(){
          var dataString="uname="+uname+"&pwd="+pwd+"&messagesCheck=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1541,7 +1548,7 @@ function populateMessageboxrun(){
          var dataString="uname="+uname+"&pwd="+pwd+"&messagesCheck=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  
@@ -1561,7 +1568,7 @@ function populateMessageboxrun(){
                       ' </div>' +
                       '</div>';
                       cards.innerHTML += push;  
-                    } 
+                    }
                     
                     if(messages!==null){ 
                     
@@ -1570,8 +1577,9 @@ function populateMessageboxrun(){
                     
                     for (i = 0; i < messages.length ; i++) {
                          var id = messages[i].data.id;
+
+                         var date = messages[i].data.timestamp;
                         
-                         var date = messages[i].data.datum;
                          var day = date.slice(8,10);
                          var month = date.slice(5,7);
                          var year = date.slice(0,4);
@@ -1608,7 +1616,7 @@ function seen(item) {
          var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesSeen=true";
                  $.ajax({
                  type:"POST",  
-                 url:"https://peterkruyen.net/diary/dearscholar.php", data: dataString,
+                 url: locationPhP, data: dataString,
                  crossDomain: true,
                  cache: false, 
                  success:function(data)  

@@ -234,7 +234,7 @@ To get the developer version of DearScholar running on your computer, the follow
 1) download the app files and folders as specified below (under file structure);
 2) set up an Apache webserver (for testing you may want to use a local Docker container); 
 3) on this webserver, set up all the required tables and files.
-3) install either the desktop app or command line interface of [Phonegap](https://phonegap.com/getstarted/);
+3) install the desktop app of [Phonegap](https://phonegap.com/getstarted/);
 4) compile DearScholar on your computer using Phonegap ... the app appears in your web browser; and 
 5) you can start improving DearScholar.
 
@@ -268,9 +268,9 @@ Obviously, after Step 3 and 4, you may want to submit your modified  version of 
 When you submit an app to the App Store or Google Play Store for publication, your app will be reviewed. The review procedure can be a black box, hence, I share some experiences with my submissions of DearScholar to the stores. While submissions to Google Play Store have been flawless so far, over time the App Store rejected several builds, probability because DearScholar has been categorized as a *Health and Health Research* app. To get the app published on the App Store, I have to show evidence of ethical approvement by a formal ethical committee for the running research projects; information about my relationship with the university were I work and the running research projects; and detailed specifications of the Informed Consent Form that needed to be included in the app. While information about the reasons for the study, information about confidentiality and handling of data, a point of contact for participant questions, and withdrawal procedures were specified already, the App Store reviewers also required information about the benefits and risks for research participants as well as a note about consent procedures for minors.
 
 ## Installation
-Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the following installation steps (after reading the **Guide for potential contributors and academic researchers** above). It is my ambition to automate these steps. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
+Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the  installation instructions in this section (after reading the **Guide for potential contributors and academic researchers** above). 
 
-*This section is in progress*. 
+It is my ambition to automate these steps. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
 
 ### Step 1: Server setup
 To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6), and phpMyAdmin (version 5.0.2) as front panel for researchers. For production, you would run this webserver on a real webserver. For testing, a local [Docker](https://www.docker.com/) container can be used as testing environment on your own device (laptop, pc). 
@@ -299,7 +299,7 @@ You are now in the (virtual) terminal of the Apache webserver. In this terminal,
 Refresh phpMyAdmin in your browser to check if the two databases and the (empty) tables are created. Exit MySQL by running ```exit;``` in the terminal. 
 
 ### Step 3: MySQL setup - part 2
-Now it is time to populate both databases for a sample study. To do so, we first insert usernames, hashed passwords, and the project settings for five mock respondents in the authentication table (in the ```respondents``` database).
+Populate both databases for a sample study. To do so, we first insert usernames, hashed passwords, and the project settings for five mock respondents in the authentication table (in the ```respondents``` database).
 
 Open the file [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) in a text editor and ammend the ```$MyPassword``` variable using the MySQL admin password that was generated at first run of the Docker container.
 
@@ -316,10 +316,19 @@ Next, create the response tables in the ```project``` database and set up the ap
 
 *Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentionals for MySQL. 
 
-### Step 5 Start DearScholar locally
-In the ```var/www/html``` folder of the server, ```dearscholar.php``` needs to be included to let DearScholar communicate with the server. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php).
+### Step 5 Set up the communication channel between the app and the server
+To let DearScholar communicate with the MySQL tables, copy the file ```dearscholar.php``` to the ```/app``` folder. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php). Verify the values of ```$MyUsername``` and ```$MyPassword``` in this file. The values should be equal to the values set at Step 4 (the standard values are ```app``` for the username and ```test``` for the password).
 
-*To be continued*
+*Note*. In production, ```dearscholar.php``` likely needs to be put in the ```var/www/html``` folder of the webserver. Search for the ```locationPhP``` variable in ```dearscholar.js``` (in the app folder of DearScholar) to change the path accordingly.
+
+### Step 6 Run DearScholar locally
+Now it is finally time to run DearScholar locally. 
+
+Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repro to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties. 
+
+Enter the respondent credentials insert in Step 3, click on 'Log in met PIN', and start testing. 
+
+*Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grap a cup of coffee and 'Force Reload' the browser window. 
 
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
