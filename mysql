@@ -266,9 +266,10 @@ EXECUTE stmt;
 # MYSQL user management
 #-----------------------
 
-#  SET PRIVILEGES FOR THE INDIVIDUAL RESEARCHER
+#  SET PRIVILEGES FOR THE INDIVIDUAL RESEARCHER, FOR A SPECIFIED PROJECT
 SET @username='researcher';
 SET @password='test';
+SET @project='project';
 
 SET @createUser = CONCAT
 ('
@@ -296,7 +297,7 @@ DEALLOCATE PREPARE statement;
 # TO MANIPULATE  THE SURVEY SETUP
 SET @query = CONCAT
 ('
-  GRANT INSERT, SELECT, DELETE, UPDATE ON project.surveyStructure TO "',@username,'"@"localhost"'
+  GRANT INSERT, SELECT, DELETE, UPDATE ON ',@project,'.surveyStructure TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -307,7 +308,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT, SELECT, DELETE, UPDATE ON project.moduleStructure TO "',@username,'"@"localhost"'
+  GRANT INSERT, SELECT, DELETE, UPDATE ON ',@project,'.moduleStructure TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -318,7 +319,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT, SELECT, DELETE, UPDATE ON project.pageStructure TO "',@username,'"@"localhost"'
+  GRANT INSERT, SELECT, DELETE, UPDATE ON ',@project,'.pageStructure TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -329,7 +330,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT INSERT, SELECT, DELETE, UPDATE ON project.questionTable TO "',@username,'"@"localhost"'
+  GRANT INSERT, SELECT, DELETE, UPDATE ON ',@project,'.questionTable TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -341,7 +342,7 @@ DEALLOCATE PREPARE statement;
 # TO MANIPULATE THE MESSAGES TABLE
 SET @query = CONCAT
 ('
-  GRANT INSERT, SELECT, DELETE, UPDATE ON project.messages TO "',@username,'"@"localhost"'
+  GRANT INSERT, SELECT, DELETE, UPDATE ON ',@project,'.messages TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -353,7 +354,8 @@ DEALLOCATE PREPARE statement;
 # TO VIEW THE RESULTS OF THE SURVEY
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleA TO "',@username,'"@"localhost"'
+
 );
 
 PREPARE statement FROM @query;
@@ -364,7 +366,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleB TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleB TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -375,7 +377,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleC TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleC TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -386,7 +388,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleD TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleD TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -397,7 +399,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleE TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleE TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -408,7 +410,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleF TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleF TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -419,7 +421,7 @@ DEALLOCATE PREPARE statement;
 
 SET @query = CONCAT
 ('
-  GRANT SELECT ON project.responseTableModuleG TO "',@username,'"@"localhost"'
+  GRANT SELECT ON ',@project,'.responseTableModuleG TO "',@username,'"@"localhost"'
 );
 
 PREPARE statement FROM @query;
@@ -428,7 +430,9 @@ EXECUTE statement;
 
 DEALLOCATE PREPARE statement;
 
+# ---
 # SET PRIVILEGES FOR THE APP
+# ---
 
 SET @username='app';
 SET @password='test';
