@@ -264,8 +264,11 @@ In short, how it works:
 ### Step 4: Deploy your clone or derivate version of DearScholar
 Obviously, after Step 3 and 4, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
+#### Experiences with the stores
+When you submit an app to the App Store or Google Play Store for publication, your app will be reviewed. The review procedure can be a black box, hence, I share some experiences with my submissions of DearScholar to the stores. While submissions to Google Play Store have been flawless so far, over time the App Store rejected several builds, probability because DearScholar has been categorized as a *Health and Health Research* app. To get the app published on the App Store, I have to show evidence of ethical approvement by a formal ethical committee for the running research projects; information about my relationship with the university were I work and the running research projects; and detailed specifications of the Informed Consent Form that needed to be included in the app. While information about the reasons for the study, information about confidentiality and handling of data, a point of contact for participant questions, and withdrawal procedures were specified already, the App Store reviewers also required information about the benefits and risks for research participants as well as a note about consent procedures for minors.
+
 ## Installation
-Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the following installation steps. It is my ambition to automate these steps. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
+Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the following installation steps (after reading the **Guide for potential contributors and academic researchers** above. It is my ambition to automate these steps. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
 
 *This section is in progress*. 
 
