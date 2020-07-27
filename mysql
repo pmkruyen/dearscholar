@@ -264,9 +264,11 @@ INTO @sql;
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 
+#-----------------------
 # MYSQL user management
+#-----------------------
 
-##  INDIVIDUAL RESEARCHER
+#  SET PRIVILEGES FOR THE INDIVIDUAL RESEARCHER
 SET @username='researcher';
 SET @password='test';
 
@@ -281,6 +283,7 @@ EXECUTE statement;
 
 DEALLOCATE PREPARE statement;
 
+# TO MANIPULATE THE REGISTRATION OF RESPONDENTS
 SET @query = CONCAT
 ('
   GRANT INSERT, SELECT, UPDATE ON respondents.authentication TO "',@username,'"@"localhost"'
@@ -292,6 +295,7 @@ EXECUTE statement;
 
 DEALLOCATE PREPARE statement;
 
+# TO MANIPULATE  THE SURVEY SETUP
 SET @query = CONCAT
 ('
   GRANT INSERT, SELECT, DELETE, UPDATE ON project.surveyStructure TO "',@username,'"@"localhost"'
@@ -336,6 +340,7 @@ EXECUTE statement;
 
 DEALLOCATE PREPARE statement;
 
+# TO MANIPULATE THE MESSAGES TABLE
 SET @query = CONCAT
 ('
   GRANT INSERT, SELECT, DELETE, UPDATE ON project.messages TO "',@username,'"@"localhost"'
@@ -347,6 +352,7 @@ EXECUTE statement;
 
 DEALLOCATE PREPARE statement;
 
+# TO VIEW THE RESULTS OF THE SURVEY
 SET @query = CONCAT
 ('
   GRANT SELECT ON project.responseTableModuleA TO "',@username,'"@"localhost"'
