@@ -15,22 +15,24 @@ CREATE DATABASE IF NOT EXISTS respondents
 
 USE respondents;
 
-CREATE TABLE IF NOT EXISTS authentication (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100) ,
-   	pwd TEXT,
-	project TEXT,
-	setup VARCHAR(1) ,
-	q0_startdate TEXT,
-	q0_occasions TEXT,
-	q0_intervaltype TEXT,
-	q0_interval TEXT);
+CREATE TABLE `authentication` (
+  `id` int(11) NOT NULL,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pwd` text COLLATE utf8mb4_unicode_ci,
+  `project` text COLLATE utf8mb4_unicode_ci,
+  `setup` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `q0_startdate` text COLLATE utf8mb4_unicode_ci,
+  `q0_occasions` text COLLATE utf8mb4_unicode_ci,
+  `q0_intervaltype` text COLLATE utf8mb4_unicode_ci,
+  `q0_interval` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS registration (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	project TEXT,   	
-	uname VARCHAR(100),
-	token TEXT);
+CREATE TABLE `registration` (
+  `id` int(11) NOT NULL,
+  `project` text COLLATE utf8mb4_unicode_ci,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `token` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 # MYSQL database setup for the project.
 # Note, if you want to run multiple projects, you can run the code below multiple times, but do not forget to change the database name.
