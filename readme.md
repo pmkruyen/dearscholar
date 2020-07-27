@@ -309,19 +309,19 @@ Refresh phpMyAdmin in your browser. When everthing went well, the authentication
 
 *Note*. When generating (random) usernames and passwords yourself, avoid using question marks (?) and ampersands (&). For production, you can load usernames and passwords from a csv file, and hash those passwords, using the lines of code at the top of the samplestudy-part1.php code.
 
-### Step 4 MySQL setup - part 3
+### Step 4: MySQL setup - part 3
 In phpMyAdmin, navigate to the ```project``` database; head to the ```import``` tab; and import [samplestudy-part2.sql](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the ```project``` tables with sample survey pages, questions, and other survey settings.
 
 Next, create the response tables in the ```project``` database and set up the appropriate user rights for all tables to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table) have been inserted as column namens in the response tables.
 
 *Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentionals for MySQL. 
 
-### Step 5 Set up the communication channel between the app and the server
+### Step 5: Set up the communication channel between the app and the server
 To let DearScholar communicate with the MySQL tables, copy the file ```dearscholar.php``` to the ```/app``` folder. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php). Verify the values of ```$MyUsername``` and ```$MyPassword``` in this file. The values should be equal to the values set at Step 4 (the standard values are ```app``` for username and ```test``` the password).
 
 *Note*. In production, ```dearscholar.php``` likely needs to be put in the ```var/www/html``` folder of the webserver. Search for the ```locationPhP``` variable in ```dearscholar.js``` (in the app folder of DearScholar) to change the path accordingly.
 
-### Step 6 Run DearScholar locally
+### Step 6: Run DearScholar locally
 Now it is finally time to run DearScholar locally. 
 
 Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repro to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
