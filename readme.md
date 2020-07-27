@@ -146,9 +146,9 @@ Refresh phpMyAdmin in your browser. When everthing went well, the authentication
 *Note*. When generating (random) usernames and passwords yourself, avoid using question marks (?) and ampersands (&). For production, you can load usernames and passwords from a csv file, and hash those passwords, using the lines of code at the top of the samplestudy-part1.php code.
 
 ### Step 4 MySQL setup - part 3
-In phpMyAdmin, navigate to the ```project``` database; head to the ```import``` tab; and import [samplestudy-part2.sql] (https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the ```project``` tables with sample survey pages, questions, and other survey settings.
+In phpMyAdmin, navigate to the ```project``` database; head to the ```import``` tab; and import [samplestudy-part2.sql](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the ```project``` tables with sample survey pages, questions, and other survey settings.
 
-Next create the response tables in the ```project``` database and set up the appropriate user rights for all tables to to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table have been inserted as column namens in the responsetables.
+Next, create the response tables in the ```project``` database and set up the appropriate user rights for all tables to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table) have been inserted as column namens in the response tables.
 
 *Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentionals for MySQL. 
 
