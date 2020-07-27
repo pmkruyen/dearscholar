@@ -109,10 +109,8 @@ CREATE TABLE `messages` (
 #---
 	
 # MYSQL table setup (response tables)
-# Warning: Set up these tables only after the questionTable has been populated. # Warning: See samplestudy-part2.sql for a mock survey.
+# Warning: Set up these tables only after the questionTable has been populated. See samplestudy-part2.sql for a mock survey.
 # Warning: When new questions are added to the questionTable afterwards (or question IDs have changed), add new response columns for these questions manually to the table. 
-
-# Note: In the source code, we have 7 modules (A, B, C, D, E, F, G) and, hence 7 responseTables. 
 
 # Code adapted from https://stackoverflow.com/users/833073/fthiella
 # https://stackoverflow.com/questions/15820082/create-a-table-with-column-names-derived-from-row-values-of-another-table
