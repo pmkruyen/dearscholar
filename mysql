@@ -42,50 +42,54 @@ CREATE DATABASE IF NOT EXISTS project
 
 USE project;
 	
-CREATE TABLE IF NOT EXISTS pintable (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-   	uname VARCHAR(100),
-   	pin TEXT,
-	code TEXT);
+CREATE TABLE `pintable` (
+  `id` int(11) NOT NULL,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pin` text COLLATE utf8mb4_unicode_ci,
+  `code` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS surveyStructure (
-	consent TEXT,
-	manual TEXT);
+CREATE TABLE `surveyStructure` (
+  `consent` text COLLATE utf8mb4_unicode_ci,
+  `manual` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS moduleStructure (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module0 VARCHAR(100),
-	name VARCHAR(100),
-	page VARCHAR(1),
-	mandatory VARCHAR(1),
-	image TEXT,
-	imageleft VARCHAR(5),
-	imagetop VARCHAR(5));
+CREATE TABLE `pageStructure` (
+  `id` int(11) NOT NULL,
+  `module1` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `classp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `idp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `header` text CHARACTER SET utf8,
+  `backbuttontid` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttontext` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttononclick` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttonhref` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttonid` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttontext` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttononclick` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `nextbuttonhref` varchar(100) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS pageStructure (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module1 VARCHAR(100),
-	classp VARCHAR(100),
-	idp VARCHAR(100),
-	header VARCHAR(100),
-	backbuttonid VARCHAR(100),
-	backbuttontext VARCHAR(100),
-	backbuttonclick VARCHAR(100),
-	backbuttonhref VARCHAR(100),
-	nextbuttonid VARCHAR(100),
-	nextbuttontext VARCHAR(100),
-	nextbuttonclick VARCHAR(100),
-	nextbuttonhref VARCHAR(100));
+CREATE TABLE `questionTable` (
+  `id` int(11) NOT NULL,
+  `module2` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tab` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `idq` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `question` text COLLATE utf8mb4_unicode_ci,
+  `categories` text COLLATE utf8mb4_unicode_ci,
+  `footer` text COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS questionTable (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-	module2 VARCHAR(100),
-	tab VARCHAR(100),
-	idq VARCHAR(100),
-	type VARCHAR(100),
-	question TEXT,
-	categories TEXT,
-	footer TEXT);
+# MYSQL table setup (in app messages)
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `uname` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` text COLLATE utf8mb4_unicode_ci,
+  `message` text COLLATE utf8mb4_unicode_ci,
+  `seen` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 # MYSQL table setup (in app messages)
 
