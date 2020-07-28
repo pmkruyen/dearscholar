@@ -378,8 +378,8 @@ This folder contains the source code of the app.
 |_module.html       (app page in which the survey pages and questions are rendered)
 |_schedule.html     (app page in which the measurement schedule is rendered)
 |_settings.html     (app page containing the settings for respondents)
-|_survey.html       (app page containing the icons of, and links to the mandatory survey modules)
-|_surveyadhoc.html  (app page containing the icons of, and links to the additional survey modules)
+|_survey.html       (app page in which the icons and links to the mandatory survey modules are rendered)
+|_surveyadhoc.html  (app page in which the icons and links to the optional survey modules are rendered)
 ```
 Files and folders that are market with an * consist of third-party code, and should not be modified. The files containing the settings and functions to enable push notifications (```google-services.json``` and ```push.js```) are excluded from this public repro.
 
