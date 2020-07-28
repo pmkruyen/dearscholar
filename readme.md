@@ -314,7 +314,7 @@ In phpMyAdmin, navigate to the ```project``` database; head to the ```import``` 
 
 Next, create the response tables in the ```project``` database and set up the appropriate user rights for all tables to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table) have been inserted as column namens in the response tables.
 
-*Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentionals for MySQL. 
+*Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentials for MySQL. 
 
 ### Step 5: Set up the communication channel between the app and the server
 To let DearScholar communicate with the MySQL tables, copy the file ```dearscholar.php``` to the ```/app``` folder. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php). Verify the values of ```$MyUsername``` and ```$MyPassword``` in this file. The values should be equal to the values set at Step 4 (the standard values are ```app``` for username and ```test``` the password).
