@@ -5,8 +5,8 @@
 
 header("Access-Control-Allow-Origin: *");
 
-$MyUsername = '########';
-$MyPassword = '########';
+$MyUsername = 'app';
+$MyPassword = 'test';
 $MyDatabase = 'respondents';
 
 $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
@@ -114,12 +114,20 @@ if (password_verify($pwd, $pwdhash)) {
       $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
       mysqli_set_charset($con, 'utf8mb4');
        
-      $sql = "SELECT consent, manual, moduleAname, moduleBname, moduleCname, moduleDname FROM surveyStructure";
+      $sql = "SELECT * FROM surveyStructure";
 
       $result = $con->query($sql) or die('Err: Table not found: ' . mysql_error());
     
       while($r = mysqli_fetch_assoc($result)){
             $data0[] = array('data' => $r);
+      }
+
+      $sql = "SELECT * FROM moduleStructure";
+
+      $result = $con->query($sql) or die('Err: Table not found: ' . mysql_error());
+    
+      while($r = mysqli_fetch_assoc($result)){
+          $data3[] = array('data' => $r);
       }
     
       $sql = "SELECT * FROM pageStructure";
@@ -140,7 +148,7 @@ if (password_verify($pwd, $pwdhash)) {
           }
         }
     
-        $json = array('data0' => $data0,'data1' => $data1,'data2' => $data2);
+        $json = array('data0' => $data0,'data1' => $data1,'data2' => $data2, 'data3' => $data3);
 
         echo json_encode($json);    
     }

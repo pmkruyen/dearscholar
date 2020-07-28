@@ -330,6 +330,23 @@ Enter the respondent credentials inserted in Step 3 of these instructions, click
 
 *Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grap a cup of coffee, wait a few minutes, and 'Force Reload' the browser window.
 
+### Step 7: Run DearScholar on a real device
+As explained in the section **Guide for potential contributors and academic researchers**, until recently, DearScholar was compiled using [Phonegap's online tools](https://build.phonegap.com/). However, this procedure is rather time consuming. Hence, I am looking for an alternative means. Also, for iOS the Phonegap tools cannot longer be used, making finding alternative ways to build DearScholar even more important. When I have mastered these alternative means, I will update these installation instructions. Till then, I proceed as follows.
+
+#### Android
+Zip the App folder, upload this folder to [Phonegap's online tools](https://build.phonegap.com/). When the build succeed, download the generated apk file to your device and upload it to [Diawi](https://www.diawi.com/). With your Android device, scan the generated QR code to download and install DearScholar. 
+
+Check that PhoneGap uses ```cli-9.0.0 (5.0.1 / 8.0.0 / 7.0.0)``` to build the Android apk file.
+
+#### iOS
+After having installed XCode and [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support) on your MacBook, navigate to the App folder. In this folder, open the terminal and run consecutively
+
+```cordova platform add ios@5.1.1```
+
+```open ./platforms/ios/DearScholar.xcworkspace/```
+
+You can now test DearScholar on an emulator in XCode or-when you have obtained Apple's certificates and keys-on your own device (when you have an iPhone or iPad).
+
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
 
