@@ -15,20 +15,20 @@ The *first* section of this document provides general information about the app,
 ## Interested in using DearScholar in your academic research project? 
 * Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play (see the links below); take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
 
-* Currently, the offical deployed version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
+* Currently, the official deployed version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
 
 ## Interested in contributing to DearScholar?
 Super cool. Please contact the main author to discuss issues and possibilities. DearScholar uses [BrowserStack](https://www.browserstack.com/) for (automatic) testing (sponsored open-source subscription).
 
 ## Your own version of DearScholar?
-Obviously, as this is an open-source project, you are free to build your own derivative version (clone) of DearScholar. However, while DearScholar clones might be allowed on Google Play, submisions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! :smiley:.
+Obviously, as this is an open-source project, you are free to build your own derivative version (clone) of DearScholar. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! :smiley:.
 
 ## Resources
 ### For end users (respondents) and researchers who want to explore DearScholar:
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1);
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.diary&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1).
 
-### For researchers and potential contributers:
+### For researchers and potential contributors:
 * Background information, an overview of the current features, and research projects can be found on the [projectpage](https://peterkruyen.net/dearscholar.html);
 * Read the section **DearScholar in details** below;
 * Browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]), fork the project, and commit updates.
@@ -39,7 +39,7 @@ DearScholar is used in the following projects:
 * Diary study on creativity in local-care teams (>150 respondents; September-December 2020) by Liesbeth Faas MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 
 ## Acknowledgement
-DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The main author wants to express his graditute to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
+DearScholar is developed within the context of the research programme "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The main author wants to express his gratitude to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
 
 ## License
 Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License (GPL3) as published by the Free Software Foundation. Radboud University, hereby disclaims all copyright interest in the program “DearScholar” (which offers an app to conduct longitudinal qualitative and quantitative diary, log 
@@ -63,7 +63,7 @@ In this second part of this text, DearScholar's current features and technical d
     * fill out the username and password that (s)he has received from the researcher; 
     * choose a 4-digit PIN if the device does not support Touch ID or Face Recognition; and 
     * agree to the informed consent form.
-3) When everthing goes well, DearScholar pulls the required survey tables and settings from the server, and the respondent is directed to the measurement schedule (homepage, right screenshot below).
+3) When everything goes well, DearScholar pulls the required survey tables and settings from the server, and the respondent is directed to the measurement schedule (homepage, right screenshot below).
 
 <p align="center">
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/1.png width="350"/></kbd>
@@ -71,7 +71,7 @@ In this second part of this text, DearScholar's current features and technical d
 </p>
 
 ### Let respondents answer questions
-When logging in to DearScholar, a respondent is directed to the the measurement schedule (homepage) with all measurement occasions (dates). Future measurement occasions—measurement occasions beyond the current date—are locked and marked with a 'closed lock' icon. 
+When logging in to DearScholar, a respondent is directed to the measurement schedule (homepage) with all measurement occasions (dates). Future measurement occasions—measurement occasions beyond the current date—are locked and marked with a 'closed lock' icon. 
 
 When a respondent clicks on a particular measurement occasion in the measurement schedule, (s)he is directed to a survey screen that displays all survey modules for that measurement date. Each module can be opened by clicking on the designated icon (see the screenshot below).
 
@@ -86,7 +86,7 @@ DearScholar supports an unlimited number of survey modules, unlimited number of 
   <kbd><img src=https://github.com/pmkruyen/dearscholar/blob/master/screenshots/5.png width="350"/></kbd>
 </p>
 
-When a respondent has completed a module (i.e., for that module, all questions have been answered and the data has been succesfully uploaded to the server) the module icon turns green on the survey page. If all mandatory modules have been completed, the link to the measurement occasion turns grey and is marked with a 'sun' icon on the homepage.
+When a respondent has completed a module (i.e., for that module, all questions have been answered and the data has been successfully uploaded to the server) the module icon turns green on the survey page. If all mandatory modules have been completed, the link to the measurement occasion turns grey and is marked with a 'sun' icon on the homepage.
 
 DearScholar also includes links to additional, optional survey modules which can be found on the homepage's menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
 
@@ -96,7 +96,7 @@ Respondents’ answers are not only send to a server, but also saved in the Dear
 DearScholar can be used with Google's Firebase to get the push notifications working *or* alternatively, a private push notification server can be used (using Node.JS for example). Contact the main author for advice on setting up such a server.
 
 ### Additional features
-DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
+DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow-up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
 
 ## Framework
 DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)](https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
@@ -129,7 +129,7 @@ An *empty* table with the following columns:
 |uname | Respondent's username||
 |token | Respondent's device ID (token) as supplied by Apple or Android on device registration||
 
-*Note*. This table is required to register the device IDs (tokens) in order to send push notifications, settings are stored for a single respondent on each row. Because of security issues, push notification files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
+*Note*. This table is required to register the device IDs (tokens) in order to send push notifications, settings are stored for a single respondent on each row. Because of security issues, push notification files and configurations are excluded from this public repository. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
 
 ### 3) pinStructure table
 An *empty* table with the following columns:
@@ -193,7 +193,7 @@ A table with the following columns, each row represents a separate survey questi
 |module2 | ID of the module in which the question should be included|Consult the module0 column in the moduleStructure table (i.e. *A*, *B*, *C*, or *D*, ...)|
 |tab | ID of the survey page on which the question should be displayed |See idp of the pageStructure table.|
 |idq | Unique page ID|  |
-|type | Question type| On of the following *YN* (binary [Yes/No] question), *OQ* (Open Question), *MC* (Multiple Choice Question, or *SL* (Slider Question, currently supports only range sliders on a continious scale from 0 to 100).|
+|type | Question type| On of the following *YN* (binary [Yes/No] question), *OQ* (Open Question), *MC* (Multiple Choice Question, or *SL* (Slider Question, currently supports only range sliders on a continuous scale from 0 to 100).|
 |question | Question text|  |
 |categories | For *MC*, A JSON-string containing values and labels for all answer categories |{"TD":"Totally disagree", "DI":"Disagree", "NE":"Neutral","AG":"Agree","TA":"Totally agree"}  |
 |footer | Optional question footer text |  |
@@ -222,7 +222,7 @@ Lastly, a series of empty response tables in which respondents' data is stored, 
 |uname | Respondent' username ||
 |timestamp | Date and time on which the respondent uploaded the answers ||
 |surveydate | Date and time of the measurement occasion ||
-|... | One seperate column for each question in which the data is stored ||
+|... | One separate column for each question in which the data is stored ||
 
 *Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occasion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
 
@@ -265,7 +265,7 @@ In short, how it works:
 Obviously, after Step 3 and 4, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
 
 #### Experiences with the stores
-When you submit an app to the App Store or Google Play Store for publication, your app will be reviewed. The review procedure can be a black box, hence, I share some experiences with my submissions of DearScholar to the stores. While submissions to Google Play Store have been flawless so far, over time the App Store rejected several builds, probability because DearScholar has been categorized as a *Health and Health Research* app. To get the app published on the App Store, I have to show evidence of ethical approvement by a formal ethical committee for the running research projects; information about my relationship with the university were I work and the running research projects; and detailed specifications of the Informed Consent Form that needed to be included in the app. While information about the reasons for the study, information about confidentiality and handling of data, a point of contact for participant questions, and withdrawal procedures were specified already, the App Store reviewers also required information about the benefits and risks for research participants as well as a note about consent procedures for minors.
+When you submit an app to the App Store or Google Play Store for publication, your app will be reviewed. The review procedure can be a black box, hence, I share some experiences with my submissions of DearScholar to the stores. While submissions to Google Play Store have been flawless so far, over time the App Store rejected several builds, probably because DearScholar has been categorized as a *Health and Health Research* app. To get the app published on the App Store, I have to show evidence of ethical approval by a formal ethical committee for the running research projects; information about my relationship with the university where I work and the running research projects; and detailed specifications of the Informed Consent Form that needed to be included in the app. While information about the reasons for the study, information about confidentiality and handling of data, a point of contact for participant questions, and withdrawal procedures were specified already, the App Store reviewers also required information about the benefits and risks for research participants as well as a note about consent procedures for minors.
 
 ## Installation
 Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the  installation instructions in this section (after reading the **Guide for potential contributors and academic researchers** above). 
@@ -275,20 +275,20 @@ It is my ambition to automate these steps. Meanwhile, performing the steps manua
 ### Step 1: Server setup
 To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6), and phpMyAdmin (version 5.0.2) as front panel for researchers. For production, you would run this webserver on a real webserver. For testing, a local [Docker](https://www.docker.com/) container can be used as testing environment on your own device (laptop, pc). 
 
-In this manual, I describe the steps for setting up such a local Docker container based on the [Docker-LAMP](https://github.com/mattrayner/docker-lamp) image. The nice thing about this image is that it creates a persistent MySQL database folder (in ```/mysql``` ) and file folder (in ```/app```)  on your harddrive at first run. Hence, you  need to perform the following steps only once (i.e., you can start and stop the testing enviroment as many times as you like without losing data).
+In this manual, I describe the steps for setting up such a local Docker container based on the [Docker-LAMP](https://github.com/mattrayner/docker-lamp) image. The nice thing about this image is that it creates a persistent MySQL database folder (in ```/mysql``` ) and file folder (in ```/app```)  on your harddrive at first run. Hence, you  need to perform the following steps only once (i.e., you can start and stop the testing environment as many times as you like without losing data).
 
 After installing [Docker](https://www.docker.com/products/docker-desktop) on your device, open the terminal (command line) and run the Docker container with:
 
    ```docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql mattrayner/lamp:latest-1804```
    
-When everthing went well, a password is generated (being displayed in the terminal). Save this password for later use.
+When everything went well, a password is generated (being displayed in the terminal). Save this password for later use.
 
 Open ```localhost/phpmyadmin``` in your browser, you can now access your phpMyAdmin panel with ```admin``` and the generated password. Note that, when you visit ```localhost```, an error message will be displayed, because the (```/app```) folder is empty. 
 
 *Note*. The webserver used for the official deployed version of DearScholar has additional security measures implemented. These measures have yet to be included in this Docker image.
       
 ### Step 2: MySQL setup - part 1
-After setting up the Apache webserver at least two databases need to be set up in MySQL: one database called ```respondents``` for managing the respondents and registering the device IDs (tokens) in order to send push notifications (i.e., the authentication and registration table) *and* a seperate database for each project (with all the other tables) to make it possible to run multiple research projects simultaneously using a single production environment. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found in the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. Details about these tables with all options are provided in the **Settings and options** section on this page.
+After setting up the Apache webserver at least two databases need to be set up in MySQL: one database called ```respondents``` for managing the respondents and registering the device IDs (tokens) in order to send push notifications (i.e., the authentication and registration table) *and* a separate database for each project (with all the other tables) to make it possible to run multiple research projects simultaneously using a single production environment. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). The MySQL database initialisation code for the database, all tables, and the suggested user rights can be found in the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. Details about these tables with all options are provided in the **Settings and options** section on this page.
 
 To set up these databases in the local testing environment, get the ID of the launched Apache container in Step 1 by running ```docker ps``` in a new terminal window. Next, run the below command replacing CONTAINER_ID with the obtained ID:
 
@@ -301,20 +301,20 @@ Refresh phpMyAdmin in your browser to check if the two databases and the (empty)
 ### Step 3: MySQL setup - part 2
 Populate both databases for a sample study. To do so, we first insert usernames, hashed passwords, and the project settings for five mock respondents in the authentication table (in the ```respondents``` database).
 
-Open the file [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) in a text editor and ammend the ```$MyPassword``` variable using the MySQL admin password that was generated at first run of the Docker container.
+Open the file [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) in a text editor and amend the ```$MyPassword``` variable using the MySQL admin password that was generated at first run of the Docker container.
 
 In the (virtual) terminal of the Apache webserver, run```php -a``` to open the interactive mode of PHP and execute all lines of code from the amended ```samplestudy-part1.php``` code. Exit the interactive mode by running ```exit``` in the terminal. 
 
-Refresh phpMyAdmin in your browser. When everthing went well, the authentication table is populated with the sample data.
+Refresh phpMyAdmin in your browser. When everything went well, the authentication table is populated with the sample data.
 
 *Note*. When generating (random) usernames and passwords yourself, avoid using question marks (?) and ampersands (&). For production, you can load usernames and passwords from a csv file, and hash those passwords, using the lines of code at the top of the samplestudy-part1.php code.
 
 ### Step 4: MySQL setup - part 3
 In phpMyAdmin, navigate to the ```project``` database; head to the ```import``` tab; and import [samplestudy-part2.sql](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the ```project``` tables with sample survey pages, questions, and other survey settings.
 
-Next, create the response tables in the ```project``` database and set up the appropriate user rights for all tables to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table) have been inserted as column namens in the response tables.
+Next, create the response tables in the ```project``` database and set up the appropriate user rights for all tables to individual researchers and the DearScholar app by running all lines of code from Part 2 of the [mysql](https://github.com/pmkruyen/dearscholar/blob/master/mysql) file. As you will see, the question ids (see column ```idq``` in the questionTable table) have been inserted as column names in the response tables.
 
-*Note*. For testing, you actually do not need set user rights for individual researchers. For production, it is advised to generate random login credentials for MySQL. 
+*Note*. For testing, you actually do not need to set user rights for individual researchers. For production, it is advised to generate random login credentials for MySQL. 
 
 ### Step 5: Set up the communication channel between the app and the server
 To let DearScholar communicate with the MySQL tables, copy the file ```dearscholar.php``` to the ```/app``` folder. This file can be found [here](https://github.com/pmkruyen/dearscholar/blob/master/dearscholar.php). Verify the values of ```$MyUsername``` and ```$MyPassword``` in this file. The values should be equal to the values set at Step 4 (the standard values are ```app``` for username and ```test``` the password).
@@ -324,11 +324,11 @@ To let DearScholar communicate with the MySQL tables, copy the file ```dearschol
 ### Step 6: Run DearScholar locally
 Now it is finally time to run DearScholar locally. 
 
-Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repro to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
+Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repository to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
 
 Enter the respondent credentials inserted in Step 3 of these instructions, click on 'Log in met PIN', and start testing. 
 
-*Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grap a cup of coffee, wait a few minutes, and 'Force Reload' the browser window.
+*Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grab a cup of coffee, wait a few minutes, and 'Force Reload' the browser window.
 
 ### Step 7: Run DearScholar on a real device
 As explained in the section **Guide for potential contributors and academic researchers**, until recently, DearScholar was compiled using [Phonegap's online tools](https://build.phonegap.com/). However, this procedure is rather time consuming. Hence, I am looking for an alternative means. Also, for iOS the Phonegap tools cannot longer be used, making finding alternative ways to build DearScholar even more important. When I have mastered these alternative means, I will update these installation instructions. Till then, I proceed as follows.
@@ -381,7 +381,7 @@ This folder contains the source code of the app.
 |_survey.html       (app page in which the icons and links to the mandatory survey modules are rendered)
 |_surveyadhoc.html  (app page in which the icons and links to the optional survey modules are rendered)
 ```
-Files and folders that are market with an * consist of third-party code, and should not be modified. The files containing the settings and functions to enable push notifications (```google-services.json``` and ```push.js```) are excluded from this public repro.
+Files and folders that are market with an * consist of third-party code, and should not be modified. The files containing the settings and functions to enable push notifications (```google-services.json``` and ```push.js```) are excluded from this public repository.
 
 ### res-folder
 This folder contains the app's icons and splash screens needed for both Android and iOS.
@@ -390,7 +390,7 @@ This folder contains the app's icons and splash screens needed for both Android 
 A low-quality icon of the app for internal use only.
 
 ### What about the push-notification files?
-Because of security issues, these files and configurations are excluded from this public repro. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
+Because of security issues, these files and configurations are excluded from this public repository. Contact the main author if you want to contribute to enhance the push notification capabilities of DearScholar.
 
 ## Structure of dearscholar.js, the heart of the app
 1) **Framework7 functions**
@@ -406,7 +406,7 @@ Because of security issues, these files and configurations are excluded from thi
 4) **database functions**
 * When a respondent logs in for the first time successfully, retrieve the four survey tables (i.e., surveyStructure, moduleStructure, pageStructure, and questionTable) from the server and set up these tables on the respondent's device using sqlite. Also, set up a table in which respondent's answers are stored and a table in which DearScholar registers when a mandatory module has been completed locally.
 5) **navigation functions**
-* When a respondent navigates to the homepage (measurement schedule), render the measurement schedule, and mark a measurement occassion as completed when all mandatory modules have been completed for that measurement occassion;
+* When a respondent navigates to the homepage (measurement schedule), render the measurement schedule, and mark a measurement occasion as completed when all mandatory modules have been completed for that measurement occasion;
 * When a respondent opens the app for the first time, show the informed consent form;
 * When a respondent navigates to the manual page, inject the manual.
 6) **survey functions**
