@@ -112,7 +112,7 @@ routes: [
                 $$('.module').on('click', function (event) {              routerModule(module=$$(this).attr("id"),adhoc='NO')
                 });
         },
-        pageInit: function (e, page) {
+        pageBeforeIn: function (e, page) {
                 // render the page with module icons
                 renderSurveypage("S");
         },       
@@ -261,8 +261,8 @@ var mainView = app.views.create('.view-main')
 
 ///////////////////////////////////////////////////////////////////////////////
 // General variables
-var locationPhP = "http://localhost/dearscholar.php";
-//var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
+//var locationPhP = "http://localhost/dearscholar.php";
+var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Style the login screen
@@ -1030,7 +1030,7 @@ function renderSurveypage(page) {
                         })
                         
                         DiaryDatabase.transaction(function (tx) {  
-                        for (var i = 1, len = mlabels.length; i < len; i++) {
+                        for (var i = 0, len = mlabels.length; i < len; i++) {
 
                             var query = "SELECT "+mlabels[i]+" FROM surveyInformation WHERE surveydate = ?"
                             tx.executeSql(query, [surveydate], function (tx, resultSet3) {
@@ -1054,10 +1054,11 @@ function renderSurveypage(page) {
                     }
         );  
 }
-    
 
-function renderSurveypage2(page,moduleNames,moduleCompleted) {            DiaryDatabase.transaction(function (tx) {
-            
+
+function renderSurveypage2(page,moduleNames,moduleCompleted) {
+    
+  DiaryDatabase.transaction(function (tx) {
                 var query = "SELECT * FROM moduleStructure WHERE page = ?"
             
                 tx.executeSql(query, [page], function (tx, resultSet) {
@@ -1077,19 +1078,14 @@ function renderSurveypage2(page,moduleNames,moduleCompleted) {            DiaryD
                     }
             
                var emptypage = document.getElementById("emptypage")
-               emptypage.innerHTML += renderModulePictograms(data);
-               }
-               },
-                function (error) {
-                                 },
-                function () {
-          
-                   
-                }
-                );    
-        }
-    );
- }
+               emptypage.innerHTML += renderModulePictograms(data);}}
+            )},              
+            function (error) {
+                app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+            },
+            function () {
+            })
+}
                                       
 function renderModulePictograms(data){
     return `

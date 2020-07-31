@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "",
-    "firebase_url": "",
-    "project_id": "",
-    "storage_bucket": ""
+    "project_number": "462224955607",
+    "firebase_url": "https://diary-395ad.firebaseio.com",
+    "project_id": "diary-395ad",
+    "storage_bucket": "diary-395ad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789012:android:1234567890123456",
+        "mobilesdk_app_id": "1:462224955607:android:9af2b2fa17e44bc0",
         "android_client_info": {
           "package_name": "net.peterkruyen.diary"
         }
       },
       "oauth_client": [
         {
-          "client_id": "",
+          "client_id": "462224955607-7j2b2npmbtvk471ft3p1q196fhodkn3h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": ""
+          "current_key": "AIzaSyCA8jSc3Ay6QRbCewGo7iLLm3J1lBdyAlA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "",
+              "client_id": "462224955607-7j2b2npmbtvk471ft3p1q196fhodkn3h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

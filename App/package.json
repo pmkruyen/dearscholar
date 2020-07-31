@@ -20,11 +20,13 @@
     },
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   },
   "dependencies": {
     "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-ionic-webview": "^5.0.0",
     "execa": "^4.0.2",
     "properties-parser": "^0.3.1"

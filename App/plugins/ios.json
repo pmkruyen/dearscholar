@@ -8,42 +8,43 @@
   },
   "installed_plugins": {
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-fingerprint-aio": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "FACEID_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-ionic-keyboard": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-sqlite-evcore-extbuild-free": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "phonegap-plugin-push": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-add-swift-support": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "cordova-support-google-services": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
     "phonegap-plugin-multidex": {
-      "PACKAGE_NAME": "net.peterkruyen.diary"
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   }
 }
