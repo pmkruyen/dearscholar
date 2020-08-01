@@ -289,7 +289,7 @@ Set ```var locationPhP = "http://localhost/dearscholar.php"``` in ```App/www/js/
 Download and install Cordova with ```sudo npm install -g cordova```. Check you have installed version ```9.0.0``` by running ```cordova -v```. While you do not necessarily need Cordova for Step 6, you will need it for the following steps.
 
 #### Mac and Window users
-Mac and Windows users can use the [Phonegap desktop app](https://phonegap.com/getstarted/) for testing. Import the ```App folder```  in the Phonegap desktop app. When PhoneGap is done with rendering, navigate to the PhoneGap port in your browser shown at the bottom of the PhoneGap screen (e.g., ```http://localhost:3000/```). You now see the login page of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
+Mac and Windows users can use the [Phonegap desktop app](https://phonegap.com/getstarted/) for testing. Import the ```App folder```  in the Phonegap desktop app. When PhoneGap is done with rendering, navigate to the PhoneGap port in your browser shown at the bottom of the PhoneGap screen (likely, ```http://localhost:3000/```). You now see the login page of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
 
 Fill out the respondent credentials inserted in Step 3 of these instructions, click on 'Log in met PIN', and start testing. 
 
