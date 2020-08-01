@@ -296,9 +296,9 @@ Fill out the respondent credentials inserted in Step 3 of these instructions, cl
 #### Linux users and everybody else who prefers the command line
 Navigate to the ```App folder``` and run the following commands in a terminal window:
 
-    ```cordova platform add browser```
+     ```cordova platform add browser```
 
-    ```cordova emulate```
+     ```cordova emulate```
 
 A browser window pops up serving the app at ```http://localhost:8000/index.html```. That looks nice, but DearScholar does not work. Change the address in ```http://localhost:8000/``` and you are good to go.
 
