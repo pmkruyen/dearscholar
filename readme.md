@@ -50,7 +50,6 @@ In this second part of this text, DearScholar's current features and technical d
 * Current features;
 * Framework;
 * Options and settings;
-* Guide for potential contributors and academic researchers;
 * Installation;
 * File structure of the app;
 * Structure of dearscholar.js, the heart of the app.
@@ -99,7 +98,7 @@ DearScholar can be used with Google's Firebase to get the push notifications wor
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow-up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
 
 ## Framework
-DearScholar has been built using [Apache Cordova / Phonegap](https://phonegap.com/), and [Framework7 (v5.4.1)](https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
+DearScholar has been built using [Apache Cordova](https://cordova.apache.org/), and [Framework7 (v5.4.1)](https://framework7.io) by Vladimir Kharlampidi and his team. Next to several general Cordova plugins, DearScholar uses [fingerprint-aio](https://github.com/NiklasMerz/cordova-plugin-fingerprint-aio) to enable Touch ID and Face Recognition, [sqlite-evcore-extbuild-free](https://www.npmjs.com/package/cordova-sqlite-evcore-extbuild-free) to use sqlite tables, and [cordova-plugin-ionic-webview](https://github.com/ionic-team/cordova-plugin-ionic-webview) to replace UIWebView with WKWebView. 
 
 ## Options and settings
 In MySQL, a series of tables need to be set up. The tables include variables (in the columns) and specific settings or respondents' data (in the rows). Below, these tables with all options, if applicable, are described.
@@ -226,51 +225,14 @@ Lastly, a series of empty response tables in which respondents' data is stored, 
 
 *Note*. Why store both "timestamp" and "surveydate"? Respondents are asked to fill out a question module on a specific measurement occasion or survey date (date and time) as displayed in the measurement schedule. To check if respondents indeed completed the question module on the required survey date (or somewhat later), the timestamp is useful.
 
-## Guide for potential contributors and academic researchers
-Scholars who want to use DearScholar in their research project are advised to contact the main author directly. Contributors and academic researchers who want to build their own version of DearScholar can follow the following four steps.
-
-### Step 1: Install DearScholar on your own computer
-To get the developer version of DearScholar running on your computer, the following steps can be taken:
-1) download the app files and folders as specified below (under file structure);
-2) set up an Apache webserver (for testing you may want to use a local Docker container); 
-3) on this webserver, set up all the required tables and files.
-3) install the desktop app of [Phonegap](https://phonegap.com/getstarted/);
-4) compile DearScholar on your computer using Phonegap ... the app appears in your web browser; and 
-5) you can start improving DearScholar.
-
-#### Sample study
-To set up a sample study, the following scripts can be used:
-1) [samplestudy-part1.php](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part1.php) to populate the authentication table;
-2) [samplestudy-part2.sql](https://github.com/pmkruyen/dearscholar/blob/master/samplestudy-part2.sql) to populate the other required tables;
-
-*Note*. Detailed installation instructions, using the sample study, are provided in the **Installation** section below.
-
-### Step 2: Experiment with DearScholar on Android
-In order experiment with DearScholar on Android devices, the app should be build (compiled):
-1) pay fees to get an Android Developer Account;
-2) master Google's guides and obtain the required certificates and keys;
-3) compile DearScholar using [Phonegap's online tools](https://build.phonegap.com/) using these certificates and keys.
-
-### Step 3: Experiment with DearScholar on iOS
-In order experiment with DearScholar on iOS (iPhones or iPads), the app should be build (compiled). Unfortunately, Phonegap's online tools can only be used to compile test versions of your app, but no longer to build production versions as the required SDK version (>= 13) is not supported. Consequently, it is better to refrain from using Phonegap's online tools for building iOS versions of DearScholar as using other SDK versions result in unexpected behavior of DearScholar. 
-
-In short, how it works: 
-1) pay fees to get an Apple Developer Account;
-2) master Apple's guides and obtain the required certificates and keys;
-3) compile DearScholar locally on your own device using [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support) using these certificates and keys. 
-
-*Note*. For iOS, while the current version is ```ios@6.1.0```, DearScholar is built using ```ios@5.1.1``` because of issues with several plugins with newer versions of Cordova. Further details will follow, meanwhile if you have questions contact the main author.
-
-### Step 4: Deploy your clone or derivate version of DearScholar
-Obviously, after Step 3 and 4, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
-
-#### Experiences with the stores
-When you submit an app to the App Store or Google Play Store for publication, your app will be reviewed. The review procedure can be a black box, hence, I share some experiences with my submissions of DearScholar to the stores. While submissions to Google Play Store have been flawless so far, over time the App Store rejected several builds, probably because DearScholar has been categorized as a *Health and Health Research* app. To get the app published on the App Store, I have to show evidence of ethical approval by a formal ethical committee for the running research projects; information about my relationship with the university where I work and the running research projects; and detailed specifications of the Informed Consent Form that needed to be included in the app. While information about the reasons for the study, information about confidentiality and handling of data, a point of contact for participant questions, and withdrawal procedures were specified already, the App Store reviewers also required information about the benefits and risks for research participants as well as a note about consent procedures for minors.
-
 ## Installation
-Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar can follow the  installation instructions in this section (after reading the **Guide for potential contributors and academic researchers** above). 
+Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar are advised to consecutively: install the server (step 1); set up the MySQL database and PhPMyAdmin panel on the server (step 2-4); set up the communication channel between the server and the app (step 5); run DearScholar in an browser (step 6); test the app in an emulated Android and iOS environment (step 7-8); and finally, build, and test the app on a real device (step 9). Obviously, step 10 would be to submit a clone of DearScholar to the App Store and Google Play Store, but that step is beyond this manual.
 
-It is my ambition to automate these steps. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
+*Note* It is my ambition to automate step 1-4. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
+
+### Step 0: Clone the DearScholar repository from GitHub
+
+   ```git clone https://github.com/pmkruyen/dearscholar.git```
 
 ### Step 1: Server setup
 To use Dearscholar, an Apache webserver (version 2.4.29) needs to be set up that runs MySQL (5.7.30), PHP (version 7.4.6), and phpMyAdmin (version 5.0.2) as front panel for researchers. For production, you would run this webserver on a real webserver. For testing, a local [Docker](https://www.docker.com/) container can be used as testing environment on your own device (laptop, pc). 
@@ -321,31 +283,67 @@ To let DearScholar communicate with the MySQL tables, copy the file ```dearschol
 
 *Note*. In production, ```dearscholar.php``` likely needs to be put in the ```var/www/html``` folder of the webserver. Search for the ```locationPhP``` variable in ```dearscholar.js``` (in the app folder of DearScholar) to change the path accordingly.
 
-### Step 6: Run DearScholar locally
-Now it is finally time to run DearScholar locally. 
+### Step 6: Run DearScholar in a browser 
+Set ```var locationPhP = "http://localhost/dearscholar.php"``` in ```App/www/js/dearscholar.js```.
 
-Open the [Phonegap desktop app](https://phonegap.com/getstarted/) and import the App folder in PhoneGap (assuming you have already downloaded this repository to your harddisk). In your browser, navigate to the PhoneGap url, likely ```http://192.168.2.15:3000/```. You now see the login screen of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
+Download and install Cordova with ```sudo npm install -g cordova```. Check you have installed version ```9.0.0``` by running ```cordova -v```.
 
-Enter the respondent credentials inserted in Step 3 of these instructions, click on 'Log in met PIN', and start testing. 
+#### Mac and Window users
+Mac and Windows users can use the [Phonegap desktop app](https://phonegap.com/getstarted/) for testing. Import the ```App folder```  in the Phonegap desktop app. In your browser, navigate to the PhoneGap port shown at the bottom of the PhoneGap screen (e.g., ```http://localhost:3000/```). You now see the login page of DearScholar. Enable the ```inspect``` option in your browser to render the app screen in 'normal' properties for mobile devices. 
 
-*Note*. In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Log in', the cordova-plugin-fingerprint-aio has not loaded correctly. Also, in this case, the browser console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, grab a cup of coffee, wait a few minutes, and 'Force Reload' the browser window.
+Fill out the respondent credentials inserted in Step 3 of these instructions, click on 'Log in met PIN', and start testing. 
 
-### Step 7: Run DearScholar on a real device
-As explained in the section **Guide for potential contributors and academic researchers**, until recently, DearScholar was compiled using [Phonegap's online tools](https://build.phonegap.com/). However, this procedure is rather time consuming. Hence, I am looking for an alternative means. Also, for iOS the Phonegap tools cannot longer be used, making finding alternative ways to build DearScholar even more important. When I have mastered these alternative means, I will update these installation instructions. Till then, I proceed as follows.
+#### Linux users and everybody else who prefers the command line
+Navigate to the ```App folder``` and run the following commands in a terminal window:
+
+```cordova platform add browser```
+```cordova emulate```
+
+A browser window pops up serving the app from ```http://localhost:8000/index.html```. That looks nice, but DearScholar does not work. Change the address in ```http://localhost:8000/``` and you are good to go.
+
+
+#### Notes
+*Note 1* It can happen that, when building the browser platform you receive a message about a missing module. Install these modules. Delete the ```platform folder``` which was generated by Cordova in the ```app folder``` by ```cordova platform rm browser``` and rerun ```cordova platform add browser``` and ```cordova emulate```.
+
+*Note 2* In your browser, the login screen should show the login button with the label 'Log in met PIN'. When the login button has the label 'Error: Restart DearScholar', the cordova-plugin-fingerprint-aio has not loaded correctly. Likely, the debugging console displays the error "Fingerprint is not defined". In this case, you cannot login to DearScholar. To solve this issue, when using Phonegap desktop app, wait a few minutes and 'Force Reload' the browser window. When using the command line or to speed things up you are advised to delete  the ```platform folder``` which was generated by Cordova in the ```app folder``` by ```cordova platform rm browser``` and rerun ```cordova platform add browser``` and ```cordova emulate```.
+
+
+### Step 7: Run DearScholar on an emulated Android device 
+TBA
+
+### Step 8: Run DearScholar on an emulated iOS device 
+TBA
+
+
+### Step 9: Run DearScholar on a real device
+Until recently, DearScholar was compiled using [Phonegap's online tools](https://build.phonegap.com/). However, this procedure is rather time consuming. Hence, I am looking for an alternative means. Also, for iOS the Phonegap tools cannot longer be used because of changes in the required SDK version (>= 13), making finding alternative ways to build DearScholar even more important. When I have mastered these alternative means, I will update these installation instructions. Till then, I proceed as follows.
+
 
 #### Android
-Zip the App folder, upload this folder to [Phonegap's online tools](https://build.phonegap.com/). When the build succeed, download the generated apk file to your device and upload it to [Diawi](https://www.diawi.com/). With your Android device, scan the generated QR code to download and install DearScholar. 
+1) pay fees to get an Android Developer Account;
+2) master Google's guides and obtain the required certificates and keys;
+3) zip the App folder and upload this folder to [Phonegap's online tools](https://build.phonegap.com/). 
+4) When the build succeed using these certificates and keys, download the generated apk file to your device and upload it to [Diawi](https://www.diawi.com/). 
+5) With your Android device, scan the generated QR code to download and install DearScholar. 
 
-Check that PhoneGap uses ```cli-9.0.0 (5.0.1 / 8.0.0 / 7.0.0)``` to build the Android apk file.
-
+*Note.* Check that PhoneGap uses ```cli-9.0.0 (5.0.1 / 8.0.0 / 7.0.0)``` to build the Android apk file.
+ 
 #### iOS
-After having installed XCode and [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support) on your MacBook, navigate to the App folder. In this folder, open the terminal and run consecutively
+1) pay fees to get an Apple Developer Account;
+2) master Apple's guides and obtain the required certificates and keys;
+3) run the following commands in the ```App folder```
 
 ```cordova platform add ios@5.1.1```
 
 ```open ./platforms/ios/DearScholar.xcworkspace/```
 
-You can now test DearScholar on an emulator in XCode or-when you have obtained Apple's certificates and keys-on your own device (when you have an iPhone or iPad).
+*Note*. For iOS, while the current version is ```ios@6.1.0```, DearScholar is built using ```ios@5.1.1``` because of issues with several plugins with newer versions of Cordova. Further details will follow, meanwhile if you have questions contact the main author.
+
+### Step 10: Deploy your clone or derivate version of DearScholar
+Lastly, you may want to submit your modified  version of DearScholar to the App Store or Google Play Store. However, while DearScholar clones might be allowed on Google Play, submissions of clones run the risk of being rejected on the App Store due to Apple's policies. More importantly, combining our strengths to develop DearScholar further will be more productive for the research community and more fun! Thank you! 😃.
+
+#### Sharing some experiences with the stores
+When you submit an app to the App Store or Google Play Store for publication, your app will be reviewed. The review procedure can be a black box, hence, I share some experiences with my submissions of DearScholar to the stores. While submissions to Google Play Store have been flawless so far, over time the App Store rejected several builds, probably because DearScholar has been categorized as a *Health and Health Research* app. To get the app published on the App Store, I have to show evidence of ethical approval by a formal ethical committee for the running research projects; information about my relationship with the university where I work and the running research projects; and detailed specifications of the Informed Consent Form that needed to be included in the app. While information about the reasons for the study, information about confidentiality and handling of data, a point of contact for participant questions, and withdrawal procedures were specified already, the App Store reviewers also required information about the benefits and risks for research participants as well as a note about consent procedures for minors.
 
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
