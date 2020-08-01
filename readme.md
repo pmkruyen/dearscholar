@@ -228,7 +228,7 @@ Lastly, a series of empty response tables in which respondents' data is stored, 
 ## Installation
 Researchers and contributors who want to test, contribute, or want to build their own version of DearScholar are advised to consecutively: install the server (Step 1); set up the MySQL database and PhPMyAdmin panel on the server (Step 2-4); set up the communication channel between the server and the app (Step 5); run DearScholar in a browser (Step 6); test the app in an emulated Android and iOS environment (Step 7-8); and finally, build, and test the app on a real device (Step 9). Obviously, Step 10 would be to submit a clone of DearScholar to the App Store and Google Play Store, but that step is beyond this manual. However, in Step 10 in these installation instructions, I share some experiences with the App Store to consider when submitting a research app to the App Store.
 
-*Note* It is my ambition to automate step 1-4. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
+*Note.* It is my ambition to automate step 1-4. Meanwhile, performing the steps manually gives a good first impression about how DearScholar functions.
 
 ### Step 0: Clone the DearScholar repository from GitHub
 
