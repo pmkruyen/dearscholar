@@ -341,7 +341,7 @@ When you submit an app to the App Store or Google Play Store for publication, yo
 ## File structure of the app
 Researchers and (potential) contributors who want to know what happens under DearScholar's hood, can also browse the app folders (App [Android >= 9.0 and iOS] and Android26 [Android 8.0 and 8.5]. These versions slightly deviate because of platform specific settings. Help in integrating these versions is welcome. 
 
-### config.xlm
+### config.xml
 This file is used by Phonegap/Cordova to compile the app correctly, and contains:
 * meta-data about the app;
 * general settings;
