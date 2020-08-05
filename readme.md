@@ -7,10 +7,10 @@ DearScholar allows researchers to easily and orderly collect rich and diverse qu
 
 Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), DearScholar can be used to collect data on iOS devices (iPhones and iPads), Android devices, and--in the future--in web browsers too.
 
-Background information, an overview of the current features, and current research projects can be found on the [project page](https://peterkruyen.net/dearscholar.html).
+Background information, an summary of the current features, and current research projects can be found on the [project page](https://peterkruyen.net/dearscholar.html).
 
 # General information
-This document provides general information about the app. The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, settings and options, and other details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar.
+This document provides general information about the app, including an overview of current features. The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, settings and options, and other details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar.
 
 ## Interested in using DearScholar in your academic research project? 
 * Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play; take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
