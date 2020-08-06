@@ -21,7 +21,7 @@ INSERT INTO `moduleStructure` (`module0`, `name`, `page`, `mandatory`, `image`, 
 ('F', 'Ideeën van anderen', 'A', '0', 'icons8-solve-64.png', '50%', '30%'),
 ('G', 'Opmerkingen', 'A', '0', 'icons8-branding-64.png', '75%', '30%');
 # Populate the pageStructure table
-INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttontid`, `backbuttontext`, `backbuttononclick`, `backbuttonhref`, `nextbuttonid`, `nextbuttontext`, `nextbuttononclick`, `nextbuttonhref`) VALUES
+INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttonid`, `backbuttontext`, `backbuttononclick`, `backbuttonhref`, `nextbuttonid`, `nextbuttontext`, `nextbuttononclick`, `nextbuttonhref`) VALUES
 ('A', '\'tab tab-active\'', 'tab-1as', 'Vraag 1 van 9', 'q1s=nee', 'Nee', 'click', '#tab-7as', 'q1s=ja', 'Ja', 'click', '#tab-2as'),
 ('A', 'tab', 'tab-7as', 'Vraag 2 van 3', 'Terug', 'Terug', '\'\'', '#tab-1as', 'Volgende', 'Volgende', '\'\'', '#tab-7bs'),
 ('A', 'tab', 'tab-7bs', 'Vraag 3 van 3', 'Terug', 'Terug', '\'\'', '#tab-7as', 'Opslaan', 'Opslaan', 'upload', '#'),

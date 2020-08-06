@@ -73,7 +73,7 @@ CREATE TABLE `pageStructure` (
   `classp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `idp` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `header` text CHARACTER SET utf8,
-  `backbuttontid` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `backbuttonid` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `backbuttontext` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `backbuttononclick` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `backbuttonhref` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
