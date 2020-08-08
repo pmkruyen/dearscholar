@@ -29,5 +29,5 @@ addons:
   browserstack:
     username: "peterkruyen1"
     access_key: 
-      secure: "$BROWSERSTACK_ACCESS_KEY"
+      secure: ""NdISIA2fhBCGOOvNsZyhXQ1DOsH94s2T52m5ADWy/+y5rmkm4g4we3r8UnpKObwswgnj9lV+tgJLATv+NZZiNoQYC6TPrcoJqIG8znM8Ie1eVItgLFVUUHp+7s13JBO0fLqoTtmBrBBwYp7OQbzocl8FKkrqFMDBGyfQj8DDPtAaKNQ+rkID+iEd+gVPk/U4iaXTPQbYCQ7eamjHUGbRorSJEpTT7Gll74VCVpnxGj/5MoOUgTTPIOp82oI4ciHDjLpIMRSOlCRkQuG4UgVveGnk1CKMRwkK/LpqhPUVhKjUu0J8OXkHYVsQgqkFQ2ZoHFHZwSeMpWk5AVkX+FxEBlEJsWq/mZK6ET67sDuGTSajoKe2q/dDK0WDQgcpIIODDmuKCiHY+VpAW7zgMvD7Z9lndQUi727UG3SB6hWbDar9/Wa5aXP0qOp9Q3e7ux6T7YC++4Cn7dJgCQgMhv/oouVZSPxz8SjmqreKrRydjjNWIsAzzuBCWP6S+OS+i96UeZhicEhWn91Mz1OZhW2lvnTN11w6eTekpdQcZJBWwD6UstjGR+uomjOgC3tmn6LuIQIcm7y1pP1srja1YiS9ApDyYPiJTSanFicsRayqTsvtgmWBhW8Bo2FxMqFxP5QRTC8aPpWjpaYsqEAQBq1EfB5+zG26vLYRpheNVZ4NZ5k="
     app_path: "dearscholar.apk"
