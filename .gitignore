@@ -1,6 +1,7 @@
 .DS_store
 /App/google-services.json
 /App/package-lock.json
+/App/yarn.lock
 /App/package.json
 /App/www/js/push.js
 /App/plugins/*
@@ -8,6 +9,7 @@
 /App/platforms/*
 /Android26/google-services.json
 /Android26/package-lock.json
+/Android26/yarn.lock
 /Android26/package.json
 /Android26/www/js/push.js
 /Android26/plugins/*
