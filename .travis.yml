@@ -19,15 +19,15 @@ script:
 - cordova platform add ios@5.1.1
 - cordova platform add android
 
-#install:
-#  - "build script"
+install:
+  - "build script"
 
-#script:
-#  - "test script"
+script:
+  - "test script"
 
 addons:
   browserstack:
     username: "peterkruyen1"
     access_key: 
-      secure: "H5AyH+oTO1Xw1rvb69BU1bp9KdlhEB1WPq7W1ZOQGhf2/Z+3kCS7KI6d8lpR6Kpsa2zx+vSkTbwMMhLvNUzWod+P0KsVcMoRynsUxPM+V3vAa4A8pVbBUSL+MVpdjAneS0ocpU/V1uvd172bBOp9ChVrPXed35fq0bVyPPdrg72le/vV3WBa3ybZugOXUUVTEBfOnuuQllOUrtNGd+kiyw8JpPKPbxURGxF4m1V5uiwwsCJcfOxF+BiZQriHjCTRm/Spyr5BneNoNrwaNBSZGan+7BKHKMAYrElJR31bQPpHreyQG6Ct8CXh60w+F+hasKLOXg0F203nd4NdHGD023pPsaapjGeJo5rfYEgec0syxvVuIFRZl4k9H3LIKLX0Ix7pDnkYwH5kPeqJQ3pz/3Px8EbqzJG1lR7Ws4BbgEIbKn6R/wWjmwthu/FyuyspkTZlpgK++24iuzcO9ZsWwmyiTxgEPuzK4zZX9n9D0tWRJYPVA8k9pLHjVkDvpwkzlF2UF0YSZMPJD2P7j7QelPcBtGCF79WD+gxHmBujU/6c7bhaaLrrCAh0rMHXvGwYyT+hPePubQjDnbyEf402BWFrjeF/L2dBMe0JcPDQBys0anAion7k6m5JpAxDoDujICne/jspHlwEorujBblt+AKzwpRtyziK0H/8prVrn8M="
+      secure: "QflrXxjk8HswLeCLKeXj1ShjpYpQanYxvvsMepNE57EfUgIj83gyyjPk9Z5yemf3Ugzgr95oz6VxZLhJeqoI+66RUgR+BqDKZ+D2atpvCQkI4u1jP9jynYTMS80kLcopBU3dOUwiCnKc6oWard/Jq1k6k1+qIucZoYGKOnulqUoUNOaKgUkH2yl443cpEqxZQPkqza4N9/K5Cu6U6kOBLjTJA6oVJ4swpmqjK/OK7bUoas8jSEp89Eh/0PPCWQivVxfItW6NGNaZ2i0XFJbJ4hIwHFMIvFWh9zTic56KZPJxpQpjGrggVLy93bsqycKYlMCoDG0HQ2MIvo77jj0iPlasFqgYyE2ThWT40PdOXuVS6JOv2++S7jT8vOiSNR479yALmAj7BLanPh+L8IW6z8oc60cQfVY/0RZ8ClY8h+ihtFQ28298pEdpRl7JN93FgFdZv+Ddy/jpejcc0XPwuVfK+ekWTorLXADPFdoEHVH1x7po3WNCsE29traFhNnzQPob6VOXMLtHr4ZABheR3cY3yIla3hrIzZFrChg+dh4roZjfq6vHg2Y8K/1wfnGmWGxmmvkh3IbfE5O5V2qyGbQyZ1v5O1Tw7Zp07cQQ9X51PBhp/jdFif0dzWgdFGcmk4f8C1e5sHJZZFsTLs4l+S3navx0cfUI7me24cQRejQ="
     app_path: "browserstack_android_sample/build/outputs/apk/debug/browserstack_android_sample-debug.apk"
