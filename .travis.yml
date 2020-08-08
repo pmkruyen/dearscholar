@@ -19,11 +19,11 @@ script:
 - cordova platform add ios@5.1.1
 - cordova platform add android
 
-install:
-  - "build script"
+#install:
+#  - "build script"
 
-script:
-  - "test script"
+#script:
+#  - "test script"
 
 addons:
   browserstack:
