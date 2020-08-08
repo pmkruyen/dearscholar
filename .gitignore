@@ -1,10 +1,12 @@
 .DS_store
 /App/yarn.lock
+/App/google-services.json
 /App/www/js/push.js
 /App/plugins/*
 /App/node_modules/*
 /App/platforms/*
 /Android26/yarn.lock
+/Android26/google-services.json
 /Android26/www/js/push.js
 /Android26/plugins/*
 /Android26/node_modules/*

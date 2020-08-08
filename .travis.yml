@@ -1,6 +1,5 @@
 language: objective-c
 osx_image: xcode11.2
-  
 before_install:
 - nvm install v12.16.2 --reinstall-packages-from=node
 - nvm use v12.16.2
@@ -19,3 +18,16 @@ install:
 script:
 - cordova platform add ios@5.1.1
 - cordova platform add android
+
+#install:
+#  - "build script"
+
+#script:
+#  - "test script"
+
+addons:
+  browserstack:
+    username: "peterkruyen1"
+    access_key: 
+      secure: "H5AyH+oTO1Xw1rvb69BU1bp9KdlhEB1WPq7W1ZOQGhf2/Z+3kCS7KI6d8lpR6Kpsa2zx+vSkTbwMMhLvNUzWod+P0KsVcMoRynsUxPM+V3vAa4A8pVbBUSL+MVpdjAneS0ocpU/V1uvd172bBOp9ChVrPXed35fq0bVyPPdrg72le/vV3WBa3ybZugOXUUVTEBfOnuuQllOUrtNGd+kiyw8JpPKPbxURGxF4m1V5uiwwsCJcfOxF+BiZQriHjCTRm/Spyr5BneNoNrwaNBSZGan+7BKHKMAYrElJR31bQPpHreyQG6Ct8CXh60w+F+hasKLOXg0F203nd4NdHGD023pPsaapjGeJo5rfYEgec0syxvVuIFRZl4k9H3LIKLX0Ix7pDnkYwH5kPeqJQ3pz/3Px8EbqzJG1lR7Ws4BbgEIbKn6R/wWjmwthu/FyuyspkTZlpgK++24iuzcO9ZsWwmyiTxgEPuzK4zZX9n9D0tWRJYPVA8k9pLHjVkDvpwkzlF2UF0YSZMPJD2P7j7QelPcBtGCF79WD+gxHmBujU/6c7bhaaLrrCAh0rMHXvGwYyT+hPePubQjDnbyEf402BWFrjeF/L2dBMe0JcPDQBys0anAion7k6m5JpAxDoDujICne/jspHlwEorujBblt+AKzwpRtyziK0H/8prVrn8M="
+    app_path: "browserstack_android_sample/build/outputs/apk/debug/browserstack_android_sample-debug.apk"
