@@ -28,4 +28,5 @@ script:
 addons:
   browserstack:
     username: "petertest7Bhuj7"
-    access_key: "PiDefADqPzMs9LNixXLq"
+    access_key: 
+      secure: "VXtOpNhf4QwocZRtoGczdeZwJx/j98pSyNRxTXKRSAIfyU5W4dNHsLK+fmJu+CyIRvNhxqen/r1xtGtKLGJrzplqsbA21cuqMQlMtz9PnYKsM2SVnRRxpgQ34Xn+afwYgC+Dbri45uYrsR5Pf/ee5wX3losJUN4uopVjWeoliIFB31mRCbmUfPv+0HVuWT+P8tLOQFsexvC4OixJyEbJ6y8JfCO3eqDjDTurMR4OijEh1Ytkl91DTrduRhM/3vQnupTV3490oWECaLZbyHby7Gj3li7EUtAX6GRWFjYmxg/7HtTfXzR79oKvzjbpWbXSoJ5olmeIXQN7LFdq1KLfp17XHxwp5K4/AdZVtE/79QzYt59vgijDTKDf4b4bhhcfq1oaqO+pYTIzP1ajrPMDIzvPBo3wmwMz2b+l2oquooIkD+LwEozRpa7Q6A0teYH0QerDjwnlbZ9hWUtAynpZf6XtqxR7j+K62lL6cyyByPlkMnIf7IP7TolJQPMZ/ELK4vIzJ2e7eKsQM1GMxfh9u+r3xWke2IRD6pPIQ/jXK/yu8R+Yud4m/qD/tPfkcwGQVVveBuffzjSn11fqBu4OpeSjtH/JRIV+ViG/TZ/yDilAfdMbdyUP7E1t5whwDgJnXuXWbEwvpxkjoZ13YMMZSOGaPUb5/H8yfXMxemqIgzs="
