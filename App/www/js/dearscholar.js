@@ -261,8 +261,8 @@ var mainView = app.views.create('.view-main')
 
 ///////////////////////////////////////////////////////////////////////////////
 // General variables
-//var locationPhP = "http://localhost/dearscholar.php";
-var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
+var locationPhP = "http://localhost/dearscholar.php";
+//var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Style the login screen

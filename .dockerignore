@@ -1,4 +1,5 @@
 .git
+.travis.yml
 Android26
 App
 screenshots

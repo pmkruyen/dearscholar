@@ -2,7 +2,7 @@
   {
     "data": {
       "project": "project",
-      "setup": "1",
+      "setup": "0",
       "q0_startdate": "2020-03-01",
       "q0_occasions": "4",
       "q0_intervaltype": "w",
