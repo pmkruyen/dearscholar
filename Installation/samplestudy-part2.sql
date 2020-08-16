@@ -1,9 +1,9 @@
-#// Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
+#// Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands.
 
 #// Sample code to set up a study (part 2 of 2).
 #// Run this code after you completed the steps in 'samplestudy-part1.sql'
 
-#// Consult the README file and the MySQL setup file for further explanations. 
+#// Consult the README file and the MySQL setup file for further explanations.
 
 # // Run the code below in MySQL
 

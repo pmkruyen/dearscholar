@@ -1,16 +1,16 @@
 <?php
-// Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
+// Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands.
 
 // Sample code to set up a study (part 1 of 2).
-// Consult the README file  for further explanations. 
+// Consult the README file  for further explanations.
 
-    // Fetch the usernames and passwords 
+    // Fetch the usernames and passwords
     // From a csv file, where the usernames are in the first column, and the passwords in the second column.
     $unames = [];
     $pwds = [];
 
     //$location = '########';
- 
+
     //$row = 1;
         //if (($handle = fopen($location, "r")) !== FALSE) {
             //while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -21,10 +21,10 @@
     //fclose($handle);
         //}
 
-    // Alternatively, for testing, use the following five usernames and passwords 
+    // Alternatively, for testing, use the following five usernames and passwords
     $unames = ["test1","test2","test3","test4","test5"];
     $pwds = ["test1","test2","test3","test4","test5"];
-    
+
     // project setup
     $project = "project";
     $setup = 0;
@@ -41,8 +41,8 @@
     }
 
     // populate the response table
-    $MyUsername = 'admin';
-    $MyPassword = '###########'; // use the MySQL admin password that was generated at first run of the Docker container.
+    $MyUsername = 'root';
+    $MyPassword = ''; // use the MySQL admin password that was generated at first run of the Docker container.
     $MyDatabase = 'respondents';
 
     // open the connection and prepare
@@ -58,5 +58,5 @@
             echo "Error: " . $sql . "<br>" . $con->error;
             }
     }
- 
+
 ?>
