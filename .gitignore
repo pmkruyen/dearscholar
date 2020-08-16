@@ -11,4 +11,6 @@
 /Android26/plugins/*
 /Android26/node_modules/*
 /Android26/platforms/*
+.phpunit.result.cache
+/testing/phpunit/vendor/*
 

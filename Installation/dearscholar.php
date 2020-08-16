@@ -105,7 +105,22 @@ if (password_verify($pwd, $pwdhash)) {
         else{
         echo "error";
         }
-      
+  }
+
+  // Authentication and schedule set up
+  if(isset($_POST['authentication'])){
+
+      $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
+
+      $sql = "SELECT `project`, `setup`,`q0_startdate`, `q0_occasions`, `q0_intervaltype`, `q0_interval` FROM authentication WHERE uname = '" . $_POST['uname'] . "'";
+
+      $result = $con->query($sql) or die('Err: Table not found: ' . mysql_error());
+
+          while($r = mysqli_fetch_assoc($result)){
+              $data[] = array('data' => $r);
+          }
+
+      echo json_encode($data);
   }
 
   // Inject the diary structure    
@@ -157,10 +172,17 @@ if (password_verify($pwd, $pwdhash)) {
     if(isset($_POST['injectedStructure'])){
         $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
     
-        mysqli_query($con,"UPDATE `authentication` SET `setup` = '1' WHERE `uname` = '$uname'");
+        $q = mysqli_query($con,"UPDATE `authentication` SET `setup` = '1' WHERE `uname` = '$uname'");
+
+      if($q){
+        echo "success";
+        }
+        else{
+        echo "error";
+        }
     }
 
-      // Download messages and let the server know that the respondent has seen the message (on click)
+    // Download messages and let the server know that the respondent has seen the message (on click)
     if(isset($_POST['messagesCheck'])){
         $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
@@ -180,145 +202,117 @@ if (password_verify($pwd, $pwdhash)) {
         $id=mysqli_real_escape_string($con,$_POST['id']);
         
         $q=mysqli_query($con,"UPDATE messages SET seen='1' WHERE id='$id'");
+     
+      if($q){
+        echo "success";
+        }
+        else{
+        echo "error";
+        }
     }
-}
 
-// Authentication and schedule set up
-if(isset($_POST['authentication'])){
+    // Post the answers
+    if($_POST['module']=='moduleA'||$_POST['module']=='moduleB'||$_POST['module']=='moduleC'||$_POST['module']=='moduleD'||$_POST['module']=='moduleE'||$_POST['module']=='moduleF'||$_POST['module']=='moduleG'){
 
-  if (password_verify($pwd, $pwdhash)) {
-      $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
+      $con = new mysqli("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
-      $sql = "SELECT `project`, `setup`,`q0_startdate`, `q0_occasions`, `q0_intervaltype`, `q0_interval` FROM authentication WHERE uname = '" . $_POST['uname'] . "'";
+      if($_POST['module'] == 'moduleA'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleA';
+      }
 
-      $result = $con->query($sql) or die('Err: Table not found: ' . mysql_error());
+      if($_POST['module'] == 'moduleB'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleB';
+      }
 
-          while($r = mysqli_fetch_assoc($result)){
-              $data[] = array('data' => $r);
-          }
+      if($_POST['module'] == 'moduleC'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleC';
+      }
 
-      echo json_encode($data);
+      if($_POST['module'] == 'moduleD'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleD';
+      }
 
+      if($_POST['module'] == 'moduleE'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleE';
+      }
+
+      if($_POST['module'] == 'moduleF'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleF';
+      }
+
+      if($_POST['module'] == 'moduleG'){
+        $sql = 'SHOW COLUMNS FROM responseTableModuleG';
+      }
+
+      $res = $con->query($sql);
+
+      while($row = $res->fetch_assoc()){
+        $columns[] = $row['Field'];
+      }
+
+      if (($key = array_search('id', $columns)) !== false) {
+        unset($columns[$key]);
+      }
+
+      $variables =  implode(", ",$columns);
+
+      $placeholders = array();
+      $datatype = array();
+
+      for ($x = 0; $x <= (count($columns)-1); $x++) {
+        array_push($placeholders,'?');
+        array_push($datatype,'s');
+      }
+
+      $placeholders =  implode(", ",$placeholders);
+      $datatype =  implode("",$datatype);
+
+      if($_POST['module'] == 'moduleA'){
+        $stmt = $con->prepare("INSERT INTO responseTableModuleA ($variables) VALUES ($placeholders)");
+      }
+
+      if($_POST['module'] == 'moduleB'){
+        $stmt = $con->prepare("INSERT INTO responseTableModuleB ($variables) VALUES ($placeholders)");
+      }
+
+      if($_POST['module'] == 'moduleC'){
+        $stmt = $con->prepare("INSERT INTO responseTableModuleC ($variables) VALUES ($placeholders)");
+      }
+
+      if($_POST['module'] == 'moduleD'){
+        $stmt = $con->prepare("INSERT INTO responseTableModuleD ($variables) VALUES ($placeholders)");
+      }
+
+      if($_POST['module'] == 'moduleE'){
+        $stmt = $con->prepare("INSERT INTO responseTableModuleE ($variables) VALUES ($placeholders)");
+      }
+
+      if($_POST['module'] == 'moduleF'){
+       $stmt = $con->prepare("INSERT INTO responseTableModuleF ($variables) VALUES ($placeholders)");
+      }
+
+      if($_POST['module'] == 'moduleG'){
+        $stmt = $con->prepare("INSERT INTO responseTableModuleG ($variables) VALUES ($placeholders)");
+      }
+
+      $params[] = $columns;
+
+      $params[0] = $datatype;
+
+      for ($x = 1; $x <= count($columns); $x++) {
+        if(isset($_POST[$columns[$x]])) {$params[$x] = $_POST[$columns[$x]];}
+        else {$params[$x] = "NULL";}
+      }
+
+      call_user_func_array(array($stmt,'bind_param'),$params); 
+
+      if ($stmt->execute()) { 
+        echo "success";
+      } else {
+        echo "error";
+      }
+    }  
   } else {
-      echo 'error';
-    }
-
-}
-
-//////////////////////////////////
-//Insert responses
-// Create connection
-$conn = new mysqli("localhost", $MyUsername, $MyPassword, $project);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-if($_POST['module']=='moduleA'||$_POST['module']=='moduleB'||$_POST['module']=='moduleC'||$_POST['module']=='moduleD'||$_POST['module']=='moduleE'||$_POST['module']=='moduleF'||$_POST['module']=='moduleG'){
-
-// prepare the variables (based on the column names, excluding the id variable )
-if($_POST['module'] == 'moduleA'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleA';
-}
-
-if($_POST['module'] == 'moduleB'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleB';
-}
-
-if($_POST['module'] == 'moduleC'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleC';
-}
-
-if($_POST['module'] == 'moduleD'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleD';
-}
-
-if($_POST['module'] == 'moduleE'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleE';
-}
-
-if($_POST['module'] == 'moduleF'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleF';
-}
-
-if($_POST['module'] == 'moduleG'){
-  $sql = 'SHOW COLUMNS FROM responseTableModuleG';
-}
-
-$res = $conn->query($sql);
-
-while($row = $res->fetch_assoc()){
-    $columns[] = $row['Field'];
-}
-
-if (($key = array_search('id', $columns)) !== false) {
-    unset($columns[$key]);
-}
-
-$variables =  implode(", ",$columns);
-
-// prepare the placeholders and data type variable
-$placeholders = array();
-$datatype = array();
-
-for ($x = 0; $x <= (count($columns)-1); $x++) {
-  array_push($placeholders,'?');
-  array_push($datatype,'s');
-}
-
-$placeholders =  implode(", ",$placeholders);
-$datatype =  implode("",$datatype);
-
-// prepare the connection
-if($_POST['module'] == 'moduleA'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleA ($variables) VALUES ($placeholders)");
-}
-
-if($_POST['module'] == 'moduleB'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleB ($variables) VALUES ($placeholders)");
-}
-
-if($_POST['module'] == 'moduleC'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleC ($variables) VALUES ($placeholders)");
-}
-
-if($_POST['module'] == 'moduleD'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleD ($variables) VALUES ($placeholders)");
-}
-
-if($_POST['module'] == 'moduleE'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleE ($variables) VALUES ($placeholders)");
-}
-
-if($_POST['module'] == 'moduleF'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleF ($variables) VALUES ($placeholders)");
-}
-
-if($_POST['module'] == 'moduleG'){
-  $stmt = $conn->prepare("INSERT INTO responseTableModuleG ($variables) VALUES ($placeholders)");
-}
-
-// prepare the bind parameters
-$params[] = $columns;
-
-$params[0] = $datatype;
-
-for ($x = 1; $x <= count($columns); $x++) {
-  if(isset($_POST[$columns[$x]])) {$params[$x] = $_POST[$columns[$x]];}
-    else {$params[$x] = "NULL";}
-}
-
-call_user_func_array(array($stmt,'bind_param'),$params); 
-
-// execute
-if ($stmt->execute()) { 
-    echo "success";
-} else {
-   echo "error";
-}
-
-}
-
-//////////////////////////////////
+    echo "error";
+  }
 ?>

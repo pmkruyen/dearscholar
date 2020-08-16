@@ -1,0 +1,1573 @@
+{
+  "data0": [
+    {
+      "data": {
+        "consent": "<div class=\"block-header\"><b>Header</b></div> <div class=\"block\"><p>CONTENT</p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>",
+        "manual": "<div class=\"block-header\"><b>Header</b></div> <div class=\"block\"><p>CONTENT</p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere.</div>"
+      }
+    }
+  ],
+  "data1": [
+    {
+      "data": {
+        "id": "1",
+        "module1": "A",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1as",
+        "header": "Vraag 1 van 9",
+        "backbuttonid": "q1s=nee",
+        "backbuttontext": "Nee",
+        "backbuttononclick": "click",
+        "backbuttonhref": "#tab-7as",
+        "nextbuttonid": "q1s=ja",
+        "nextbuttontext": "Ja",
+        "nextbuttononclick": "click",
+        "nextbuttonhref": "#tab-2as"
+      }
+    },
+    {
+      "data": {
+        "id": "2",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-7as",
+        "header": "Vraag 2 van 3",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-1as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-7bs"
+      }
+    },
+    {
+      "data": {
+        "id": "3",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-7bs",
+        "header": "Vraag 3 van 3",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-7as",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "4",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-2as",
+        "header": "Vraag 2 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-1as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-2bs"
+      }
+    },
+    {
+      "data": {
+        "id": "5",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-2bs",
+        "header": "Vraag 3 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-2as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-2cs"
+      }
+    },
+    {
+      "data": {
+        "id": "6",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-2cs",
+        "header": "Vraag 4 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-2bs",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-3as"
+      }
+    },
+    {
+      "data": {
+        "id": "7",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-3as",
+        "header": "Vraag 5 van 9",
+        "backbuttonid": "q3s=nee",
+        "backbuttontext": "Nee",
+        "backbuttononclick": "click",
+        "backbuttonhref": "#tab-4bs",
+        "nextbuttonid": "q3s=ja",
+        "nextbuttontext": "Ja",
+        "nextbuttononclick": "click",
+        "nextbuttonhref": "#tab-4as"
+      }
+    },
+    {
+      "data": {
+        "id": "8",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-4as",
+        "header": "Vraag 6 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-3as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-8as"
+      }
+    },
+    {
+      "data": {
+        "id": "9",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-4bs",
+        "header": "Vraag 6 van 8",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-3as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-5bs"
+      }
+    },
+    {
+      "data": {
+        "id": "10",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-5as",
+        "header": "Vraag 8 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-8as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-6as"
+      }
+    },
+    {
+      "data": {
+        "id": "11",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-5bs",
+        "header": "Vraag 7 van 8",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-4bs",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-6bs"
+      }
+    },
+    {
+      "data": {
+        "id": "12",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-6as",
+        "header": "Vraag 9 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-5as",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "13",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-6bs",
+        "header": "Vraag 8 van 8",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-5bs",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "14",
+        "module1": "A",
+        "classp": "tab",
+        "idp": "tab-8as",
+        "header": "Vraag 7 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-4as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-5as"
+      }
+    },
+    {
+      "data": {
+        "id": "15",
+        "module1": "B",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1ao",
+        "header": "Vraag 1 van 6",
+        "backbuttonid": "q1o=nee",
+        "backbuttontext": "Nee",
+        "backbuttononclick": "click",
+        "backbuttonhref": "#tab-7ao",
+        "nextbuttonid": "q1o=ja",
+        "nextbuttontext": "Ja",
+        "nextbuttononclick": "click",
+        "nextbuttonhref": "#tab-2ao"
+      }
+    },
+    {
+      "data": {
+        "id": "16",
+        "module1": "B",
+        "classp": "tab",
+        "idp": "tab-2ao",
+        "header": "Vraag 2 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-1ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-3ao"
+      }
+    },
+    {
+      "data": {
+        "id": "17",
+        "module1": "B",
+        "classp": "tab",
+        "idp": "tab-3ao",
+        "header": "Vraag 3 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-2ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-4ao"
+      }
+    },
+    {
+      "data": {
+        "id": "18",
+        "module1": "B",
+        "classp": "tab",
+        "idp": "tab-4ao",
+        "header": "Vraag 4 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-3ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-5ao"
+      }
+    },
+    {
+      "data": {
+        "id": "19",
+        "module1": "B",
+        "classp": "tab",
+        "idp": "tab-5ao",
+        "header": "Vraag 5 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-4ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-6ao"
+      }
+    },
+    {
+      "data": {
+        "id": "20",
+        "module1": "B",
+        "classp": "tab",
+        "idp": "tab-6ao",
+        "header": "Vraag 6 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-5ao",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "21",
+        "module1": "B",
+        "classp": "tab",
+        "idp": "tab-7ao",
+        "header": "Vraag 2 van 2",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-1ao",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "22",
+        "module1": "C",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1st",
+        "header": "<b>Terugkijkende op de afgelopen week...</b>",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "/survey/",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "23",
+        "module1": "D",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1rm",
+        "header": "<b>Wilt u ons iets meegeven dat van belang is in het kader van ons onderzoek, dan kunt u dit hier kwijt.</b>",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "/survey/",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "24",
+        "module1": "E",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1as",
+        "header": "Vraag 1 van 9",
+        "backbuttonid": "q1sA=nee",
+        "backbuttontext": "Nee",
+        "backbuttononclick": "click",
+        "backbuttonhref": "#tab-7as",
+        "nextbuttonid": "q1sA=ja",
+        "nextbuttontext": "Ja",
+        "nextbuttononclick": "click",
+        "nextbuttonhref": "#tab-2as"
+      }
+    },
+    {
+      "data": {
+        "id": "25",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-7as",
+        "header": "Vraag 2 van 3",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-1as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-7bs"
+      }
+    },
+    {
+      "data": {
+        "id": "26",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-7bs",
+        "header": "Vraag 3 van 3",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-7as",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "27",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-2as",
+        "header": "Vraag 2 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-1as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-2bs"
+      }
+    },
+    {
+      "data": {
+        "id": "28",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-2bs",
+        "header": "Vraag 3 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-2as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-2cs"
+      }
+    },
+    {
+      "data": {
+        "id": "29",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-2cs",
+        "header": "Vraag 4 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-2bs",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-3as"
+      }
+    },
+    {
+      "data": {
+        "id": "30",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-3as",
+        "header": "Vraag 5 van 9",
+        "backbuttonid": "q3sA=nee",
+        "backbuttontext": "Nee",
+        "backbuttononclick": "click",
+        "backbuttonhref": "#tab-4bs",
+        "nextbuttonid": "q3sA=ja",
+        "nextbuttontext": "Ja",
+        "nextbuttononclick": "click",
+        "nextbuttonhref": "#tab-4as"
+      }
+    },
+    {
+      "data": {
+        "id": "31",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-4as",
+        "header": "Vraag 6 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-3as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-8as"
+      }
+    },
+    {
+      "data": {
+        "id": "32",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-4bs",
+        "header": "Vraag 6 van 8",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-3as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-5bs"
+      }
+    },
+    {
+      "data": {
+        "id": "33",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-5as",
+        "header": "Vraag 8 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-8as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-6as"
+      }
+    },
+    {
+      "data": {
+        "id": "34",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-5bs",
+        "header": "Vraag 7 van 8",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-4bs",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-6bs"
+      }
+    },
+    {
+      "data": {
+        "id": "35",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-6as",
+        "header": "Vraag 9 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-5as",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "36",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-6bs",
+        "header": "Vraag 8 van 8",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-5bs",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "37",
+        "module1": "E",
+        "classp": "tab",
+        "idp": "tab-8as",
+        "header": "Vraag 7 van 9",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "''",
+        "backbuttonhref": "#tab-4as",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-5as"
+      }
+    },
+    {
+      "data": {
+        "id": "38",
+        "module1": "F",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1ao",
+        "header": "Vraag 1 van 6",
+        "backbuttonid": "q1oA=nee",
+        "backbuttontext": "Nee",
+        "backbuttononclick": "click",
+        "backbuttonhref": "#tab-7ao",
+        "nextbuttonid": "q1oA=ja",
+        "nextbuttontext": "Ja",
+        "nextbuttononclick": "click",
+        "nextbuttonhref": "#tab-2ao"
+      }
+    },
+    {
+      "data": {
+        "id": "39",
+        "module1": "F",
+        "classp": "tab",
+        "idp": "tab-2ao",
+        "header": "Vraag 2 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-1ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-3ao"
+      }
+    },
+    {
+      "data": {
+        "id": "40",
+        "module1": "F",
+        "classp": "tab",
+        "idp": "tab-3ao",
+        "header": "Vraag 3 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-2ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-4ao"
+      }
+    },
+    {
+      "data": {
+        "id": "41",
+        "module1": "F",
+        "classp": "tab",
+        "idp": "tab-4ao",
+        "header": "Vraag 4 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-3ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-5ao"
+      }
+    },
+    {
+      "data": {
+        "id": "42",
+        "module1": "F",
+        "classp": "tab",
+        "idp": "tab-5ao",
+        "header": "Vraag 5 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-4ao",
+        "nextbuttonid": "Volgende",
+        "nextbuttontext": "Volgende",
+        "nextbuttononclick": "''",
+        "nextbuttonhref": "#tab-6ao"
+      }
+    },
+    {
+      "data": {
+        "id": "43",
+        "module1": "F",
+        "classp": "tab",
+        "idp": "tab-6ao",
+        "header": "Vraag 6 van 6",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-5ao",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "44",
+        "module1": "F",
+        "classp": "tab",
+        "idp": "tab-7ao",
+        "header": "Vraag 2 van 2",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "#tab-1ao",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    },
+    {
+      "data": {
+        "id": "45",
+        "module1": "G",
+        "classp": "'tab tab-active'",
+        "idp": "tab-1rm",
+        "header": "<b>Wilt u ons iets meegeven dat van belang is in het kader van ons onderzoek, dan kunt u dit hier kwijt.</b>",
+        "backbuttonid": "Terug",
+        "backbuttontext": "Terug",
+        "backbuttononclick": "\"",
+        "backbuttonhref": "/surveyadhoc/",
+        "nextbuttonid": "Opslaan",
+        "nextbuttontext": "Opslaan",
+        "nextbuttononclick": "upload",
+        "nextbuttonhref": "#"
+      }
+    }
+  ],
+  "data2": [
+    {
+      "data": {
+        "id": "1",
+        "module2": "A",
+        "tab": "tab-1as",
+        "idq": "q1s",
+        "type": "YN",
+        "question": "This is a yes no question with routing",
+        "categories": "",
+        "footer": "Footer text"
+      }
+    },
+    {
+      "data": {
+        "id": "2",
+        "module2": "A",
+        "tab": "tab-7as",
+        "idq": "q7sa",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "3",
+        "module2": "A",
+        "tab": "tab-7bs",
+        "idq": "q7sb",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "4",
+        "module2": "A",
+        "tab": "tab-2as",
+        "idq": "q2sa",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "5",
+        "module2": "A",
+        "tab": "tab-2bs",
+        "idq": "q2sb",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "6",
+        "module2": "A",
+        "tab": "tab-2cs",
+        "idq": "q2sc",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "7",
+        "module2": "A",
+        "tab": "tab-3as",
+        "idq": "q3s",
+        "type": "YN",
+        "question": "This is a yes no question with routing?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "8",
+        "module2": "A",
+        "tab": "tab-4as",
+        "idq": "q4sa",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": "Footer text"
+      }
+    },
+    {
+      "data": {
+        "id": "9",
+        "module2": "A",
+        "tab": "tab-4bs",
+        "idq": "q4sb",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "10",
+        "module2": "A",
+        "tab": "tab-5as",
+        "idq": "q5sa",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "11",
+        "module2": "A",
+        "tab": "tab-5as",
+        "idq": "q5sa2",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "12",
+        "module2": "A",
+        "tab": "tab-6as",
+        "idq": "q6sa",
+        "type": "MC",
+        "question": "Hoe waarschijnlijk acht u het dat het idee ooit wordt gerealiseerd?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "13",
+        "module2": "A",
+        "tab": "tab-6as",
+        "idq": "q6sa2",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "14",
+        "module2": "A",
+        "tab": "tab-8as",
+        "idq": "q8sa",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "15",
+        "module2": "A",
+        "tab": "tab-5bs",
+        "idq": "q5sb",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "16",
+        "module2": "A",
+        "tab": "tab-5bs",
+        "idq": "q5sb2",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "17",
+        "module2": "A",
+        "tab": "tab-6bs",
+        "idq": "q6sb",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "18",
+        "module2": "A",
+        "tab": "tab-6bs",
+        "idq": "q6sb2",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "19",
+        "module2": "B",
+        "tab": "tab-1ao",
+        "idq": "q1o",
+        "type": "YN",
+        "question": "his is a yes no question with routing",
+        "categories": "",
+        "footer": "Footer text"
+      }
+    },
+    {
+      "data": {
+        "id": "20",
+        "module2": "B",
+        "tab": "tab-2ao",
+        "idq": "q2o",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "21",
+        "module2": "B",
+        "tab": "tab-3ao",
+        "idq": "q3o",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "22",
+        "module2": "B",
+        "tab": "tab-4ao",
+        "idq": "q4o",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "23",
+        "module2": "B",
+        "tab": "tab-5ao",
+        "idq": "q5o",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "24",
+        "module2": "B",
+        "tab": "tab-5ao",
+        "idq": "q5o2",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "25",
+        "module2": "B",
+        "tab": "tab-6ao",
+        "idq": "q6o",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "26",
+        "module2": "B",
+        "tab": "tab-6ao",
+        "idq": "q6o2",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "27",
+        "module2": "B",
+        "tab": "tab-7ao",
+        "idq": "q7o",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "28",
+        "module2": "C",
+        "tab": "tab-1st",
+        "idq": "q1ast",
+        "type": "SL",
+        "question": "Sample slider question.",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "29",
+        "module2": "C",
+        "tab": "tab-1st",
+        "idq": "q1bst",
+        "type": "SL",
+        "question": "Sample slider question.",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "30",
+        "module2": "C",
+        "tab": "tab-1st",
+        "idq": "q1cst",
+        "type": "SL",
+        "question": "Sample slider question.",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "31",
+        "module2": "D",
+        "tab": "tab-1rm",
+        "idq": "q1aR",
+        "type": "OQ",
+        "question": "",
+        "categories": "",
+        "footer": "Footer text (the question here is the header (see pageStructure table)."
+      }
+    },
+    {
+      "data": {
+        "id": "32",
+        "module2": "E",
+        "tab": "tab-1as",
+        "idq": "q1sA",
+        "type": "YN",
+        "question": "This is a yes no question with routing",
+        "categories": "",
+        "footer": "Footer text"
+      }
+    },
+    {
+      "data": {
+        "id": "33",
+        "module2": "E",
+        "tab": "tab-7as",
+        "idq": "q7saA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "34",
+        "module2": "E",
+        "tab": "tab-7bs",
+        "idq": "q7sbA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "35",
+        "module2": "E",
+        "tab": "tab-2as",
+        "idq": "q2saA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "36",
+        "module2": "E",
+        "tab": "tab-2bs",
+        "idq": "q2sbA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "37",
+        "module2": "E",
+        "tab": "tab-2cs",
+        "idq": "q2scA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "38",
+        "module2": "E",
+        "tab": "tab-3as",
+        "idq": "q3sA",
+        "type": "YN",
+        "question": "This is a yes no question with routing?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "39",
+        "module2": "E",
+        "tab": "tab-4as",
+        "idq": "q4saA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": "Footer text"
+      }
+    },
+    {
+      "data": {
+        "id": "40",
+        "module2": "E",
+        "tab": "tab-4bs",
+        "idq": "q4sbA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "41",
+        "module2": "E",
+        "tab": "tab-5as",
+        "idq": "q5saA",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "42",
+        "module2": "E",
+        "tab": "tab-5as",
+        "idq": "q5sa2A",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "43",
+        "module2": "E",
+        "tab": "tab-6as",
+        "idq": "q6saA",
+        "type": "MC",
+        "question": "Hoe waarschijnlijk acht u het dat het idee ooit wordt gerealiseerd?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "44",
+        "module2": "E",
+        "tab": "tab-6as",
+        "idq": "q6sa2A",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "45",
+        "module2": "E",
+        "tab": "tab-8as",
+        "idq": "q8saA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "46",
+        "module2": "E",
+        "tab": "tab-5bs",
+        "idq": "q5sbA",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "47",
+        "module2": "E",
+        "tab": "tab-5bs",
+        "idq": "q5sb2A",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "48",
+        "module2": "E",
+        "tab": "tab-6bs",
+        "idq": "q6sbA",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "49",
+        "module2": "E",
+        "tab": "tab-6bs",
+        "idq": "q6sb2A",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "50",
+        "module2": "F",
+        "tab": "tab-1ao",
+        "idq": "q1oA",
+        "type": "YN",
+        "question": "his is a yes no question with routing",
+        "categories": "",
+        "footer": "Footer text"
+      }
+    },
+    {
+      "data": {
+        "id": "51",
+        "module2": "F",
+        "tab": "tab-2ao",
+        "idq": "q2oA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "52",
+        "module2": "F",
+        "tab": "tab-3ao",
+        "idq": "q3oA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "53",
+        "module2": "F",
+        "tab": "tab-4ao",
+        "idq": "q4oA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "54",
+        "module2": "F",
+        "tab": "tab-5ao",
+        "idq": "q5oA",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "55",
+        "module2": "F",
+        "tab": "tab-5ao",
+        "idq": "q5o2A",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "56",
+        "module2": "F",
+        "tab": "tab-6ao",
+        "idq": "q6oA",
+        "type": "MC",
+        "question": "This is a sample rating scale item (multipe choice item)?",
+        "categories": "{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "57",
+        "module2": "F",
+        "tab": "tab-6ao",
+        "idq": "q6o2A",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "58",
+        "module2": "F",
+        "tab": "tab-7ao",
+        "idq": "q7oA",
+        "type": "OQ",
+        "question": "Sample open question?",
+        "categories": "",
+        "footer": ""
+      }
+    },
+    {
+      "data": {
+        "id": "59",
+        "module2": "G",
+        "tab": "tab-1rm",
+        "idq": "q1aRA",
+        "type": "OQ",
+        "question": "",
+        "categories": "",
+        "footer": "Footer text (the question here is the header (see pageStructure table)."
+      }
+    }
+  ],
+  "data3": [
+    {
+      "data": {
+        "id": "1",
+        "module0": "A",
+        "name": "Eigen ideeën",
+        "page": "S",
+        "mandatory": "1",
+        "image": "icons8-innovation-64.png",
+        "imageleft": "25%",
+        "imagetop": "45%"
+      }
+    },
+    {
+      "data": {
+        "id": "2",
+        "module0": "B",
+        "name": "Ideeën van anderen",
+        "page": "S",
+        "mandatory": "1",
+        "image": "icons8-solve-64.png",
+        "imageleft": "75%",
+        "imagetop": "45%"
+      }
+    },
+    {
+      "data": {
+        "id": "3",
+        "module0": "C",
+        "name": "Stemming",
+        "page": "S",
+        "mandatory": "0",
+        "image": "icons8-survey-64.png",
+        "imageleft": "50%",
+        "imagetop": "30%"
+      }
+    },
+    {
+      "data": {
+        "id": "4",
+        "module0": "D",
+        "name": "Opmerkingen",
+        "page": "S",
+        "mandatory": "0",
+        "image": "icons8-branding-64.png",
+        "imageleft": "50%",
+        "imagetop": "80%"
+      }
+    },
+    {
+      "data": {
+        "id": "5",
+        "module0": "E",
+        "name": "Eigen ideeën",
+        "page": "A",
+        "mandatory": "0",
+        "image": "icons8-innovation-64.png",
+        "imageleft": "25%",
+        "imagetop": "30%"
+      }
+    },
+    {
+      "data": {
+        "id": "6",
+        "module0": "F",
+        "name": "Ideeën van anderen",
+        "page": "A",
+        "mandatory": "0",
+        "image": "icons8-solve-64.png",
+        "imageleft": "50%",
+        "imagetop": "30%"
+      }
+    },
+    {
+      "data": {
+        "id": "7",
+        "module0": "G",
+        "name": "Opmerkingen",
+        "page": "A",
+        "mandatory": "0",
+        "image": "icons8-branding-64.png",
+        "imageleft": "75%",
+        "imagetop": "30%"
+      }
+    }
+  ]
+}

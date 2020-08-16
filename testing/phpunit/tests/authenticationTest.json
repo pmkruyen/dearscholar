@@ -1,0 +1,12 @@
+[
+  {
+    "data": {
+      "project": "project",
+      "setup": "1",
+      "q0_startdate": "2020-03-01",
+      "q0_occasions": "4",
+      "q0_intervaltype": "w",
+      "q0_interval": "1"
+    }
+  }
+]
