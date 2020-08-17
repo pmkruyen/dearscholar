@@ -1,7 +1,7 @@
 <?php
 // Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
 
-// TO DO: SET REVOKE @RESPONDENT3
+// TO DO: RESET AUTHENTICATION @RESPONDENT3
 
 class ServerTest extends \PHPUnit\Framework\TestCase
 {

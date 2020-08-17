@@ -22,4 +22,3 @@ class Server {
     return $response->getBody();
   }
 }
-
