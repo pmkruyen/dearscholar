@@ -17,7 +17,7 @@ if [ ! -f "/var/www/html/dearscholar.php" ] ; then
   echo "Initializing DearScholar database, step 1 ..."
   mysql -uroot < /Installation/mysql-part1.sql
   echo "Creating sample study ..."
-  php /installation/samplestudy-part1.php
+  php /Installation/samplestudy-part1.php
   mysql -uroot -Dproject < /Installation/samplestudy-part2.sql
   echo "Finishing the database, step 2 ..."
   mysql -uroot -Dproject < /Installation/mysql-part2.sql
