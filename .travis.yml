@@ -1,6 +1,16 @@
 
 matrix:
   include:
+    # Step 1: test dearscholar.php 
+    language: php
+    php: 7.3.3
+
+    services:
+      - docker
+
+    before_install:
+      - docker build -t dearscholar:dev -f Dockerfile .
+      - docker run -ti --rm --name dearscholar -p "80:80" dearscholar:dev  
 
     # Step 3: test the compilation process
     language: objective-c
