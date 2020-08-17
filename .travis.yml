@@ -1,8 +1,10 @@
 
+
+
 jobs:
   include:
     # Step 1: test dearscholar.php 
-    language: php
+    - language: php
     php: 7.3.3
 
     services:
@@ -13,7 +15,7 @@ jobs:
       - docker run -ti --rm --name dearscholar -p "80:80" dearscholar:dev  
 
     # Step 3: test the compilation process
-    language: objective-c
+    - language: objective-c
     osx_image: xcode11.2
 
     before_install:
