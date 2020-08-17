@@ -5,13 +5,13 @@
     services:
       - docker
 
-    before_install:
+    install:
       - docker build -t dearscholar:dev -f Dockerfile .
       - docker run -ti --rm --name dearscholar -p "80:80" -p "3306":"3306" dearscholar:dev
       - cd phpunit
-
-    script:
       - php composer.phar update
+    
+    script:
       - ./vendor/bin/phpunit  
 
 
