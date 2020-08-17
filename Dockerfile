@@ -10,8 +10,8 @@ COPY installation/docker-entrypoint.sh /
 RUN chmod 755 /docker-entrypoint.sh
 
 # Copy installation files over to the container
-RUN mkdir /installation
-COPY installation/* /installation/
+RUN mkdir /Installation
+COPY Installation/* /Installation/
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/run.sh"]

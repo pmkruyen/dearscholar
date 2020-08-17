@@ -15,16 +15,16 @@ done
 if [ ! -f "/var/www/html/dearscholar.php" ] ; then
   echo "#############################################"
   echo "Initializing DearScholar database, step 1 ..."
-  mysql -uroot < /installation/mysql-part1.sql
+  mysql -uroot < /Installation/mysql-part1.sql
   echo "Creating sample study ..."
   php /installation/samplestudy-part1.php
-  mysql -uroot -Dproject < /installation/samplestudy-part2.sql
+  mysql -uroot -Dproject < /Installation/samplestudy-part2.sql
   echo "Finishing the database, step 2 ..."
-  mysql -uroot -Dproject < /installation/mysql-part2.sql
+  mysql -uroot -Dproject < /Installation/mysql-part2.sql
   echo "DearScholar database initialized!"
   echo "#############################################"
 
-  cp -T /installation/dearscholar.php /var/www/html/dearscholar.php
+  cp -T /Installation/dearscholar.php /var/www/html/dearscholar.php
 fi
 
 wait
