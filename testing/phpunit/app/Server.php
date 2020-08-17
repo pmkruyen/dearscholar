@@ -17,7 +17,7 @@ class Server {
     $this->options = $options;
   }
   public function post_server() {
-    $client = new \GuzzleHttp\Client(["base_uri" => "http://localhost:80"]);
+    $client = new \GuzzleHttp\Client(["base_uri" => "0.0.0.0:80"]);
     $response = $client->post("/dearscholar.php", $this->options);
     return $response->getBody();
   }
