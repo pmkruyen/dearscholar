@@ -27,4 +27,4 @@ if [ ! -f "/var/www/html/dearscholar.php" ] ; then
   cp -T /Installation/dearscholar.php /var/www/html/dearscholar.php
 fi
 
-#wait
+wait
