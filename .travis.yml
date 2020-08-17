@@ -1,11 +1,12 @@
 
     language: php
-    php: 7.3
+    
+    sudo: required
 
     services:
       - docker
 
-    install:
+    before_install:
       - docker build -t dearscholar:dev -f Dockerfile .
       - docker run -ti --rm --name dearscholar -p "80:80" -p "3306":"3306" dearscholar:dev
       - cd phpunit
