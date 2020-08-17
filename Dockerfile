@@ -6,7 +6,7 @@ FROM mattrayner/lamp:latest-1804
 # Install nc, to check for MySQL socket status in the docker-entrypoint.sh
 RUN apt-get install -y netcat
 
-COPY installation/docker-entrypoint.sh /
+COPY Installation/docker-entrypoint.sh /
 RUN chmod 755 /docker-entrypoint.sh
 
 # Copy installation files over to the container
