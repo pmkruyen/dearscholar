@@ -1,5 +1,5 @@
 
-    matrix:
+    jobs:
       include:
       # Step 1: test dearscholar.php 
 
