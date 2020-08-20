@@ -1,55 +1,53 @@
 
-    language: php
+    matrix:
+      include:
+      # Step 1: test dearscholar.php 
+
+      -  
+        language: php
     
-    php:
-      - '7.4'
+        php:
+          - '7.4'
     
-    services:
-      - docker
+        services:
+          - docker
 
-    before_install:
-      - docker build -t dearscholar:dev -f Dockerfile .
-      - docker run -d -ti --rm --name dearscholar -p "80:80" -p "3306:3306" dearscholar:dev
-      - sleep 15
-      - docker container ps -a
-      - cd testing/phpunit
-      - php composer.phar update
+        before_install:
+          - docker build -t dearscholar:dev -f Dockerfile .
+          - docker run -d -ti --rm --name dearscholar -p "80:80" -p "3306:3306" dearscholar:dev
+          - sleep 15
+          - docker container ps -a
+          - cd testing/phpunit
+          - php composer.phar update
     
-    script:
-      - ./vendor/bin/phpunit  
-
-
-#jobs:
-#  include:
-
-    # Step 1: test dearscholar.php 
- 
-   
+        script:
+          - ./vendor/bin/phpunit  
 
     # Step 3: test the compilation process
-    #language: objective-c
-    #osx_image: xcode11.2
+      -
+        language: objective-c
+        osx_image: xcode11.2
 
-    #before_install:
-    #  - nvm install v12.16.2 --reinstall-packages-from=node
-    #  - nvm use v12.16.2
-    #  - echo rvm_autoupdate_flag=2 >> ~/.rvmrc
-    #  - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
-    #  - unzip android-sdk_r24.4.1-macosx.zip
-    #  - export ANDROID_HOME=$PWD/android-sdk-macosx
-    #  - export ANDROID_SDK_ROOT=$PWD/android-sdk-macosx
-    #  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-    #  - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-    #  - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
-    #  - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
-    #  - cd app
+        before_install:
+          - nvm install v12.16.2 --reinstall-packages-from=node
+          - nvm use v12.16.2
+          - echo rvm_autoupdate_flag=2 >> ~/.rvmrc
+          - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
+          - unzip android-sdk_r24.4.1-macosx.zip
+          - export ANDROID_HOME=$PWD/android-sdk-macosx
+          - export ANDROID_SDK_ROOT=$PWD/android-sdk-macosx
+          - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+          - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+          - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
+          - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
+          - cd app
     
-    #install:
-    #- npm install -g cordova
+        install:
+          - npm install -g cordova
 
-    #script:
-    #- cordova platform add ios@5.1.1
-    #- cordova platform add android
+        script:
+          - cordova platform add ios@5.1.1
+          - cordova platform add android
 
 
 #addons:
