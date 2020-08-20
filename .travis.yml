@@ -23,6 +23,9 @@
         script:
           - ./vendor/bin/phpunit  
 
+    # Step 2: test javascript functions, to do.
+
+
     # Step 3: test the compilation process
       -
         language: objective-c
@@ -49,9 +52,4 @@
           - cordova platform add ios@5.1.1
           - cordova platform add android
 
-
-#addons:
-#  browserstack:
-#    username: "petertest7Ch2zR"
-#    access_key: 
-#      secure: "GLxxcC94qpNu3c6hUkRaKY+Mzl2XqNzT8R75xrqmjce1ooYLSWP9UufAZ47mSkxUf6cxgequW5uPxc5N5dYLYkmsrYLMIcS+J9aVrrKCLicz/dv3Zle4+wtS19MRMx/RrWiYGvXp7IZFMUaV4OJFIWDv/oljL+AaDoaiwagMOrFepgg0IKbYduQd5sQqsojHXeENNj8nHTUuT6LHZm4TPpI23TYZc7tNWzM5vUht5N2N0LPe2ji6SSp9IFiTETnT3/TEA9PMNUDs89N0WeTS94U2yt6q2yTv0Ebe9ARCVaDOMXeHuowEIV7lmj4qbcTDCT4MlbedhcJ0SbEWNmKuhitI0bf7HP+TFMMcrBJZ+ip+tb03OCAidHp+IkLVxaIRbzlNP5BfYebbmdLCBpKBINjcYdD0tNLlug+mMlns96UfYn8c3e+alnRKHrcfGEoDjJwPgQIBPZK2rJrED05+1gTK5p35mpHgGFgdqaqS0ujU8rNTeYpTILcfAx2iUcBZj5tnU/h3BpWuXPt4sMNkke32i9VZwEZlzaeKJ+WXA5j4JOJNHYidrYFTBnMHj3TTSLbKFTcGelUsZoI4Lha3fYAzNBiLbeorMyw/9vcNiA+bHsUFIVhs1nYi7joJTUx5wyKXtzc5IKnm7qclst4MH2cSIrw2Y9BhnkngcFCVbBI="
+    # Step 4: test on virtual devices, to do.
