@@ -9,7 +9,7 @@ DearScholar allows researchers to easily and orderly collect rich and diverse qu
 
 Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), DearScholar can be used to collect data on iOS devices (iPhones and iPads), Android devices, and--in the future--in web browsers too.
 
-This document provides general information about the app, including an overview of current features. The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, settings and options, and other details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar. Background information, an summary of the current features, and current research projects can be found on the [project page](https://peterkruyen.net/dearscholar.html).
+This document provides general information about the app, including an overview of current features. The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, settings and options,  (automatic) testing, and other details for academic researchers who consider using DearScholar to collect data *and* potential contributors who want to help to improve DearScholar. Background information, an summary of the current features, and current research projects can be found on the [project page](https://peterkruyen.net/dearscholar.html).
 
 ## Interested in using DearScholar in your academic research project? 
 * Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play; take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
@@ -25,7 +25,7 @@ DearScholar is used in the following projects:
 * Diary study on creativity in local-care teams (>150 respondents; September-December 2020) by Liesbeth Faas MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 
 ## Interested in contributing to DearScholar?
-Super cool. Head to the [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) for the installation instructions, settings and options, and other details.  Clone the project, post issues, and commit updates :icecream:.
+Super cool. Head to the [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) for the installation instructions, settings and options, (automatic) testing, and other details.  Clone the project, post issues, and commit updates :icecream:.
 
 ## Acknowledgement
 DearScholar is developed within the context of the research program "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The main author wants to express his gratitude to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
