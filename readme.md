@@ -11,7 +11,7 @@ Developed as hybrid app in Cordova/Phonegap (using html, javascript, and css), D
 
 This page provides general information about the app, including an overview of current features. Background information, a summary of the current features, and current research projects can be found on the [project page](https://peterkruyen.net/dearscholar.html). 
 
-The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, settings and options, (automatic) testing, and other details.
+The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, an overview of the settings and options, (automatic) testing options, and other details.
 
 ## Interested in using DearScholar in your academic research project? 
 * Contact the main author (p.m.kruyen@fm.ru.nl) for credentials (username and password); download the app on the App Store or Google Play; take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
