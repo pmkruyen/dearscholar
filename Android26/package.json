@@ -1,0 +1,33 @@
+{
+  "devDependencies": {
+    "cordova-plugin-dialogs": "^2.0.2",
+    "cordova-plugin-fingerprint-aio": "^3.0.1",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-sqlite-evcore-extbuild-free": "^0.11.0",
+    "phonegap-plugin-push": "^2.3.0"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-device": {},
+      "cordova-sqlite-evcore-extbuild-free": {},
+      "cordova-plugin-statusbar": {},
+      "phonegap-plugin-push": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-fingerprint-aio": {
+        "FACEID_USAGE_DESCRIPTION": " "
+      },
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "cordova-ios": "^5.1.1",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-splashscreen": "^6.0.0",
+    "glob": "^7.1.6"
+  }
+}

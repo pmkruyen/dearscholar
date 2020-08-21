@@ -181,8 +181,8 @@ routes: [
                     var pwd= window.localStorage.getItem('pwd');
                     var id = $$(this).attr("id");
                     
-                    var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesCheck=true";
-                    
+                    var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesSeen=true";
+                                        
                     $.ajax({
                         type:"POST",  
                         url: locationPhP, data: dataString,
@@ -261,8 +261,8 @@ var mainView = app.views.create('.view-main')
 
 ///////////////////////////////////////////////////////////////////////////////
 // General variables
-//var locationPhP = "http://localhost/dearscholar.php";
-var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
+var locationPhP = "http://localhost/dearscholar.php";
+//var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Style the login screen
@@ -679,7 +679,7 @@ $$('#acceptConsent').on('click', function (e) {
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyInformation (surveydate)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS moduleStructure (module0, name, page, mandatory, image, imageleft, imagetop)');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS pageStructure (module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick, backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS pageStructure (module1, classp, idp, header, backbuttonid, backbuttontext, backbuttononclick, backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, categories, footer)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS responseTable (id, surveydate, timestamp)');
                         
@@ -709,7 +709,7 @@ $$('#acceptConsent').on('click', function (e) {
                                                  pageStructure[i].data.classp,
                                                  pageStructure[i].data.idp,
                                                  pageStructure[i].data.header,
-                                                 pageStructure[i].data.backbuttontid,
+                                                 pageStructure[i].data.backbuttonid,
                                                  pageStructure[i].data.backbuttontext,
                                                  pageStructure[i].data.backbuttononclick,
                                                  pageStructure[i].data.backbuttonhref,
@@ -820,13 +820,13 @@ $$('#acceptConsent').on('click', function (e) {
     }
 
     // function to populate the pageStructure database
-    function addItemPageStructure(DiaryDatabase, module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref) {
+    function addItemPageStructure(DiaryDatabase, module1, classp, idp, header, backbuttonid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref) {
 
         DiaryDatabase.transaction(function (tx) {
 
-        var query = "INSERT INTO pageStructure (module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        var query = "INSERT INTO pageStructure (module1, classp, idp, header, backbuttonid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        tx.executeSql(query, [module1, classp, idp, header, backbuttontid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref], function(tx) {
+        tx.executeSql(query, [module1, classp, idp, header, backbuttonid, backbuttontext, backbuttononclick , backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref], function(tx) {
         });
     });
     }
@@ -1135,7 +1135,7 @@ function startModule(module, adhoc) {
                     id: resultSet.rows.item(x).idp,
                     classp: resultSet.rows.item(x).classp,
                     header: resultSet.rows.item(x).header,
-                    backbuttontid: resultSet.rows.item(x).backbuttontid,
+                    backbuttonid: resultSet.rows.item(x).backbuttonid,
                     backbuttontext: resultSet.rows.item(x).backbuttontext,
                     backbuttononclick: resultSet.rows.item(x).backbuttononclick,
                     backbuttonhref: resultSet.rows.item(x).backbuttonhref,
@@ -1170,7 +1170,7 @@ function startModule(module, adhoc) {
               <div class="block bottomButtons"; style="position: absolute; bottom: 5%; width: 100%">
                 <div class="row">
                     <div class="col-33" style="text-align: center">
-                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttontid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
+                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttonid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
                     </div>
                     <div class="col-33"></div>
                     <div class="col-33" style="text-align: center">
@@ -1186,7 +1186,7 @@ function startModule(module, adhoc) {
               <div class="block bottomButtons"; style="position: absolute; bottom: 10%; width: 100%">
                 <div class="row">
                     <div class="col-33" style="text-align: center">
-                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttontid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
+                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttonid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
                     </div>
                     <div class="col-33"></div>
                     <div class="col-33" style="text-align: center">
@@ -1601,27 +1601,6 @@ function populateMessageboxrun(){
                  }  
                 });    
 }
-
-// function to color message if user has seen the message.
-function seen(item) {
-    
-    var uname= window.localStorage.getItem('uname');
-    var pwd= window.localStorage.getItem('pwd');
-    var id = $(item).attr("id");
-    
-         var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesSeen=true";
-                 $.ajax({
-                 type:"POST",  
-                 url: locationPhP, data: dataString,
-                 crossDomain: true,
-                 cache: false, 
-                 success:function(data)  
-                 {  
-                   
-                 }
-            })
-}
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Miscellaneous functions
