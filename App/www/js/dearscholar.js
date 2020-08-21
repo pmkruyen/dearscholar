@@ -181,8 +181,8 @@ routes: [
                     var pwd= window.localStorage.getItem('pwd');
                     var id = $$(this).attr("id");
                     
-                    var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesCheck=true";
-                    
+                    var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesSeen=true";
+                                        
                     $.ajax({
                         type:"POST",  
                         url: locationPhP, data: dataString,
@@ -1601,27 +1601,6 @@ function populateMessageboxrun(){
                  }  
                 });    
 }
-
-// function to color message if user has seen the message.
-function seen(item) {
-    
-    var uname= window.localStorage.getItem('uname');
-    var pwd= window.localStorage.getItem('pwd');
-    var id = $(item).attr("id");
-    
-         var dataString="uname="+uname+"&pwd="+pwd+"&id="+id+"&messagesSeen=true";
-                 $.ajax({
-                 type:"POST",  
-                 url: locationPhP, data: dataString,
-                 crossDomain: true,
-                 cache: false, 
-                 success:function(data)  
-                 {  
-                   
-                 }
-            })
-}
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Miscellaneous functions
