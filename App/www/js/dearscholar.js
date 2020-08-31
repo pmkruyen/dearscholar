@@ -15,6 +15,9 @@ id: 'net.peterkruyen.diary',
 dialog: {
     title: 'DearScholar',
   },
+    statusbar: {
+        //androidBackgroundColor: '#f8f7f8'
+  },
 navbar: {
     mdCenterTitle: true
   },
@@ -261,8 +264,8 @@ var mainView = app.views.create('.view-main')
 
 ///////////////////////////////////////////////////////////////////////////////
 // General variables
-var locationPhP = "http://localhost/dearscholar.php";
-//var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
+//var locationPhP = "http://localhost/dearscholar.php";
+var locationPhP = "https://peterkruyen.net/diary/dearscholar.php";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Style the login screen
@@ -381,10 +384,10 @@ var timeoutID;
 
 function goInactive() {
      if(device.platform == "iOS"|| device.platform == "browser"){
-        app.views.main.router.back('/',{force: true, ignoreCache: true, reload: true});
+       app.views.main.router.navigate('/');
      };
      if(device.platform == "Android"|| device.platform == "android"){
-       app.views.main.router.back('/',{ignoreCache: true, reload: true});
+       app.views.main.router.navigate('/');
      };
      
      app.panel.close("left")
@@ -1183,7 +1186,7 @@ function startModule(module, adhoc) {
     return `
         <div id="${data.id}" class=${data.classp}>
             <div class="block-header">${data.header}</div>
-              <div class="block bottomButtons"; style="position: absolute; bottom: 10%; width: 100%">
+              <div class="block bottomButtons"; style="position: absolute; bottom: 5%; width: 100%">
                 <div class="row">
                     <div class="col-33" style="text-align: center">
                         <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttonid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
@@ -1624,7 +1627,7 @@ function populateMessageboxrun(){
          document.getElementById("emptyconsentform").innerHTML += consentText;
           
          //restyle the Android toolbar 
-         if(device.platform == "Android"|| device.platform == "android"){
+         if(device.platform == "AndroidZ"|| device.platform == "androidZ"){
             $(".toolbar-bottom").css("height", "120px");
             $(".toolbar-inner").css("height", "40px");
          }  
@@ -1650,7 +1653,7 @@ function populateMessageboxrun(){
          document.getElementById("emptyconsentformAbout").innerHTML += consentText;
           
          //restyle the Android toolbar 
-         if(device.platform == "Android"|| device.platform == "android"){
+         if(device.platform == "AndroidZ"|| device.platform == "androidZ"){
             $(".toolbar-bottom").css("height", "120px");
             $(".toolbar-inner").css("height", "40px");
          }
