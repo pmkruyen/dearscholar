@@ -31,6 +31,13 @@
         language: objective-c
         osx_image: xcode11.2
 
+        addons:
+  browserstack:
+    username: "peterkruyen1"
+    access_key: 
+      secure: "OeU25SFSnEUnCbb7s5375KiUPe9zNFyr/YimXi1G4gzyYBjD9vyLRqYQhNqcMY7RuyUZVji3CLW2cVTSS1TyIti9OABk2u0yyGu3Hu6xit2WHBrj18jvMwMBv9GR4gCGXzqfqRnA4nFAX/UrPHG1FnYCZi0qT1xZBnZx2eyTkHf+ENwwndXrCc5RFmDkwSXsDPSgowXAe1RY9P+rOhtF4n+2N79NkeaEivI1gP3VLG9Z+BGYse0IyKXpIk0Aw7hXJyHYQbnjmtbOLc01Wk4MnPLfWOamph2iXf0AonE4xhAz+nL2mS3W5fwDiw6cX8cPmQbyH9HJcE97WEDCs7WGSiiRSW+4yVO0o3FrYpfPVv0w40yl2KtbuOH0p1qF9p6HdATx9UpvJlHVy6aPdtuEGCJaRuJLLKM3LdwP/fxpUm+WMPsKYZJtXHD9VFg/528bWoyW8B60WajGr+L/fvP/i+7c24eitrn73jcWyvuLx/DFgUCPxGCalxhgpcBhZmkE8mPeO6ewUdfVYcVq2KgtYnxw6cyIpNYT6NwFuUc/Cv2bjbEeJj6sR/6tQOyWIgGoL2Zz0jtIFwyHEIuO9DP/T6bzJtG/fDl7SsPcuqMURXHHEtk0Z/n8pX6JjTTM9KT3Hjr0TWcc4EOviHhUrWHPSYl8V6ipTCRaAnsZDiCikK8="
+
+
         before_install:
           - nvm install v12.16.2 --reinstall-packages-from=node
           - nvm use v12.16.2
@@ -53,11 +60,6 @@
           - cordova platform add android
 
     # Step 4: test on virtual devices, to do.
-addons:
-  browserstack:
-    username: "peterkruyen1"
-    access_key: 
-      secure: "OeU25SFSnEUnCbb7s5375KiUPe9zNFyr/YimXi1G4gzyYBjD9vyLRqYQhNqcMY7RuyUZVji3CLW2cVTSS1TyIti9OABk2u0yyGu3Hu6xit2WHBrj18jvMwMBv9GR4gCGXzqfqRnA4nFAX/UrPHG1FnYCZi0qT1xZBnZx2eyTkHf+ENwwndXrCc5RFmDkwSXsDPSgowXAe1RY9P+rOhtF4n+2N79NkeaEivI1gP3VLG9Z+BGYse0IyKXpIk0Aw7hXJyHYQbnjmtbOLc01Wk4MnPLfWOamph2iXf0AonE4xhAz+nL2mS3W5fwDiw6cX8cPmQbyH9HJcE97WEDCs7WGSiiRSW+4yVO0o3FrYpfPVv0w40yl2KtbuOH0p1qF9p6HdATx9UpvJlHVy6aPdtuEGCJaRuJLLKM3LdwP/fxpUm+WMPsKYZJtXHD9VFg/528bWoyW8B60WajGr+L/fvP/i+7c24eitrn73jcWyvuLx/DFgUCPxGCalxhgpcBhZmkE8mPeO6ewUdfVYcVq2KgtYnxw6cyIpNYT6NwFuUc/Cv2bjbEeJj6sR/6tQOyWIgGoL2Zz0jtIFwyHEIuO9DP/T6bzJtG/fDl7SsPcuqMURXHHEtk0Z/n8pX6JjTTM9KT3Hjr0TWcc4EOviHhUrWHPSYl8V6ipTCRaAnsZDiCikK8="
 
 
 
