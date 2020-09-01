@@ -29,7 +29,7 @@
         script:
           - ./vendor/bin/phpunit  
 
-    # Step 2: test javascript functions, to do.
+    # Step 2a: test javascript functions, to do.
 
 
     # Step 3: test the compilation process
