@@ -39,6 +39,6 @@ Visit the project page on [Github](https://github.com/pmkruyen/dearscholar) for 
 
 # Footnotes
 <sup>1</sup>: [Link to App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
-<sup>2</sup>: [Link to Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.diary&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
+<sup>2</sup>: [Link to Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar)
 
 # References
