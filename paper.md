@@ -37,8 +37,7 @@ DearScholar is developed within the context of the research programme "The creat
 # Resources
 Visit the project page on [Github](https://github.com/pmkruyen/dearscholar) for all resources (e.g., the manual, the source code and guides).
 
-# Footnotes
-[^1]: [Link to App Store](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
-[^2]: [Link to Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar)
+[^1]: [Link to App Store.](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
+[^2]: [Link to Google Play.](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar)
 
 # References
