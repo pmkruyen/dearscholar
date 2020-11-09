@@ -34,9 +34,10 @@ Currently, DearScholar is applied in a study by Glenn Houtgraaf MSc, dr. Peter M
 DearScholar is developed within the context of the research program "The creative public servant: Observations, explanations and consequences" with project number 406.18.R8.028, financed by the Dutch Research Council (NWO). The author wants to express his gratitude to Glenn Houtgraaf MSc, Liesbeth Faas MSc, and the ICT Services (Radboud University, Nijmegen, the Netherlands) for their advice, testing, and feedback; prof. dr. Sandra van Thiel for her encouragements; and last, but not least, all (pilot) respondents for their effort and feedback during the developmental process.
 
 # Resources
-Visit the project page on [Github](https://github.com/pmkruyen/dearscholar) for all resources (e.g., the manual, source code, and guides).
+Visit the project page on GitHub[^3] for all resources (e.g., the manual, source code, and guides).
 
 [^1]: [Link to App Store.](https://apps.apple.com/us/app/dearscholar/id1483121589?ls=1)
 [^2]: [Link to Google Play.](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar)
+[^3]: [Link to GitHub.](https://github.com/pmkruyen/dearscholar)
 
 # References
