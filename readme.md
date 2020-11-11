@@ -1,5 +1,7 @@
 [![status](https://joss.theoj.org/papers/1896b88f26b987b9c7a07035751afd7b/status.svg)](https://joss.theoj.org/papers/1896b88f26b987b9c7a07035751afd7b)
 
+[![DOI](https://zenodo.org/badge/263641327.svg)](https://zenodo.org/badge/latestdoi/263641327)
+
 [![Build Status](https://travis-ci.com/pmkruyen/dearscholar.svg?branch=master)](https://travis-ci.com/pmkruyen/dearscholar)
 
 # Overview
