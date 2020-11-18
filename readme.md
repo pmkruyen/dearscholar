@@ -38,6 +38,9 @@ DearScholar is developed within the context of the research program "The creativ
 Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License (GPL3) as published by the Free Software Foundation. Radboud University, hereby disclaims all copyright interest in the program “DearScholar” (which offers an app to conduct longitudinal qualitative and quantitative diary, log 
 and survey research) written by P.M. Kruyen. Commercial license available, please contact Radboud Innovation, Radboud University, the Netherlands. Radboud Innovation – Technology Transfer Office.
 
+## Citation
+Kruyen, P. M., (2020). DearScholar: A mobile application to conduct qualitative and quantitative diary research. Journal of Open Source Software, 5(55), 2506, https://doi.org/10.21105/joss.02506
+
 # Current features
 ## Let respondents install DearScholar on their mobile device
 1) A respondent has to download DearScholar from the App Store (iPhones and iPads) or Google Play (Android devices);
