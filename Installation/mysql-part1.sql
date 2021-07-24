@@ -53,9 +53,9 @@ CREATE TABLE `pintable` (
 
 CREATE TABLE `surveyStructure` (  
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `consent` text COLLATE utf8mb4_unicode_ci,  
-  `manual` text COLLATE utf8mb4_unicode_ci,  
-  `contactname` text COLLATE utf8mb4_unicode_ci,  
+  `consent` text COLLATE utf8mb4_unicode_ci,
+  `manual` text COLLATE utf8mb4_unicode_ci,
+  `contactname` text COLLATE utf8mb4_unicode_ci,
   `contactemail` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -86,15 +86,16 @@ CREATE TABLE `pageStructure` (
   `nextbuttonhref` varchar(100) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `questionTable` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE `questionTable` ( 
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,  
   `module2` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tab` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `idq` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `idq` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL, 
   `type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `question` text COLLATE utf8mb4_unicode_ci,
   `categories` text COLLATE utf8mb4_unicode_ci,
-  `footer` text COLLATE utf8mb4_unicode_ci
+  `footer` text COLLATE utf8mb4_unicode_ci,
+  `mandatory` varchar(3) COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 # MYSQL table setup (in app messages)
