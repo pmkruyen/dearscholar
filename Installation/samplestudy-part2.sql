@@ -74,7 +74,7 @@ INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttonid
 
 # Populate the questionTable table
 INSERT INTO `questionTable` (`module2`, `tab`, `idq`, `type`, `question`, `categories`, `footer`, `mandatory`) VALUES
-('A', 'tab-1as', 'q1s', 'YN', 'This is a yes no question with routing', '', 'Footer text'),
+('A', 'tab-1as', 'q1s', 'YN', 'This is a yes no question with routing', '', 'Footer text', ''),
 ('A', 'tab-7as', 'q7sa', 'OQ', 'Sample mandatory open question?', '', '','MAN'),
 ('A', 'tab-7bs', 'q7sb', 'OQ', 'Sample open question?', '', '', ''),
 ('A', 'tab-2as', 'q2sa', 'OQ', 'Sample open question?', '', '', ''),
