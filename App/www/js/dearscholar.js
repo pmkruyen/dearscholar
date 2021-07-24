@@ -1,4 +1,4 @@
-// Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
+// Copyright (c) 2021 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
 
 var app = new Framework7({
 // App root element
@@ -134,11 +134,11 @@ routes: [
         },
         pageAfterIn: function (e, page) {
             //Add event handler to survey buttons.
-                $$('.saveAnswers').on('click', function (e) {
-                    saveAnswers();
+                $$('.PreviousPage').on('click', function (e) {
+                    navigateBack();
                 });
-                $$('.upload').on('click', function (e) {
-                    uploadToServer(module)
+                $$('.Nextpage').on('click', function (e) {
+                    validateQuestions();
                 });
                 $$('.click').on('click', function (e) {
                     yesNoIDValue = $(this).attr('id').split('=');
@@ -213,6 +213,9 @@ routes: [
         path: '/settings/',
         url: './settings.html',
         on: {
+        pageBeforeIn: function (e, page) {
+            startSettings()
+            },
         pageAfterIn: function (e, page) {
         },
         pageInit: function (e, page) {
@@ -230,7 +233,7 @@ routes: [
             
            // This function is for future use.
            $$('.confirm-ok').on('click', function () {
-            app.dialog.confirm("Als u op 'OK' klikt, reset u DearScholar. Doe dit alleen in overleg met de projectleider.", "DearScholar", 
+            app.dialog.confirm("Als u op 'OK' klikt, reset u DearScholar. Doe dit alleen in overleg met de onderzoekers.", "DearScholar", 
                 function () { 
                     setupDiary(DiaryDatabase);            
                 },
@@ -419,7 +422,7 @@ function loginTOUCH(){
                 authentication()
     }
     function errorCallback(error){
-        app.dialog.alert("U heeft TouchID geannuleerd. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar");
+        DearScholarErrorTouchID();
     }
 }
 
@@ -508,7 +511,7 @@ function storePIN(PIN){
                  }
                  
                  if(data!="success") {
-                     app.dialog.alert("Er is iets mis gegaan met het opslaan van uw PIN code. Controleer uw gebruikersnaam en wachtwoord en probeer vervolgens opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+                     DearScholarErrorSavePIN()
                      app.popup.close(".choosepin")
                  }
 
@@ -542,7 +545,7 @@ function checkPIN(PIN){
                  }
                  
                  if(data=="error") {
-                     app.dialog.alert("Uw PIN code is onjuist. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+                     DearScholarErrorPIN()
                  }
 
             }  
@@ -598,12 +601,14 @@ function authentication(){
                      
                          if(settings[0].data.setup==1){
                             app.views.main.router.navigate('/schedule/');
+                            showMenu()
                          }
                      
                  }
                  
-                 if(data=="error") {app.dialog.alert("Uw inloggegevens zijn onjuist. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")}
-
+                 if(data=="error") {
+                    DearScholarErrorLogin();
+                    }
             }  
             });     
    
@@ -639,12 +644,12 @@ $$('#acceptConsent').on('click', function (e) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Database functions needed to setup the diary database and all tables
-    // Wait for Phonegap to load
+    // Wait for Cordova to load
     var DiaryDatabase = null;
 
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Phonegap is ready
+    // Cordova is ready
     function onDeviceReady() {
         if (window.cordova.platformId === 'browser') DiaryDatabase=openDatabase('DiaryTables','1.0','Database containing all diary data', 2 * 1024 * 1024);
         else DiaryDatabase = window.sqlitePlugin.openDatabase({name: 'DiaryDatabase.db', location: 'default',
@@ -672,7 +677,10 @@ $$('#acceptConsent').on('click', function (e) {
                     pageStructure = JSON.parse(data).data1;
                     questionTable = JSON.parse(data).data2;
                     moduleStructure = JSON.parse(data).data3;
-                                          
+
+                    // Store contactname in local storage, to be used in messages and warnings
+                    window.localStorage.setItem('contactname', surveyStructure[0].data.contactname);
+
                     DiaryDatabase.transaction(function (tx){
                         tx.executeSql('DROP TABLE IF EXISTS surveyStructure');
                         tx.executeSql('DROP TABLE IF EXISTS pageStructure');
@@ -680,18 +688,22 @@ $$('#acceptConsent').on('click', function (e) {
                         tx.executeSql('DROP TABLE IF EXISTS moduleStructure');
                         
                         tx.executeSql('CREATE TABLE IF NOT EXISTS surveyInformation (surveydate)');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS surveyStructure (consent, manual, contactname, contactemail)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS moduleStructure (module0, name, page, mandatory, image, imageleft, imagetop)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS pageStructure (module1, classp, idp, header, backbuttonid, backbuttontext, backbuttononclick, backbuttonhref, nextbuttonid, nextbuttontext, nextbuttononclick,nextbuttonhref)');
-                        tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, categories, footer)');
+                        tx.executeSql('CREATE TABLE IF NOT EXISTS questiontable (module2, tab, idq, type, question, categories, footer, mandatory)');
                         tx.executeSql('CREATE TABLE IF NOT EXISTS responseTable (id, surveydate, timestamp)');
                         
                         DiaryDatabase.transaction(function(tx) {
-                            var query = "INSERT INTO surveyStructure (consent, manual) VALUES (?, ?)";
-                            tx.executeSql(query,[surveyStructure[0].data.consent,surveyStructure[0].data.manual])
+                            var query = "INSERT INTO surveyStructure (consent, manual, contactname, contactemail) VALUES (?, ?, ?, ?)";
+                            tx.executeSql(query,[surveyStructure[0].data.consent,
+                                                 surveyStructure[0].data.manual,
+                                                 surveyStructure[0].data.contactname,
+                                                 surveyStructure[0].data.contactemail]);
                         }) 
 
                         listModuleIds =[]
+                        listModulePage =[]
                         for (var i = 0, len = moduleStructure.length; i < len; i++) {
                             addItemmoduleStructure(DiaryDatabase, 
                                                  moduleStructure[i].data.module0,
@@ -699,12 +711,16 @@ $$('#acceptConsent').on('click', function (e) {
                                                  moduleStructure[i].data.page,
                                                  moduleStructure[i].data.mandatory,
                                                  
-                                                moduleStructure[i].data.image,
-                                                moduleStructure[i].data.imageleft,
+                                                 moduleStructure[i].data.image,
+                                                 moduleStructure[i].data.imageleft,
                                                  moduleStructure[i].data.imagetop);
                             
-                        listModuleIds.push(moduleStructure[i].data.module0);    
-                        }  
+                        listModuleIds.push(moduleStructure[i].data.module0);
+                        listModulePage.push(moduleStructure[i].data.page);        
+                        }
+                        
+                        // Store array of Page in local storage, to be used to show the 'Additional survey' link
+                        window.localStorage.setItem('listModulePage',listModulePage);
                         
                         for (var i = 0, len = pageStructure.length; i < len; i++) {
                             addItemPageStructure(DiaryDatabase, 
@@ -731,7 +747,8 @@ $$('#acceptConsent').on('click', function (e) {
                                                  questionTable[i].data.type, 
                                                  questionTable[i].data.question,
                                                  questionTable[i].data.categories,
-                                                 questionTable[i].data.footer
+                                                 questionTable[i].data.footer,
+                                                 questionTable[i].data.mandatory
                                                  );
                             listQuestionIds.push(questionTable[i].data.idq);
                         }
@@ -802,7 +819,8 @@ $$('#acceptConsent').on('click', function (e) {
                                 }
                         })   
                             app.preloader.hide();  
-                            startConsent()    
+                            startConsent()
+                            showMenu()    
                         })
                     }
                     ); 
@@ -835,13 +853,13 @@ $$('#acceptConsent').on('click', function (e) {
     }
 
     // function to populate the questiontable database
-    function addItemQuestiontable(DiaryDatabase, module2, tab, idq, type, question, categories, footer) {
+    function addItemQuestiontable(DiaryDatabase, module2, tab, idq, type, question, categories, footer, mandatory) {
 
         DiaryDatabase.transaction(function (tx) {
 
-        var query = "INSERT INTO questiontable (module2, tab, idq, type, question, categories, footer) VALUES (?,?,?,?,?,?,?)";
+        var query = "INSERT INTO questiontable (module2, tab, idq, type, question, categories, footer, mandatory) VALUES (?,?,?,?,?,?,?,?)";
 
-        tx.executeSql(query, [module2, tab, idq, type, question, categories, footer], function(tx) {
+        tx.executeSql(query, [module2, tab, idq, type, question, categories, footer, mandatory], function(tx) {
         });
     });
     }
@@ -1084,7 +1102,7 @@ function renderSurveypage2(page,moduleNames,moduleCompleted) {
                emptypage.innerHTML += renderModulePictograms(data);}}
             )},              
             function (error) {
-                app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+                DearScholarErrorDatabase();
             },
             function () {
             })
@@ -1111,7 +1129,7 @@ function routerModule(module, adhoc){
                 })
             },   
             function (error) {
-                app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
+                DearScholarErrorDatabase();        
             },
             function () {
                 app.views.main.router.navigate('/module/', {});
@@ -1173,11 +1191,11 @@ function startModule(module, adhoc) {
               <div class="block bottomButtons"; style="position: absolute; bottom: 5%; width: 100%">
                 <div class="row">
                     <div class="col-33" style="text-align: center">
-                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttonid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
+                        <button class="col button button-outline button-round button-large PreviousPage ${data.backbuttononclick}"  id=${data.backbuttonid}><a id=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
                     </div>
                     <div class="col-33"></div>
                     <div class="col-33" style="text-align: center">
-                        <button class="col button button-outline button-round button-large saveAnswers ${data.nextbuttononclick}" id=${data.nextbuttonid}><a href=${data.nextbuttonhref} class="tab-link">${data.nextbuttontext}</a></button>
+                        <button class="col button button-outline button-round button-large Nextpage ${data.nextbuttononclick}" id=${data.nextbuttonid}><a id=${data.nextbuttonhref} class="tab-link">${data.nextbuttontext}</a></button>
                     </div>
                 </div>
             </div>`
@@ -1189,11 +1207,11 @@ function startModule(module, adhoc) {
               <div class="block bottomButtons"; style="position: absolute; bottom: 5%; width: 100%">
                 <div class="row">
                     <div class="col-33" style="text-align: center">
-                        <button class="col button button-outline button-round button-large saveAnswers ${data.backbuttononclick}"  id=${data.backbuttonid}><a href=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
+                        <button class="col button button-outline button-round button-large PreviousPage ${data.backbuttononclick}"  id=${data.backbuttonid}><a id=${data.backbuttonhref} class="tab-link">${data.backbuttontext}</a></button>
                     </div>
                     <div class="col-33"></div>
                     <div class="col-33" style="text-align: center">
-                        <button class="col button button-outline button-round button-large saveAnswers ${data.nextbuttononclick}" id=${data.nextbuttonid}><a href=${data.nextbuttonhref} class="tab-link">${data.nextbuttontext}</a></button>
+                        <button class="col button button-outline button-round button-large Nextpage ${data.nextbuttononclick}" id=${data.nextbuttonid}><a id=${data.nextbuttonhref} class="tab-link">${data.nextbuttontext}</a></button>
                     </div>
                 </div>
             </div>`
@@ -1217,7 +1235,8 @@ function startModule(module, adhoc) {
                             idq: resultSet.rows.item(x).idq,
                             question: resultSet.rows.item(x).question,
                             categories: resultSet.rows.item(x).categories,
-                            footer: resultSet.rows.item(x).footer
+                            footer: resultSet.rows.item(x).footer,
+                            mandatory: resultSet.rows.item(x).mandatory
                         }
                         
                         var emptytab = document.getElementById(resultSet.rows.item(x).tab)
@@ -1265,7 +1284,7 @@ function startModule(module, adhoc) {
             <form class="form-store-data" id=${data.tab}>
             <div class="block block-strong no-hairlines">
             <p><b>${data.question}</b></p>
-            <input type="hidden" id=${data.idq} name=${data.idq} value="">
+            <input type="hidden" class= ${data.mandatory} id=${data.idq} name=${data.idq} value="">
             <div class="block-footer">${data.footer}
             </div>      
             </div>
@@ -1282,7 +1301,7 @@ function startModule(module, adhoc) {
             <div class="item-inner">
             <div class="item-title item-label"></div>
             <div class="item-input-wrap">
-            <textarea class="resizable textareas question" style="max-height: 150px; width:100%" name=${data.idq} id=${data.idq}
+            <textarea class="resizable textareas question ${data.mandatory}" style="max-height: 150px; width:100%" name=${data.idq} id=${data.idq}
             placeholder=""></textarea>
             </div>
             </div>  
@@ -1301,7 +1320,7 @@ function startModule(module, adhoc) {
             <div class="item-inner">
             <div class="item-title item-label"></div>
             <div class="item-input-wrap input-dropdown-wrap">
-            <select class="question" style="width:100%" name=${data.idq} id=${data.idq} placeholder="">
+            <select class= "question ${data.mandatory}" style="width:100%" name=${data.idq} id=${data.idq} placeholder="">
                 <option disabled selected value> -- Kies een antwoord -- </option>
             </select>
             </div>
@@ -1339,7 +1358,7 @@ function startModule(module, adhoc) {
             </div>
             <div class="item-cell flex-shrink-3">
             <div class="range-slider range-slider-init">
-            <input class="question" name=${data.idq} id=${data.idq} type="range" min="0" max="100" step="1" value="50">
+            <input class="question ${data.mandatory}" name=${data.idq} id=${data.idq} type="range" min="0" max="100" step="1" value="50">
             </div>
             </div>
             <div class="item-cell width-auto flex-shrink-0 align-self-stretch">
@@ -1415,7 +1434,45 @@ function startAnswers(){
         );
 }
 
-// function to save answers in the database    
+// function to validate mandatory questions on a survey page and navigate to the next survey page.
+function validateQuestions(){
+    mandatory = document.querySelector('.tab-active .MAN');
+    if (mandatory !== null){
+        let x = document.getElementById(mandatory.name).value; 
+        if (x == "") {    
+            DearScholarValidationError();   
+        } else {
+            saveAnswers()
+            nextTab = $(".tab-active .tab-link")[1].id
+            if (nextTab == "#"){
+                uploadToServer(module)
+            } else {
+            app.tab.show(nextTab)
+            }
+        }
+    } else {
+        saveAnswers()
+        nextTab = $(".tab-active .tab-link")[1].id
+        if (nextTab == "#"){
+            uploadToServer(module)
+        } else {
+        app.tab.show(nextTab)
+        }
+    }
+}
+
+// function to navigate to the previous survey page
+function navigateBack(){
+    saveAnswers()
+    previousTab = $(".tab-active .tab-link")[0].id
+    if (previousTab == "/survey/"){
+        app.views.main.router.navigate('/survey/');
+    } else {
+        app.tab.show(previousTab)
+    }
+}
+
+// function to save answers in the database  
 function saveAnswers(){
     var data = $("form").serializeArray();
         DiaryDatabase.transaction(function (tx) {
@@ -1620,8 +1677,8 @@ function populateMessageboxrun(){
                 })
       },
       function (tx, error) {
-        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-      },
+        DearScholarErrorDatabase();
+    },
       function (tx, succes) {
          app.popup.open(".consent");
          document.getElementById("emptyconsentform").innerHTML += consentText;
@@ -1646,8 +1703,8 @@ function populateMessageboxrun(){
                 })
       },
       function (tx, error) {
-        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-      },
+        DearScholarErrorDatabase();
+    },
       function (tx, succes) {
          app.popup.open(".consentAbout");
          document.getElementById("emptyconsentformAbout").innerHTML += consentText;
@@ -1666,6 +1723,21 @@ $$('#closeConsent').on('click', function (e) {
     app.views.main.router.navigate('/schedule/');
 })
 
+// function to show the "/surveyadhoc/" link in the menu, if either module E, F, or G is being used.
+function showMenu(){
+    if (window.localStorage.getItem("listModulePage")===null){
+        document.getElementById("surveyadhoclink").style.display="none";
+    } 
+    else {
+        if(window.localStorage.getItem('listModulePage').includes("A")){
+            document.getElementById("surveyadhoclink").style.display="block";
+        }
+        else {
+            document.getElementById("surveyadhoclink").style.display="none";  
+        }
+    }
+}
+
 // function to populate the manual
   function startManual(){
       var emptypage = document.getElementById("emptypage")
@@ -1678,6 +1750,98 @@ $$('#closeConsent').on('click', function (e) {
                 })
       }),
       function (tx, error) {
-        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met Peter Kruyen.","DearScholar")
-     }
+        DearScholarErrorDatabase();
+    }
   }
+
+  // function to populate the settings
+  function startSettings(){
+    document.getElementById("contactemail").innerHTML = " ";
+
+    var emptypage = document.getElementById("contactemail")
+
+    DiaryDatabase.transaction(function (tx) {
+          
+              var query = "SELECT contactemail FROM surveyStructure WHERE rowid = ?"
+              tx.executeSql(query,[1],function (tx, resultSet) {
+                  document.getElementById("contactemail").innerHTML = " ";
+                  emptypage.innerHTML += resultSet.rows.item(0).contactemail
+                  href = 
+                  emptypage.setAttribute('href','mailto:' + resultSet.rows.item(0).contactemail + '?subject=Dearscholar');
+              })
+    }),
+    function (tx, error) {
+        DearScholarErrorDatabase();
+    }
+    if (contactemail.innerHTML==" ") {
+        contactemail.innerHTML += "de ontwikkelaar van DearScholar"
+        contactemail.setAttribute('href','mailto:peter.kruyen@ru.nl?subject=Dearscholar');
+    }  
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Warning and Error functions
+
+function DearScholarErrorTouchID(){
+    if (window.localStorage.getItem("contactname")=="") {
+        app.dialog.alert("U heeft TouchID geannuleerd. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    if (window.localStorage.getItem("contactname")===null) {
+        app.dialog.alert("U heeft TouchID geannuleerd. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    else {
+        app.dialog.alert("U heeft TouchID geannuleerd. Probeer opnieuw of neem contact op met " + window.localStorage.getItem("contactname") + ".","DearScholar")
+    }
+}
+
+function DearScholarErrorLogin(){
+    if (window.localStorage.getItem("contactname")=="") {
+        app.dialog.alert("Uw inloggegevens zijn onjuist. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    if (window.localStorage.getItem("contactname")===null) {
+        app.dialog.alert("Uw inloggegevens zijn onjuist. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    else {
+        app.dialog.alert("Uw inloggegevens zijn onjuist. Probeer opnieuw of neem contact op met " + window.localStorage.getItem("contactname") + ".","DearScholar")
+    }
+}
+
+function DearScholarErrorSavePIN(){
+    if (window.localStorage.getItem("contactname")=="") {
+        app.dialog.alert("Er is iets mis gegaan met het opslaan van uw PIN code. Controleer uw gebruikersnaam en wachtwoord en probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    if (window.localStorage.getItem("contactname")===null) {
+        app.dialog.alert("Er is iets mis gegaan met het opslaan van uw PIN code. Controleer uw gebruikersnaam en wachtwoord en probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    else {
+        app.dialog.alert("Er is iets mis gegaan met het opslaan van uw PIN code. Controleer uw gebruikersnaam en wachtwoord en probeer opnieuw of neem contact op met " + window.localStorage.getItem("contactname") + ".","DearScholar")
+    }
+}
+
+function DearScholarErrorPIN(){
+    if (window.localStorage.getItem("contactname")=="") {
+        app.dialog.alert("Uw PIN code is onjuist. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    if (window.localStorage.getItem("contactname")===null) {
+        app.dialog.alert("Uw PIN code is onjuist. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    else {
+        app.dialog.alert("Uw PIN code is onjuist. Probeer opnieuw of neem contact op met " + window.localStorage.getItem("contactname") + ".","DearScholar")
+    }
+}
+
+function DearScholarErrorDatabase(){
+    if (window.localStorage.getItem("contactname")=="") {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    if (window.localStorage.getItem("contactname")===null)  {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met de onderzoekers.","DearScholar")
+    }
+    else {
+        app.dialog.alert("Er is iets mis gegaan. Probeer opnieuw of neem contact op met " + window.localStorage.getItem("contactname") + ".","DearScholar")
+    }
+}
+
+function DearScholarValidationError(){
+        app.dialog.alert("U heeft niet alle verplichte vragen op deze pagina ingevuld.","DearScholar")
+}
