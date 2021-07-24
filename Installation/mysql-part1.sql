@@ -51,9 +51,12 @@ CREATE TABLE `pintable` (
   `code` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `surveyStructure` (
-  `consent` text COLLATE utf8mb4_unicode_ci,
-  `manual` text COLLATE utf8mb4_unicode_ci
+CREATE TABLE `surveyStructure` (  
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `consent` text COLLATE utf8mb4_unicode_ci,  
+  `manual` text COLLATE utf8mb4_unicode_ci,  
+  `contactname` text COLLATE utf8mb4_unicode_ci,  
+  `contactemail` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `moduleStructure` (
