@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.peterkruyen.dearscholar" version="1.0.4928" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="net.peterkruyen.dearscholar" version="1.0.5000" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>DearScholar</name>
     <description>
         DearScholar offers an intuitive and easy-to-use tool to conduct (self-report) qualitative and quantitative longitudinal diary, log and survey research.
     </description>
-    <author email="p.m.kruyen@fm.ru.nl" href="https:peterkruyen.net">
+    <author email="peter.kruyen@ru.nl" href="https:peterkruyen.net">
         Dr. Peter M Kruyen, Institute for Management Research, Radboud University, the Netherlands.
     </author>
     <plugin name="cordova-plugin-device" source="npm" />
@@ -15,7 +15,7 @@
     <plugin name="phonegap-plugin-push" source="npm" spec="2.3.0" />
     <plugin name="cordova-plugin-ionic-keyboard" source="npm" spec="2.2.0" />
     <preference name="android-minSdkVersion" value="26" />
-    <preference name="android-targetSdkVersion" value="29" />
+    <preference name="android-targetSdkVersion" value="30" />
     <preference name="scheme" value="app" />
     <preference name="hostname" value="localhost" />
     <preference name="Orientation" value="portrait" />
