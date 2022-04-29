@@ -21,7 +21,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1577072187);
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar).
 
-* Currently, the official deployed version of DearScholar stores research data on a secure server in the Netherlands only. If you want to use your own server, contact the main author to discuss how to make this possible.
+:wave: Dr. Daniel Polman has developed a solution to use DearScholar in combination with your own research server. Instructions will be posted soon here. Please contact the main author for more information.
 
 ## Current research projects
 DearScholar is used in the following projects:
