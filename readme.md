@@ -30,7 +30,7 @@ DearScholar is used in the following projects:
 * Diary study on nurses' work engagement (2022) by Renée Vermeulen MSc and Evelien van Leeuwen MSc.
 
 ## Publications
-Houtgraaf, G. (in press). Public sector creativity: Triggers, practices and ideas for public sector innovations. Public Management Review, 
+Houtgraaf, G. (in press). Public sector creativity: Triggers, practices and ideas for public sector innovations. _Public Management Review_, 
 https://www.tandfonline.com/doi/full/10.1080/14719037.2022.2037015
 
 ## Interested in contributing to DearScholar?
@@ -44,7 +44,7 @@ Copyright (c) 2022 P.M. Kruyen, Institute for Management Research, Radboud Unive
 and survey research) written by P.M. Kruyen. Commercial license available, please contact Radboud Innovation, Radboud University, the Netherlands. Radboud Innovation – Technology Transfer Office.
 
 ## Citation
-Kruyen, P. M., (2020). DearScholar: A mobile application to conduct qualitative and quantitative diary research. Journal of Open Source Software, 5(55), 2506, https://doi.org/10.21105/joss.02506
+Kruyen, P. M., (2020). DearScholar: A mobile application to conduct qualitative and quantitative diary research. _Journal of Open Source Software_, 5(55), 2506, https://doi.org/10.21105/joss.02506
 
 # Current features
 ## Let respondents install DearScholar on their mobile device
