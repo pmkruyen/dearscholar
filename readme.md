@@ -28,10 +28,12 @@ DearScholar is used in the following projects:
 * Diary study on public servants' creativity (2020 - 2021) by Glenn Houtgraaf MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 * Diary study on creativity in local-care teams (2021 - 2022) by Liesbeth Faas MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 * Diary study on nurses' work engagement (2022) by Renée Vermeulen MSc and Evelien van Leeuwen MSc.
+* Diary study (2022) by Dr Daniel Polman.
 
 ## Publications
-Houtgraaf, G. (in press). Public sector creativity: Triggers, practices and ideas for public sector innovations. _Public Management Review_, 
+* Houtgraaf, G. (in press). Public sector creativity: Triggers, practices and ideas for public sector innovations. _Public Management Review_, 
 https://www.tandfonline.com/doi/full/10.1080/14719037.2022.2037015
+* Houtgraaf, G., Kruyen, P.M., & Van Thiel. S. (in press). Public Servants’ Creativity: Salient Stimulators and Inhibitors A longitudinal qualitative digital diary study. _Public Management Review_,https://www.tandfonline.com/doi/full/10.1080/14719037.2022.2103175
 
 ## Interested in contributing to DearScholar?
 Super cool. Head to the [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) for the installation instructions, settings and options, (automatic) testing, and other details.  Clone the project, post issues, and commit updates :icecream:.
