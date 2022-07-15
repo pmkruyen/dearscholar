@@ -33,7 +33,7 @@ DearScholar is used in the following projects:
 ## Publications
 * Houtgraaf, G. (in press). Public sector creativity: Triggers, practices and ideas for public sector innovations. _Public Management Review_, 
 https://www.tandfonline.com/doi/full/10.1080/14719037.2022.2037015
-* Houtgraaf, G., Kruyen, P.M., & Van Thiel. S. (in press). Public Servants’ Creativity: Salient Stimulators and Inhibitors A longitudinal qualitative digital diary study. _Public Management Review_,https://www.tandfonline.com/doi/full/10.1080/14719037.2022.2103175
+* Houtgraaf, G., Kruyen, P.M., & Van Thiel. S. (in press). Public Servants’ Creativity: Salient Stimulators and Inhibitors A longitudinal qualitative digital diary study. _Public Management Review_, https://www.tandfonline.com/doi/full/10.1080/14719037.2022.2103175
 
 ## Interested in contributing to DearScholar?
 Super cool. Head to the [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) for the installation instructions, settings and options, (automatic) testing, and other details.  Clone the project, post issues, and commit updates :icecream:.
