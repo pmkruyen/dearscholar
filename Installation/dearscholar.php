@@ -1,15 +1,66 @@
 <?php
 // Copyright (c) 2020 P.M. Kruyen, Institute for Management Research, Radboud University, the Netherlands. 
-
 // Dearscholar php code. Consult the README file and the MySQL setup file for further explanations. 
+// Adapted version by Michael Polman and Daniel Polman to enable third party database server for separate surveys.
+$version = "1.3";
 
 header("Access-Control-Allow-Origin: *");
 
-$MyUsername = 'app';
-$MyPassword = 'test';
+// Default config for original database
+$MyLocalhost = "localhost";
+$MyUsername = 'App';
+$MyPassword = 'Password';
 $MyDatabase = 'respondents';
 
-$con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
+// Extract 5 first positions as prefix from remote username
+$prefix = strtolower(substr($_POST['uname'],0,5));
+
+// CSV format: 
+// "prefix";"title";"host";"username";"password";"debug"
+
+// Read dearscholar.dat as CSV from the path where it is created using dear_config.php
+$filename =  './dearscholar.dat';
+
+if (($handle = fopen($filename, "r")) !== FALSE) {
+
+    // ————— Begin While
+    while (($surveyprojects = fgetcsv($handle, 1000, ";")) !== FALSE) {
+
+       // When first element equals the prefix, use the appropriate username and password for this title.
+       if (strtolower($surveyprojects[0]) == $prefix) {
+
+	$MyLocalhost = $surveyprojects[2];
+	$MyUsername  = base64_decode(urldecode($surveyprojects[3]));
+	$MyPassword  = base64_decode(urldecode($surveyprojects[4]));
+        $MyDebugMode = $surveyprojects[5];
+
+        // When Debug mode set for this prefix, show switch:
+        if ($MyDebugMode == "yes" || $_POST['debug'] == "yes") {
+                echo "Dearscholar Version ".$version."</b><br /><br />\n";
+                echo "Prefix found: <b>".$surveyprojects[0]."</b><br /><br />\n";
+                echo "Switching to: <b>".$surveyprojects[1]."</b><br /><br />\n";
+                exit("Exit: End of debug mode.");
+        }
+
+        // Prefix found hence break from loop
+        break;
+       }
+
+    }  // ----- End While loop
+
+} else {
+
+  // Error: 
+  echo "Survey realm configurations not found: ".$filename;
+  exit(" (Exit)");
+
+} // End if handle
+
+
+// When first element equals the prefix, use the appropriate username and password for this title.
+
+// Continue with original script
+$con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
 
 $uname=mysqli_real_escape_string($con,$_POST['uname']);
 $pwd=mysqli_real_escape_string($con,$_POST['pwd']);
@@ -28,7 +79,8 @@ if (password_verify($pwd, $pwdhash)) {
 
   // Insert PIN 
   if($_POST['insertPIN'] == 'yes'){
-     $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
+
+     $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
      $uname=mysqli_real_escape_string($con,$_POST['uname']);
      $pin=mysqli_real_escape_string($con,$_POST['PIN']);
@@ -53,7 +105,8 @@ if (password_verify($pwd, $pwdhash)) {
 
   // Check PIN
   if($_POST['checkPIN'] == 'yes'){
-     $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
+
+     $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
      $uname=mysqli_real_escape_string($con,$_POST['uname']);
      $pin=mysqli_real_escape_string($con,$_POST['PIN']);
@@ -84,7 +137,8 @@ if (password_verify($pwd, $pwdhash)) {
 
   // Save the device token
   if($_POST['updateregistration'] == 'yes'){
-      $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
+
+      $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
 
       $uname=mysqli_real_escape_string($con,$_POST['uname']);
       $token=mysqli_real_escape_string($con,$_POST['devicetoken']);
@@ -110,7 +164,7 @@ if (password_verify($pwd, $pwdhash)) {
   // Authentication and schedule set up
   if(isset($_POST['authentication'])){
 
-      $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
+      $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
 
       $sql = "SELECT `project`, `setup`,`q0_startdate`, `q0_occasions`, `q0_intervaltype`, `q0_interval` FROM authentication WHERE uname = '" . $_POST['uname'] . "'";
 
@@ -125,8 +179,8 @@ if (password_verify($pwd, $pwdhash)) {
 
   // Inject the diary structure    
   if(isset($_POST['findvalues'])){
-        
-      $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
+
+      $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $project) or die ("could not connect database");
       mysqli_set_charset($con, 'utf8mb4');
        
       $sql = "SELECT * FROM surveyStructure";
@@ -170,7 +224,7 @@ if (password_verify($pwd, $pwdhash)) {
 
     // Let the database know the structure has been injected
     if(isset($_POST['injectedStructure'])){
-        $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
+        $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $MyDatabase) or die ("could not connect database");
     
         $q = mysqli_query($con,"UPDATE `authentication` SET `setup` = '1' WHERE `uname` = '$uname'");
 
@@ -184,7 +238,7 @@ if (password_verify($pwd, $pwdhash)) {
 
     // Download messages and let the server know that the respondent has seen the message (on click)
     if(isset($_POST['messagesCheck'])){
-        $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
+        $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
         $sql = "SELECT * FROM messages WHERE uname = '" . $_POST['uname'] . "'";
 
@@ -197,7 +251,7 @@ if (password_verify($pwd, $pwdhash)) {
         }
 
     if(isset($_POST['messagesSeen'])){
-        $con = mysqli_connect("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
+        $con = mysqli_connect($MyLocalhost, $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
         $id=mysqli_real_escape_string($con,$_POST['id']);
         
@@ -214,7 +268,7 @@ if (password_verify($pwd, $pwdhash)) {
     // Post the answers
     if($_POST['module']=='moduleA'||$_POST['module']=='moduleB'||$_POST['module']=='moduleC'||$_POST['module']=='moduleD'||$_POST['module']=='moduleE'||$_POST['module']=='moduleF'||$_POST['module']=='moduleG'){
 
-      $con = new mysqli("localhost", $MyUsername, $MyPassword, $project) or die ("could not connect database");
+      $con = new mysqli($MyLocalhost, $MyUsername, $MyPassword, $project) or die ("could not connect database");
 
       if($_POST['module'] == 'moduleA'){
         $sql = 'SHOW COLUMNS FROM responseTableModuleA';
