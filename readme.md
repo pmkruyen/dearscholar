@@ -16,19 +16,23 @@ This page provides general information about the app, including an overview of c
 The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, an overview of the settings and options, (automatic) testing options, and other details.
 
 ## Interested in using DearScholar in your academic research project? 
-* Contact the main author (peter.kruyen@ru.nl) for credentials (username and password); download the app on the App Store or Google Play; take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project :rocket:.
+* In the latest version of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dearscholar.php">dearscholar.php</a> (1.3) DearScholar was updated so that the app can redirect users to get and store questions from your own research server (based on a contribution by Michael Polman and Daniel Polman). Users are redirected on basis of the first five (fixed) characters of usernames (for now see the comments in the code of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dear_config.php">dear_config.php</a> and the latest version of dearscholar.php to learn more about how this works). You can set up the necessary MySQL (or MariaDB) databases on your own server following the instructions in the <a href="https://github.com/pmkruyen/dearscholar/wiki/Install-Database">Wiki</a>, and contact the main author (peter.kruyen@ru.nl) to register your project to the app.
+* Also contact the main author for credentials (username and password); download the app on the App Store or Google Play; take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project. :rocket:
 
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1577072187);
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar).
+* Or scan this QR code to install DearScholar directly on your device: 
 
-:wave: Dr. Daniel Polman has developed a solution to use DearScholar in combination with your own research server. Instructions will be posted soon here. Please contact the main author for more information.
+   <img src="https://peterkruyen.net/img/dearscholar-qr.png" width="120" height="120">
+
+
 
 ## Current research projects
 DearScholar is used in the following projects:
 * Diary study on public servants' creativity (2020 - 2021) by Glenn Houtgraaf MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 * Diary study on creativity in local-care teams (2021 - 2022) by Liesbeth Faas MSc, dr. Peter M. Kruyen, and prof. dr. Sandra van Thiel.
 * Diary study on nurses' work engagement (2022) by Renée Vermeulen MSc and Evelien van Leeuwen MSc.
-* Diary study (2022) by Dr Daniel Polman.
+* Diary study on the effects of political motivation and social context on consumption choices (2022) by dr. Daniel Polman, dr. Joana Wensing, and dr. Jose Lopez Rivas.
 
 ## Publications
 * Houtgraaf, G. (in press). Public sector creativity: Triggers, practices and ideas for public sector innovations. _Public Management Review_, 
@@ -83,10 +87,12 @@ When a respondent has completed a module (i.e., for that module, all questions h
 
 DearScholar also includes links to additional, optional survey modules which can be found on the homepage's menu. Respondents can start these additional modules in between measurement occasions to report their thoughts once they occur (cf. event-sampling).
 
-Respondents’ answers are not only send to a server, but also saved in the DearScholar. Respondents can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
+Respondents’ answers are not only stored on a server upon submission, but also saved in the DearScholar App. Respondents can access their previous answers by clicking on completed measurement modules, facilitating respondents to keep track of, and reread their own responses.
 
 ## Push notifications
 DearScholar can be used with Google's Firebase to get the push notifications working *or* alternatively, a private push notification server can be used (using Node.JS for example). Contact the main author for advice on setting up such a server.
+
+If you are interested in scheduling and randomizing user notifications, you may want to check out Daniel Polman's github page for <a href="https://github.com/DanielPolman/twilio-sms-schedule-php">setting up SMS notification schedule</a>.
 
 ## Additional features
 DearScholar has the capacity to send short in-app messages to specific respondents. For example, respondents can be sent thank-you messages to show engagement, small encouragements when respondents have missed a measurement occasions, ask follow-up questions, or invited respondents to elaborate on particular answers over the phone or through email. These in-app messages are displayed on a separate message screen. An envelope icon appears in the app’s status bar when new messages have been sent. When respondents have read the message, the researcher is noted.
