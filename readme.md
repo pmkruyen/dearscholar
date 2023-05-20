@@ -23,7 +23,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar).
 * Or scan this QR code to install DearScholar directly on your device: 
 
-<a href='https://me-qr.com' border='0' style='cursor:pointer;display:block'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play' width: 50%;>
+<a href='https://me-qr.com' border='0' style='cursor:pointer;display:block' width: '50%'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play'>
 
 ## Current research projects
 DearScholar is used in the following projects:
