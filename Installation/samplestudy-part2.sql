@@ -49,7 +49,7 @@ INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttonid
 ('B', 'tab', 'tab-7ao', 'Question 2 of 2', 'Terug', 'Back', '\"', '#tab-1ao', 'Opslaan', 'Save', 'upload', '#'),
 ('C', '\'tab tab-active\'', 'tab-1st', '<b>Looking back at previous week...</b>', 'Terug', 'Back', '\'\'', '/survey/', 'Opslaan', 'Save', 'upload', '#'),
 ('D', '\'tab tab-active\'', 'tab-1rm', '<b>If you have additional feedback, you can insert your comments here.</b>', 'Terug', 'Back', '\"', '/survey/', 'Opslaan', 'Save', 'upload', '#'),
-('E', '\'tab tab-active\'', 'tab-1as', 'Vraag 1 van 9', 'q1sA=nee', 'Nee', 'click', '#tab-7as', 'q1sA=ja', 'Ja', 'click', '#tab-2as'),
+('E', '\'tab tab-active\'', 'tab-1as', 'Vraag 1 van 9', 'q1sA=nee', 'No', 'click', '#tab-7as', 'q1sA=ja', 'Yes', 'click', '#tab-2as'),
 ('E', 'tab', 'tab-7as', 'Question 2 of 3', 'Terug', 'Back', '\'\'', '#tab-1as', 'Volgende', 'Next', '\'\'', '#tab-7bs'),
 ('E', 'tab', 'tab-7bs', 'Question 3 of 3', 'Terug', 'Back', '\'\'', '#tab-7as', 'Opslaan', 'Save', 'upload', '#'),
 ('E', 'tab', 'tab-2as', 'Question 2 of 9', 'Terug', 'Back', '\'\'', '#tab-1as', 'Volgende', 'Next', '\'\'', '#tab-2bs'),
