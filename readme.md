@@ -15,7 +15,7 @@ This page provides general information about the app, including an overview of c
 
 The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, an overview of the settings and options, (automatic) testing options, and other details.
 
-# Testing
+## Testing
 1) Download the app on the App Store or Google Play:
 
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1577072187);
@@ -24,17 +24,17 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 <a href='https://me-qr.com' border='0'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play' width="200">
 
 2) Pick one of the five test credentials
-| Username      | Password |
-| ----------- | ----------- |
-| test1      | test1       |
-| test2      | test2       |
-| test3      | test3       |
-| test4      | test4       |
-| test5      | test5       |
+| Username      | Password.   |
+| ------------- | ----------- |
+| test1         | test1       |
+| test2         | test2       |
+| test3         | test3       |
+| test4         | test4       |
+| test5         | test5       |
    
 3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:
    
-## Troubleshooting
+### Troubleshooting
 The test credentials are reset every night. In case all the five test credentials have been used, the 'mock consent form' isn't presented *and* no survey questions are shown when logged in. Go to 'Instellingen' (via the 'Menu') and hit 'Reset Dearscholar' to manually reset your picked test credentials. 
 
 Contact the main author at peter.kruyen@ru.nl or open an Issue in case of (additional) issues, questions, or ideas.
