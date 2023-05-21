@@ -11,9 +11,9 @@ DearScholar allows researchers to easily and orderly collect rich and diverse qu
 
 Developed as hybrid app in Cordova (using html, javascript, and css), DearScholar can be used to collect data on iOS devices (iPhones and iPads), Android devices, and--in the future--in web browsers too.
 
-This page provides general information about the app, including an overview of current features. Background information, a summary of the current features, and current research projects can be found on the [project page](https://peterkruyen.net/dearscholar.html). 
+This page provides testing instructions *and* general information about the app, including an overview of current features.
 
-The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, an overview of the settings and options, (automatic) testing options, and other details.
+The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation guidelines, an overview of the settings and options, (automatic) testing options, and other details.
 
 ## Testing
 1) Download the app on the App Store or Google Play:
