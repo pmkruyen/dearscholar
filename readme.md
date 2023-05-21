@@ -24,6 +24,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 <a href='https://me-qr.com' border='0'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play' width="200">
 
 2) Pick one of the five test credentials
+   
 | First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
