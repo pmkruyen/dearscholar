@@ -34,7 +34,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 | test4  | test4  |
 | test5  | test5  |
    
-3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:
+3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:.
    
 ### Troubleshooting
 The test credentials are reset every night. In case all the five test credentials have been used, the 'mock consent form' isn't presented *and* no survey questions are shown when logged in. Go to 'Instellingen' (via the 'Menu') and hit 'Reset Dearscholar' to manually reset your picked test credentials. 
