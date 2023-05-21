@@ -63,7 +63,7 @@ INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttonid
 ('E', 'tab', 'tab-6as', 'Question 9 of 9', 'Terug', 'Back', '\'\'', '#tab-5as', 'Opslaan', 'Save', 'upload', '#'),
 ('E', 'tab', 'tab-6bs', 'Question 8 of 8', 'Terug', 'Back', '\'\'', '#tab-5bs', 'Opslaan', 'Save', 'upload', '#'),
 ('E', 'tab', 'tab-8as', 'Question 7 of 9', 'Terug', 'Back', '\'\'', '#tab-4as', 'Volgende', 'Next', '\'\'', '#tab-5as'),
-('F', '\'tab tab-active\'', 'tab-1ao', 'Question 1 of 6', 'q1oA=nee', 'Nee', 'click', '#tab-7ao', 'q1oA=ja', 'Ja', 'click', '#tab-2ao'),
+('F', '\'tab tab-active\'', 'tab-1ao', 'Question 1 of 6', 'q1oA=nee', 'No', 'click', '#tab-7ao', 'q1oA=ja', 'Yes', 'click', '#tab-2ao'),
 ('F', 'tab', 'tab-2ao', 'Question 2 of 6', 'Terug', 'Back', '\"', '#tab-1ao', 'Volgende', 'Next', '\'\'', '#tab-3ao'),
 ('F', 'tab', 'tab-3ao', 'Question 3 of 6', 'Terug', 'Back', '\"', '#tab-2ao', 'Volgende', 'Next', '\'\'', '#tab-4ao'),
 ('F', 'tab', 'tab-4ao', 'Question 4 of 6', 'Terug', 'Back', '\"', '#tab-3ao', 'Volgende', 'Next', '\'\'', '#tab-5ao'),
