@@ -24,13 +24,10 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 <a href='https://me-qr.com' border='0'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play' width="200">
 
 2) Pick one of the five test credentials
-| Username      | Password.   |
-| ------------- | ----------- |
-| test1         | test1       |
-| test2         | test2       |
-| test3         | test3       |
-| test4         | test4       |
-| test5         | test5       |
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
    
 3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:
    
