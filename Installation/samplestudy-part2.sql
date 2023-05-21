@@ -16,13 +16,13 @@ INSERT INTO `surveyStructure` (`consent`, `manual`,`contactname`,`contactemail`)
 
 # Populate the moduleStructure table
 INSERT INTO `moduleStructure` (`module0`, `name`, `page`, `mandatory`, `image`, `imageleft`, `imagetop`) VALUES
-('A', 'Eigen ideeën', 'S', '1', 'icons8-innovation-64.png', '25%', '45%'),
-('B', 'Ideeën van anderen', 'S', '1', 'icons8-solve-64.png', '75%', '45%'),
-('C', 'Stemming', 'S', '0', 'icons8-survey-64.png', '50%', '30%'),
-('D', 'Opmerkingen', 'S', '0', 'icons8-branding-64.png', '50%', '80%'),
-('E', 'Eigen ideeën', 'A', '0', 'icons8-innovation-64.png', '25%', '30%'),
-('F', 'Ideeën van anderen', 'A', '0', 'icons8-solve-64.png', '50%', '30%'),
-('G', 'Opmerkingen', 'A', '0', 'icons8-branding-64.png', '75%', '30%');
+('A', 'Module A', 'S', '1', 'icons8-innovation-64.png', '25%', '45%'),
+('B', 'Module B', 'S', '1', 'icons8-solve-64.png', '75%', '45%'),
+('C', 'Module C', 'S', '0', 'icons8-survey-64.png', '50%', '30%'),
+('D', 'Remarks', 'S', '0', 'icons8-branding-64.png', '50%', '80%'),
+('E', 'Module E', 'A', '0', 'icons8-innovation-64.png', '25%', '30%'),
+('F', 'Module F', 'A', '0', 'icons8-solve-64.png', '50%', '30%'),
+('G', 'Additional remarks', 'A', '0', 'icons8-branding-64.png', '75%', '30%');
 
 # Populate the pageStructure table
 INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttonid`, `backbuttontext`, `backbuttononclick`, `backbuttonhref`, `nextbuttonid`, `nextbuttontext`, `nextbuttononclick`, `nextbuttonhref`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `questionTable` (`module2`, `tab`, `idq`, `type`, `question`, `categ
 ('A', 'tab-4bs', 'q4sb', 'OQ', 'Sample open question?', '', '', ''),
 ('A', 'tab-5as', 'q5sa', 'MC', 'This is a sample mandatory rating scale item (multipe choice item)?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', 'MAN'),
 ('A', 'tab-5as', 'q5sa2', 'OQ', 'Sample open question?', '', '', ''),
-('A', 'tab-6as', 'q6sa', 'MC', 'Hoe waarschijnlijk acht u het dat het idee ooit wordt gerealiseerd?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
+('A', 'tab-6as', 'q6sa', 'MC', 'Do you agree with this statement?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
 ('A', 'tab-6as', 'q6sa2', 'OQ', 'Sample open question?', '', '', ''),
 ('A', 'tab-8as', 'q8sa', 'OQ', 'Sample open question?', '', '', ''),
 ('A', 'tab-5bs', 'q5sb', 'MC', 'This is a sample rating scale item (multipe choice item)?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
@@ -116,7 +116,7 @@ INSERT INTO `questionTable` (`module2`, `tab`, `idq`, `type`, `question`, `categ
 ('E', 'tab-4bs', 'q4sbA', 'OQ', 'Sample open question?', '', '', ''),
 ('E', 'tab-5as', 'q5saA', 'MC', 'This is a sample rating scale item (multipe choice item)?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
 ('E', 'tab-5as', 'q5sa2A', 'OQ', 'Sample open question?', '', '', ''),
-('E', 'tab-6as', 'q6saA', 'MC', 'Hoe waarschijnlijk acht u het dat het idee ooit wordt gerealiseerd?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
+('E', 'tab-6as', 'q6saA', 'MC', 'Do you agree with this statement?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
 ('E', 'tab-6as', 'q6sa2A', 'OQ', 'Sample open question?', '', '', ''),
 ('E', 'tab-8as', 'q8saA', 'OQ', 'Sample open question?', '', '', ''),
 ('E', 'tab-5bs', 'q5sbA', 'MC', 'This is a sample rating scale item (multipe choice item)?', '{\"CD\":\"Completely disagree\", \"D\":\"Disagree\", \"NE\":\"Neutral\",\"AG\":\"Agree\",\"CA\":\"Completely agree\"}', '', ''),
