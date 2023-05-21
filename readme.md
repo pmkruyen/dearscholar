@@ -21,6 +21,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1577072187);
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar).
 * Or scan this QR code to install DearScholar directly on your device: 
+
 <a href='https://me-qr.com' border='0'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play' width="200">
 
 2) Pick one of the five test credentials
