@@ -41,7 +41,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 
 👉 The test credentials are reset every night. In case all the five test credentials have been used, the 'mock consent form' isn't presented *and* no survey questions are shown when logged in, go to 'Instellingen' (via the 'Menu') and hit 'Reset Dearscholar' to manually reset your picked test credentials. 
 
-Contact the main author at peter.kruyen@ru.nl or open an Issue in case of (additional) issues, questions, or ideas.
+👉 Contact the main author at peter.kruyen@ru.nl or open an Issue in case of (additional) issues, questions, or ideas.
 
 ## Interested in using DearScholar in your academic research project? 
 * In the latest version of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dearscholar.php">dearscholar.php</a> (1.3) DearScholar was updated so that the app can redirect users to get and store questions from your own research server (based on a contribution by Michael Polman and Daniel Polman). Users are redirected on basis of the first five (fixed) characters of usernames (for now see the comments in the code of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dear_config.php">dear_config.php</a> and the latest version of dearscholar.php to learn more about how this works). You can set up the necessary MySQL (or MariaDB) databases on your own server following the instructions in the <a href="https://github.com/pmkruyen/dearscholar/wiki/Install-Database">Wiki</a>, and contact the main author (peter.kruyen@ru.nl) to register your project to the app.
