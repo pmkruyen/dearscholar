@@ -37,6 +37,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:.
    
 ### Troubleshooting
+👉 While the survey questions can be programmed in any language, the 'Landing page' and 'Menu' are in Dutch. If you would like to use DearScholar in another language, please contact the main author, so we can adapt these pages to your needs.
 👉 The test credentials are reset every night. In case all the five test credentials have been used, the 'mock consent form' isn't presented *and* no survey questions are shown when logged in, go to 'Instellingen' (via the 'Menu') and hit 'Reset Dearscholar' to manually reset your picked test credentials. 
 
 Contact the main author at peter.kruyen@ru.nl or open an Issue in case of (additional) issues, questions, or ideas.
