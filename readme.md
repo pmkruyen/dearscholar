@@ -25,10 +25,13 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 
 2) Pick one of the five test credentials
    
-| First Header  | Second Header |
+| Username  | Password |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| test1  | test1  |
+| test2  | test2  |
+| test3  | test3  |
+| test4  | test4  |
+| test5  | test5  |
    
 3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:
    
