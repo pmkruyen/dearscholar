@@ -15,15 +15,32 @@ This page provides general information about the app, including an overview of c
 
 The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides installation instructions, an overview of the settings and options, (automatic) testing options, and other details.
 
-## Interested in using DearScholar in your academic research project? 
-* In the latest version of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dearscholar.php">dearscholar.php</a> (1.3) DearScholar was updated so that the app can redirect users to get and store questions from your own research server (based on a contribution by Michael Polman and Daniel Polman). Users are redirected on basis of the first five (fixed) characters of usernames (for now see the comments in the code of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dear_config.php">dear_config.php</a> and the latest version of dearscholar.php to learn more about how this works). You can set up the necessary MySQL (or MariaDB) databases on your own server following the instructions in the <a href="https://github.com/pmkruyen/dearscholar/wiki/Install-Database">Wiki</a>, and contact the main author (peter.kruyen@ru.nl) to register your project to the app.
-* Also contact the main author for credentials (username and password); download the app on the App Store or Google Play; take your time to test the app; send us feedback, and discuss with us how to implement DearScholar in your project. :rocket:
+# Testing
+1) Download the app on the App Store or Google Play:
 
 * For iOS devices (iPhones and iPads), download the app on [the App Store](https://apps.apple.com/us/app/dearscholar/id1577072187);
 * For Android devices, download the app on [Google Play](https://play.google.com/store/apps/details?id=net.peterkruyen.dearscholar).
 * Or scan this QR code to install DearScholar directly on your device: 
-
 <a href='https://me-qr.com' border='0'><img src='https://cdn.me-qr.com/qr/60839292.png?v=1684584528' alt='QR code App Store and Google Play' width="200">
+
+2) Pick one of the five test credentials
+| Username      | Password |
+| ----------- | ----------- |
+| test1      | test1       |
+| test2      | test2       |
+| test3      | test3       |
+| test4      | test4       |
+| test5      | test5       |
+   
+3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:
+   
+## Troubleshooting
+The test credentials are reset every night. In case all the five test credentials have been used, the 'mock consent form' isn't presented *and* no survey questions are shown when logged in. Go to 'Instellingen' (via the 'Menu') and hit 'Reset Dearscholar' to manually reset your picked test credentials. 
+
+Contact the main author at peter.kruyen@ru.nl or open an Issue in case of (additional) issues, questions, or ideas.
+
+## Interested in using DearScholar in your academic research project? 
+* In the latest version of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dearscholar.php">dearscholar.php</a> (1.3) DearScholar was updated so that the app can redirect users to get and store questions from your own research server (based on a contribution by Michael Polman and Daniel Polman). Users are redirected on basis of the first five (fixed) characters of usernames (for now see the comments in the code of <a href="https://github.com/pmkruyen/dearscholar/blob/master/Installation/dear_config.php">dear_config.php</a> and the latest version of dearscholar.php to learn more about how this works). You can set up the necessary MySQL (or MariaDB) databases on your own server following the instructions in the <a href="https://github.com/pmkruyen/dearscholar/wiki/Install-Database">Wiki</a>, and contact the main author (peter.kruyen@ru.nl) to register your project to the app.
    
 ## Current research projects
 DearScholar is used in the following projects:
