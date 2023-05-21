@@ -70,7 +70,7 @@ INSERT INTO `pageStructure` (`module1`, `classp`, `idp`, `header`, `backbuttonid
 ('F', 'tab', 'tab-5ao', 'Question 5 of 6', 'Terug', 'Back', '\"', '#tab-4ao', 'Volgende', 'Next', '\'\'', '#tab-6ao'),
 ('F', 'tab', 'tab-6ao', 'Question 6 of 6', 'Terug', 'Back', '\"', '#tab-5ao', 'Opslaan', 'Save', 'upload', '#'),
 ('F', 'tab', 'tab-7ao', 'Question 2 of 2', 'Terug', 'Back', '\"', '#tab-1ao', 'Opslaan', 'Save', 'upload', '#'),
-('G', '\'tab tab-active\'', 'tab-1rm', '<b>If you have additional feedback, you can insert your comments here..</b>', 'Terug', 'Back', '\"', '/surveyadhoc/', 'Opslaan', 'Save', 'upload', '#');
+('G', '\'tab tab-active\'', 'tab-1rm', '<b>If you have additional feedback, you can insert your comments here.</b>', 'Terug', 'Back', '\"', '/surveyadhoc/', 'Opslaan', 'Save', 'upload', '#');
 
 # Populate the questionTable table
 INSERT INTO `questionTable` (`module2`, `tab`, `idq`, `type`, `question`, `categories`, `footer`, `mandatory`) VALUES
