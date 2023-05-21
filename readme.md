@@ -34,7 +34,7 @@ The [Wiki section](https://github.com/pmkruyen/dearscholar/wiki) provides instal
 | test4  | test4  |
 | test5  | test5  |
    
-3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN", accept the 'mock consent form' and start testing :rocket:.
+3) Hit "Log in met Touch ID of gezichtsherkenning" or "Kies PIN" (depending on your device's capabilities and settings), accept the 'mock consent form' and start testing :rocket:.
    
 ### Troubleshooting
 👉 While the survey questions can be programmed in any language, the 'Landing page' and 'Menu' are in Dutch. If you would like to use DearScholar in another language, please contact the main author, so we can adapt these pages to your needs.
