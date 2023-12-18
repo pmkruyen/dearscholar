@@ -4,6 +4,9 @@
 
 [![Build Status](https://travis-ci.com/pmkruyen/dearscholar.svg?branch=master)](https://travis-ci.com/pmkruyen/dearscholar)
 
+# Notification
+Due to some personal and personnel changes, DearScholar is currently offline. Contact me if you want to use the app in your own research. We are exploring ways to relauch DearScholar. Thank you for your interest. 👋
+
 # Overview
 Because collecting longitudinal data becomes more important in academic research nowadays and because limitations with available tools, DearScholar has been developed.
 
